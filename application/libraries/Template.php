@@ -12,4 +12,9 @@ class Template {
         $this->_ci->load->view($content, $data); // Content
         $this->_ci->load->view('templates/front/footer', $data);
     }
+    public function frontWithoutTopBar($content, $data){
+        $this->_ci->load->view('templates/front/header', $data);
+        $this->_ci->load->view($content, $data); // Content
+        $this->_ci->load->view('templates/front/footer', $data);
+    }
 }

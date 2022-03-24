@@ -74,7 +74,7 @@
               </li>
               <!-- Button -->
               <li class="nav-item">
-                <a class="btn btn-light btn-transition" href="https://themes.getbootstrap.com/product/front-multipurpose-responsive-template/" target="_blank">Login</a>
+                <a class="btn btn-light btn-transition" href="<?= site_url('sign-in')?>">Sign In</a>
               </li>
               <!-- End Button -->
             </ul>
