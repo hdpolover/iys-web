@@ -36,8 +36,8 @@ class FrontController extends CI_Controller{
         $this->template->front('team', $data);
     }
     public function faq(){
-        $data['title']      = 'Contact';
-        $data['topBar']     = 'contact';
+        $data['title']      = 'FAQ';
+        $data['topBar']     = 'faq';
         $data['isBgDark']   = true;
         
         $this->template->front('faq', $data);
