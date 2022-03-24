@@ -122,6 +122,218 @@
     </div>
     <!-- End Step -->
 
+    <div class="container content-space-t-2 content-space-t-lg-3 content-space-b-lg-2">
+      <!-- Heading -->
+      <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
+        <!-- <span class="text-cap">Event Details</span> -->
+        <h2>About This Events</h2>
+      </div>
+      <div class="row justify-content-lg-center">
+          <div class="col-md-6 col-lg-5 mb-3 mb-md-5 mb-lg-7">
+            <!-- Icon Blocks -->
+            <div class="d-flex pe-md-5">
+              <div class="flex-shrink-0">
+                <div class="svg-icon text-primary">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path opacity="0.3" d="M20.335 15.537C21.725 14.425 21.57 12.812 21.553 11.224C21.4407 9.50899 20.742 7.88483 19.574 6.624C18.5503 5.40102 17.2668 4.4216 15.817 3.757C14.4297 3.26981 12.9703 3.01966 11.5 3.01701C8.79576 2.83108 6.11997 3.66483 4 5.35398C2.289 6.72498 1.23101 9.12497 2.68601 11.089C3.22897 11.6881 3.93029 12.1214 4.709 12.339C5.44803 12.6142 6.24681 12.6888 7.024 12.555C6.88513 12.9965 6.85078 13.4644 6.92367 13.9215C6.99656 14.3786 7.17469 14.8125 7.444 15.189C7.73891 15.5299 8.10631 15.8006 8.51931 15.9812C8.93232 16.1619 9.38047 16.2478 9.831 16.233C10.0739 16.2296 10.3141 16.1807 10.539 16.089C10.7371 15.9871 10.9288 15.8732 11.113 15.748C12.1594 15.2831 13.3275 15.1668 14.445 15.416C15.7795 15.7213 17.1299 15.952 18.49 16.107C18.7927 16.1438 19.0993 16.1313 19.398 16.07C19.7445 15.9606 20.0639 15.7789 20.335 15.537V15.537Z" fill="#035A4B"/>
+                  <path d="M19.008 16.114C18.9486 16.6061 18.7934 17.0817 18.551 17.514C18.229 18.114 17.581 18.314 17.103 18.752C16.457 19.343 16.595 20.38 16.632 21.164C16.6522 21.3437 16.621 21.5254 16.542 21.688C16.4335 21.835 16.2751 21.9373 16.0965 21.9758C15.9179 22.0143 15.7314 21.9863 15.572 21.897C15.2577 21.7083 15.0072 21.4296 14.853 21.097C14.581 20.607 14.362 20.085 14.053 19.612C13.3182 18.7548 12.4201 18.0525 11.411 17.546C10.9334 17.1942 10.5857 16.6942 10.422 16.124C10.459 16.111 10.499 16.106 10.536 16.09C10.7336 15.9879 10.925 15.8741 11.109 15.749C12.1554 15.2842 13.3234 15.1678 14.441 15.417C15.7754 15.7223 17.1259 15.953 18.486 16.108C18.6598 16.1191 18.834 16.1211 19.008 16.114V16.114ZM18.8 10.278V3C18.8 2.73478 18.6946 2.48044 18.5071 2.29291C18.3196 2.10537 18.0652 2 17.8 2C17.5348 2 17.2804 2.10537 17.0929 2.29291C16.9053 2.48044 16.8 2.73478 16.8 3V10.278C16.4187 10.4981 16.1207 10.8379 15.9522 11.2447C15.7838 11.6514 15.7542 12.1024 15.8681 12.5277C15.9821 12.953 16.2332 13.3287 16.5825 13.5967C16.9318 13.8648 17.3597 14.0101 17.8 14.0101C18.2403 14.0101 18.6682 13.8648 19.0175 13.5967C19.3668 13.3287 19.6179 12.953 19.7318 12.5277C19.8458 12.1024 19.8162 11.6514 19.6477 11.2447C19.4793 10.8379 19.1813 10.4981 18.8 10.278V10.278ZM13.8 2C13.5348 2 13.2804 2.10537 13.0929 2.29291C12.9053 2.48044 12.8 2.73478 12.8 3V8.586L12.312 9.07397C11.8792 8.95363 11.4188 8.98004 11.0026 9.14899C10.5864 9.31794 10.2379 9.61994 10.0115 10.0079C9.78508 10.3958 9.69351 10.8478 9.75109 11.2933C9.80867 11.7387 10.0122 12.1526 10.3298 12.4702C10.6474 12.7878 11.0612 12.9913 11.5067 13.0489C11.9522 13.1065 12.4042 13.0149 12.7921 12.7885C13.18 12.5621 13.4821 12.2136 13.651 11.7974C13.82 11.3812 13.8463 10.9207 13.726 10.488L14.507 9.70697C14.6945 9.51948 14.7999 9.26519 14.8 9V3C14.8 2.73478 14.6946 2.48044 14.5071 2.29291C14.3196 2.10537 14.0652 2 13.8 2ZM9.79999 2C9.53478 2 9.28042 2.10537 9.09289 2.29291C8.90535 2.48044 8.79999 2.73478 8.79999 3V4.586L7.31199 6.07397C6.87924 5.95363 6.41882 5.98004 6.00263 6.14899C5.58644 6.31794 5.23792 6.61994 5.0115 7.00787C4.78508 7.39581 4.69351 7.84781 4.75109 8.29327C4.80867 8.73874 5.01216 9.1526 5.32977 9.47021C5.64739 9.78783 6.06124 9.99131 6.50671 10.0489C6.95218 10.1065 7.40417 10.0149 7.7921 9.78851C8.18004 9.56209 8.48207 9.21355 8.65102 8.79736C8.81997 8.38117 8.84634 7.92073 8.726 7.48798L10.507 5.70697C10.6945 5.51948 10.7999 5.26519 10.8 5V3C10.8 2.73478 10.6946 2.48044 10.5071 2.29291C10.3196 2.10537 10.0652 2 9.79999 2Z" fill="#035A4B"/>
+                  </svg>
+
+                </div>
+              </div>
+
+              <div class="flex-grow-1 ms-3">
+                <h4>What is IYS ?</h4>
+                <p>We choose our teams carefully. Our people are the secret to great work.</p>
+              </div>
+            </div>
+            <!-- End Icon Blocks -->
+          </div>
+
+          <div class="col-md-6 col-lg-5 mb-3 mb-md-5 mb-lg-7">
+            <!-- Icon Blocks -->
+            <div class="d-flex ps-md-5">
+              <div class="flex-shrink-0">
+                <div class="svg-icon text-primary">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 18V16H10V18L9 20H15L14 18Z" fill="#035A4B"/>
+                  <path opacity="0.3" d="M20 4H17V3C17 2.4 16.6 2 16 2H8C7.4 2 7 2.4 7 3V4H4C3.4 4 3 4.4 3 5V9C3 11.2 4.8 13 7 13C8.2 14.2 8.8 14.8 10 16H14C15.2 14.8 15.8 14.2 17 13C19.2 13 21 11.2 21 9V5C21 4.4 20.6 4 20 4ZM5 9V6H7V11C5.9 11 5 10.1 5 9ZM19 9C19 10.1 18.1 11 17 11V6H19V9ZM17 21V22H7V21C7 20.4 7.4 20 8 20H16C16.6 20 17 20.4 17 21ZM10 9C9.4 9 9 8.6 9 8V5C9 4.4 9.4 4 10 4C10.6 4 11 4.4 11 5V8C11 8.6 10.6 9 10 9ZM10 13C9.4 13 9 12.6 9 12V11C9 10.4 9.4 10 10 10C10.6 10 11 10.4 11 11V12C11 12.6 10.6 13 10 13Z" fill="#035A4B"/>
+                  </svg>
+
+                </div>
+              </div>
+
+              <div class="flex-grow-1 ms-3">
+                <h4>Why you join?</h4>
+                <p>We stay lean and help your product do one thing well.</p>
+              </div>
+            </div>
+          <!-- End Icon Blocks -->
+        </div>
+    </div>
+
+    <div class="container content-space-t-2 content-space-t-lg-3 content-space-b-lg-2">
+      <!-- Heading -->
+      <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
+        <!-- <span class="text-cap">Event Details</span> -->
+        <h2>Event Schedule</h2>
+      </div>
+      <!-- End Heading -->
+      <!-- Step -->
+      <ul class="step step-timeline-md">
+        <li class="step-item">
+          <div class="step-content-wrapper">
+            <span class="step-icon step-icon-soft-primary">1</span>
+            <div class="step-content">
+              <h4>1 - 31 August 2022</h4>
+
+              <p class="step-text">
+                Registration <br>
+                25 August 2020 -25 September 2020</p>
+              <p class="step-text">
+                Before you continue to fill out this form, there are five steps that you have to do.
+                Please Click Read More for Complete info
+              </p>
+              <button type="button" class="btn btn-soft-primary">Read More</button>
+            </div>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <div class="step-content-wrapper">
+            <span class="step-icon step-icon-soft-primary">2</span>
+            <div class="step-content">
+              <h4>15 September 2022</h4>
+              <p class="step-text">
+                The day has come!!! <br>
+                The day has come!!! <br>
+                Today is the day of the announcement for IYS 2022 selected participants!
+              </p>
+            </div>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <div class="step-content-wrapper">
+            <span class="step-icon step-icon-soft-primary">3</span>
+            <div class="step-content">
+              <h4>23 - 24 September 2022</h4>
+              <p class="step-text">Fully Funded Interview</p>
+              <button type="button" class="btn btn-soft-primary">Read More</button>
+            </div>
+          </div>
+        </li>
+
+        <li class="step-item">
+          <div class="step-content-wrapper">
+            <span class="step-icon step-icon-soft-primary">4</span>
+            <div class="step-content">
+              <h4>5 December 2022</h4>
+              <p class="step-text">Final Announcement for Fully Funded</p>
+              <button type="button" class="btn btn-soft-primary">Read More</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <!-- End Step -->
+    </div>
+    <!-- <div class="container content-space-t-2 content-space-t-lg-3 content-space-b-lg-2"> -->
+      <div class="row content-space-t-2 content-space-t-lg-2 content-space-b-lg-1">
+        <div class="col-sm-4 mb-3 mb-sm-0">
+          <!-- Media Viewer -->
+          <a class="media-viewer" href="<?= site_url('assets/img/landing/landing_gallery_1.jpg')?>" data-fslightbox="gallery">
+            <img class="img-fluid" src="<?= site_url('assets/img/landing/landing_gallery_1.jpg')?>" alt="Image Description">
+
+            <span class="media-viewer-container">
+              <span class="media-viewer-icon">
+                <i class="bi-plus media-viewer-icon-inner"></i>
+              </span>
+            </span>
+          </a>
+          <!-- End Media Viewer -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-sm-4 mb-3 mb-sm-0">
+          <!-- Media Viewer -->
+          <a class="media-viewer" href="<?= site_url('assets/img/landing/landing_gallery_2.jpg')?>" data-fslightbox="gallery">
+            <img class="img-fluid" src="<?= site_url('assets/img/landing/landing_gallery_2.jpg')?>" alt="Image Description">
+
+            <span class="media-viewer-container">
+              <span class="media-viewer-icon">
+                <i class="bi-plus media-viewer-icon-inner"></i>
+              </span>
+            </span>
+          </a>
+          <!-- End Media Viewer -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-sm-4">
+          <!-- Media Viewer -->
+          <a class="media-viewer" href="<?= site_url('assets/img/landing/landing_gallery_3.jpg')?>" data-fslightbox="gallery">
+            <img class="img-fluid" src="<?= site_url('assets/img/landing/landing_gallery_3.jpg')?>" alt="Image Description">
+
+            <span class="media-viewer-container">
+              <span class="media-viewer-icon">
+                <i class="bi-plus media-viewer-icon-inner"></i>
+              </span>
+            </span>
+          </a>
+          <!-- End Media Viewer -->
+        </div>
+        <!-- End Col -->
+      </div>
+      <div class="row content-space-b-lg-3">
+        <div class="col-sm-4 mb-3 mb-sm-0">
+          <!-- Media Viewer -->
+          <a class="media-viewer" href="<?= site_url('assets/img/landing/landing_gallery_4.jpg')?>" data-fslightbox="gallery">
+            <img class="img-fluid" src="<?= site_url('assets/img/landing/landing_gallery_4.jpg')?>" alt="Image Description">
+
+            <span class="media-viewer-container">
+              <span class="media-viewer-icon">
+                <i class="bi-plus media-viewer-icon-inner"></i>
+              </span>
+            </span>
+          </a>
+          <!-- End Media Viewer -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-sm-4 mb-3 mb-sm-0">
+          <!-- Media Viewer -->
+          <a class="media-viewer" href="<?= site_url('assets/img/landing/landing_gallery_5.jpg')?>" data-fslightbox="gallery">
+            <img class="img-fluid" src="<?= site_url('assets/img/landing/landing_gallery_5.jpg')?>" alt="Image Description">
+
+            <span class="media-viewer-container">
+              <span class="media-viewer-icon">
+                <i class="bi-plus media-viewer-icon-inner"></i>
+              </span>
+            </span>
+          </a>
+          <!-- End Media Viewer -->
+        </div>
+        <!-- End Col -->
+
+        <div class="col-sm-4">
+          <!-- Media Viewer -->
+          <a class="media-viewer" href="<?= site_url('assets/img/landing/landing_gallery_6.jpg')?>" data-fslightbox="gallery">
+            <img class="img-fluid" src="<?= site_url('assets/img/landing/landing_gallery_6.jpg')?>" alt="Image Description">
+
+            <span class="media-viewer-container">
+              <span class="media-viewer-icon">
+                <i class="bi-plus media-viewer-icon-inner"></i>
+              </span>
+            </span>
+          </a>
+          <!-- End Media Viewer -->
+        </div>
+        <!-- End Col -->
+      </div>
+    <!-- </div> -->
+    
+    <!-- End Row -->
+
     <!-- Testimonials -->
     <div class="overflow-hidden content-space-b-2">
       <div class="position-relative bg-dark rounded-2 mx-3 mx-md-10">
@@ -151,10 +363,11 @@
                     </figcaption>
                   </div>
                 </div>
+                
+                <div class="js-swiper-space-between-pagination swiper-pagination"></div>
               </div>
             <!-- End Swiper -->
             <!-- Swiper Pagination -->
-            <div class="js-swiper-space-between-pagination swiper-pagination bg-light"></div>
           </figure>
           <!-- End Blockquote -->
 
@@ -184,157 +397,6 @@
       </div>
     </div>
     <!-- End Testimonials -->
-
-    <!-- Features -->
-    <div class="overflow-hidden">
-      <div class="container content-space-2 content-space-lg-3">
-        <!-- Heading -->
-        <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-          <span class="text-cap">How we work</span>
-          <h2>Bring your ideas to life and share your vision with concrete elements</h2>
-        </div>
-        <!-- End Heading -->
-
-        <div class="w-md-75 mx-md-auto">
-          <div class="row justify-content-lg-center align-items-md-center">
-            <div class="col-md-5 mb-7 mb-md-0">
-              <!-- List Checked -->
-              <ul class="list-checked list-checked-soft-bg-primary list-checked-lg mb-5">
-                <li class="list-checked-item">Easy &amp; fast designing</li>
-                <li class="list-checked-item">Powerful features</li>
-                <li class="list-checked-item">Advanced HTML/CSS editing</li>
-                <li class="list-checked-item">React-Native Development</li>
-                <li class="list-checked-item">User Experience Design</li>
-              </ul>
-              <!-- End List Checked -->
-
-              <a class="link" href="<?= site_url()?>page-services.html">Our services <i class="bi-chevron-right small ms-1"></i></a>
-            </div>
-            <!-- End Col -->
-
-            <div class="col-md-7 col-lg-5">
-              <div class="position-relative">
-                <!-- Card -->
-                <div class="card">
-                  <div class="card-body">
-                    <span class="svg-icon text-primary mb-4">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path opacity="0.3" d="M22.0318 8.59998C22.0318 10.4 21.4318 12.2 20.0318 13.5C18.4318 15.1 16.3318 15.7 14.2318 15.4C13.3318 15.3 12.3318 15.6 11.7318 16.3L6.93177 21.1C5.73177 22.3 3.83179 22.2 2.73179 21C1.63179 19.8 1.83177 18 2.93177 16.9L7.53178 12.3C8.23178 11.6 8.53177 10.7 8.43177 9.80005C8.13177 7.80005 8.73176 5.6 10.3318 4C11.7318 2.6 13.5318 2 15.2318 2C16.1318 2 16.6318 3.20005 15.9318 3.80005L13.0318 6.70007C12.5318 7.20007 12.4318 7.9 12.7318 8.5C13.3318 9.7 14.2318 10.6001 15.4318 11.2001C16.0318 11.5001 16.7318 11.3 17.2318 10.9L20.1318 8C20.8318 7.2 22.0318 7.59998 22.0318 8.59998Z" fill="#035A4B"/>
-                      <path d="M4.23179 19.7C3.83179 19.3 3.83179 18.7 4.23179 18.3L9.73179 12.8C10.1318 12.4 10.7318 12.4 11.1318 12.8C11.5318 13.2 11.5318 13.8 11.1318 14.2L5.63179 19.7C5.23179 20.1 4.53179 20.1 4.23179 19.7Z" fill="#035A4B"/>
-                      </svg>
-
-                    </span>
-
-                    <h3 class="card-title">We tackle the challenges start-ups face</h3>
-                    <p class="card-text">Besides working with start-up enterprises as a partner for digitalization, we have built enterprise products for common pain points that we have encountered in various products and projects.</p>
-                  </div>
-                </div>
-                <!-- End Card -->
-
-                <!-- SVG Shape -->
-                <figure class="position-absolute bottom-0 end-0 zi-n1 mb-n7 me-n7" style="width: 12rem;">
-                  <img class="img-fluid" src="<?= site_url()?>assets/svg/components/dots-lg.svg" alt="Image Description">
-                </figure>
-                <!-- End SVG Shape -->
-              </div>
-            </div>
-            <!-- End Col -->
-          </div>
-          <!-- End Row -->
-        </div>
-      </div>
-    </div>
-    <!-- End Features -->
-
-    <!-- Card Grid -->
-    <div class="container">
-      <div class="w-lg-75 mx-lg-auto">
-        <div class="row">
-          <div class="col-md-6 mb-3 mb-lg-0" data-aos="fade-up">
-            <!-- Icon Block -->
-            <a class="card card-transition h-100" href="#">
-              <div class="card-body">
-                <div class="d-flex">
-                  <div class="flex-shrink-0">
-                    <span class="svg-icon text-primary">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M22.1671 18.1421C22.4827 18.4577 23.0222 18.2331 23.0206 17.7868L23.0039 13.1053V5.52632C23.0039 4.13107 21.8729 3 20.4776 3H8.68815C7.2929 3 6.16183 4.13107 6.16183 5.52632V9H13C14.6568 9 16 10.3431 16 12V15.6316H19.6565L22.1671 18.1421Z" fill="#035A4B"/>
-                      <path opacity="0.3" fill-rule="evenodd" clip-rule="evenodd" d="M1.98508 18V13C1.98508 11.8954 2.88051 11 3.98508 11H11.9851C13.0896 11 13.9851 11.8954 13.9851 13V18C13.9851 19.1046 13.0896 20 11.9851 20H4.10081L2.85695 21.1905C2.53895 21.4949 2.01123 21.2695 2.01123 20.8293V18.3243C1.99402 18.2187 1.98508 18.1104 1.98508 18ZM5.99999 14.5C5.99999 14.2239 6.22385 14 6.49999 14H11.5C11.7761 14 12 14.2239 12 14.5C12 14.7761 11.7761 15 11.5 15H6.49999C6.22385 15 5.99999 14.7761 5.99999 14.5ZM9.49999 16C9.22385 16 8.99999 16.2239 8.99999 16.5C8.99999 16.7761 9.22385 17 9.49999 17H11.5C11.7761 17 12 16.7761 12 16.5C12 16.2239 11.7761 16 11.5 16H9.49999Z" fill="#035A4B"/>
-                      </svg>
-
-                    </span>
-                  </div>
-
-                  <div class="flex-grow-1 ms-4">
-                    <h4 class="card-title">Ask a question</h4>
-                    <p class="card-text text-body">Email with support members to get your questions answered.</p>
-                  </div>
-                </div>
-              </div>
-            </a>
-            <!-- End Icon Block -->
-          </div>
-          <!-- End Col -->
-
-          <div class="col-md-6 mb-3 mb-lg-0" data-aos="fade-up" data-aos-delay="100">
-            <!-- Icon Block -->
-            <a class="card card-transition h-100" href="#">
-              <div class="card-body">
-                <div class="d-flex">
-                  <div class="flex-shrink-0">
-                    <span class="svg-icon text-primary">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path opacity="0.3" fill-rule="evenodd" clip-rule="evenodd" d="M4.85714 1H11.7364C12.0911 1 12.4343 1.12568 12.7051 1.35474L17.4687 5.38394C17.8057 5.66895 18 6.08788 18 6.5292V19.0833C18 20.8739 17.9796 21 16.1429 21H4.85714C3.02045 21 3 20.8739 3 19.0833V2.91667C3 1.12612 3.02045 1 4.85714 1ZM7 13C7 12.4477 7.44772 12 8 12H15C15.5523 12 16 12.4477 16 13C16 13.5523 15.5523 14 15 14H8C7.44772 14 7 13.5523 7 13ZM8 16C7.44772 16 7 16.4477 7 17C7 17.5523 7.44772 18 8 18H11C11.5523 18 12 17.5523 12 17C12 16.4477 11.5523 16 11 16H8Z" fill="#035A4B"/>
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M6.85714 3H14.7364C15.0911 3 15.4343 3.12568 15.7051 3.35474L20.4687 7.38394C20.8057 7.66895 21 8.08788 21 8.5292V21.0833C21 22.8739 20.9796 23 19.1429 23H6.85714C5.02045 23 5 22.8739 5 21.0833V4.91667C5 3.12612 5.02045 3 6.85714 3ZM7 13C7 12.4477 7.44772 12 8 12H15C15.5523 12 16 12.4477 16 13C16 13.5523 15.5523 14 15 14H8C7.44772 14 7 13.5523 7 13ZM8 16C7.44772 16 7 16.4477 7 17C7 17.5523 7.44772 18 8 18H11C11.5523 18 12 17.5523 12 17C12 16.4477 11.5523 16 11 16H8Z" fill="#035A4B"/>
-                      </svg>
-
-                    </span>
-                  </div>
-
-                  <div class="flex-grow-1 ms-4">
-                    <h4 class="card-title">Read documentation</h4>
-                    <p class="card-text text-body">Dig into the technical details of our products and consensus algorithm.</p>
-                  </div>
-                </div>
-              </div>
-            </a>
-            <!-- End Icon Block -->
-          </div>
-          <!-- End Col -->
-        </div>
-        <!-- End Row -->
-      </div>
-    </div>
-    <!-- End Card Grid -->
-
-    <!-- Subscribe -->
-    <div class="container content-space-2 content-space-lg-3">
-      <div class="w-md-75 w-lg-50 text-center mx-md-auto">
-        <div class="row justify-content-lg-between">
-          <!-- Heading -->
-          <div class="mb-5">
-            <span class="text-cap">Subscribe</span>
-            <h2>Get the latest from Front</h2>
-          </div>
-          <!-- End Heading -->
-
-          <form>
-            <!-- Input Card -->
-            <div class="input-card input-card-sm border mb-3">
-              <div class="input-card-form">
-                <label for="subscribeForm" class="form-label visually-hidden">Enter email</label>
-                <input type="text" class="form-control form-control-lg" id="subscribeForm" placeholder="Enter email" aria-label="Enter email">
-              </div>
-              <button type="button" class="btn btn-primary btn-lg">Subscribe</button>
-            </div>
-            <!-- End Input Card -->
-          </form>
-
-          <p class="small">You can unsubscribe at any time. Read our <a href="<?= site_url()?>page-privacy.html">privacy policy</a></p>
-        </div>
-      </div>
-    </div>
-    <!-- End Subscribe -->
   </main>
   <!-- ========== END MAIN CONTENT ========== -->
 
