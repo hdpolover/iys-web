@@ -53,7 +53,9 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['sign-in']   = 'FrontController/signIn';
-$route['sign-up']   = 'FrontController/signUp';
-$route['about']     = 'FrontController/about';
-$route['contact']   = 'FrontController/contact';
+$route['sign-in']           = 'FrontController/signIn';
+$route['sign-up']           = 'FrontController/signUp';
+$route['about']             = 'FrontController/about';
+$route['team']              = 'FrontController/ourTeam';
+$route['partner-sponsor']   = 'FrontController/partnerSponsor';
+$route['faq']               = 'FrontController/faq';

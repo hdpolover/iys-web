@@ -67,10 +67,16 @@
                 <a id="" class="nav-link <?= $topBar == "home" ? "active" : "" ?>" aria-current="page" href="<?= site_url('/')?>" role="button" aria-expanded="false">Home</a>
               </li>
               <li class="nav-item">
-                <a id="" class="nav-link <?= $topBar == "about" ? "active" : "" ?>" aria-current="page" href="<?= site_url('about')?>" role="button" aria-expanded="false">About</a>
+                <a id="" class="nav-link <?= $topBar == "about" ? "active" : "" ?>" aria-current="page" href="<?= site_url('about')?>" role="button" aria-expanded="false">About IYS</a>
               </li>
               <li class="nav-item">
-                <a id="" class="nav-link <?= $topBar == "contact" ? "active" : "" ?>" aria-current="page" href="<?= site_url('contact')?>" role="button" aria-expanded="false">Contact</a>
+                <a id="" class="nav-link <?= $topBar == "team" ? "active" : "" ?>" aria-current="page" href="<?= site_url('team')?>" role="button" aria-expanded="false">Our Team</a>
+              </li>
+              <li class="nav-item">
+                <a id="" class="nav-link <?= $topBar == "partner-sponsor" ? "active" : "" ?>" aria-current="page" href="<?= site_url('partner-sponsor')?>" role="button" aria-expanded="false">Partnership & Sponsorship</a>
+              </li>
+              <li class="nav-item">
+                <a id="" class="nav-link <?= $topBar == "faq" ? "active" : "" ?>" aria-current="page" href="<?= site_url('faq')?>" role="button" aria-expanded="false">FAQ</a>
               </li>
               <!-- Button -->
               <li class="nav-item">
