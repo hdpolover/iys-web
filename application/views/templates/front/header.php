@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Title -->
-  <title><?= $title?> | IYS</title>
+  <title><?= $title?> - Istanbul Youth Summit</title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="<?= site_url()?>favicon.ico">
