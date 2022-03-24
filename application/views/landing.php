@@ -6,22 +6,23 @@
       <div class="js-swiper-main swiper vh-md-70">
         <div class="swiper-wrapper">
           <!-- Slide -->
-          <div class="swiper-slide gradient-y-overlay-sm-gray-900 bg-img-start" style="background-image: url(<?= site_url()?>assets/img/1920x800/img2.jpg);">
+          <div class="swiper-slide gradient-y-overlay-sm-gray-900 bg-img-start" style="background-image: url(<?= site_url()?>assets/img/landing/landing_1.jpg);">
             <div class="container d-md-flex align-items-md-center vh-md-70 content-space-t-4 content-space-b-3 content-space-md-0">
               <div class="w-75 w-lg-50">
-                <h3 class="text-white">Front is a</h3>
-                <h1 class="display-4 text-white mb-0">Self-mastering template</h1>
+                <h1 class="display-4 text-white mb-0">Istanbul Youth Summit 2022</h1>
+                <h3 class="text-white">1 - 4 February, Istanbul Turkey</h3>
+                <button type="button" class="btn btn-outline-light mt-5">Register</button>
               </div>
             </div>
           </div>
           <!-- End Slide -->
 
           <!-- Slide -->
-          <div class="swiper-slide gradient-y-overlay-sm-gray-900 bg-img-start" style="background-image: url(<?= site_url()?>assets/img/1920x800/img3.jpg);">
+          <div class="swiper-slide gradient-y-overlay-sm-gray-900 bg-img-start" style="background-image: url(<?= site_url()?>assets/img/landing/landing_2.jpg);">
             <div class="container d-md-flex align-items-md-center vh-md-70 content-space-t-4 content-space-b-3 content-space-md-0">
               <div class="w-75 w-lg-50">
-                <h3 class="text-white">It is an</h3>
-                <h2 class="display-4 text-white mb-0">Easy business with Front template</h2>
+                <h1 class="display-4 text-white mb-0">Istanbul Youth Summit 2021</h1>
+                <button type="button" class="btn btn-ghost-light mt-5">Expired</button>
               </div>
             </div>
           </div>
@@ -39,57 +40,7 @@
       <!-- Thumbs Slider -->
       <div class="js-swiper-thumbs swiper">
         <div class="swiper-wrapper">
-          <!-- Slide -->
-          <div class="swiper-slide">
-            <div class="d-flex align-items-center bg-white position-relative vh-md-30">
-              <div class="container content-space-2">
-                <div class="row">
-                  <div class="col-md-4">
-                    <span class="fs-3 fw-semi-bold">01.</span>
-                    <h3 class="text-primary">Advanced editing</h3>
-                    <p class="mb-0">Modify any aspect of your website or pages with Front.</p>
-                  </div>
-                  <!-- End Col -->
-                </div>
-                <!-- End Row -->
-              </div>
-
-              <div class="col-md-5 d-none d-md-inline-block bg-primary position-absolute top-0 end-0 bottom-0">
-                <div class="position-absolute top-50 translate-middle-y p-7">
-                  <h3 class="text-white">Next: Fully responsive</h3>
-                  <p class="text-white-70 mb-0">Let visitors to view your content from their choice of device.</p>
-                </div>
-              </div>
-              <!-- End Col -->
-            </div>
-          </div>
-          <!-- End Slide -->
-
-          <!-- Slide -->
-          <div class="swiper-slide">
-            <div class="d-flex align-items-center bg-white position-relative vh-md-30">
-              <div class="container content-space-2">
-                <div class="row">
-                  <div class="col-md-4">
-                    <span class="fs-3 fw-semi-bold">02.</span>
-                    <h3 class="text-primary">Fully responsive</h3>
-                    <p class="mb-0">Let visitors to view your content from their choice of device.</p>
-                  </div>
-                  <!-- End Col -->
-                </div>
-                <!-- End Row -->
-              </div>
-
-              <div class="col-md-5 d-none d-md-inline-block bg-dark position-absolute top-0 end-0 bottom-0">
-                <div class="position-absolute top-50 translate-middle-y p-7">
-                  <h3 class="text-white">Prev: Advanced editing</h3>
-                  <p class="text-white-70 mb-0">Modify any aspect of your website with Front</p>
-                </div>
-              </div>
-              <!-- End Col -->
-            </div>
-          </div>
-          <!-- End Slide -->
+        
         </div>
       </div>
       <!-- End Thumbs Slider -->

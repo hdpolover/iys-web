@@ -25,26 +25,8 @@
 <!-- Form -->
 <div class="container-fluid">
     <div class="row">
-    <div class="col-lg-5 col-xl-4 d-none d-lg-flex justify-content-center align-items-center min-vh-lg-100 position-relative bg-dark" style="background-image: url(./assets/svg/components/wave-pattern-light.svg);">
+    <div class="col-lg-5 col-xl-4 d-none d-lg-flex justify-content-center align-items-center min-vh-lg-100 position-relative bg-dark" style="background-image: url(<?= site_url('assets/img/sign/sign_1.jpg')?>);">
         <div class="flex-grow-1 p-5">
-        <!-- Blockquote -->
-        <figure class="text-center">
-            <div class="mb-4">
-            <img class="avatar avatar-xl avatar-4x3" src="./assets/svg/brands/mailchimp-white.svg" alt="Logo">
-            </div>
-
-            <blockquote class="blockquote blockquote-light">“ It has many landing page variations to choose from, which one is always a big advantage. ”</blockquote>
-
-            <figcaption class="blockquote-footer blockquote-light">
-            <div class="mb-3">
-                <img class="avatar avatar-circle" src="./assets/img/160x160/img9.jpg" alt="Image Description">
-            </div>
-
-            Lida Reidy
-            <span class="blockquote-footer-source">Project Manager | Mailchimp</span>
-            </figcaption>        
-        </figure>
-        <!-- End Blockquote -->
 
         <!-- Clients -->
         <div class="position-absolute start-0 end-0 bottom-0 text-center p-5">
