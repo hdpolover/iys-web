@@ -1,47 +1,47 @@
 <main id="content" role="main">
-<!-- Hero Section -->
-<div class="container content-space-t-3 content-space-t-lg-5">
-      <div class="w-lg-75 text-center mx-lg-auto">
-        <!-- Heading -->
-        <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-            <span class="text-cap">Inspire The Next</span>
-            <h2>Istanbul Youth Summit 2022</h2>
-        </div>
-        <!-- End Heading -->
-      </div>
-      <div class="row gx-3">
-        <div class="col mb-3">
-          <div class="bg-img-start" style="background-image: url(<?= site_url('assets/img/about/about_1.jpg')?>); height: 15rem;"></div>
-        </div>
-        <!-- End Col -->
-        <div class="col-3 d-none d-md-block mb-3">
-          <div class="bg-img-start" style="background-image: url(<?= site_url('assets/img/about/about_2.jpg')?>); height: 15rem;"></div>
-        </div>
-        <!-- End Col -->
-        
-        <div class="col mb-3">
-          <div class="bg-img-start" style="background-image: url(<?= site_url('assets/img/about/about_4.jpg')?>); height: 15rem;"></div>
-        </div>
-        <!-- End Col -->
-
-        <div class="w-100"></div>
-
-        <div class="col mb-3 mb-md-0">
-          <div class="bg-img-start" style="background-image: url(<?= site_url('assets/img/about/about_3.jpg')?>); height: 15rem;"></div>
-        </div>
-        <!-- End Col -->
-        <div class="col-4 d-none d-md-block mb-3 mb-md-0">
-          <div class="bg-img-start" style="background-image: url(<?= site_url('assets/img/about/about_5.jpg')?>); height: 15rem;"></div>
-        </div>
-        <!-- End Col -->
-        
-        <div class="col">
-          <div class="bg-img-start" style="background-image: url(<?= site_url('assets/img/about/about_6.jpg')?>); height: 15rem;"></div>
-        </div>
-        <!-- End Col -->
-      </div>
+  <!-- Hero Section -->
+  <div class="container content-space-t-3 content-space-t-lg-5">
+    <div class="w-lg-75 text-center mx-lg-auto">
       <!-- Heading -->
-      <!-- Info -->
+      <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
+        <span class="text-cap">Inspire The Next</span>
+        <h2>Istanbul Youth Summit 2022</h2>
+      </div>
+      <!-- End Heading -->
+    </div>
+    <div class="row gx-3">
+      <div class="col mb-3">
+        <div class="bg-img-start" style="background-image: url(<?= site_url('assets/img/about/about_1.jpg') ?>); height: 15rem;"></div>
+      </div>
+      <!-- End Col -->
+      <div class="col-3 d-none d-md-block mb-3">
+        <div class="bg-img-start" style="background-image: url(<?= site_url('assets/img/about/about_2.jpg') ?>); height: 15rem;"></div>
+      </div>
+      <!-- End Col -->
+
+      <div class="col mb-3">
+        <div class="bg-img-start" style="background-image: url(<?= site_url('assets/img/about/about_4.jpg') ?>); height: 15rem;"></div>
+      </div>
+      <!-- End Col -->
+
+      <div class="w-100"></div>
+
+      <div class="col mb-3 mb-md-0">
+        <div class="bg-img-start" style="background-image: url(<?= site_url('assets/img/about/about_3.jpg') ?>); height: 15rem;"></div>
+      </div>
+      <!-- End Col -->
+      <div class="col-4 d-none d-md-block mb-3 mb-md-0">
+        <div class="bg-img-start" style="background-image: url(<?= site_url('assets/img/about/about_5.jpg') ?>); height: 15rem;"></div>
+      </div>
+      <!-- End Col -->
+
+      <div class="col">
+        <div class="bg-img-start" style="background-image: url(<?= site_url('assets/img/about/about_6.jpg') ?>); height: 15rem;"></div>
+      </div>
+      <!-- End Col -->
+    </div>
+    <!-- Heading -->
+    <!-- Info -->
     <div class="container content-space-2 content-space-lg-3">
       <div class="row justify-content-lg-between">
         <div class="col-lg-4 mb-5 mb-lg-0">
@@ -50,75 +50,32 @@
         <!-- End Col -->
 
         <div class="col-lg-6">
-            <p><b>Istanbul Youth Summit (IYS) 2022 </b><span style="font-weight: 400;">is a program initiated by </span><b>Youth Break the Boundaries (YBB)</b>. The aim of the activity to build the spirit youth leadership and prepare excellent future leaders, by using a moral based approach to education that focusing on instilling nationalism character values and international culture for youth generation.</p>
-            <p>The Istanbul Youth Summit is not just a gathering of young leaders from around the world but also sharing their experiences on how they are taking actions in their communities to protect and empower youth in building the nation.</p>
+          <p><b>Istanbul Youth Summit (IYS) 2022 </b><span style="font-weight: 400;">is a program initiated by </span><b>Youth Break the Boundaries (YBB)</b>. The aim of the activity to build the spirit youth leadership and prepare excellent future leaders, by using a moral based approach to education that focusing on instilling nationalism character values and international culture for youth generation.</p>
+          <p>The Istanbul Youth Summit is not just a gathering of young leaders from around the world but also sharing their experiences on how they are taking actions in their communities to protect and empower youth in building the nation.</p>
         </div>
         <!-- End Col -->
       </div>
       <!-- End Row -->
     </div>
     <div class="containter content-space-2 content-space-lg-3">
-        <div class="row justify-content-lg-center">
-          <div class="col-md-6 col-lg-5 mb-3 mb-md-5 mb-lg-7">
-            <!-- Icon Blocks -->
-            <div class="d-flex pe-md-5">
-              <div class="flex-shrink-0">
-                <div class="svg-icon text-primary">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path opacity="0.3" d="M20.335 15.537C21.725 14.425 21.57 12.812 21.553 11.224C21.4407 9.50899 20.742 7.88483 19.574 6.624C18.5503 5.40102 17.2668 4.4216 15.817 3.757C14.4297 3.26981 12.9703 3.01966 11.5 3.01701C8.79576 2.83108 6.11997 3.66483 4 5.35398C2.289 6.72498 1.23101 9.12497 2.68601 11.089C3.22897 11.6881 3.93029 12.1214 4.709 12.339C5.44803 12.6142 6.24681 12.6888 7.024 12.555C6.88513 12.9965 6.85078 13.4644 6.92367 13.9215C6.99656 14.3786 7.17469 14.8125 7.444 15.189C7.73891 15.5299 8.10631 15.8006 8.51931 15.9812C8.93232 16.1619 9.38047 16.2478 9.831 16.233C10.0739 16.2296 10.3141 16.1807 10.539 16.089C10.7371 15.9871 10.9288 15.8732 11.113 15.748C12.1594 15.2831 13.3275 15.1668 14.445 15.416C15.7795 15.7213 17.1299 15.952 18.49 16.107C18.7927 16.1438 19.0993 16.1313 19.398 16.07C19.7445 15.9606 20.0639 15.7789 20.335 15.537V15.537Z" fill="#035A4B"/>
-                  <path d="M19.008 16.114C18.9486 16.6061 18.7934 17.0817 18.551 17.514C18.229 18.114 17.581 18.314 17.103 18.752C16.457 19.343 16.595 20.38 16.632 21.164C16.6522 21.3437 16.621 21.5254 16.542 21.688C16.4335 21.835 16.2751 21.9373 16.0965 21.9758C15.9179 22.0143 15.7314 21.9863 15.572 21.897C15.2577 21.7083 15.0072 21.4296 14.853 21.097C14.581 20.607 14.362 20.085 14.053 19.612C13.3182 18.7548 12.4201 18.0525 11.411 17.546C10.9334 17.1942 10.5857 16.6942 10.422 16.124C10.459 16.111 10.499 16.106 10.536 16.09C10.7336 15.9879 10.925 15.8741 11.109 15.749C12.1554 15.2842 13.3234 15.1678 14.441 15.417C15.7754 15.7223 17.1259 15.953 18.486 16.108C18.6598 16.1191 18.834 16.1211 19.008 16.114V16.114ZM18.8 10.278V3C18.8 2.73478 18.6946 2.48044 18.5071 2.29291C18.3196 2.10537 18.0652 2 17.8 2C17.5348 2 17.2804 2.10537 17.0929 2.29291C16.9053 2.48044 16.8 2.73478 16.8 3V10.278C16.4187 10.4981 16.1207 10.8379 15.9522 11.2447C15.7838 11.6514 15.7542 12.1024 15.8681 12.5277C15.9821 12.953 16.2332 13.3287 16.5825 13.5967C16.9318 13.8648 17.3597 14.0101 17.8 14.0101C18.2403 14.0101 18.6682 13.8648 19.0175 13.5967C19.3668 13.3287 19.6179 12.953 19.7318 12.5277C19.8458 12.1024 19.8162 11.6514 19.6477 11.2447C19.4793 10.8379 19.1813 10.4981 18.8 10.278V10.278ZM13.8 2C13.5348 2 13.2804 2.10537 13.0929 2.29291C12.9053 2.48044 12.8 2.73478 12.8 3V8.586L12.312 9.07397C11.8792 8.95363 11.4188 8.98004 11.0026 9.14899C10.5864 9.31794 10.2379 9.61994 10.0115 10.0079C9.78508 10.3958 9.69351 10.8478 9.75109 11.2933C9.80867 11.7387 10.0122 12.1526 10.3298 12.4702C10.6474 12.7878 11.0612 12.9913 11.5067 13.0489C11.9522 13.1065 12.4042 13.0149 12.7921 12.7885C13.18 12.5621 13.4821 12.2136 13.651 11.7974C13.82 11.3812 13.8463 10.9207 13.726 10.488L14.507 9.70697C14.6945 9.51948 14.7999 9.26519 14.8 9V3C14.8 2.73478 14.6946 2.48044 14.5071 2.29291C14.3196 2.10537 14.0652 2 13.8 2ZM9.79999 2C9.53478 2 9.28042 2.10537 9.09289 2.29291C8.90535 2.48044 8.79999 2.73478 8.79999 3V4.586L7.31199 6.07397C6.87924 5.95363 6.41882 5.98004 6.00263 6.14899C5.58644 6.31794 5.23792 6.61994 5.0115 7.00787C4.78508 7.39581 4.69351 7.84781 4.75109 8.29327C4.80867 8.73874 5.01216 9.1526 5.32977 9.47021C5.64739 9.78783 6.06124 9.99131 6.50671 10.0489C6.95218 10.1065 7.40417 10.0149 7.7921 9.78851C8.18004 9.56209 8.48207 9.21355 8.65102 8.79736C8.81997 8.38117 8.84634 7.92073 8.726 7.48798L10.507 5.70697C10.6945 5.51948 10.7999 5.26519 10.8 5V3C10.8 2.73478 10.6946 2.48044 10.5071 2.29291C10.3196 2.10537 10.0652 2 9.79999 2Z" fill="#035A4B"/>
-                  </svg>
-
-                </div>
-              </div>
-
-              <div class="flex-grow-1 ms-3">
-                <h4>What is IYS ?</h4>
-                <p>We choose our teams carefully. Our people are the secret to great work.</p>
-              </div>
-            </div>
-            <!-- End Icon Blocks -->
-          </div>
-
-          <div class="col-md-6 col-lg-5 mb-3 mb-md-5 mb-lg-7">
-            <!-- Icon Blocks -->
-            <div class="d-flex ps-md-5">
-              <div class="flex-shrink-0">
-                <div class="svg-icon text-primary">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M14 18V16H10V18L9 20H15L14 18Z" fill="#035A4B"/>
-                  <path opacity="0.3" d="M20 4H17V3C17 2.4 16.6 2 16 2H8C7.4 2 7 2.4 7 3V4H4C3.4 4 3 4.4 3 5V9C3 11.2 4.8 13 7 13C8.2 14.2 8.8 14.8 10 16H14C15.2 14.8 15.8 14.2 17 13C19.2 13 21 11.2 21 9V5C21 4.4 20.6 4 20 4ZM5 9V6H7V11C5.9 11 5 10.1 5 9ZM19 9C19 10.1 18.1 11 17 11V6H19V9ZM17 21V22H7V21C7 20.4 7.4 20 8 20H16C16.6 20 17 20.4 17 21ZM10 9C9.4 9 9 8.6 9 8V5C9 4.4 9.4 4 10 4C10.6 4 11 4.4 11 5V8C11 8.6 10.6 9 10 9ZM10 13C9.4 13 9 12.6 9 12V11C9 10.4 9.4 10 10 10C10.6 10 11 10.4 11 11V12C11 12.6 10.6 13 10 13Z" fill="#035A4B"/>
-                  </svg>
-
-                </div>
-              </div>
-
-              <div class="flex-grow-1 ms-3">
-                <h4>Why you join?</h4>
-                <p>We stay lean and help your product do one thing well.</p>
-              </div>
-            </div>
-          <!-- End Icon Blocks -->
-        </div>
-
-        <div class="w-100"></div>
-
+      <div class="row justify-content-lg-center">
         <div class="col-md-6 col-lg-5 mb-3 mb-md-5 mb-lg-7">
           <!-- Icon Blocks -->
           <div class="d-flex pe-md-5">
             <div class="flex-shrink-0">
               <div class="svg-icon text-primary">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path opacity="0.3" d="M20.9 12.9C20.3 12.9 19.9 12.5 19.9 11.9C19.9 11.3 20.3 10.9 20.9 10.9H21.8C21.3 6.2 17.6 2.4 12.9 2V2.9C12.9 3.5 12.5 3.9 11.9 3.9C11.3 3.9 10.9 3.5 10.9 2.9V2C6.19999 2.5 2.4 6.2 2 10.9H2.89999C3.49999 10.9 3.89999 11.3 3.89999 11.9C3.89999 12.5 3.49999 12.9 2.89999 12.9H2C2.5 17.6 6.19999 21.4 10.9 21.8V20.9C10.9 20.3 11.3 19.9 11.9 19.9C12.5 19.9 12.9 20.3 12.9 20.9V21.8C17.6 21.3 21.4 17.6 21.8 12.9H20.9Z" fill="#035A4B"/>
-                <path d="M16.9 10.9H13.6C13.4 10.6 13.2 10.4 12.9 10.2V5.90002C12.9 5.30002 12.5 4.90002 11.9 4.90002C11.3 4.90002 10.9 5.30002 10.9 5.90002V10.2C10.6 10.4 10.4 10.6 10.2 10.9H9.89999C9.29999 10.9 8.89999 11.3 8.89999 11.9C8.89999 12.5 9.29999 12.9 9.89999 12.9H10.2C10.4 13.2 10.6 13.4 10.9 13.6V13.9C10.9 14.5 11.3 14.9 11.9 14.9C12.5 14.9 12.9 14.5 12.9 13.9V13.6C13.2 13.4 13.4 13.2 13.6 12.9H16.9C17.5 12.9 17.9 12.5 17.9 11.9C17.9 11.3 17.5 10.9 16.9 10.9Z" fill="#035A4B"/>
+                  <path opacity="0.3" fill-rule="evenodd" clip-rule="evenodd" d="M12 17C16.4183 17 20 13.4183 20 9C20 4.58172 16.4183 1 12 1C7.58172 1 4 4.58172 4 9C4 13.4183 7.58172 17 12 17Z" fill="#035A4B" />
+                  <path opacity="0.3" fill-rule="evenodd" clip-rule="evenodd" d="M6.53819 9L10.568 19.3624L11.976 18.8149L13.3745 19.3674L17.4703 9H6.53819ZM9.46188 11H14.5298L11.9759 17.4645L9.46188 11Z" fill="#035A4B" />
+                  <path opacity="0.3" d="M10 22H14V22C14 23.1046 13.1046 24 12 24V24C10.8954 24 10 23.1046 10 22V22Z" fill="#035A4B" />
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M8 17C8 16.4477 8.44772 16 9 16H15C15.5523 16 16 16.4477 16 17C16 17.5523 15.5523 18 15 18C15.5523 18 16 18.4477 16 19C16 19.5523 15.5523 20 15 20C15.5523 20 16 20.4477 16 21C16 21.5523 15.5523 22 15 22H9C8.44772 22 8 21.5523 8 21C8 20.4477 8.44772 20 9 20C8.44772 20 8 19.5523 8 19C8 18.4477 8.44772 18 9 18C8.44772 18 8 17.5523 8 17Z" fill="#035A4B" />
                 </svg>
-
               </div>
             </div>
 
             <div class="flex-grow-1 ms-3">
-              <h4>What should do the events?</h4>
-              <p>Benefit from automatic updates to all boards any time you need to make a change to your website.</p>
+              <h4>What is IYS ?</h4>
+              <p>Istanbul Youth Summit (IYS) 2022 is a program initiated by Youth Break the Boundaries (YBB). The aim of the activity to build the spirit youth leadership and prepare excellent future leaders, by using a moral based approach to education that focusing on instilling nationalism character values and international culture for youth generation. </p>
             </div>
           </div>
           <!-- End Icon Blocks -->
@@ -130,8 +87,51 @@
             <div class="flex-shrink-0">
               <div class="svg-icon text-primary">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path opacity="0.3" d="M5 8.04999L11.8 11.95V19.85L5 15.85V8.04999Z" fill="#035A4B"/>
-                <path d="M20.1 6.65L12.3 2.15C12 1.95 11.6 1.95 11.3 2.15L3.5 6.65C3.2 6.85 3 7.15 3 7.45V16.45C3 16.75 3.2 17.15 3.5 17.25L11.3 21.75C11.5 21.85 11.6 21.85 11.8 21.85C12 21.85 12.1 21.85 12.3 21.75L20.1 17.25C20.4 17.05 20.6 16.75 20.6 16.45V7.45C20.6 7.15 20.4 6.75 20.1 6.65ZM5 15.85V7.95L11.8 4.05L18.6 7.95L11.8 11.95V19.85L5 15.85Z" fill="#035A4B"/>
+                  <path d="M14 18V16H10V18L9 20H15L14 18Z" fill="#035A4B" />
+                  <path opacity="0.3" d="M20 4H17V3C17 2.4 16.6 2 16 2H8C7.4 2 7 2.4 7 3V4H4C3.4 4 3 4.4 3 5V9C3 11.2 4.8 13 7 13C8.2 14.2 8.8 14.8 10 16H14C15.2 14.8 15.8 14.2 17 13C19.2 13 21 11.2 21 9V5C21 4.4 20.6 4 20 4ZM5 9V6H7V11C5.9 11 5 10.1 5 9ZM19 9C19 10.1 18.1 11 17 11V6H19V9ZM17 21V22H7V21C7 20.4 7.4 20 8 20H16C16.6 20 17 20.4 17 21ZM10 9C9.4 9 9 8.6 9 8V5C9 4.4 9.4 4 10 4C10.6 4 11 4.4 11 5V8C11 8.6 10.6 9 10 9ZM10 13C9.4 13 9 12.6 9 12V11C9 10.4 9.4 10 10 10C10.6 10 11 10.4 11 11V12C11 12.6 10.6 13 10 13Z" fill="#035A4B" />
+                </svg>
+
+              </div>
+            </div>
+
+            <div class="flex-grow-1 ms-3">
+              <h4>Why you join?</h4>
+              <p>This event is a forum will be held for 4 days that will discuss the main themes and panel discussions that will be carried out in this summit. The main themes of the Istanbul Youth Summit 2022 is: “Development Responses Plan of The Youth in Crisis Recovery”</p>
+            </div>
+          </div>
+          <!-- End Icon Blocks -->
+        </div>
+
+        <div class="w-100"></div>
+
+        <div class="col-md-6 col-lg-5 mb-3 mb-md-5 mb-lg-7">
+          <!-- Icon Blocks -->
+          <div class="d-flex pe-md-5">
+            <div class="flex-shrink-0">
+              <div class="svg-icon text-primary">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path opacity="0.3" d="M5.78001 21.115L3.28001 21.949C3.10897 22.0059 2.92548 22.0141 2.75004 21.9727C2.57461 21.9312 2.41416 21.8418 2.28669 21.7144C2.15923 21.5869 2.06975 21.4264 2.0283 21.251C1.98685 21.0755 1.99507 20.892 2.05201 20.7209L2.886 18.2209L7.22801 13.879L10.128 16.774L5.78001 21.115Z" fill="#035A4B" />
+                  <path d="M21.7 8.08899L15.911 2.30005C15.8161 2.2049 15.7033 2.12939 15.5792 2.07788C15.455 2.02637 15.3219 1.99988 15.1875 1.99988C15.0531 1.99988 14.92 2.02637 14.7958 2.07788C14.6717 2.12939 14.5589 2.2049 14.464 2.30005L13.74 3.02295C13.548 3.21498 13.4402 3.4754 13.4402 3.74695C13.4402 4.01849 13.548 4.27892 13.74 4.47095L14.464 5.19397L11.303 8.35498C10.1615 7.80702 8.87825 7.62639 7.62985 7.83789C6.38145 8.04939 5.2293 8.64265 4.332 9.53601C4.14026 9.72817 4.03256 9.98855 4.03256 10.26C4.03256 10.5315 4.14026 10.7918 4.332 10.984L13.016 19.667C13.208 19.859 13.4684 19.9668 13.74 19.9668C14.0115 19.9668 14.272 19.859 14.464 19.667C15.3575 18.77 15.9509 17.618 16.1624 16.3698C16.374 15.1215 16.1932 13.8383 15.645 12.697L18.806 9.53601L19.529 10.26C19.721 10.452 19.9814 10.5598 20.253 10.5598C20.5245 10.5598 20.785 10.452 20.977 10.26L21.7 9.53601C21.7952 9.44108 21.8706 9.32825 21.9221 9.2041C21.9737 9.07995 22.0002 8.94691 22.0002 8.8125C22.0002 8.67809 21.9737 8.54505 21.9221 8.4209C21.8706 8.29675 21.7952 8.18392 21.7 8.08899V8.08899Z" fill="#035A4B" />
+                </svg>
+              </div>
+            </div>
+
+            <div class="flex-grow-1 ms-3">
+              <h4>What should do the events?</h4>
+              <p>The program will intends to achieve five main goals. We aim to Sharpen up the spirit of talented youth leaders in various areas, Build a character of youth leadership, Build the existence of the youth on the international scene, Train the leadership soul of the youth who is actively contributing to develop the country, Continue the Istanbul Youth Summit program for years to come by creating a strong network and long term relationship among IYS alumni.</p>
+            </div>
+          </div>
+          <!-- End Icon Blocks -->
+        </div>
+
+        <div class="col-md-6 col-lg-5 mb-3 mb-md-5 mb-lg-7">
+          <!-- Icon Blocks -->
+          <div class="d-flex ps-md-5">
+            <div class="flex-shrink-0">
+              <div class="svg-icon text-primary">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path opacity="0.3" d="M20.9 12.9C20.3 12.9 19.9 12.5 19.9 11.9C19.9 11.3 20.3 10.9 20.9 10.9H21.8C21.3 6.2 17.6 2.4 12.9 2V2.9C12.9 3.5 12.5 3.9 11.9 3.9C11.3 3.9 10.9 3.5 10.9 2.9V2C6.19999 2.5 2.4 6.2 2 10.9H2.89999C3.49999 10.9 3.89999 11.3 3.89999 11.9C3.89999 12.5 3.49999 12.9 2.89999 12.9H2C2.5 17.6 6.19999 21.4 10.9 21.8V20.9C10.9 20.3 11.3 19.9 11.9 19.9C12.5 19.9 12.9 20.3 12.9 20.9V21.8C17.6 21.3 21.4 17.6 21.8 12.9H20.9Z" fill="#035A4B" />
+                  <path d="M16.9 10.9H13.6C13.4 10.6 13.2 10.4 12.9 10.2V5.90002C12.9 5.30002 12.5 4.90002 11.9 4.90002C11.3 4.90002 10.9 5.30002 10.9 5.90002V10.2C10.6 10.4 10.4 10.6 10.2 10.9H9.89999C9.29999 10.9 8.89999 11.3 8.89999 11.9C8.89999 12.5 9.29999 12.9 9.89999 12.9H10.2C10.4 13.2 10.6 13.4 10.9 13.6V13.9C10.9 14.5 11.3 14.9 11.9 14.9C12.5 14.9 12.9 14.5 12.9 13.9V13.6C13.2 13.4 13.4 13.2 13.6 12.9H16.9C17.5 12.9 17.9 12.5 17.9 11.9C17.9 11.3 17.5 10.9 16.9 10.9Z" fill="#035A4B" />
                 </svg>
 
               </div>
@@ -139,17 +139,72 @@
 
             <div class="flex-grow-1 ms-3">
               <h4>IYS Agenda</h4>
-              <p>We actively pursue the right balance between functionality and aesthetics, creating delightful experiences.</p>
+              <p>This Istanbul Youth Summit (IYS) activity will be held on 14 – 17 Februari 2022 in Ramada Hotel & Suites by Wyndham Istanbul Merter</p>
             </div>
           </div>
           <!-- End Icon Blocks -->
         </div>
-        </div>
       </div>
-      <iframe width="100%" height="550" src="https://www.youtube.com/embed/75okUDnLLiE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-    <!-- End Info -->
-        <!-- End Heading -->
-</div>
-<!-- End Hero Section -->
+    <iframe width="100%" height="550" src="https://www.youtube.com/embed/75okUDnLLiE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="content-space-2 content-space-lg-3">
+      <div class="border-top mx-auto" style="max-width: 25rem;"></div>
+      <!-- Testimonials -->
+      <div class="container content-space-1 content-space-md-3">
+        <!-- Swiper Slider -->
+        <div class="js-swiper-single-testimonials swiper">
+          <div class="swiper-wrapper">
+            <!-- Slide -->
+            <div class="swiper-slide">
+              <!-- Blockquote -->
+              <figure class="w-md-65 text-center mx-md-auto">
+                <div class="mb-3">
+                  <img class="avatar avatar-xl avatar-circle" src="<?= site_url('assets/img/testimoni/testimoni_2.jpg')?>" alt="Image Description">
+                </div>
+
+                <blockquote class="blockquote">“ For me, Istanbul Youth Summit gave me many new lessons in my life, such as learning to think critically, learning to come up with new ideas, learning to respect other people's opinions, and learning to dare to dream big. So, I want to say thank you very much to IYS for the opportunities, lessons, and experiences that have been given while in Turkey. Wishing the next IYS more success!					 ”</blockquote>
+                <figcaption class="blockquote-footer mb-5">
+                    Raisya Azzahra
+                  <span class="blockquote-footer-source">Indonesia University</span>
+                </figcaption>
+              </figure>
+              <!-- End Blockquote -->
+            </div>
+            <!-- End Slide -->
+
+            <!-- Slide -->
+            <div class="swiper-slide">
+              <!-- Blockquote -->
+              <figure class="w-md-65 text-center mx-md-auto">
+                <div class="mb-3">
+                  <img class="avatar avatar-xl avatar-circle" src="<?= site_url('assets/img/testimoni/testimoni_3.jpeg')?>" alt="Image Description">
+                </div>
+
+                <blockquote class="blockquote">“ 
+						Istanbul Youth Summit 2021 is a big leap of experience in my life, i was never able to express my ideas and opinions in front of many great people and audiences, and i am able to discuss that idea with many other great young leaders that follows the event, having to work with strangers from far away to create a solid and fun team, i was also able to expand my networks with the people from around the world that participate in the event.
+            Fear is the only thing keeping me behind, get out of your comfort zone, don't miss your chance and join the event!					 ”</blockquote>
+
+                <figcaption class="blockquote-footer mb-5">
+                  Admiral Arief Prabowo
+                  <span class="blockquote-footer-source">Al Azhar University Cairo</span>
+                </figcaption>
+              </figure>
+              <!-- End Blockquote -->
+            </div>
+            <!-- End Slide -->
+          </div>
+
+          <!-- Pagination -->
+          <div class="js-swiper-single-testimonials-pagination swiper-pagination"></div>
+        </div>
+        <!-- End Swiper Slider -->
+      </div>
+      <!-- End Testimonials -->
+      <div class="border-top mx-auto" style="max-width: 25rem;"></div>
+    </div>
+  </div>
+  <!-- End Info -->
+  <!-- End Heading -->
+  </div>
+  <!-- End Hero Section -->
 </main>
