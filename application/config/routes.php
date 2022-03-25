@@ -53,9 +53,17 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['sign-in']           = 'FrontController/signIn';
-$route['sign-up']           = 'FrontController/signUp';
+
 $route['about']             = 'FrontController/about';
 $route['team']              = 'FrontController/ourTeam';
 $route['partner-sponsor']   = 'FrontController/partnerSponsor';
 $route['faq']               = 'FrontController/faq';
+$route['privacy-policy']    = 'FrontController/privacyPolicy';
+
+// ===== USER =====
+$route['sign-in']           = 'FrontController/signIn';
+$route['sign-up']           = 'FrontController/signUp';
+$route['register']          = 'usr/AuthController/register';
+$route['login']             = 'usr/AuthController/login';
+// announcement
+$route['announcement']      = 'usr/AnnouncementController';

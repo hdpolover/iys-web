@@ -10,6 +10,7 @@
   <script src="<?= site_url()?>assets/vendor/hs-go-to/dist/hs-go-to.min.js"></script>
   <script src="<?= site_url()?>assets/vendor/aos/dist/aos.js"></script>
   <script src="<?= site_url()?>assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="<?= site_url()?>assets/vendor/hs-toggle-password/dist/js/hs-toggle-password.js"></script>
 
   <!-- JS Front -->
   <script src="<?= site_url()?>assets/js/theme.min.js"></script>
@@ -40,8 +41,8 @@
       // =======================================================
       HSBsValidation.init('.js-validate', {
         onSubmit: data => {
-          data.event.preventDefault()
-          alert('Submited')
+          // data.event.preventDefault()
+          // alert('Submited')
         }
       })
 
@@ -147,6 +148,9 @@
         clickable: true,
       },
     });
+      // INITIALIZATION OF TOGGLE PASSWORD
+      // =======================================================
+      new HSTogglePassword('.js-toggle-password')
   </script>
 </body>
 </html>

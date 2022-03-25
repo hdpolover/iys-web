@@ -63,12 +63,20 @@
         <!-- End Heading -->
 
         <!-- Form -->
-        <form class="js-validate needs-validation" novalidate>
+        <form class="js-validate needs-validation" action="<?= site_url('register')?>" method="POST" novalidate>
             <!-- Form -->
             <div class="mb-3">
             <label class="form-label" for="signupModalFormSignupEmail">Your email</label>
             <input type="email" class="form-control form-control-lg" name="email" id="signupModalFormSignupEmail" placeholder="email@site.com" aria-label="email@site.com" required>
             <span class="invalid-feedback">Please enter a valid email address.</span>
+            </div>
+            <!-- End Form -->
+
+            <!-- Form -->
+            <div class="mb-3">
+            <label class="form-label" for="signupModalFormSignupName">Your Full Name</label>
+            <input type="text" class="form-control form-control-lg" name="fullName" id="signupModalFormSignupName" placeholder="Your name"  required>
+            <span class="invalid-feedback">Please enter a valid full name.</span>
             </div>
             <!-- End Form -->
 
@@ -118,11 +126,19 @@
             <!-- Check -->
             <div class="form-check mb-3">
             <input type="checkbox" class="form-check-input" id="signupHeroFormPrivacyCheck" name="signupFormPrivacyCheck" required>
-            <label class="form-check-label small" for="signupHeroFormPrivacyCheck"> By submitting this form I have read and acknowledged the <a href=./page-privacy.html>Privacy Policy</a></label>
+            <label class="form-check-label small" for="signupHeroFormPrivacyCheck"> By submitting this form I have read and acknowledged the <a href="<?= site_url('privacy-policy')?>" target="_blank">Privacy Policy</a></label>
             <span class="invalid-feedback">Please accept our Privacy Policy.</span>
             </div>
             <!-- End Check -->
-
+            <?php
+                if($this->session->flashdata('err_msg')){
+                    echo '
+                        <div class="alert alert-soft-danger mb-3" role="alert">
+                            '.$this->session->flashdata('err_msg').'
+                        </div>        
+                    ';
+                }
+            ?>
             <div class="d-grid mb-3">
             <button type="submit" class="btn btn-primary btn-lg">Sign up</button>
             </div>

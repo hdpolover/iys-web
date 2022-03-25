@@ -65,7 +65,7 @@
         <!-- End Heading -->
 
         <!-- Form -->
-        <form class="js-validate needs-validation" novalidate>
+        <form class="js-validate needs-validation" action="<?= site_url('login')?>" method="POST" novalidate>
             <!-- Form -->
             <div class="mb-4">
             <label class="form-label" for="signupModalFormLoginEmail">Your email</label>

@@ -42,4 +42,11 @@ class FrontController extends CI_Controller{
         
         $this->template->front('faq', $data);
     }
+    public function privacyPolicy(){
+        $data['title']      = 'Privacy & Policy';
+        $data['topBar']     = '';
+        $data['isBgDark']   = true;
+        
+        $this->template->front('privacy_policy', $data);
+    }
 }
