@@ -27,6 +27,16 @@ class AuthController extends CI_Controller{
         $this->setSession($formData['id_user'], $formData['email'], $formData['name'], $formData['id_user_role']);
         redirect('announcement');
     }
+    public function login(){
+        $user = $this->User->get(['email' => $_POST['email'], 'password' => hash('sha256', md5($_POST['password']))]);
+        if($user == null){
+            $this->session->set_flashdata('err_msg', 'Your email or password is wrong');
+            redirect('sign-in');
+        }
+
+        $this->setSession($user[0]->id_user, $user[0]->email, $user[0]->name, $user[0]->id_user_role);
+        redirect('announcement');
+    }
     public function logout(){
         $this->session->sess_destroy();
         redirect('/');

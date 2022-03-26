@@ -65,5 +65,6 @@ $route['sign-in']           = 'FrontController/signIn';
 $route['sign-up']           = 'FrontController/signUp';
 $route['register']          = 'usr/AuthController/register';
 $route['login']             = 'usr/AuthController/login';
+$route['logout']            = 'usr/AuthController/logout';
 // announcement
 $route['announcement']      = 'usr/AnnouncementController';

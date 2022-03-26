@@ -68,37 +68,45 @@
         <form class="js-validate needs-validation" action="<?= site_url('login')?>" method="POST" novalidate>
             <!-- Form -->
             <div class="mb-4">
-            <label class="form-label" for="signupModalFormLoginEmail">Your email</label>
-            <input type="email" class="form-control form-control-lg" name="email" id="signupModalFormLoginEmail" placeholder="email@site.com" aria-label="email@site.com" required>
-            <span class="invalid-feedback">Please enter a valid email address.</span>
+                <label class="form-label" for="signupModalFormLoginEmail">Your email</label>
+                <input type="email" class="form-control form-control-lg" name="email" id="signupModalFormLoginEmail" placeholder="email@site.com" aria-label="email@site.com" required>
+                <span class="invalid-feedback">Please enter a valid email address.</span>
             </div>
             <!-- End Form -->
 
             <!-- Form -->
             <div class="mb-4">
-            <div class="d-flex justify-content-between align-items-center">
-                <label class="form-label" for="signupModalFormLoginPassword">Password</label>
+                <div class="d-flex justify-content-between align-items-center">
+                    <label class="form-label" for="signupModalFormLoginPassword">Password</label>
 
-                <a class="form-label-link" href="./page-reset-password.html">Forgot Password?</a>
-            </div>
+                    <a class="form-label-link" href="./page-reset-password.html">Forgot Password?</a>
+                </div>
 
-            <div class="input-group input-group-merge" data-hs-validation-validate-class>
-                <input type="password" class="js-toggle-password form-control form-control-lg" name="password" id="signupModalFormLoginPassword" placeholder="8+ characters required" aria-label="8+ characters required" required minlength="8"
-                    data-hs-toggle-password-options='{
-                        "target": "#changePassTarget",
-                        "defaultClass": "bi-eye-slash",
-                        "showClass": "bi-eye",
-                        "classChangeTarget": "#changePassIcon"
-                    }'>
-                <a id="changePassTarget" class="input-group-append input-group-text" href="javascript:;">
-                <i id="changePassIcon" class="bi-eye"></i>
-                </a>
-            </div>
+                <div class="input-group input-group-merge" data-hs-validation-validate-class>
+                    <input type="password" class="js-toggle-password form-control form-control-lg" name="password" id="signupModalFormLoginPassword" placeholder="8+ characters required" aria-label="8+ characters required" required minlength="8"
+                        data-hs-toggle-password-options='{
+                            "target": "#changePassTarget",
+                            "defaultClass": "bi-eye-slash",
+                            "showClass": "bi-eye",
+                            "classChangeTarget": "#changePassIcon"
+                        }'>
+                    <a id="changePassTarget" class="input-group-append input-group-text" href="javascript:;">
+                    <i id="changePassIcon" class="bi-eye"></i>
+                    </a>
+                </div>
 
-            <span class="invalid-feedback">Please enter a valid password.</span>
+                <span class="invalid-feedback">Please enter a valid password.</span>
             </div>
             <!-- End Form -->
-
+            <?php
+                if($this->session->flashdata('err_msg')){
+                    echo '
+                        <div class="alert alert-soft-danger mb-3" role="alert">
+                            '.$this->session->flashdata('err_msg').'
+                        </div>        
+                    ';
+                }
+            ?>
             <div class="d-grid mb-3">
             <button type="submit" class="btn btn-primary btn-lg">Log in</button>
             </div>
