@@ -24,4 +24,7 @@ class Welcome extends CI_Controller {
 		$data['topBar'] = "home";
 		$this->template->front('landing', $data);
 	}
+	public function tes(){
+		print_r(hash('sha256', md5('123admin456')));
+	}
 }

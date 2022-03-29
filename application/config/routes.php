@@ -60,6 +60,12 @@ $route['partner-sponsor']   = 'FrontController/partnerSponsor';
 $route['faq']               = 'FrontController/faq';
 $route['privacy-policy']    = 'FrontController/privacyPolicy';
 
+// ===== ADMIN =====
+$route['admin/sign-in']     = 'adm/AuthController/signIn';
+$route['admin/login']       = 'adm/AuthController/login';
+$route['admin/logout']      = 'adm/AuthController/logout';
+
+
 // ===== USER =====
 $route['sign-in']           = 'FrontController/signIn';
 $route['sign-up']           = 'FrontController/signUp';
@@ -68,3 +74,5 @@ $route['login']             = 'usr/AuthController/login';
 $route['logout']            = 'usr/AuthController/logout';
 // announcement
 $route['announcement']      = 'usr/AnnouncementController';
+
+$route['tes'] = 'Welcome/tes';
