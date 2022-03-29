@@ -61,9 +61,12 @@ $route['faq']               = 'FrontController/faq';
 $route['privacy-policy']    = 'FrontController/privacyPolicy';
 
 // ===== ADMIN =====
+// auth
 $route['admin/sign-in']     = 'adm/AuthController/signIn';
 $route['admin/login']       = 'adm/AuthController/login';
 $route['admin/logout']      = 'adm/AuthController/logout';
+// dashboard
+$route['admin/dashboard']   = 'adm/DashboardController';
 
 
 // ===== USER =====
