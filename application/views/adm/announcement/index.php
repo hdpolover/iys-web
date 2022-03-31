@@ -61,7 +61,7 @@
         <!-- Table -->
         <div class="row">
           <div class="col">
-            <button type="button" class="btn btn-soft-success btn-sm" style="float: right;">
+            <button type="button" class="btn btn-soft-success btn-sm" data-bs-toggle="modal" data-bs-target="#mdlAdd" style="float: right;">
               Add
               <i class="bi-plus-lg ms-1"></i>
             </button>
@@ -96,19 +96,43 @@
         </div>
           <!-- End Table -->
         <!-- End Transaction Table -->
-
-      <!-- <div class="d-flex">
-          <div class="container d-flex align-items-center vh-100 mt-5">
-              <div class="w-sm-75 w-lg-50 text-center mx-sm-auto">
-                  <div class="mb-7">
-                  <img class="img-fluid" src="<?= site_url()?>assets/svg/illustrations/oc-maintenance.svg" alt="SVG Illustration">
-                  </div>
-
-                  <h1 class="h2">We're just tuning up a few things.</h1>
-                  <p>We apologize for the inconvenience but IYS Web is currently undergoing planned maintenance. Stay tuned!</p>
-              </div>
-          </div>
-      </div> -->
     </div>
     <!-- End Content -->
+    <!-- Modal -->
+    <div class="modal fade" id="mdlAdd" tabindex="-1" aria-labelledby="mdlAddLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="mdlAddLabel">New Announcement</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+            <form>
+              <!-- Quill -->
+              <div class="quill-custom">
+                <div class="js-quill" style="min-height: 15rem;"
+                    data-hs-quill-options='{
+                    "placeholder": "Type your message...",
+                    "attach": "#mdlAdd",
+                      "modules": {
+                        "toolbar": [
+                          ["bold", "italic", "underline", "strike", "link", "image", "blockquote", "code", {"list": "bullet"}]
+                        ]
+                      }
+                    }'>
+                </div>
+              </div>
+              <!-- End Quill -->
+            </form>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-soft-success">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
   </main>
