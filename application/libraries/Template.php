@@ -22,4 +22,10 @@ class Template {
         $this->_ci->load->view($content, $data); // Content
         $this->_ci->load->view('templates/usr/footer', $data);
     }
+    public function admin($content, $data){
+        $this->_ci->load->view('templates/adm/header', $data);
+        $this->_ci->load->view('templates/adm/topbar', $data);
+        $this->_ci->load->view($content, $data); // Content
+        $this->_ci->load->view('templates/adm/footer', $data);
+    }
 }
