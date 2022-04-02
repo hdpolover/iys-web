@@ -61,14 +61,23 @@
         <!-- Table -->
         <div class="row">
           <div class="col">
-            <button type="button" class="btn btn-soft-success btn-sm" data-bs-toggle="modal" data-bs-target="#mdlAdd" style="float: right;">
+            <a href="<?= site_url('admin/announcement/add')?>" class="btn btn-soft-success btn-sm" style="float: right;">
               Add
               <i class="bi-plus-lg ms-1"></i>
-            </button>
+            </a>
           </div>
         </div>
         <div class="row mt-3">
           <div class="col">
+            <?php
+                if($this->session->flashdata('succ_msg')){
+                    echo '
+                        <div class="alert alert-soft-success mb-3" role="alert">
+                            '.$this->session->flashdata('succ_msg').'
+                        </div>        
+                    ';
+                }
+            ?>
             <table class="table table-borderless table-thead-bordered">
               <thead class="thead-light">
                 <tr>
@@ -80,16 +89,25 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">Istanbul Youth Summit 2022</th>
-                  <td></td>
-                  <td>22 March 2022</td>
-                  <td>sdf</td>
-                  <td>
-                    <button type="button" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-pencil-square"></i></button>
-                    <button type="button" class="btn btn-soft-danger btn-icon btn-sm"><i class="bi-trash"></i></button>
-                  </td>
-                </tr>
+                <?php
+                  foreach ($announcements as $announcement) {
+                    echo  '
+                      <tr>
+                        <th scope="row">'.$announcement->name_summit.'</th>
+                        <td>
+                          <button onclick="showMdlPoster(\''.$announcement->poster.'\')" type="button" class="btn btn-soft-dark btn-icon btn-sm"><i class="bi-image"></i></button>
+                        </td>
+                        <td>'.date_format(date_create($announcement->date), 'j F Y H:i').'</td>
+                        <td>'.$announcement->title.'</td>
+                        <td>
+                          <a href="'.site_url('admin/announcement/edit/'.$announcement->id_announcement).'" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-pencil-square"></i></a>
+                          <button onclick="showMdlDelete('.$announcement->id_announcement.')" type="button" class="btn btn-soft-danger btn-icon btn-sm"><i class="bi-trash"></i></button>
+                        </td>
+                      </tr>    
+                    ';    
+                  }
+                ?>
+                
               </tbody>
             </table>
           </div>
@@ -99,70 +117,57 @@
     </div>
     <!-- End Content -->
     <!-- Modal -->
-    <div class="modal fade" id="mdlAdd" tabindex="-1" aria-labelledby="mdlAddLabel" aria-hidden="true">
+    <div class="modal fade" id="mdlPoster" tabindex="-1" aria-labelledby="mdlPosterLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="mdlAddLabel">New Announcement</h5>
+            <h5 class="modal-title" id="mdlPosterLabel">Poster Announcement</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
-          <div class="modal-body">
-            <form action="<?= site_url('admin/announcement/store')?>" method="POST" enctype="multipart/form-data">
-              <div class="mb-3">
-                <label for="validationValidInput1">Title</label>
-                <input type="text" class="form-control" id="validationValidInput1" placeholder="Placeholder">
-              </div>
-            
-              <div class="mb-3">
-                <label for="validationValidFileInput1">Poster</label>
-                <div class="mb-3 text-center" id="boxPoster" style="border: .0625rem solid rgba(33,50,91,.1);border-radius: .3125rem;width: 100%;height: 300px;">
-                  <img style="" id="image" class="my-3" src="<?= site_url('assets/svg/illustrations/oc-lost.svg')?>" alt="poster image" width="250"/>
-                </div>
-                <input type="file" id="file" onchange="ShowPoster(event);" accept=".jpg,.jpeg,.png" id="validationValidFileInput1" class="form-control">
-              </div>
-
-              <div class="mb-3">
-                <label for="validationValidTextarea1">Content</label>
-                <div class="quill-custom">
-                  <input type="hidden" id="content" name="content">
-                  <div class="js-quill" style="min-height: 15rem;"
-                      data-hs-quill-options='{
-                      "placeholder": "Type your message...",
-                        "modules": {
-                          "toolbar": [
-                            ["bold", "italic", "underline", "strike", "link", "image", "blockquote", "code", {"list": "bullet"}]
-                          ]
-                        }
-                      }'>
-                  </div>
-                </div>
-              </div>
+          <div class="modal-body text-center">
+              <img id="mdlPoster_src" style="max-width: 550px;" src="" alt="">
           </div>
 
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-soft-success">Save</button>
           </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="mdlDelete" tabindex="-1" aria-labelledby="mdlDeleteLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="mdlDeleteLabel">Delete Announcement</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body text-center">
+              <h4 class="text-center">Are you sure to delete the announcement ?</h4>
+          </div>
+
+          <div class="modal-footer">
+            <form action="<?= site_url('admin/announcement/destroy')?> " method="post">
+              <input type="hidden" name="id" id="mdlDelete_id" >
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-soft-danger">Delete</button>
             </form>
+          </div>
         </div>
       </div>
     </div>
     <!-- End Modal -->
   </main>
   <script>
-    $('#boxPoster').click(function(){
-      $('#file').click();
-    })
-    function ShowPoster(event){
-      if(event.target.files.length > 0){
-        var src = URL.createObjectURL(event.target.files[0]);
-        var preview = document.getElementById("image");
-        preview.src = src;
-        // preview.style.width = "250px";
-        preview.style.width = "80%";
-        preview.style.height = "100%";
-        // preview.style.display = "block";
-      }
-    };
+    const showMdlPoster = src => {
+      $('#mdlPoster_src').attr('src', src);
+      $('#mdlPoster').modal('show')
+    }
+    const showMdlDelete = id => {
+      $('#mdlDelete_id').val(id);
+      $('#mdlDelete').modal('show')
+    }
   </script>
