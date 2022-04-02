@@ -9,6 +9,9 @@ class DashboardController extends CI_Controller{
         $this->load->model('Admin');
     }
     public function index(){
-        $this->load->view('adm/dashboard/index');
+        $data['title']      = 'Dashboard';
+        $data['sidebar']    = 'dashboard';
+
+        $this->template->admin('adm/dashboard/index', $data);
     }
 }

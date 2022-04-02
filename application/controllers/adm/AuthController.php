@@ -5,6 +5,9 @@ class AuthController extends CI_Controller{
         parent::__construct();
         $this->load->model('Admin');
     }
+    public function index(){
+        redirect('admin/sign-in');
+    }
     public function signIn(){
         $this->load->view('adm/auth/sign_in');
     }
@@ -16,7 +19,7 @@ class AuthController extends CI_Controller{
         }
 
         $this->setSession($admin[0]->id_admin, $admin[0]->username, "0");
-        // redirect('announcement');
+        redirect('admin/dashboard');
     }
     public function logout(){
         $this->session->sess_destroy();
