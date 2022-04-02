@@ -69,7 +69,8 @@ $route['admin/logout']      = 'adm/AuthController/logout';
 // dashboard
 $route['admin/dashboard']   = 'adm/DashboardController';
 // announcement
-$route['admin/announcement']    = 'adm/AnnouncementController';
+$route['admin/announcement']            = 'adm/AnnouncementController';
+$route['admin/announcement/store']      = 'adm/AnnouncementController/store';
 
 
 // ===== USER =====

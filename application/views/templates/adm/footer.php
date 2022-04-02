@@ -40,27 +40,10 @@
       // INITIALIZATION OF HEADER
       // =======================================================
       new HSHeader('#header').init()
-
-
-      // INITIALIZATION OF LISTJS COMPONENT
-      // =======================================================
-      HSCore.components.HSList.init('#snippetsSearch')
-      const snippetsSearch = HSCore.components.HSList.getItem('snippetsSearch')
-
-
-      // GET JSON FILE RESULTS
-      // =======================================================
-      fetch('<?= site_url()?>assets/json/snippets-search.json')
-      .then(response => response.json())
-      .then(data => {
-        snippetsSearch.add(data)
-      })
-
-
+      HSCore.components.HSQuill.init('.js-quill')
       // INITIALIZATION OF GO TO
       // =======================================================
       new HSGoTo('.js-go-to')
-      HSCore.components.HSQuill.init('.js-quill')
     })()
   </script>
 </body>

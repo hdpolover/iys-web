@@ -21,4 +21,5 @@
   <link rel="stylesheet" href="<?= site_url()?>assets/css/theme.min.css">
   <link rel="stylesheet" href="<?= site_url()?>assets/css/snippets.min.css">
   <link rel="stylesheet" href="<?= site_url()?>assets/vendor/quill/dist/quill.snow.css">
+  
 </head>

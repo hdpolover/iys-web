@@ -108,31 +108,61 @@
           </div>
 
           <div class="modal-body">
-            <form>
-              <!-- Quill -->
-              <div class="quill-custom">
-                <div class="js-quill" style="min-height: 15rem;"
-                    data-hs-quill-options='{
-                    "placeholder": "Type your message...",
-                    "attach": "#mdlAdd",
-                      "modules": {
-                        "toolbar": [
-                          ["bold", "italic", "underline", "strike", "link", "image", "blockquote", "code", {"list": "bullet"}]
-                        ]
-                      }
-                    }'>
+            <form action="<?= site_url('admin/announcement/store')?>" method="POST" enctype="multipart/form-data">
+              <div class="mb-3">
+                <label for="validationValidInput1">Title</label>
+                <input type="text" class="form-control" id="validationValidInput1" placeholder="Placeholder">
+              </div>
+            
+              <div class="mb-3">
+                <label for="validationValidFileInput1">Poster</label>
+                <div class="mb-3 text-center" id="boxPoster" style="border: .0625rem solid rgba(33,50,91,.1);border-radius: .3125rem;width: 100%;height: 300px;">
+                  <img style="" id="image" class="my-3" src="<?= site_url('assets/svg/illustrations/oc-lost.svg')?>" alt="poster image" width="250"/>
+                </div>
+                <input type="file" id="file" onchange="ShowPoster(event);" accept=".jpg,.jpeg,.png" id="validationValidFileInput1" class="form-control">
+              </div>
+
+              <div class="mb-3">
+                <label for="validationValidTextarea1">Content</label>
+                <div class="quill-custom">
+                  <input type="hidden" id="content" name="content">
+                  <div class="js-quill" style="min-height: 15rem;"
+                      data-hs-quill-options='{
+                      "placeholder": "Type your message...",
+                        "modules": {
+                          "toolbar": [
+                            ["bold", "italic", "underline", "strike", "link", "image", "blockquote", "code", {"list": "bullet"}]
+                          ]
+                        }
+                      }'>
+                  </div>
                 </div>
               </div>
-              <!-- End Quill -->
-            </form>
           </div>
 
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-soft-success">Save</button>
+            <button type="submit" class="btn btn-soft-success">Save</button>
           </div>
+            </form>
         </div>
       </div>
     </div>
     <!-- End Modal -->
   </main>
+  <script>
+    $('#boxPoster').click(function(){
+      $('#file').click();
+    })
+    function ShowPoster(event){
+      if(event.target.files.length > 0){
+        var src = URL.createObjectURL(event.target.files[0]);
+        var preview = document.getElementById("image");
+        preview.src = src;
+        // preview.style.width = "250px";
+        preview.style.width = "80%";
+        preview.style.height = "100%";
+        // preview.style.display = "block";
+      }
+    };
+  </script>
