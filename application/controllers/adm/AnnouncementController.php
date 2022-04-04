@@ -12,29 +12,32 @@ class AnnouncementController extends CI_Controller{
     public function index(){
         $data['title']          = 'Announcement';
         $data['sidebar']        = 'announcement';
+        $data['subSidebar']     = 'announcePublic';
         $data['announcements']  = $this->Announcement->getAll();
 
-        $this->template->admin('adm/announcement/index', $data);
+        $this->template->admin('adm/announcement/public/index', $data);
     }
     public function add(){
         $data['title']      = 'Add New Announcement';
         $data['sidebar']    = 'announcement';
+        $data['subSidebar']     = 'announcePublic';
 
-        $this->template->admin('adm/announcement/add', $data);
+        $this->template->admin('adm/announcement/public/add', $data);
     }
     public function edit($id){
         $data['title']          = 'Edit Announcement';
         $data['sidebar']        = 'announcement';
+        $data['subSidebar']     = 'announcePublic';
         $data['announcement']   = $this->Announcement->getById($id);
 
-        $this->template->admin('adm/announcement/edit', $data);
+        $this->template->admin('adm/announcement/public/edit', $data);
     }
     public function store(){
         if(!empty($_FILES['poster']['name'])){
             $uploadPoster = $this->uploadImage();
             if($uploadPoster['status'] == false){
                 $this->session->set_flashdata('err_msg', $uploadPoster['msg']);
-                redirect('admin/announcement/add');
+                redirect('admin/announcement-public/add');
             }
             $formData['poster'] = $uploadPoster['link'];
         }
@@ -46,14 +49,14 @@ class AnnouncementController extends CI_Controller{
 
         $this->Announcement->insert($formData);
         $this->session->set_flashdata('succ_msg', 'Successfully added a new announcement!');
-        redirect('admin/announcement');
+        redirect('admin/announcement-public');
     }
     public function change(){
         if(!empty($_FILES['poster']['name'])){
             $uploadPoster = $this->uploadImage();
             if($uploadPoster['status'] == false){
                 $this->session->set_flashdata('err_msg', $uploadPoster['msg']);
-                redirect('admin/announcement/edit/'.$_POST['id']);
+                redirect('admin/announcement-public/edit/'.$_POST['id']);
             }
             $formData['poster'] = $uploadPoster['link'];
         }
@@ -64,12 +67,12 @@ class AnnouncementController extends CI_Controller{
 
         $this->Announcement->update($formData);
         $this->session->set_flashdata('succ_msg', 'Successfully edit announcement!');
-        redirect('admin/announcement');
+        redirect('admin/announcement-public');
     }
     public function destroy(){
         $this->Announcement->delete(['id_announcement' => $_POST['id']]);
         $this->session->set_flashdata('succ_msg', 'Successfully delete announcement!');
-        redirect('admin/announcement');
+        redirect('admin/announcement-public');
     }
     public function uploadImage(){
         $path = "uploads/announcement";
