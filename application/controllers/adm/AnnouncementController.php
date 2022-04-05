@@ -13,7 +13,7 @@ class AnnouncementController extends CI_Controller{
         $data['title']          = 'Announcement';
         $data['sidebar']        = 'announcement';
         $data['subSidebar']     = 'announcePublic';
-        $data['announcements']  = $this->Announcement->getAll();
+        $data['announcements']  = $this->Announcement->get(['is_registered' => 0]);
 
         $this->template->admin('adm/announcement/public/index', $data);
     }
@@ -42,10 +42,10 @@ class AnnouncementController extends CI_Controller{
             $formData['poster'] = $uploadPoster['link'];
         }
 
-        $formData['id_summit']  = $_POST['summit'];
-        $formData['title']      = $_POST['title'];
-        $formData['content']    = $_POST['content'];
-        $formData['date']       = date('Y-m-d H:i:s');
+        $formData['id_summit']      = $_POST['summit'];
+        $formData['title']          = $_POST['title'];
+        $formData['content']        = $_POST['content'];
+        $formData['date']           = date('Y-m-d H:i:s');
 
         $this->Announcement->insert($formData);
         $this->session->set_flashdata('succ_msg', 'Successfully added a new announcement!');
@@ -74,6 +74,73 @@ class AnnouncementController extends CI_Controller{
         $this->session->set_flashdata('succ_msg', 'Successfully delete announcement!');
         redirect('admin/announcement-public');
     }
+    public function rView(){
+        $data['title']          = 'Announcement';
+        $data['sidebar']        = 'announcement';
+        $data['subSidebar']     = 'announceRegis';
+        $data['announcements']  = $this->Announcement->get(['is_registered' => '1']);
+
+        $this->template->admin('adm/announcement/registered/index', $data);
+    }
+    public function rAdd(){
+        $data['title']      = 'Add New Announcement';
+        $data['sidebar']    = 'announcement';
+        $data['subSidebar']     = 'announceRegis';
+
+        $this->template->admin('adm/announcement/registered/add', $data);
+    }
+    public function rEdit($id){
+        $data['title']          = 'Edit Announcement';
+        $data['sidebar']        = 'announcement';
+        $data['subSidebar']     = 'announceRegis';
+        $data['announcement']   = $this->Announcement->getById($id);
+
+        $this->template->admin('adm/announcement/registered/edit', $data);
+    }
+    public function rStore(){
+        if(!empty($_FILES['poster']['name'])){
+            $uploadPoster = $this->uploadImage();
+            if($uploadPoster['status'] == false){
+                $this->session->set_flashdata('err_msg', $uploadPoster['msg']);
+                redirect('admin/announcement-registered/add');
+            }
+            $formData['poster'] = $uploadPoster['link'];
+        }
+
+        $formData['id_summit']      = $_POST['summit'];
+        $formData['title']          = $_POST['title'];
+        $formData['content']        = $_POST['content'];
+        $formData['is_registered']  = 1;
+        $formData['date']           = date('Y-m-d H:i:s');
+
+        $this->Announcement->insert($formData);
+        $this->session->set_flashdata('succ_msg', 'Successfully added a new announcement!');
+        redirect('admin/announcement-registered');
+    }
+    public function rChange(){
+        if(!empty($_FILES['poster']['name'])){
+            $uploadPoster = $this->uploadImage();
+            if($uploadPoster['status'] == false){
+                $this->session->set_flashdata('err_msg', $uploadPoster['msg']);
+                redirect('admin/announcement-registered/edit/'.$_POST['id']);
+            }
+            $formData['poster'] = $uploadPoster['link'];
+        }
+
+        $formData['id_announcement']    = $_POST['id'];
+        $formData['title']              = $_POST['title'];
+        $formData['content']            = $_POST['content'];
+
+        $this->Announcement->update($formData);
+        $this->session->set_flashdata('succ_msg', 'Successfully edit announcement!');
+        redirect('admin/announcement-registered');
+    }
+    public function rDestroy(){
+        $this->Announcement->delete(['id_announcement' => $_POST['id']]);
+        $this->session->set_flashdata('succ_msg', 'Successfully delete announcement!');
+        redirect('admin/announcement-registered');
+    }
+
     public function uploadImage(){
         $path = "uploads/announcement";
         $conf['upload_path']    = $path;

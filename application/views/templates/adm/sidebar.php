@@ -8,7 +8,7 @@
 
             <div id="sidebarannouncement" class="nav-collapse collapse ms-2 <?= !empty($subSidebar) == "announcePublic" || !empty($subSidebar) == "announceRegis" ? "show" : ""?>">
                 <a class="nav-link <?= !empty($subSidebar) && $subSidebar == "announcePublic" ? "active" : ""?>" href="<?= site_url('admin/announcement-public')?>" >Public</a>
-                <a class="nav-link <?= !empty($subSidebar) && $subSidebar == "announceRegis" ? "active" : ""?>" href="#">Registered</a>
+                <a class="nav-link <?= !empty($subSidebar) && $subSidebar == "announceRegis" ? "active" : ""?>" href="<?= site_url('admin/announcement-registered')?>">Registered</a>
             </div>
         </li>
         <li class="nav-item">

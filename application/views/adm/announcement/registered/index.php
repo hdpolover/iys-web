@@ -52,7 +52,7 @@
       <div class="docs-page-header">
         <div class="row align-items-center">
           <div class="col-sm">
-            <h1 class="docs-page-header-title">Announcement Public</h1>
+            <h1 class="docs-page-header-title">Announcement Registered</h1>
           </div>
         </div>
       </div>
@@ -61,7 +61,7 @@
         <!-- Table -->
         <div class="row">
           <div class="col">
-            <a href="<?= site_url('admin/announcement-public/add')?>" class="btn btn-soft-success btn-sm" style="float: right;">
+            <a href="<?= site_url('admin/announcement-registered/add')?>" class="btn btn-soft-success btn-sm" style="float: right;">
               Add
               <i class="bi-plus-lg ms-1"></i>
             </a>
@@ -100,7 +100,7 @@
                         <td>'.date_format(date_create($announcement->date), 'j F Y H:i').'</td>
                         <td>'.$announcement->title.'</td>
                         <td>
-                          <a href="'.site_url('admin/announcement-public/edit/'.$announcement->id_announcement).'" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-pencil-square"></i></a>
+                          <a href="'.site_url('admin/announcement-registered/edit/'.$announcement->id_announcement).'" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-pencil-square"></i></a>
                           <button onclick="showMdlDelete('.$announcement->id_announcement.')" type="button" class="btn btn-soft-danger btn-icon btn-sm"><i class="bi-trash"></i></button>
                         </td>
                       </tr>    
@@ -150,7 +150,7 @@
           </div>
 
           <div class="modal-footer">
-            <form action="<?= site_url('admin/announcement-public/destroy')?> " method="post">
+            <form action="<?= site_url('admin/announcement-registered/destroy')?> " method="post">
               <input type="hidden" name="id" id="mdlDelete_id" >
               <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
               <button type="submit" class="btn btn-soft-danger">Delete</button>
