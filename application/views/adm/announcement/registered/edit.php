@@ -69,7 +69,7 @@
                     ';
                 }
             ?>
-          <form action="<?= site_url('admin/announcement/change')?>" method="POST" enctype="multipart/form-data">
+          <form action="<?= site_url('admin/announcement-registered/change')?>" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="validationValidInput1">Title</label>
                 <input type="text" name="title" class="form-control" value="<?= $announcement->title ?>" id="validationValidInput1" placeholder="Placeholder" required>
@@ -77,7 +77,7 @@
             <div class="mb-3">
                 <label for="validationValidFileInput1">Poster</label>
                 <div id="boxImg" class="text-center mb-3 p-3" style="border: .0625rem solid rgba(33,50,91,.1);border-radius: .3125rem;cursor: pointer;">
-                    <img style="max-width: 550px;" id="blah" class="" src="<?= $announcement->poster ?>" />
+                    <img style="max-width: 300px;" id="blah" class="" src="<?= $announcement->poster ?>" />
                 </div>
                 <input type="file" accept=".jpg,.png,.jpeg,.bmp" class="form-control" name="poster" style="cursor: pointer;" id="imgPoster">
             </div>

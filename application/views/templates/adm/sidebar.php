@@ -3,8 +3,13 @@
         <li class="nav-item">
             <a class="nav-link <?= $sidebar == "dashboard" ? "active" : "" ?>" href="<?= site_url('admin/dashboard')?>"><i class="bi-activity nav-icon"></i>Dashboard</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link <?= $sidebar == "announcement" ? "active" : "" ?>" href="<?= site_url('admin/announcement')?>"><i class="bi-megaphone nav-icon"></i>Announcement</a>
+        <li class="nav-item <?= $sidebar == "announcement" ? "active" : "" ?>">
+            <a class="nav-link dropdown-toggle" href="#sidebarannouncement" role="button" data-bs-toggle="collapse" aria-expanded="<?= $sidebar == "announcement" ? "true" : "false" ?>" aria-controls="sidebarannouncement"><i class="bi-megaphone nav-icon"></i>Announcement</a>
+
+            <div id="sidebarannouncement" class="nav-collapse collapse ms-2 <?= !empty($subSidebar) == "announcePublic" || !empty($subSidebar) == "announceRegis" ? "show" : ""?>">
+                <a class="nav-link <?= !empty($subSidebar) && $subSidebar == "announcePublic" ? "active" : ""?>" href="<?= site_url('admin/announcement-public')?>" >Public</a>
+                <a class="nav-link <?= !empty($subSidebar) && $subSidebar == "announceRegis" ? "active" : ""?>" href="<?= site_url('admin/announcement-registered')?>">Registered</a>
+            </div>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#"><i class="bi-people nav-icon"></i>Participant</a>

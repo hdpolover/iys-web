@@ -69,12 +69,18 @@ $route['admin/logout']      = 'adm/AuthController/logout';
 // dashboard
 $route['admin/dashboard']   = 'adm/DashboardController';
 // announcement
-$route['admin/announcement']                    = 'adm/AnnouncementController';
-$route['admin/announcement/add']                = 'adm/AnnouncementController/add';
-$route['admin/announcement/edit/(:any)']        = 'adm/AnnouncementController/edit/$1';
-$route['admin/announcement/store']              = 'adm/AnnouncementController/store';
-$route['admin/announcement/change']             = 'adm/AnnouncementController/change';
-$route['admin/announcement/destroy']            = 'adm/AnnouncementController/destroy';
+$route['admin/announcement-public']                         = 'adm/AnnouncementController';
+$route['admin/announcement-public/add']                     = 'adm/AnnouncementController/add';
+$route['admin/announcement-public/edit/(:any)']             = 'adm/AnnouncementController/edit/$1';
+$route['admin/announcement-public/store']                   = 'adm/AnnouncementController/store';
+$route['admin/announcement-public/change']                  = 'adm/AnnouncementController/change';
+$route['admin/announcement-public/destroy']                 = 'adm/AnnouncementController/destroy';
+$route['admin/announcement-registered']                     = 'adm/AnnouncementController/rView';
+$route['admin/announcement-registered/add']                 = 'adm/AnnouncementController/rAdd';
+$route['admin/announcement-registered/edit/(:any)']         = 'adm/AnnouncementController/rEdit/$1';
+$route['admin/announcement-registered/store']               = 'adm/AnnouncementController/rStore';
+$route['admin/announcement-registered/change']              = 'adm/AnnouncementController/rChange';
+$route['admin/announcement-registered/destroy']             = 'adm/AnnouncementController/rDestroy';
 
 
 // ===== USER =====
