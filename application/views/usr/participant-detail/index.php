@@ -148,7 +148,7 @@
 
                       <div class="col-sm-9">
                         <div class="js-form-message">
-                          <input type="text" class="form-control" name="fullName" id="validationFormUsernameLabel" placeholder="Full Name" aria-label="Username" required data-msg="Please enter your fullname.">
+                          <input type="text" class="form-control" name="fullName" id="validationFormUsernameLabel" placeholder="Full Name" value="<?= $this->session->userdata('name')?>" aria-label="Username" required data-msg="Please enter your fullname.">
                           <span class="invalid-feedback">Please enter a valid full name.</span>
                         </div>
                       </div>
@@ -252,7 +252,7 @@
 
                       <div class="col-sm-9">
                         <div class="js-form-message">
-                          <input type="text" class="form-control" name="fullofstudy" id="validationFormUsernameLabel" placeholder="Full of Study" aria-label="Username" required data-msg="Please enter your fullname.">
+                          <input type="text" class="form-control" name="fullOfStudy" id="validationFormUsernameLabel" placeholder="Full of Study" aria-label="Username" required data-msg="Please enter your fullname.">
                           <span class="invalid-feedback">Please enter a valid full of study.</span>
                         </div>
                       </div>
@@ -264,7 +264,7 @@
 
                       <div class="col-sm-9">
                         <div class="js-form-message">
-                          <input type="text" class="form-control" name="fullofstudy" id="validationFormUsernameLabel" placeholder="Institution / Workplace" aria-label="Username" required data-msg="Please enter your fullname.">
+                          <input type="text" class="form-control" name="instWork" id="validationFormUsernameLabel" placeholder="Institution / Workplace" aria-label="Username" required data-msg="Please enter your fullname.">
                           <span class="invalid-feedback">Please enter a valid institution / workplace.</span>
                         </div>
                       </div>
@@ -276,7 +276,7 @@
 
                       <div class="col-sm-9">
                         <div class="js-form-message">
-                          <input type="text" class="form-control" onkeypress="return isNumberKey(event)" name="fullofstudy" id="validationFormUsernameLabel" placeholder="Whatsapp Number" aria-label="Username" required data-msg="Please enter your fullname.">
+                          <input type="text" class="form-control" onkeypress="return isNumberKey(event)" name="whatsAppNumber" id="validationFormUsernameLabel" placeholder="Whatsapp Number" aria-label="Username" required data-msg="Please enter your fullname.">
                           <span class="invalid-feedback">Please enter a valid whatsapp number.</span>
                         </div>
                       </div>
@@ -313,7 +313,7 @@
 
                       <div class="col-sm-9">
                         <div class="js-form-message">
-                          <input type="text" class="form-control" name="emergency" id="validationFormUsernameLabel" placeholder="Contact Relation" aria-label="Username" required data-msg="Please enter your fullname.">
+                          <input type="text" class="form-control" name="contactRelation" id="validationFormUsernameLabel" placeholder="Contact Relation" aria-label="Username" required data-msg="Please enter your fullname.">
                           <span class="invalid-feedback">Please enter a valid contact relation.</span>
                         </div>
                       </div>
@@ -362,7 +362,7 @@
                               <!-- Form Radio -->
                               <label class="form-control" for="formControlRadioEg3">
                                 <span class="form-check">
-                                  <input type="radio" class="form-check-input" name="vegetarian" value="0" id="formControlRadioEg3" required>
+                                  <input type="radio" class="form-check-input" name="vegetarian" value="1" id="formControlRadioEg3" required>
                                   <span class="form-check-label">Yes</span>
                                 </span>
                               </label>
@@ -373,14 +373,14 @@
                               <!-- Form Radio -->
                               <label class="form-control" for="formControlRadioEg4">
                                 <span class="form-check">
-                                  <input type="radio" class="form-check-input" name="vegetarian" value="1" id="formControlRadioEg4" required>
+                                  <input type="radio" class="form-check-input" name="vegetarian" value="0" id="formControlRadioEg4" required>
                                   <span class="form-check-label">No</span>
                                 </span>
                               </label>
                               <!-- End Form Radio -->
                             </div>
                           </div>
-                          <span class="invalid-feedback">Please enter a gender.</span>
+                          <span class="invalid-feedback">Please enter a vegetarian.</span>
                         </div>
                       </div>
                     </div>
@@ -395,7 +395,7 @@
                       </button> -->
 
                       <div class="ms-auto">
-                        <button type="button" class="btn btn-soft-primary"
+                        <button type="button" onclick="step1clicked()" class="btn btn-soft-primary"
                                 data-hs-step-form-next-options='{
                                   "targetSelector": "#validationFormOther"
                                 }'>
@@ -466,7 +466,7 @@
                       </button>
 
                       <div class="ms-auto">
-                        <button type="button" class="btn btn-soft-primary"
+                        <button type="button" onclick="step2clicked()" class="btn btn-soft-primary"
                                 data-hs-step-form-next-options='{
                                   "targetSelector": "#validationFormEssay"
                                 }'>
@@ -519,7 +519,7 @@
                       </button>
 
                       <div class="ms-auto">
-                        <button type="button" class="btn btn-soft-primary"
+                        <button type="button" onclick="step3clicked()" class="btn btn-soft-primary"
                                 data-hs-step-form-next-options='{
                                   "targetSelector": "#validationFormProgram"
                                 }'>
@@ -618,7 +618,7 @@
                       </button>
 
                       <div class="ms-auto">
-                        <button type="button" class="btn btn-soft-primary"
+                        <button type="button" onclick="step4clicked()" class="btn btn-soft-primary"
                                 data-hs-step-form-next-options='{
                                   "targetSelector": "#validationFormSelfPhoto"
                                 }'>
@@ -728,3 +728,83 @@
   <!-- End Content -->
 </main>
 <!-- ========== END MAIN CONTENT ========== -->
+<script>
+  function step1clicked(){
+    const formData = {
+      'fullName'        : $('input[name="fullName"]').val(),
+      'birthday'        : $('input[name="birthday"]').val(),
+      'gender'          : $('input[name="gender"]:checked').val(),
+      'address'         : $('textarea[name="address"]').val(),
+      'nationality'     : $('select[name="nationality"]').val(),
+      'occupation'      : $('input[name="occupation"]').val(),
+      'fullOfStudy'     : $('input[name="fullOfStudy"]').val(),
+      'instWork'        : $('input[name="instWork"]').val(),
+      'whatsAppNumber'  : $('input[name="whatsAppNumber"]').val(),
+      'instagram'       : $('input[name="instagram"]').val(),
+      'contactRelation' : $('input[name="contactRelation"]').val(),
+      'emergency'       : $('input[name="emergency"]').val(),
+      'disease'         : $('textarea[name="disease"]').val(),
+      'tshirt'          : $('select[name="tshirt"]').val(),
+      'vegetarian'      : $('input[name="vegetarian"]:checked').val()
+    }
+
+    $.ajax({
+      url: '<?= site_url('personal-info/ajxPostBasic')?>',
+      method: 'POST',
+      data: formData,
+      success: function(res){
+        
+      }
+    })
+  }
+  function step2clicked(){
+    const formData = {
+      'experience'      : $('textarea[name="experience"]').val(),
+      'achievements'    : $('textarea[name="achievements"]').val(),
+      'socialProjects'  : $('textarea[name="socialProjects"]').val(),
+      'talents'         : $('textarea[name="talents"]').val()
+    }
+
+    $.ajax({
+      url: '<?= site_url('personal-info/ajxPostOther')?>',
+      method: 'POST',
+      data: formData,
+      success: function(res){
+        
+      }
+    })
+  }
+  function step3clicked(){
+    const formData = {
+      'essayType' : $('select[name="essayType"]').val(),
+      'essay'     : $('textarea[name="essay"]').val(),
+    }
+
+    $.ajax({
+      url: '<?= site_url('personal-info/ajxPostEssay')?>',
+      method: 'POST',
+      data: formData,
+      success: function(res){
+        
+      }
+    })
+  }
+  function step4clicked(){
+    const formData = {
+      'source'            : $('select[name="source"]').val(),
+      'sourceAccount'     : $('input[name="sourceAccount"]').val(),
+      'motivation'        : $('input[name="motivation"]').val(),
+      'shareRequirement'  : $('input[name="shareRequirement"]').val(),
+      'referral'          : $('input[name="referral"]').val(),
+    }
+
+    $.ajax({
+      url: '<?= site_url('personal-info/ajxPostProgram')?>',
+      method: 'POST',
+      data: formData,
+      success: function(res){
+        
+      }
+    })
+  }
+</script>

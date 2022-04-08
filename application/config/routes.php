@@ -92,7 +92,12 @@ $route['logout']            = 'usr/AuthController/logout';
 // announcement
 $route['announcement']      = 'usr/AnnouncementController';
 // personal-info
-$route['personal-info']      = 'usr/ParticipantDetailController';
+$route['personal-info']                 = 'usr/ParticipantDetailController';
+$route['personal-info/ajxPostBasic']    = 'usr/ParticipantDetailController/ajxPostBasic';
+$route['personal-info/ajxPostOther']    = 'usr/ParticipantDetailController/ajxPostOther';
+$route['personal-info/ajxPostEssay']    = 'usr/ParticipantDetailController/ajxPostEssay';
+$route['personal-info/ajxPostProgram']  = 'usr/ParticipantDetailController/ajxPostProgram';
+
 
 
 $route['tes'] = 'Welcome/tes';
