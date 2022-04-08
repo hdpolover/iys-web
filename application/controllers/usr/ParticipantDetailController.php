@@ -14,6 +14,7 @@ class ParticipantDetailController extends CI_Controller{
         $data['title']      = "Personal Info";
         $data['sidebar']    = "personal-info";
         $data['countries']  = $this->db->get('countries')->result();
+        $data['detail']     = $this->ParticipantDetail->getById($this->session->userdata('id_user'));
         $this->template->user('usr/participant-detail/index', $data);
     }
     public function ajxPostBasic(){
@@ -38,8 +39,8 @@ class ParticipantDetailController extends CI_Controller{
     }
     public function ajxPostOther(){
         $formData['id_user']            = $this->session->userdata('id_user');
-        $formData['achievements']       = $_POST['experience'];
-        $formData['experience']         = $_POST['achievements'];
+        $formData['achievements']       = $_POST['achievements'];
+        $formData['experience']         = $_POST['experience'];
         $formData['social_projects']    = $_POST['socialProjects'];
         $formData['talents']            = $_POST['talents'];
         $this->ParticipantDetail->update($formData);
