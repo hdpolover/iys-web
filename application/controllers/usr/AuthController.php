@@ -4,6 +4,7 @@ class AuthController extends CI_Controller{
     public function __construct(){
         parent::__construct();
         $this->load->model('User');
+        $this->load->model('ParticipantDetail');
     }
     public function register(){
         $user = $this->User->get(['email' => $_POST['email']]);
@@ -24,6 +25,7 @@ class AuthController extends CI_Controller{
         $formData['id_user_role']   = 1;
         $this->User->insert($formData);
 
+        $this->ParticipantDetail->insert(['id_user' => $newId]);
         $this->setSession($formData['id_user'], $formData['email'], $formData['name'], $formData['id_user_role']);
         redirect('announcement');
     }

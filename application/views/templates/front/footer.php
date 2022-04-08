@@ -14,6 +14,7 @@
 
   <!-- JS Front -->
   <script src="<?= site_url()?>assets/js/theme.min.js"></script>
+  <script src="<?= site_url()?>assets/js/general.js"></script>
 
   <!-- JS Plugins Init. -->
   <script>

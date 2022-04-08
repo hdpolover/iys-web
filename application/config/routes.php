@@ -91,5 +91,8 @@ $route['login']             = 'usr/AuthController/login';
 $route['logout']            = 'usr/AuthController/logout';
 // announcement
 $route['announcement']      = 'usr/AnnouncementController';
+// personal-info
+$route['personal-info']      = 'usr/ParticipantDetailController';
+
 
 $route['tes'] = 'Welcome/tes';
