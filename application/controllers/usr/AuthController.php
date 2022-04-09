@@ -26,7 +26,7 @@ class AuthController extends CI_Controller{
         $this->User->insert($formData);
 
         $this->ParticipantDetail->insert(['id_user' => $newId]);
-        $this->setSession($formData['id_user'], $formData['email'], $formData['name'], $formData['id_user_role']);
+        $this->setSession($formData['id_user'], $formData['email'], $formData['name'], null, $formData['id_user_role']);
         redirect('announcement');
     }
     public function login(){
