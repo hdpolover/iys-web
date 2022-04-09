@@ -11,16 +11,19 @@
   <script src="<?= site_url()?>assets/vendor/aos/dist/aos.js"></script>
   <script src="<?= site_url()?>assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="<?= site_url()?>assets/vendor/hs-toggle-password/dist/js/hs-toggle-password.js"></script>
+  <script src="<?= site_url()?>assets/vendor/hs-step-form/dist/hs-step-form.min.js"></script>
+  <script src="<?= site_url()?>assets/js/flatpickr.min.js"></script>
 
   <!-- JS Front -->
   <script src="<?= site_url()?>assets/js/theme.min.js"></script>
+  <script src="<?= site_url()?>assets/js/general.js"></script>
 
   <!-- JS Plugins Init. -->
   <script>
     (function() {
       // INITIALIZATION OF HEADER
       // =======================================================
-      new HSHeader('#header').init()
+      // new HSHeader('#header').init()
 
 
       // INITIALIZATION OF MEGA MENU
@@ -141,6 +144,17 @@
           },
         },
       });
+      new HSStepForm('.js-step-form-validate', {
+       validator: HSBsValidation.init('.js-validate'),
+       finish ($el) {
+         const $successMessageTempalte = $el.querySelector('.js-success-message').cloneNode(true)
+
+         $successMessageTempalte.style.display = 'block'
+
+         $el.style.display = 'none'
+         $el.parentElement.appendChild($successMessageTempalte)
+       }
+    })
     })()
     var swiper = new Swiper('.js-swiper-single-testimonials', {
       pagination: {

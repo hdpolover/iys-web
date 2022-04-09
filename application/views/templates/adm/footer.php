@@ -33,6 +33,7 @@
 
   <!-- JS Front -->
   <script src="<?= site_url()?>assets/js/theme.min.js"></script>
+  <script src="<?= site_url()?>assets/js/general.js"></script>
 
   <!-- JS Plugins Init. -->
   <script>
@@ -46,25 +47,7 @@
       new HSGoTo('.js-go-to')
     })()
 
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function(e) {
-                $('#blah').attr('src', e.target.result);
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
-    $("#boxImg").click(function() {
-        $('#imgPoster').click();
-    });
-
-    $("#imgPoster").change(function() {
-        readURL(this);
-    });
+    
   </script>
 </body>
 </html>

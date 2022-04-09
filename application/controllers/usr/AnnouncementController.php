@@ -10,7 +10,8 @@ class AnnouncementController extends CI_Controller{
         $this->load->model('User');
     }
     public function index(){
-        $data['title'] = "Announcement";
+        $data['title']      = "Announcement";
+        $data['sidebar']    = "announcement";
         $this->template->user('usr/announcement/index', $data);
     }
 }
