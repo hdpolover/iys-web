@@ -39,7 +39,20 @@
             <li class="nav-item">
               <a class="nav-link <?= $sidebar == "announcement" ? "active" : ""?>" href="<?= site_url('announcement')?>">
                 <i class="bi-bell nav-icon"></i> Announcements
-                <span class="badge bg-soft-dark text-dark rounded-pill nav-link-badge">1</span>
+                <?php
+                  $alertCount = $this->db->get_where('participant_details', ['id_user' => $this->session->userdata('id_user'), 'id_summit' => '1'])->row()->alert_announcement;
+
+                  if($alertCount == '0'){
+                    echo '
+                      <span class="badge bg-soft-secondary text-dark rounded-pill nav-link-badge">0</span>
+                    ';
+                  }else{
+                    echo '
+                      <span class="badge bg-soft-danger text-danger rounded-pill nav-link-badge">'.$alertCount.'</span>
+                    ';
+                  }
+                ?>
+                
               </a>
             </li>
             <li class="nav-item">

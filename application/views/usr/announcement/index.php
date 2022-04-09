@@ -61,15 +61,45 @@
 
             <!-- Body -->
             <div class="card-body">
-              <div class="container d-flex align-items-center vh-100 mt-5">
-                  <div class="w-sm-75 w-lg-50 text-center mx-sm-auto">
-                      <div class="mb-7">
-                      <img class="img-fluid" src="<?= site_url()?>assets/svg/illustrations/oc-maintenance.svg" alt="SVG Illustration">
-                      </div>
+              <div class="row">
+                <?php
+                  if($announcements == null){
+                    echo '
+                      <div class="d-flex">
+                          <div class="container d-flex align-items-center vh-100 mt-5">
+                              <div class="w-sm-75 w-lg-50 text-center mx-sm-auto">
+                                  <div class="mb-7">
+                                  <img class="img-fluid" src="'.site_url("assets/svg/illustrations/oc-relaxing.svg").'" alt="SVG Illustration">
+                                  </div>
 
-                      <h1 class="h2">We're just tuning up a few things.</h1>
-                      <p>We apologize for the inconvenience but IYS Web is currently undergoing planned maintenance. Stay tuned!</p>
-                  </div>
+                                  <h1 class="h2">No announcements yet.</h1>
+                                  <p> Stay tuned for announcements at the Istanbul Youth Summit. Immediately complete your personal data!</p>
+                              </div>
+                          </div>
+                      </div>
+                    ';
+                  }
+
+                  foreach ($announcements as $announcement) {
+                    $poster = $announcement->poster == null || $announcement->poster == '' ? site_url('assets/img/img7.jpg') : $announcement->poster;
+                    echo '
+                      <div class="col col-sm-6 mb-6">
+                        <!-- Card -->
+                        <div class="card card-sm" style="max-width: 20rem;">
+                          <img class="card-img-top" src="'.$poster.'" alt="Card image cap">
+                          <div class="card-body">
+                            <h3 class="card-title">'.$announcement->title.'</h3>
+                            <p class="card-text">'.$announcement->content.'</p>
+                            <p class="card-text">
+                              <small class="text-muted">'.date_format(date_create($announcement->date), 'j F Y H:i').'</small>
+                            </p>
+                          </div>
+                        </div>
+                        <!-- End Card -->
+                      </div>    
+                    ';
+                  }
+                ?>
               </div>
             </div>
             <!-- End Body -->
