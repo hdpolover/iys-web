@@ -97,6 +97,7 @@ $route['personal-info/ajxPostBasic']    = 'usr/ParticipantDetailController/ajxPo
 $route['personal-info/ajxPostOther']    = 'usr/ParticipantDetailController/ajxPostOther';
 $route['personal-info/ajxPostEssay']    = 'usr/ParticipantDetailController/ajxPostEssay';
 $route['personal-info/ajxPostProgram']  = 'usr/ParticipantDetailController/ajxPostProgram';
+$route['personal-info/submit']          = 'usr/ParticipantDetailController/submit';
 
 
 

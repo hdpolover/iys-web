@@ -19,6 +19,25 @@ class ParticipantDetail extends CI_Model{
 
         return $this->db->get_where('participant_details', $param)->result();
     }
+    public function getStatusStep($id){
+        $this->db->select('fullname, gender, birth_date, nationality, occupation, field_of_study, institution_workplace, whatsapp_number, instagram, emergency_contact, contact_relation, disease_history, tshirt_size, is_vegetarian, address');
+        $basic = $this->db->where('id_user', $id)->get('participant_details')->row_array();
+
+        $this->db->select('achievements, experience, social_projects, talents');
+        $other = $this->db->where('id_user', $id)->get('participant_details')->row_array();
+
+        $this->db->select('essay_type, essay');
+        $essay = $this->db->where('id_user', $id)->get('participant_details')->row_array();
+
+        $this->db->select('source, source_account, motivation_link, share_proof_link, referral_code');
+        $program = $this->db->where('id_user', $id)->get('participant_details')->row_array();
+
+        $this->db->select('photo, , termsncondition');
+        $selfPhoto = $this->db->where('id_user', $id)->get('participant_details')->row_array();
+
+
+        return ['basic' => $basic, 'other' => $other, 'essay' => $essay, 'program' => $program, 'selfPhoto' => $selfPhoto];
+    }
     public function insert($param){
         $this->db->insert('participant_details', $param);
     }

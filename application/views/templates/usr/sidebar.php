@@ -8,8 +8,24 @@
           <!-- Avatar -->
           <div class="d-none d-lg-block text-center mb-5">
             <div class="avatar avatar-xxl avatar-circle mb-3">
-              <!-- <img class="avatar-img" src="<?site_url()?>assets/img/160x160/img9.jpg" alt="Image Description"> -->
-              <img class="avatar-status avatar-lg-status" src="<?site_url()?>assets/svg/illustrations/top-vendor.svg" alt="Image Description" data-bs-toggle="tooltip" data-bs-placement="top" title="Verified user">
+              <?php 
+                if($this->session->userdata('photo') == null || $this->session->userdata('photo') == ''){
+                  echo '
+                    <div class="avatar avatar-xxl avatar-circle">
+                      <span class="avatar avatar-lg avatar-primary avatar-circle">
+                        <span class="avatar-initials">'.strtoupper(substr($this->session->userdata('name'), 0, 1)).'</span>
+                      </span>
+                    </div>    
+                  ';
+                }else{
+                  echo '
+                    <img class="avatar-img mb-3" src="'.$this->session->userdata('photo').'" style="max-width: 160px;" alt="Image Description">    
+                  ';
+                }
+              ?>
+              
+              <!-- <img class="avatar-status avatar-lg-status" src="<?site_url()?>assets/svg/illustrations/top-vendor.svg" alt="Image Description" data-bs-toggle="tooltip" data-bs-placement="top" title="Verified user"> -->
+              
             </div>
 
             <h4 class="card-title mb-0"><?= $this->session->userdata('name')?></h4>

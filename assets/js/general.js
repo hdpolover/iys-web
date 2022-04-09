@@ -17,3 +17,22 @@ function space(evt){
 $(".flatpickr").flatpickr({
     dateFormat: "j F Y",
 });
+function readURL(input) {
+  if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+          $('#blah').attr('src', e.target.result);
+      }
+
+      reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("#boxImg").click(function() {
+  $('#imgPoster').click();
+});
+
+$("#imgPoster").change(function() {
+  readURL(this);
+});

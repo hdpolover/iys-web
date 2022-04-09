@@ -61,13 +61,44 @@
                   <h4 class="card-header-title">Personal Info</h4>    
                 </div>
                 <div class="col">
-                  <span style="float: right;" class="badge bg-soft-danger text-danger">Not Submitted</span>
+                  <?php
+                    if($detail->is_submited == "0"){
+                      echo '
+                        <span style="float: right;" class="badge bg-soft-danger text-danger">Not Submitted</span>
+                      ';
+                    }else{
+                      echo '
+                        <span style="float: right;" class="badge bg-soft-success text-success">Submitted</span>
+                      ';
+                    }
+                  ?>
                 </div>
               </div>
             </div>
 
             <!-- Body -->
             <div class="card-body">
+              <?php if($detail->is_submited == true){?>
+              <div class="text-center">
+                <img class="img-fluid mb-3" src="<?= site_url()?>assets/svg/illustrations/oc-hi-five.svg" alt="Image Description" style="max-width: 15rem;">
+
+                <div class="mb-4">
+                  <h2>Successful!</h2>
+                  <p>You have submitted your personal data form.</p>
+                </div>
+              </div>
+              <?php }?>
+
+              <?php 
+                if($this->session->flashdata('err_msg')){
+                  echo '
+                    <div class="alert alert-soft-danger" role="alert">
+                      '.$this->session->flashdata('err_msg').'
+                    </div>    
+                  ';
+                }
+              ?>
+              
               <!-- Step Form -->
               <form class="js-step-form-validate js-validate"
                 data-hs-step-form-options='{
@@ -75,10 +106,22 @@
                   "stepsSelector": "#validationFormContent",
                   "endSelector": "#validationFormFinishBtn",
                   "isValidate": true
-                }'>
+                }'
+                action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart/form-data"
+                >
                 <!-- Step -->
                 <ul id="validationFormProgress" class="js-step-progress step step-sm step-icon-sm step-inline step-item-between mb-7">
-                  <li class="step-item">
+                  <?php
+                    $status = "";
+                    if(0 <= (int)$detail->step){
+                      if($statStepBasic == true){
+                        $status = "is-valid";
+                      }else{
+                        $status = "is-invalid";
+                      }
+                    }
+                  ?>
+                  <li class="step-item <?= $status?>">
                     <a class="step-content-wrapper" href="javascript:;"
                       data-hs-step-form-next-options='{
                         "targetSelector": "#validationFormBasic"
@@ -89,8 +132,17 @@
                       </div>
                     </a>
                   </li>
-
-                  <li class="step-item">
+                  <?php
+                    $status = "";
+                    if(1 <= (int)$detail->step){
+                      if($statStepOther == true){
+                        $status = "is-valid";
+                      }else{
+                        $status = "is-invalid";
+                      }
+                    }
+                  ?>
+                  <li class="step-item <?= $status?>"">
                     <a class="step-content-wrapper" href="javascript:;"
                       data-hs-step-form-next-options='{
                         "targetSelector": "#validationFormOther"
@@ -101,8 +153,17 @@
                       </div>
                     </a>
                   </li>
-
-                  <li class="step-item">
+                  <?php
+                    $status = "";
+                    if(2 <= (int)$detail->step){
+                      if($statStepEssay == true){
+                        $status = "is-valid";
+                      }else{
+                        $status = "is-invalid";
+                      }
+                    }
+                  ?>
+                  <li class="step-item <?= $status?>"">
                     <a class="step-content-wrapper" href="javascript:;"
                       data-hs-step-form-next-options='{
                         "targetSelector": "#validationFormEssay"
@@ -113,23 +174,43 @@
                       </div>
                     </a>
                   </li>
-                  <li class="step-item">
+                  <?php
+                    $status = "";
+                    if(3 <= (int)$detail->step){
+                      if($statStepProgram == true){
+                        $status = "is-valid";
+                      }else{
+                        $status = "is-invalid";
+                      }
+                    }
+                  ?>
+                  <li class="step-item <?= $status?>"">
                     <a class="step-content-wrapper" href="javascript:;"
                       data-hs-step-form-next-options='{
                         "targetSelector": "#validationFormProgram"
                       }'>
-                      <span class="step-icon step-icon-soft-dark">3</span>
+                      <span class="step-icon step-icon-soft-dark">4</span>
                       <div class="step-content">
                         <span class="step-title">Program</span>
                       </div>
                     </a>
                   </li>
-                  <li class="step-item">
+                  <?php
+                    $status = "";
+                    if(4 <= (int)$detail->step){
+                      if($statStepSelfPhoto == true){
+                        $status = "is-valid";
+                      }else{
+                        $status = "is-invalid";
+                      }
+                    }
+                  ?>
+                  <li class="step-item <?= $status?>">
                     <a class="step-content-wrapper" href="javascript:;"
                       data-hs-step-form-next-options='{
                         "targetSelector": "#validationFormSelfPhoto"
                       }'>
-                      <span class="step-icon step-icon-soft-dark">4</span>
+                      <span class="step-icon step-icon-soft-dark">5</span>
                       <div class="step-content">
                         <span class="step-title">Self Photo</span>
                       </div>
@@ -633,30 +714,29 @@
                   <div id="validationFormSelfPhoto" style="display: none;">
                     <!-- Form Group -->
                     <div class="row mb-4">
-                      <label for="validationFormUsernameLabel" class="col-sm-3 col-form-label form-label">Sub Theme</label>
+                      <label for="validationFormUsernameLabel" class="col-sm-3 col-form-label form-label">Photo</label>
                       <div class="col-sm-9">
                         <div class="js-form-message">
-                          <select name="essayType" class="form-control" id="" required>
-                            <option value="" selected disabled>Select a sub-theme</option>
-                            <option value="Theme1">Theme1</option>
-                            <option value="Theme2">Theme2</option>
-                            <option value="Theme3">Theme3</option>
-                            
-                          </select>
-                          <span class="invalid-feedback">Please enter a valid tshirt size.</span>
+                          <div id="boxImg" class="text-center mb-3 p-3" style="border: .0625rem solid rgba(33,50,91,.1);border-radius: .3125rem;cursor: pointer;">
+                              <img style="max-width: 300px;" id="blah" class="" src="<?= $detail->photo == '' || $detail->photo == NULL ? site_url('assets/svg/illustrations/oc-lost.svg') : $detail->photo?>" />
+                          </div>
+                          <input type="file" accept=".jpg,.png,.jpeg,.bmp" class="form-control" name="poster" style="cursor: pointer;" id="imgPoster">
+                          <span class="form-text"><b>Note:</b> choose a formal photo of yourself with an image ratio of 3:4 (preferably). The cropped preview image does not affect the original image. max size(1MB)</span>
+                          <span class="invalid-feedback">Please enter a valid self photo.</span>
                         </div>
                       </div>
                     </div>
                     <!-- End Form Group -->
                     <!-- Form Group -->
                     <div class="row mb-4">
-                      <label for="validationFormUsernameLabel" class="col-sm-3 col-form-label form-label">Essay</label>
+                      <label for="validationFormUsernameLabel" class="col-sm-3 col-form-label form-label">Terms & Conditions</label>
 
                       <div class="col-sm-9">
-                        <div class="js-form-message">
-                          <textarea  class="form-control" name="essay" required rows="10"></textarea>
-                          <span class="invalid-feedback">Please enter a valid essay.</span>
-                          <span class="form-text"><b>Note:</b> Your essay length must be between 200 to 300 words. It is recommended that you write your essay on other platform.</span>
+                        <div class="js-form-message form-check">
+                          <input type="checkbox" id="formHelperCheck1" name="terms" class="form-check-input" <?= $detail->termsncondition == '1' ? 'checked' : ''?> required>
+                          <label class="form-check-label" for="formHelperCheck1">I Agree</label>
+                          <div class="text-muted">I understand and agree to the terms and conditions of this program and that this program basically is self funded meaning that participants have to pay for the program fee, flights to-from istanbul, visa and other expenses themselves. However best applicants have a chance to be a fully-funded participant (excluding flight tickets and visa). Fully-funded quota will refer to the quality of the applicants themselves. I am ready to join the 5th Istanbul Youth Summit.</div>
+                          <span class="invalid-feedback">Please enter a checked terms and conditions.</span>
                         </div>
                       </div>
                     </div>
@@ -672,10 +752,7 @@
                       </button>
 
                       <div class="ms-auto">
-                        <button type="submit" class="btn btn-soft-primary"
-                                data-hs-step-form-next-options='{
-                                  "targetSelector": "#validationFormProgram"
-                                }'>
+                        <button type="submit" class="btn btn-soft-primary">
                           Submit
                         </button>
                       </div>

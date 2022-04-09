@@ -36,17 +36,20 @@ class AuthController extends CI_Controller{
             redirect('sign-in');
         }
 
-        $this->setSession($user[0]->id_user, $user[0]->email, $user[0]->name, $user[0]->id_user_role);
+        $photo = $this->ParticipantDetail->getById($user[0]->id_user)->photo;
+
+        $this->setSession($user[0]->id_user, $user[0]->email, $user[0]->name, $photo, $user[0]->id_user_role);
         redirect('announcement');
     }
     public function logout(){
         $this->session->sess_destroy();
         redirect('/');
     }
-    public function setSession($idUser, $email, $name, $role){
+    public function setSession($idUser, $email, $name, $photo,  $role){
         $formSession['id_user']     = $idUser;
         $formSession['email']       = $email;
         $formSession['name']        = $name;
+        $formSession['photo']       = $photo;
         $formSession['role']        = $role;
         $formSession['is_logged']   = true;
         $this->session->set_userdata($formSession);
