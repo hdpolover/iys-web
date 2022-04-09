@@ -20,7 +20,6 @@ class ParticipantDetailController extends CI_Controller{
             if($item == NULL || $item == '' || $item == '0'){
                 $data['statStepSelfPhoto'] = false;
                 $this->ParticipantDetail->update(['id_user' => $this->session->userdata('id_user'), 'step' => '4', 'is_submited' => '0']);
-                $this->session->set_flashdata('err_msg', 'There is an invalid form at the self photo step!');
                 break;
             }
         }
@@ -30,7 +29,6 @@ class ParticipantDetailController extends CI_Controller{
             if($item == NULL || $item == ''){
                 $data['statStepProgram'] = false;
                 $this->ParticipantDetail->update(['id_user' => $this->session->userdata('id_user'), 'step' => '3', 'is_submited' => '0']);
-                $this->session->set_flashdata('err_msg', 'There is an invalid form at the program step!');
                 break;
             }
         }
@@ -40,7 +38,6 @@ class ParticipantDetailController extends CI_Controller{
             if($item == NULL || $item == ''){
                 $data['statStepEssay'] = false;
                 $this->ParticipantDetail->update(['id_user' => $this->session->userdata('id_user'), 'step' => '2', 'is_submited' => '0']);
-                $this->session->set_flashdata('err_msg', 'There is an invalid form at the essay step!');
                 break;
             }
         }
@@ -50,7 +47,6 @@ class ParticipantDetailController extends CI_Controller{
             if($item == NULL || $item == ''){
                 $data['statStepOther'] = false;
                 $this->ParticipantDetail->update(['id_user' => $this->session->userdata('id_user'), 'step' => '1', 'is_submited' => '0']);
-                $this->session->set_flashdata('err_msg', 'There is an invalid form at the other step!');
                 break;
             }
         }
@@ -60,7 +56,6 @@ class ParticipantDetailController extends CI_Controller{
             if($item == NULL || $item == ''){
                 $data['statStepBasic'] = false;
                 $this->ParticipantDetail->update(['id_user' => $this->session->userdata('id_user'), 'step' => '0', 'is_submited' => '0']);
-                $this->session->set_flashdata('err_msg', 'There is an invalid form at the basic step!');
                 break;
             }
         }
