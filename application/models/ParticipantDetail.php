@@ -44,6 +44,20 @@ class ParticipantDetail extends CI_Model{
     public function update($param){
         $this->db->where('id_user', $param['id_user'])->update('participant_details', $param);
     }
+    public function newAnnouncement($idSummit){
+        $this->db->query("
+            update participant_details pd 
+            set pd.alert_announcement = pd.alert_announcement + 1
+            where pd.id_summit = '".$idSummit."'	
+        ");
+    }
+    public function resetAnnouncement($param){
+        $this->db->query("
+            update participant_details pd 
+            set pd.alert_announcement = 0
+            where pd.id_user = '".$param['id_user']."' AND pd.id_summit = '".$param['id_summit']."'	
+        ");
+    }
     public function delete($param){
         $this->db->delete('participant_details', $param);
     }

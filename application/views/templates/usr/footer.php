@@ -3,7 +3,7 @@
   <!-- JS Global Compulsory  -->
   <script src="<?= site_url()?>assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- JS Implementing Plugins -->x
+  <!-- JS Implementing Plugins -->
   <script src="<?= site_url()?>assets/vendor/hs-header/dist/hs-header.min.js"></script>
   <script src="<?= site_url()?>assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.js"></script>
   <script src="<?= site_url()?>assets/vendor/hs-show-animation/dist/hs-show-animation.min.js"></script>

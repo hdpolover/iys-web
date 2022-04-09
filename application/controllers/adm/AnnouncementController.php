@@ -8,12 +8,13 @@ class AnnouncementController extends CI_Controller{
         }
         $this->load->library('upload');
         $this->load->model('Announcement');
+        $this->load->model('ParticipantDetail');
     }
     public function index(){
         $data['title']          = 'Announcement';
         $data['sidebar']        = 'announcement';
         $data['subSidebar']     = 'announcePublic';
-        $data['announcements']  = $this->Announcement->get(['is_registered' => 0]);
+        $data['announcements']  = $this->Announcement->get(['is_registered' => 0, 'orderBy' => 'date DESC']);
 
         $this->template->admin('adm/announcement/public/index', $data);
     }
@@ -78,7 +79,7 @@ class AnnouncementController extends CI_Controller{
         $data['title']          = 'Announcement';
         $data['sidebar']        = 'announcement';
         $data['subSidebar']     = 'announceRegis';
-        $data['announcements']  = $this->Announcement->get(['is_registered' => '1']);
+        $data['announcements']  = $this->Announcement->get(['is_registered' => '1', 'orderBy' => 'date DESC']);
 
         $this->template->admin('adm/announcement/registered/index', $data);
     }
@@ -114,6 +115,7 @@ class AnnouncementController extends CI_Controller{
         $formData['date']           = date('Y-m-d H:i:s');
 
         $this->Announcement->insert($formData);
+        $this->ParticipantDetail->newAnnouncement($_POST['summit']);
         $this->session->set_flashdata('succ_msg', 'Successfully added a new announcement!');
         redirect('admin/announcement-registered');
     }

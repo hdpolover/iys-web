@@ -30,6 +30,7 @@
   <script src="<?= site_url()?>assets/vendor/hs-go-to/dist/hs-go-to.min.js"></script>
   <script src="<?= site_url()?>assets/vendor/prism/prism.js"></script>
   <script src="<?= site_url()?>assets/vendor/quill/dist/quill.min.js"></script>
+  <script src="<?= site_url()?>assets/js/flatpickr.min.js"></script>
 
   <!-- JS Front -->
   <script src="<?= site_url()?>assets/js/theme.min.js"></script>

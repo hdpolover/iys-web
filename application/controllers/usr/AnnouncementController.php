@@ -8,10 +8,15 @@ class AnnouncementController extends CI_Controller{
         }
         
         $this->load->model('User');
+        $this->load->model('Announcement');
+        $this->load->model('ParticipantDetail');
     }
     public function index(){
-        $data['title']      = "Announcement";
-        $data['sidebar']    = "announcement";
+        $data['title']          = "Announcement";
+        $data['sidebar']        = "announcement";
+        $data['announcements']  = $this->Announcement->get(['id_summit' => '1', 'is_registered' => '1', 'orderBy' => 'date DESC']); 
+        
         $this->template->user('usr/announcement/index', $data);
+        $this->ParticipantDetail->resetAnnouncement(['id_user' => $this->session->userdata('id_user'), 'id_summit' => '1']);
     }
 }
