@@ -19,6 +19,7 @@ class Template {
     }
     public function user($content, $data){
         $this->_ci->load->view('templates/usr/header', $data);
+        $this->_ci->load->view('templates/usr/topbar', $data);
         $this->_ci->load->view($content, $data); // Content
         $this->_ci->load->view('templates/usr/footer', $data);
     }

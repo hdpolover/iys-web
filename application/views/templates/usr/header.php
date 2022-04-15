@@ -25,5 +25,3 @@
   <link rel="stylesheet" href="<?= site_url()?>assets/css/theme.min.css">
   <script src="<?= site_url()?>assets/js/jquery-3.6.0.min.js"></script>
 </head>
-
-<body>
