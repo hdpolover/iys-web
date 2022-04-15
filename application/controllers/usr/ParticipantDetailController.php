@@ -112,11 +112,12 @@ class ParticipantDetailController extends CI_Controller{
         $formData['motivation_link']        = $_POST['motivation'];
         $formData['share_proof_link']       = $_POST['shareRequirement'];
         $formData['referral_code']          = $_POST['referral'];
+        $formData['qr']                     = $this->generateQR($this->session->userdata('id_user'));
         $formData['termsncondition']        = '1';
         $formData['is_submited']            = '1';
+
         $this->ParticipantDetail->update($formData);
 
-        $step = $participantDetail->step;
         $this->ParticipantDetail->update(['id_user' => $this->session->userdata('id_user'), 'step' => '5']);
 
         redirect('personal-info');
@@ -204,5 +205,28 @@ class ParticipantDetailController extends CI_Controller{
                 'msg'   => $this->upload->display_errors(),
             ];
         }
+    }
+    public function generateQR($idUser){
+        $this->load->library('ciqrcode'); //pemanggilan library QR CODE
+ 
+        $config['cacheable']    = true; //boolean, the default is true
+        $config['cachedir']     = './uploads/'; //string, the default is application/cache/
+        $config['errorlog']     = './uploads/'; //string, the default is application/logs/
+        $config['imagedir']     = './uploads/qr/'; //direktori penyimpanan qr code
+        $config['quality']      = true; //boolean, the default is true
+        $config['size']         = '1024'; //interger, the default is 1024
+        $config['black']        = array(224,255,255); // array, default is array(255,255,255)
+        $config['white']        = array(70,130,180); // array, default is array(0,0,0)
+        $this->ciqrcode->initialize($config);
+ 
+        $image_name="QR_".time().'.png'; //buat name dari qr code sesuai dengan nim
+ 
+        $params['data'] = $idUser; //data yang akan di jadikan QR CODE
+        $params['level'] = 'H'; //H=High
+        $params['size'] = 10;
+        $params['savename'] = FCPATH.$config['imagedir'].$image_name; //simpan image QR CODE ke folder assets/images/
+        $this->ciqrcode->generate($params); // fungsi untuk generate QR CODE
+
+        return site_url('uploads/qr/'.$image_name);
     }
 }

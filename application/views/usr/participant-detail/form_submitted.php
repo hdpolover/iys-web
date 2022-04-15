@@ -1,4 +1,7 @@
 <!-- Nav -->
+<div class="text-center mb-3">
+    <img src="<?= $detail->qr?>" style="width: 160px;" alt="">
+</div>
 <div class="alert alert-soft-success" role="alert">
     You have submitted your personal data form, <a href="#" onclick="showDetail()" style="color: #00c9a7;"><b><u>check detail</u></b></a>
 </div>  
