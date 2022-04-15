@@ -90,7 +90,8 @@ $route['register']          = 'usr/AuthController/register';
 $route['login']             = 'usr/AuthController/login';
 $route['logout']            = 'usr/AuthController/logout';
 // announcement
-$route['announcement']      = 'usr/AnnouncementController';
+$route['announcement']          = 'usr/AnnouncementController';
+$route['announcement/(:any)']   = 'usr/AnnouncementController/detail/$1';
 // personal-info
 $route['personal-info']                 = 'usr/ParticipantDetailController';
 $route['personal-info/ajxPostBasic']    = 'usr/ParticipantDetailController/ajxPostBasic';
