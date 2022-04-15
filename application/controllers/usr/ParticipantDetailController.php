@@ -206,6 +206,12 @@ class ParticipantDetailController extends CI_Controller{
             ];
         }
     }
+    public function downloadQR(){
+        $this->load->helper('download');
+        $qr = $this->ParticipantDetail->getById($this->session->userdata('id_user'))->qr;
+        force_download('./'.str_replace(site_url(), '', $qr), NULL);
+        print_r(str_replace(site_url(), '', $qr));
+    }
     public function generateQR($idUser){
         $this->load->library('ciqrcode'); //pemanggilan library QR CODE
  

@@ -15,7 +15,7 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-light mb-0">
               <li class="breadcrumb-item">Announcement</li>
-              <li class="breadcrumb-item active" aria-current="page">Detail</li>
+              <li class="breadcrumb-item active" aria-current="page"><?= $announcement->title?></li>
             </ol>
           </nav>
           <!-- End Breadcrumb -->
@@ -43,12 +43,12 @@
             <!-- Body -->
             <div class="card-body">
                 <div class="row">
-                    <div class="col col-md-11">
+                    <div class="col col-md-9">
                         <h2><?= $announcement->title ?></h2>
                     </div>
-                    <div class="col col-md-1" style="text-align: right;">
+                    <div class="col col-md-3" style="text-align: right;">
                         <a class="link link-sm link-secondary" href="<?= site_url('announcement')?>">
-                            <i class="bi-chevron-left small ms-1"></i> Back
+                            <i class="bi-chevron-left small ms-1"></i> Go back
                         </a>
                     </div>
                 </div>
@@ -56,7 +56,10 @@
                     <small class="text-muted"><?= date_format(date_create($announcement->date), 'l, j F Y H:i')?></small>
                 </p>
                 <div class="text-center mb-6">
-                    <img src="<?= $announcement->poster?>" style="max-width: 650px;" alt="">
+                    <?php
+                      $poster = $announcement->poster == null || $announcement->poster == '' ? site_url('assets/img/img7.jpg') : $announcement->poster;
+                    ?>
+                    <img src="<?= $poster?>" style="max-width: 650px;" alt="">
                 </div>
                 <span>
                     <?= $announcement->content?>
