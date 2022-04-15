@@ -19,4 +19,12 @@ class AnnouncementController extends CI_Controller{
         $this->template->user('usr/announcement/index', $data);
         $this->ParticipantDetail->resetAnnouncement(['id_user' => $this->session->userdata('id_user'), 'id_summit' => '1']);
     }
+    public function detail($id){
+        $data['title']          = "Announcement";
+        $data['sidebar']        = "announcement";
+        $data['announcements']  = $this->Announcement->get(['id_summit' => '1', 'is_registered' => '1', 'orderBy' => 'date DESC']);
+        $data['announcement']   = $this->Announcement->getById($id);
+        
+        $this->template->user('usr/announcement/detail', $data);
+    }
 }

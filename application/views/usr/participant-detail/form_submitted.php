@@ -1,6 +1,25 @@
 <!-- Nav -->
+<div class="row">
+    <div class="col mb-4 mb-md-5 mb-lg-0">
+        <!-- Card -->
+        <a class="card card-lg card-transition h-100 text-center" href="#">
+        <div class="card-body">
+            <div class="mb-4">
+            <img src="<?= $detail->qr?>" style="width: 160px;" alt="">
+            </div>
+            <h3 class="card-title">Your QR Code</h3>
+            <p class="card-text text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="card-footer pt-0">
+            <form action="<?= site_url('personal-info/download-qr')?>" method="POST">
+                <button type="submit" class="btn btn-soft-primary">Download</button>
+            </form>
+        </div>
+        </a>
+        <!-- End Card -->
+    </div>
+</div>
 <div class="text-center mb-3">
-    <img src="<?= $detail->qr?>" style="width: 160px;" alt="">
 </div>
 <div class="alert alert-soft-success" role="alert">
     You have submitted your personal data form, <a href="#" onclick="showDetail()" style="color: #00c9a7;"><b><u>check detail</u></b></a>

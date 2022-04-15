@@ -12,12 +12,12 @@
           </div>
 
           <!-- Breadcrumb -->
-          <!-- <nav aria-label="breadcrumb">
+          <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-light mb-0">
-              <li class="breadcrumb-item">Account</li>
-              <li class="breadcrumb-item active" aria-current="page">Personal Info</li>
+              <li class="breadcrumb-item">Personal Info</li>
+              <li class="breadcrumb-item active" aria-current="page">Overview</li>
             </ol>
-          </nav> -->
+          </nav>
           <!-- End Breadcrumb -->
         </div>
         <!-- End Col -->
