@@ -101,6 +101,9 @@ $route['personal-info/ajxPostProgram']  = 'usr/ParticipantDetailController/ajxPo
 $route['personal-info/submit']          = 'usr/ParticipantDetailController/submit';
 $route['personal-info/download-qr']          = 'usr/ParticipantDetailController/downloadQR';
 
+// EMAILING
+$route['send-email/register'] = 'EmailController/register';
+
 
 
 $route['tes'] = 'Welcome/tes';
