@@ -25,6 +25,7 @@ class Welcome extends CI_Controller {
 		$this->template->front('landing', $data);
 	}
 	public function tes(){
-		print_r(hash('sha256', md5('123admin456')));
+		// print_r(hash('sha256', md5('123admin456')));
+		$this->load->view('email/register');
 	}
 }
