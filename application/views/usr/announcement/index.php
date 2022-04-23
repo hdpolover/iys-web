@@ -42,6 +42,22 @@
             <div class="card-header border-bottom">
               <h4 class="card-header-title">Announcement</h4>
             </div>
+            <?php
+              if($this->session->userdata('is_verif') == 0){
+                echo '
+                  <div class="alert alert-soft-danger text-center card-alert" role="alert">
+                    Please verify your email address.
+                  </div>
+                ';
+              }
+              if($this->session->flashdata('succ_alert')){
+                echo '
+                  <div class="alert alert-soft-success text-center card-alert" role="alert">
+                    '.$this->session->flashdata('succ_alert').'
+                  </div>
+                ';
+              }
+            ?>
 
             <!-- Body -->
             <div class="card-body">

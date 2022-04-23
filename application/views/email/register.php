@@ -107,6 +107,7 @@
             background: #fff;
             border-width: 0;
             box-shadow: 0 0.375rem 1.5rem 0 rgba(140, 152, 164, 0.125);
+            border-radius: 0.5rem !important;
         }
         .navbar-brand-logo {
             width: 100%;
@@ -187,7 +188,7 @@
         }
     </style>
 </head>
-<body style="background: #fafafa;padding-top: 50px;padding-bottom: 50px;">
+<body style="background: #f2f2f2;padding-top: 50px;padding-bottom: 50px;">
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
@@ -195,10 +196,14 @@
                 <div class="card-body">
                     <h2 class="mb-4">Welcome to <span class="text-primary text-highlight-warning">Istanbul Youth Summit</span>.</h2>
                     <p class="mb-2">
-                        Hi Ilham,
+                        Hi <?= $name?>,
                     </p>
                     <p class="mb-4">We're happy you signed up for IYS. To start exploring the IYS App please confirm your email address.</p>
-                    <button type="button" class="btn btn-soft-primary mb-6">Verify Now</button>
+                    <?php
+                        $token_regis = str_replace('/', '_', $token_regis);
+                        $token_regis = str_replace('+', '-', $token_regis);
+                    ?>  
+                    <a href="<?= site_url('verif-email/'.$token_regis)?>" class="btn btn-soft-primary mb-6">Verify Now</a>
                     <br>
                     <small>
                         Did you receive this email without signing up? <a href="#">Click here.</a> This verification link will expire in 24 hours
