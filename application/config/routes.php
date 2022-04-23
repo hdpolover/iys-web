@@ -84,11 +84,13 @@ $route['admin/announcement-registered/destroy']             = 'adm/AnnouncementC
 
 
 // ===== USER =====
-$route['sign-in']           = 'FrontController/signIn';
-$route['sign-up']           = 'FrontController/signUp';
-$route['register']          = 'usr/AuthController/register';
-$route['login']             = 'usr/AuthController/login';
-$route['logout']            = 'usr/AuthController/logout';
+$route['sign-in']               = 'FrontController/signIn';
+$route['sign-up']               = 'FrontController/signUp';
+$route['register']              = 'usr/AuthController/register';
+$route['login']                 = 'usr/AuthController/login';
+$route['logout']                = 'usr/AuthController/logout';
+$route['verif-email/(:any)']    = 'usr/AuthController/verifEmail/$1';
+$route['resend-email/(:any)']          = 'usr/AuthController/resendEmail/$1';
 // announcement
 $route['announcement']          = 'usr/AnnouncementController';
 $route['announcement/(:any)']   = 'usr/AnnouncementController/detail/$1';

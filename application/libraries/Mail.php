@@ -25,13 +25,12 @@ class Mail {
             $mail->Body    = $msg;
  
             $mail->send();
- 
-         // Pesan Berhasil Kirim Email/Pesan Error
- 
-            $this->session->set_flashdata('success', 'Selamat, email berhasil terkirim!');
+            // Pesan Berhasil Kirim Email/Pesan Error
+            redirect('Welcome/tes');
+            // $this->session->set_flashdata('success', 'Selamat, email berhasil terkirim!');
             // return redirect()('/email');
         } catch (Exception $e) {
-            $this->session->set_flashdata('error', "Gagal mengirim email. Error: " . $mail->ErrorInfo);
+            // $this->session->set_flashdata('error', "Gagal mengirim email. Error: " . $mail->ErrorInfo);
             // return redirect()->to('/email');
         }
     }

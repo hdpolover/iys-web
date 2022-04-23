@@ -59,6 +59,15 @@
                 </div>
               </div>
             </div>
+            <?php
+              if($this->session->userdata('is_verif') == 0){
+                echo '
+                  <div class="alert alert-soft-danger text-center card-alert" role="alert">
+                    Please verify your email address.
+                  </div>
+                ';
+              }
+            ?>
 
             <!-- Body -->
             <div class="card-body">
@@ -73,10 +82,12 @@
               ?>
               
               <?php
-                if($detail->is_submited == false){
-                  $this->load->view('usr/participant-detail/form_non_submitted');
-                }else{
-                  $this->load->view('usr/participant-detail/form_submitted');
+                if($this->session->userdata('is_verif') == 1){
+                  if($detail->is_submited == false){
+                    $this->load->view('usr/participant-detail/form_non_submitted');
+                  }else{
+                    $this->load->view('usr/participant-detail/form_submitted');
+                  }
                 }
               ?>
             </div>
