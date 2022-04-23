@@ -50,6 +50,13 @@
                   </div>
                 ';
               }
+              if($this->session->flashdata('succ_alert')){
+                echo '
+                  <div class="alert alert-soft-success text-center card-alert" role="alert">
+                    '.$this->session->flashdata('succ_alert').'
+                  </div>
+                ';
+              }
             ?>
 
             <!-- Body -->

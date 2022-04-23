@@ -201,7 +201,7 @@
                     <p class="mb-4">We're happy you signed up for IYS. To start exploring the IYS App please confirm your email address.</p>
                     <?php
                         $token_regis = str_replace('/', '_', $token_regis);
-                        $token_regis = str_replace('+', '--', $token_regis);
+                        $token_regis = str_replace('+', '-', $token_regis);
                     ?>  
                     <a href="<?= site_url('verif-email/'.$token_regis)?>" class="btn btn-soft-primary mb-6">Verify Now</a>
                     <br>

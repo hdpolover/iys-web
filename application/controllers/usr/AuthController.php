@@ -49,7 +49,7 @@ class AuthController extends CI_Controller{
         if($this->session->userdata('is_verif') == 1) redirect('announcement');
 
         $this->load->library('encryption');
-        $token = str_replace('--', '+', $token);
+        $token = str_replace('-', '+', $token);
         $token = str_replace('_', '/', $token);
         $token = $this->encryption->decrypt($token);
 
@@ -62,6 +62,7 @@ class AuthController extends CI_Controller{
         $this->User->update(['id_user' => $data[0], 'is_verif' => 1]);
         // print_r($token);
         $this->session->set_userdata('is_verif', 1);
+        $this->session->set_flashdata('succ_alert', 'Congratulations your email has been verified');
         redirect('announcement');
         
     }
