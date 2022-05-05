@@ -11,9 +11,11 @@
   <script src="<?= site_url()?>assets/vendor/aos/dist/aos.js"></script>
   <script src="<?= site_url()?>assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="<?= site_url()?>assets/vendor/hs-toggle-password/dist/js/hs-toggle-password.js"></script>
+  <script src="<?= site_url()?>assets/vendor/countdown/countdown.js"></script>
 
   <!-- JS Front -->
   <script src="<?= site_url()?>assets/js/theme.min.js"></script>
+  <script src="<?= site_url()?>assets/js/flatpickr.min.js"></script>
   <script src="<?= site_url()?>assets/js/general.js"></script>
 
   <!-- JS Plugins Init. -->
@@ -142,6 +144,29 @@
           },
         },
       });
+      
+      // INITIALIZATION OF COUNTDOWN
+      // =======================================================
+      const oneYearFromNow = new Date()
+
+      document.querySelectorAll('.js-countdown').forEach(item => {
+        const days = item.querySelector('.js-cd-days'),
+          hours = item.querySelector('.js-cd-hours'),
+          minutes = item.querySelector('.js-cd-minutes'),
+          seconds = item.querySelector('.js-cd-seconds')
+
+        countdown(oneYearFromNow.setFullYear(
+          oneYearFromNow.getFullYear() + 1),
+          ts => {
+            days.innerHTML = ts.days
+            hours.innerHTML = ts.hours
+            minutes.innerHTML = ts.minutes
+            seconds.innerHTML = ts.seconds
+          },
+          countdown.DAYS | countdown.HOURS | countdown.MINUTES | countdown.SECONDS
+        )
+      })
+      
     })()
     var swiper = new Swiper('.js-swiper-single-testimonials', {
       pagination: {

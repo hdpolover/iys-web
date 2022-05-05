@@ -11,6 +11,31 @@
               <div class="w-75 w-lg-50">
                 <h1 class="display-4 text-white mb-0">Istanbul Youth Summit 2022</h1>
                 <h3 class="text-white">1 - 4 February, Istanbul Turkey</h3>
+                <div class="js-countdown row mt-3">
+                  <div class="col-3">
+                    <h2 class="js-cd-days h1 text-white mb-0"></h2>
+                    <h5 class="mb-0 text-white">Days</h5>
+                  </div>
+                  <!-- End Col -->
+
+                  <div class="col-3">
+                    <h2 class="js-cd-hours h1 text-white mb-0"></h2>
+                    <h5 class="mb-0 text-white">Hours</h5>
+                  </div>
+                  <!-- End Col -->
+
+                  <div class="col-3">
+                    <h2 class="js-cd-minutes h1 text-white mb-0"></h2>
+                    <h5 class="mb-0 text-white">Mins</h5>
+                  </div>
+                  <!-- End Col -->
+
+                  <div class="col-3">
+                    <h2 class="js-cd-seconds h1 text-white mb-0"></h2>
+                    <h5 class="mb-0 text-white">Secs</h5>
+                  </div>
+                  <!-- End Col -->
+                </div>
                 <button type="button" class="btn btn-outline-light mt-5">Register</button>
               </div>
             </div>
@@ -283,102 +308,162 @@
       <!-- End Step -->
     </div>
     <!-- <div class="container content-space-t-2 content-space-t-lg-3 content-space-b-lg-2"> -->
-    <div class="container content-space-t-2 content-space-t-lg-3 content-space-b-lg-2">
-      <div class="row">
-        <div class="col-sm-4 mb-3 mb-sm-0">
-          <!-- Media Viewer -->
-          <a class="media-viewer" href="<?= site_url('assets/img/landing/landing_gallery_1.jpg')?>" data-fslightbox="gallery">
-            <img class="img-fluid" src="<?= site_url('assets/img/landing/landing_gallery_1.jpg')?>" alt="Image Description">
+    <!-- Card Grid -->
+    <div class="container content-space-b-2 content-space-b-lg-3">
+      <!-- Nav Scroller -->
+        <div class="js-nav-scroller hs-nav-scroller-horizontal mb-7">
+          <span class="hs-nav-scroller-arrow-prev" style="display: none;">
+            <a class="hs-nav-scroller-arrow-link" href="javascript:;">
+              <i class="bi-chevron-left"></i>
+            </a>
+          </span>
 
-            <span class="media-viewer-container">
-              <span class="media-viewer-icon">
-                <i class="bi-plus media-viewer-icon-inner"></i>
-              </span>
-            </span>
+          <span class="hs-nav-scroller-arrow-next" style="display: none;">
+            <a class="hs-nav-scroller-arrow-link" href="javascript:;">
+              <i class="bi-chevron-right"></i>
+            </a>
+          </span>
+
+          <!-- Nav -->
+          <ul class="js-filter-options nav nav-segment nav-pills d-flex mx-auto" style="max-width: 23rem;">
+            <li class="nav-item">
+              <a class="nav-link active" href="javascript:;" data-group="all">All</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:;" data-group="2020">IYS 2020</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:;" data-group="2021">IYS 2021</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:;" data-group="2022">IYS 2022</a>
+            </li>
+          </ul>
+          <!-- End Nav -->
+        </div>
+        <!-- End Nav Scroller -->
+
+      <div class="js-shuffle row row-cols-1 row-cols-sm-2 row-cols-md-3">
+        <div class="js-shuffle-item col mb-5" data-groups='["2020"]'>
+          <!-- Card -->
+          <a class="card card-flush card-transition" href="#">
+            <img class="card-img-top" src="<?= site_url('')?>assets/img/landing/landing_gallery_1.jpg" alt="Image Description">
+            <div class="card-body">
+              <span class="card-subtitle text-body">IYS 2020</span>
+              <h3 class="card-title">Lorem Ipsum</h3>
+            </div>
           </a>
-          <!-- End Media Viewer -->
+          <!-- End Card -->
         </div>
         <!-- End Col -->
 
-        <div class="col-sm-4 mb-3 mb-sm-0">
-          <!-- Media Viewer -->
-          <a class="media-viewer" href="<?= site_url('assets/img/landing/landing_gallery_2.jpg')?>" data-fslightbox="gallery">
-            <img class="img-fluid" src="<?= site_url('assets/img/landing/landing_gallery_2.jpg')?>" alt="Image Description">
-
-            <span class="media-viewer-container">
-              <span class="media-viewer-icon">
-                <i class="bi-plus media-viewer-icon-inner"></i>
-              </span>
-            </span>
+        <div class="js-shuffle-item col mb-5" data-groups='["2021"]'>
+          <!-- Card -->
+          <a class="card card-flush card-transition" href="#">
+            <img class="card-img-top" src="<?= site_url('')?>assets/img/landing/landing_gallery_2.jpg" alt="Image Description">
+            <div class="card-body">
+              <span class="card-subtitle text-body">IYS 2021</span>
+              <h3 class="card-title">Lorem Ipsum</h3>
+            </div>
           </a>
-          <!-- End Media Viewer -->
+          <!-- End Card -->
         </div>
         <!-- End Col -->
 
-        <div class="col-sm-4">
-          <!-- Media Viewer -->
-          <a class="media-viewer" href="<?= site_url('assets/img/landing/landing_gallery_3.jpg')?>" data-fslightbox="gallery">
-            <img class="img-fluid" src="<?= site_url('assets/img/landing/landing_gallery_3.jpg')?>" alt="Image Description">
-
-            <span class="media-viewer-container">
-              <span class="media-viewer-icon">
-                <i class="bi-plus media-viewer-icon-inner"></i>
-              </span>
-            </span>
+        <div class="js-shuffle-item col mb-5" data-groups='["2021"]'>
+          <!-- Card -->
+          <a class="card card-flush card-transition" href="#">
+            <img class="card-img-top" src="<?= site_url('')?>assets/img/landing/landing_gallery_3.jpg" alt="Image Description">
+            <div class="card-body">
+              <span class="card-subtitle text-body">IYS 2021</span>
+              <h3 class="card-title">Lorem Ipsum</h3>
+            </div>
           </a>
-          <!-- End Media Viewer -->
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+
+        <div class="js-shuffle-item col mb-5" data-groups='["2020"]'>
+          <!-- Card -->
+          <a class="card card-flush card-transition" href="#">
+            <img class="card-img-top" src="<?= site_url('')?>assets/img/landing/landing_gallery_4.jpg" alt="Image Description">
+            <div class="card-body">
+              <span class="card-subtitle text-body">IYS 2020</span>
+              <h3 class="card-title">Lorem Ipsum</h3>
+            </div>
+          </a>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+
+        <div class="js-shuffle-item col mb-5" data-groups='["2020"]'>
+          <!-- Card -->
+          <a class="card card-flush card-transition" href="#">
+            <img class="card-img-top" src="<?= site_url('')?>assets/img/landing/landing_gallery_5.jpg" alt="Image Description">
+            <div class="card-body">
+              <span class="card-subtitle text-body">IYS 2020</span>
+              <h3 class="card-title">Lorem Ipsum</h3>
+            </div>
+          </a>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+
+        <div class="js-shuffle-item col mb-5" data-groups='["2021"]'>
+          <!-- Card -->
+          <a class="card card-flush card-transition" href="#">
+            <img class="card-img-top" src="<?= site_url('')?>assets/img/landing/landing_gallery_6.jpg" alt="Image Description">
+            <div class="card-body">
+              <span class="card-subtitle text-body">IYS 2021</span>
+              <h3 class="card-title">Lorem Ipsum</h3>
+            </div>
+          </a>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+
+        <div class="js-shuffle-item col mb-5" data-groups='["2021"]'>
+          <!-- Card -->
+          <a class="card card-flush card-transition" href="#">
+            <img class="card-img-top" src="<?= site_url('')?>assets/img/landing/landing_gallery_3.jpg" alt="Image Description">
+            <div class="card-body">
+              <span class="card-subtitle text-body">IYS 2021</span>
+              <h3 class="card-title">Lorem Ipsum</h3>
+            </div>
+          </a>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+
+        <div class="js-shuffle-item col mb-5" data-groups='["2022"]'>
+          <!-- Card -->
+          <a class="card card-flush card-transition" href="#">
+            <img class="card-img-top" src="<?= site_url('')?>assets/img/landing/landing_gallery_1.jpg" alt="Image Description">
+            <div class="card-body">
+              <span class="card-subtitle text-body">IYS 2022</span>
+              <h3 class="card-title">Lorem Ipsum</h3>
+            </div>
+          </a>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+
+        <div class="js-shuffle-item col mb-5" data-groups='["2022"]'>
+          <!-- Card -->
+          <a class="card card-flush card-transition" href="#">
+            <img class="card-img-top" src="<?= site_url('')?>assets/img/landing/landing_gallery_4.jpg" alt="Image Description">
+            <div class="card-body">
+              <span class="card-subtitle text-body">IYS 2022</span>
+              <h3 class="card-title">Lorem Ipsum</h3>
+            </div>
+          </a>
+          <!-- End Card -->
         </div>
         <!-- End Col -->
       </div>
+      <!-- End Row -->
     </div>
-    <div class="container content-space-b-lg-2">
-      <div class="row">
-        <div class="col-sm-4 mb-3 mb-sm-0">
-          <!-- Media Viewer -->
-          <a class="media-viewer" href="<?= site_url('assets/img/landing/landing_gallery_4.jpg')?>" data-fslightbox="gallery">
-            <img class="img-fluid" src="<?= site_url('assets/img/landing/landing_gallery_4.jpg')?>" alt="Image Description">
-
-            <span class="media-viewer-container">
-              <span class="media-viewer-icon">
-                <i class="bi-plus media-viewer-icon-inner"></i>
-              </span>
-            </span>
-          </a>
-          <!-- End Media Viewer -->
-        </div>
-        <!-- End Col -->
-
-        <div class="col-sm-4 mb-3 mb-sm-0">
-          <!-- Media Viewer -->
-          <a class="media-viewer" href="<?= site_url('assets/img/landing/landing_gallery_5.jpg')?>" data-fslightbox="gallery">
-            <img class="img-fluid" src="<?= site_url('assets/img/landing/landing_gallery_5.jpg')?>" alt="Image Description">
-
-            <span class="media-viewer-container">
-              <span class="media-viewer-icon">
-                <i class="bi-plus media-viewer-icon-inner"></i>
-              </span>
-            </span>
-          </a>
-          <!-- End Media Viewer -->
-        </div>
-        <!-- End Col -->
-
-        <div class="col-sm-4">
-          <!-- Media Viewer -->
-          <a class="media-viewer" href="<?= site_url('assets/img/landing/landing_gallery_6.jpg')?>" data-fslightbox="gallery">
-            <img class="img-fluid" src="<?= site_url('assets/img/landing/landing_gallery_6.jpg')?>" alt="Image Description">
-
-            <span class="media-viewer-container">
-              <span class="media-viewer-icon">
-                <i class="bi-plus media-viewer-icon-inner"></i>
-              </span>
-            </span>
-          </a>
-          <!-- End Media Viewer -->
-        </div>
-        <!-- End Col -->
-      </div>
-    </div>
+    <!-- End Card Grid -->
     <!-- </div> -->
     
     <!-- End Row -->
@@ -643,3 +728,66 @@
      }'>
     <i class="bi-chevron-up"></i>
   </a>
+  <script src="<?= site_url()?>assets/vendor/shufflejs/dist/shuffle.js"></script>
+  <script src="<?= site_url()?>assets/vendor/hs-nav-scroller/dist/hs-nav-scroller.min.js"></script>
+  <script>
+  // INITIALIZATION OF NAV SCROLLER
+    // =======================================================
+    new HsNavScroller('.js-nav-scroller')
+
+
+    // INITIALIZATION OF SHUFFLE
+    // =======================================================
+    class ShufflePorfolio {
+      constructor(element) {
+        this.element = element;
+        this.shuffle = new Shuffle(element, {
+          itemSelector: '.js-shuffle-item',
+          speed: 500
+        })
+
+        this.addFilterButtons()
+      }
+
+      addFilterButtons() {
+        const options = document.querySelector('.js-filter-options')
+        if (!options) {
+          return
+        }
+
+        const filterButtons = Array.from(options.children)
+        const onClick = this._handleFilterClick.bind(this)
+        filterButtons.forEach((button) => {
+          button.addEventListener('click', onClick, false)
+        });
+      }
+
+      _handleFilterClick(evt) {
+        const btn = evt.currentTarget.firstElementChild
+        const isActive = btn.classList.contains('active')
+        const btnGroup = btn.getAttribute('data-group')
+
+        this._removeActiveClassFromChildren(btn.parentNode.parentNode)
+
+        let filterGroup
+        if (isActive) {
+          btn.classList.remove('active')
+          filterGroup = Shuffle.ALL_ITEMS
+        } else {
+          btn.classList.add('active')
+          filterGroup = btnGroup
+        }
+
+        this.shuffle.filter(filterGroup)
+      }
+
+      _removeActiveClassFromChildren(parent) {
+        const { children } = parent
+        for (let i = children.length - 1; i >= 0; i--) {
+          children[i].firstElementChild.classList.remove('active')
+        }
+      }
+    }
+
+    new ShufflePorfolio(document.querySelector('.js-shuffle'))
+  </script>

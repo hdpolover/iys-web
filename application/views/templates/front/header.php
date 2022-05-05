@@ -22,4 +22,15 @@
 
   <!-- CSS Front Template -->
   <link rel="stylesheet" href="<?= site_url()?>assets/css/theme.min.css">
+  
+  <script src="<?= site_url()?>assets/js/jquery-3.6.0.min.js"></script>
+  <style>
+    .maxText{
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  </style>
 </head>

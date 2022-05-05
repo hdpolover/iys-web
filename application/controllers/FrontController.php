@@ -3,6 +3,7 @@
 class FrontController extends CI_Controller{
     public function __construct(){
         parent::__construct();
+        $this->load->model('Announcement');
     }
     public function signIn(){
         $data['title']      = 'Sign In';
@@ -48,5 +49,21 @@ class FrontController extends CI_Controller{
         $data['isBgDark']   = true;
         
         $this->template->front('privacy_policy', $data);
+    }
+    public function announcementGeneral(){
+        $data['title']      = 'Announcement';
+        $data['topBar']     = 'announcement-general';
+        $data['isBgDark']   = true;
+        $data['announcements'] = $this->Announcement->get(['is_registered' => 0, 'orderBy' => 'date DESC']);
+        
+        $this->template->front('announcement_general', $data);
+    }
+    public function announcementGeneralDetail($id){
+        $data['title']          = 'Announcement Detail';
+        $data['topBar']         = 'announcement-general';
+        $data['isBgDark']       = true;
+        $data['announcement']   = $this->Announcement->getById($id);
+        
+        $this->template->front('announcement_general_detail', $data);
     }
 }

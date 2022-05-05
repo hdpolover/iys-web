@@ -15,7 +15,7 @@ class Mail {
         $config = $this->getConfig();
 
         $mail = new PHPMailer(true);
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        $mail->SMTPDebug = 0;
         $mail->isSMTP();
         $mail->Host       = 'smtp.googlemail.com';
         $mail->SMTPAuth   = true;

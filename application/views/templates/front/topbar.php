@@ -67,6 +67,9 @@
                 <a id="" class="nav-link <?= $topBar == "home" ? "active" : "" ?>" aria-current="page" href="<?= site_url('/')?>" role="button" aria-expanded="false">Home</a>
               </li>
               <li class="nav-item">
+                <a id="" class="nav-link <?= $topBar == "announcement-general" ? "active" : "" ?>" aria-current="page" href="<?= site_url('announcement-general')?>" role="button" aria-expanded="false">Announcement</a>
+              </li>
+              <li class="nav-item">
                 <a id="" class="nav-link <?= $topBar == "about" ? "active" : "" ?>" aria-current="page" href="<?= site_url('about')?>" role="button" aria-expanded="false">About IYS</a>
               </li>
               <li class="nav-item">
