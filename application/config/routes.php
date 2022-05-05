@@ -54,11 +54,13 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
-$route['about']             = 'FrontController/about';
-$route['team']              = 'FrontController/ourTeam';
-$route['partner-sponsor']   = 'FrontController/partnerSponsor';
-$route['faq']               = 'FrontController/faq';
-$route['privacy-policy']    = 'FrontController/privacyPolicy';
+$route['about']                         = 'FrontController/about';
+$route['team']                          = 'FrontController/ourTeam';
+$route['partner-sponsor']               = 'FrontController/partnerSponsor';
+$route['faq']                           = 'FrontController/faq';
+$route['privacy-policy']                = 'FrontController/privacyPolicy';
+$route['announcement-general']          = 'FrontController/announcementGeneral';
+$route['announcement-general/(:any)']   = 'FrontController/announcementGeneralDetail/$1';
 
 // ===== ADMIN =====
 $route['admin']             = 'adm/AuthController';

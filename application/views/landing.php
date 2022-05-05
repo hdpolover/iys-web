@@ -11,6 +11,31 @@
               <div class="w-75 w-lg-50">
                 <h1 class="display-4 text-white mb-0">Istanbul Youth Summit 2022</h1>
                 <h3 class="text-white">1 - 4 February, Istanbul Turkey</h3>
+                <div class="js-countdown row mt-3">
+                  <div class="col-3">
+                    <h2 class="js-cd-days h1 text-white mb-0"></h2>
+                    <h5 class="mb-0 text-white">Days</h5>
+                  </div>
+                  <!-- End Col -->
+
+                  <div class="col-3">
+                    <h2 class="js-cd-hours h1 text-white mb-0"></h2>
+                    <h5 class="mb-0 text-white">Hours</h5>
+                  </div>
+                  <!-- End Col -->
+
+                  <div class="col-3">
+                    <h2 class="js-cd-minutes h1 text-white mb-0"></h2>
+                    <h5 class="mb-0 text-white">Mins</h5>
+                  </div>
+                  <!-- End Col -->
+
+                  <div class="col-3">
+                    <h2 class="js-cd-seconds h1 text-white mb-0"></h2>
+                    <h5 class="mb-0 text-white">Secs</h5>
+                  </div>
+                  <!-- End Col -->
+                </div>
                 <button type="button" class="btn btn-outline-light mt-5">Register</button>
               </div>
             </div>
