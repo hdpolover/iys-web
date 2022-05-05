@@ -166,6 +166,7 @@
           countdown.DAYS | countdown.HOURS | countdown.MINUTES | countdown.SECONDS
         )
       })
+      
     })()
     var swiper = new Swiper('.js-swiper-single-testimonials', {
       pagination: {

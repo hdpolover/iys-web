@@ -2,16 +2,12 @@
 <!-- Hero Section -->
 <div class="container content-space-2 content-space-lg-3">
     <!-- Heading -->
-    <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-    <!-- <span class="d-block small font-weight-bold text-cap mb-2">Our Team</span> -->
-    <h2>Announcements</h2>
-    </div>
     <!-- End Heading -->
 
     <!-- Card -->
     <div class="card">
         <div class="card-header border-bottom">
-            <h4 class="card-header-title">Announcement</h4>
+            <h4 class="card-header-title">Announcements</h4>
         </div>
         <!-- Body -->
         <div class="card-body">
