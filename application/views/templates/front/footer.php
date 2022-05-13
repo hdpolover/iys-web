@@ -147,7 +147,8 @@
       
       // INITIALIZATION OF COUNTDOWN
       // =======================================================
-      const oneYearFromNow = new Date()
+      const oneYearFromNow = new Date('August 31, 2022 23:59:59')
+      // console.log(oneYearFromNow.setDate())
 
       document.querySelectorAll('.js-countdown').forEach(item => {
         const days = item.querySelector('.js-cd-days'),
@@ -155,8 +156,7 @@
           minutes = item.querySelector('.js-cd-minutes'),
           seconds = item.querySelector('.js-cd-seconds')
 
-        countdown(oneYearFromNow.setFullYear(
-          oneYearFromNow.getFullYear() + 1),
+        countdown(oneYearFromNow,
           ts => {
             days.innerHTML = ts.days
             hours.innerHTML = ts.hours
