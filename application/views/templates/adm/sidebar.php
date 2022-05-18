@@ -12,6 +12,9 @@
             </div>
         </li>
         <li class="nav-item">
+            <a class="nav-link <?= $sidebar == "ambassador" ? "active" : "" ?>" href="<?= site_url('admin/ambassador')?>"><i class="bi-person-check nav-icon"></i>Ambassador</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="#"><i class="bi-people nav-icon"></i>Participant</a>
         </li>
         <li class="nav-item">

@@ -83,6 +83,14 @@ $route['admin/announcement-registered/edit/(:any)']         = 'adm/AnnouncementC
 $route['admin/announcement-registered/store']               = 'adm/AnnouncementController/rStore';
 $route['admin/announcement-registered/change']              = 'adm/AnnouncementController/rChange';
 $route['admin/announcement-registered/destroy']             = 'adm/AnnouncementController/rDestroy';
+// ambassador
+$route['admin/ambassador']                         = 'adm/AmbassadorController';
+$route['admin/ambassador/add']                     = 'adm/AmbassadorController/add';
+$route['admin/ambassador/edit/(:any)']             = 'adm/AmbassadorController/edit/$1';
+$route['admin/ambassador/store']                   = 'adm/AmbassadorController/store';
+$route['admin/ambassador/change']                  = 'adm/AmbassadorController/change';
+$route['admin/ambassador/destroy']                 = 'adm/AmbassadorController/destroy';
+$route['admin/ambassador/ajxGenRC']                = 'adm/AmbassadorController/generateRC';
 
 
 // ===== USER =====
