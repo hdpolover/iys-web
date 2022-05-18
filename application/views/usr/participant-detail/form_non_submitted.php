@@ -583,8 +583,8 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
         <div class="js-form-message input-group">
             <input type="text" id="rc" class="form-control" name="referral" id="validationFormUsernameLabel" placeholder="Referral Code" value="<?= $detail->referral_code ?>" aria-label="sourceAccount" required data-msg="Please enter your fullname.">
             <button class="btn btn-success" onclick="checkRC()" type="button" id="button-addon2">Apply</button>
-            <div id="checkRCStatus" style="display: none;"></div>
             <span class="form-text"><b>Note:</b> if you have the referral code of an IYS influencer. you can input it below. If not, just leave it "-".</span>
+            <span class="form-text" id="checkRCStatus"></span>
             <span class="invalid-feedback">Please enter a valid referral.</span>
         </div>
         </div>

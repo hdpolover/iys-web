@@ -226,12 +226,12 @@
       data: {referral: rc},
       success: function(res){
         res = JSON.parse(res)
-        if(res.status){
-          $('#checkRCStatus').css('display', 'absolute');
-          $('#checkRCStatus').html(`<span class="text-green">Your referral code is valid: ${res.name}</span>`);
+        if(res.status === true){
+          $('#checkRCStatus').attr('hidden', false);
+          $('#checkRCStatus').html(`<span class="text-success">Your referral code is valid: <b>${res.name}</b></span>`);
         }else {
-          $('#checkRCStatus').css('display', 'absolute');
-          $('#checkRCStatus').html(`<span class="text-red"></span>`);
+          $('#checkRCStatus').attr('hidden', false);
+          $('#checkRCStatus').html(`<span class="form-text text-danger">Your referral code is wrong!</span>`);
         }
       }
     })

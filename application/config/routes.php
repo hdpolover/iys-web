@@ -112,7 +112,7 @@ $route['personal-info/ajxPostEssay']    = 'usr/ParticipantDetailController/ajxPo
 $route['personal-info/ajxPostProgram']  = 'usr/ParticipantDetailController/ajxPostProgram';
 $route['personal-info/submit']          = 'usr/ParticipantDetailController/submit';
 $route['personal-info/download-qr']     = 'usr/ParticipantDetailController/downloadQR';
-$route['personal-info/ajxCheckRC']      = 'usr/ParticipantDetailController/downloadQR';
+$route['personal-info/ajxCheckRC']      = 'usr/ParticipantDetailController/checkRC';
 
 
 // EMAILING
