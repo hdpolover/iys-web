@@ -208,7 +208,7 @@
       method: 'POST',
       data: formData,
       success: function(res){
-        
+
       }
     })
   }
@@ -217,5 +217,23 @@
   }
   function clickBtnSubmit(){
     $('#formSubmit').submit()
+  }
+  function checkRC(){
+    const rc = $('#rc').val()
+    $.ajax({
+      url: '<?= site_url('personal-info/ajxCheckRC')?>',
+      method: 'POST',
+      data: {referral: rc},
+      success: function(res){
+        res = JSON.parse(res)
+        if(res.status){
+          $('#checkRCStatus').css('display', 'absolute');
+          $('#checkRCStatus').html(`<span class="text-green">Your referral code is valid: ${res.name}</span>`);
+        }else {
+          $('#checkRCStatus').css('display', 'absolute');
+          $('#checkRCStatus').html(`<span class="text-red"></span>`);
+        }
+      }
+    })
   }
 </script>

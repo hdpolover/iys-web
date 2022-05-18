@@ -12,6 +12,9 @@
             </div>
         </li>
         <li class="nav-item">
+            <a class="nav-link <?= $sidebar == "ambassador" ? "active" : "" ?>" href="<?= site_url('admin/ambassador')?>"><i class="bi-person-check nav-icon"></i>Ambassador</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="#"><i class="bi-people nav-icon"></i>Participant</a>
         </li>
         <li class="nav-item">
@@ -27,6 +30,16 @@
                 <a class="nav-link" href="#">Certificate</a>
                 <a class="nav-link" href="#">Payment</a>
                 <a class="nav-link" href="#">Summit</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link dropdown-toggle" href="#snippetsSidebarNavFeaturesCollapse2" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="snippetsSidebarNavFeaturesCollapse2"><i class="bi-pie-chart nav-icon"></i>Landing</a>
+
+            <div id="snippetsSidebarNavFeaturesCollapse2" class="nav-collapse collapse ms-2">
+                <a class="nav-link" href="#">Event Details</a>
+                <a class="nav-link" href="#">About Events</a>
+                <a class="nav-link" href="#">Event Schedule</a>
+                <a class="nav-link" href="#">Gallery</a>
             </div>
         </li>
         <li class="nav-item">

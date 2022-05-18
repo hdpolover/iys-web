@@ -9,8 +9,8 @@
           <div class="swiper-slide gradient-y-overlay-sm-gray-900 bg-img-start" style="background-image: url(<?= site_url()?>assets/img/landing/landing_1.jpg);">
             <div class="container d-md-flex align-items-md-center vh-md-70 content-space-t-4 content-space-b-3 content-space-md-0">
               <div class="w-75 w-lg-50">
-                <h1 class="display-4 text-white mb-0">Istanbul Youth Summit 2022</h1>
-                <h3 class="text-white">1 - 4 February, Istanbul Turkey</h3>
+                <h1 class="display-4 text-white mb-0">Istanbul Youth Summit 2023</h1>
+                <h3 class="text-white">6 - 9 February, Istanbul Turkey</h3>
                 <div class="js-countdown row mt-3">
                   <div class="col-3">
                     <h2 class="js-cd-days h1 text-white mb-0"></h2>
@@ -46,7 +46,7 @@
           <div class="swiper-slide gradient-y-overlay-sm-gray-900 bg-img-start" style="background-image: url(<?= site_url()?>assets/img/landing/landing_2.jpg);">
             <div class="container d-md-flex align-items-md-center vh-md-70 content-space-t-4 content-space-b-3 content-space-md-0">
               <div class="w-75 w-lg-50">
-                <h1 class="display-4 text-white mb-0">Istanbul Youth Summit 2021</h1>
+                <h1 class="display-4 text-white mb-0">Istanbul Youth Summit 2022</h1>
                 <button type="button" class="btn btn-ghost-light mt-5">Expired</button>
               </div>
             </div>
@@ -92,7 +92,7 @@
             </svg>
             </div>
             <h3>Event Date</h3>
-            <p>February, 14-17 2022</p>
+            <p>February, 6-Feb-2023</p>
           </div>
           <!-- End Icon Blocks -->
         </div>
@@ -259,12 +259,12 @@
 
               <p class="step-text">
                 Registration <br>
-                25 August 2020 -25 September 2020</p>
-              <p class="step-text">
+                1 August 2020 - 31 August 2022</p>
+              <!-- <p class="step-text">
                 Before you continue to fill out this form, there are five steps that you have to do.
                 Please Click Read More for Complete info
-              </p>
-              <button type="button" class="btn btn-soft-primary">Read More</button>
+              </p> -->
+              <!-- <button type="button" class="btn btn-soft-primary">Read More</button> -->
             </div>
           </div>
         </li>
@@ -273,11 +273,11 @@
           <div class="step-content-wrapper">
             <span class="step-icon step-icon-soft-primary">2</span>
             <div class="step-content">
-              <h4>15 September 2022</h4>
+              <h4>20 October 2022</h4>
               <p class="step-text">
-                The day has come!!! <br>
-                The day has come!!! <br>
-                Today is the day of the announcement for IYS 2022 selected participants!
+                <!-- The day has come!!! <br>
+                The day has come!!! <br> -->
+                Today is the day of the announcement for IYS 2023 selected participants!
               </p>
             </div>
           </div>
@@ -287,9 +287,9 @@
           <div class="step-content-wrapper">
             <span class="step-icon step-icon-soft-primary">3</span>
             <div class="step-content">
-              <h4>23 - 24 September 2022</h4>
-              <p class="step-text">Fully Funded Interview</p>
-              <button type="button" class="btn btn-soft-primary">Read More</button>
+              <h4>22 - 23 October 2022</h4>
+              <p class="step-text">Interview for Fully Funded</p>
+              <!-- <button type="button" class="btn btn-soft-primary">Read More</button> -->
             </div>
           </div>
         </li>
@@ -300,7 +300,17 @@
             <div class="step-content">
               <h4>5 December 2022</h4>
               <p class="step-text">Final Announcement for Fully Funded</p>
-              <button type="button" class="btn btn-soft-primary">Read More</button>
+              <!-- <button type="button" class="btn btn-soft-primary">Read More</button> -->
+            </div>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-content-wrapper">
+            <span class="step-icon step-icon-soft-primary">5</span>
+            <div class="step-content">
+              <h4>6 - 9 February 2023</h4>
+              <p class="step-text">Istanbul Youth Summit 2023</p>
+              <!-- <button type="button" class="btn btn-soft-primary">Read More</button> -->
             </div>
           </div>
         </li>
@@ -325,9 +335,15 @@
           </span>
 
           <!-- Nav -->
-          <ul class="js-filter-options nav nav-segment nav-pills d-flex mx-auto" style="max-width: 23rem;">
+          <ul class="js-filter-options nav nav-segment nav-pills d-flex mx-auto" style="max-width: 35rem;">
             <li class="nav-item">
               <a class="nav-link active" href="javascript:;" data-group="all">All</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:;" data-group="2017">IYS 2017</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:;" data-group="2019">IYS 2019</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="javascript:;" data-group="2020">IYS 2020</a>

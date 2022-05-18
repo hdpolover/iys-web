@@ -83,6 +83,14 @@ $route['admin/announcement-registered/edit/(:any)']         = 'adm/AnnouncementC
 $route['admin/announcement-registered/store']               = 'adm/AnnouncementController/rStore';
 $route['admin/announcement-registered/change']              = 'adm/AnnouncementController/rChange';
 $route['admin/announcement-registered/destroy']             = 'adm/AnnouncementController/rDestroy';
+// ambassador
+$route['admin/ambassador']                         = 'adm/AmbassadorController';
+$route['admin/ambassador/add']                     = 'adm/AmbassadorController/add';
+$route['admin/ambassador/edit/(:any)']             = 'adm/AmbassadorController/edit/$1';
+$route['admin/ambassador/store']                   = 'adm/AmbassadorController/store';
+$route['admin/ambassador/change']                  = 'adm/AmbassadorController/change';
+$route['admin/ambassador/destroy']                 = 'adm/AmbassadorController/destroy';
+$route['admin/ambassador/ajxGenRC']                = 'adm/AmbassadorController/generateRC';
 
 
 // ===== USER =====
@@ -103,7 +111,9 @@ $route['personal-info/ajxPostOther']    = 'usr/ParticipantDetailController/ajxPo
 $route['personal-info/ajxPostEssay']    = 'usr/ParticipantDetailController/ajxPostEssay';
 $route['personal-info/ajxPostProgram']  = 'usr/ParticipantDetailController/ajxPostProgram';
 $route['personal-info/submit']          = 'usr/ParticipantDetailController/submit';
-$route['personal-info/download-qr']          = 'usr/ParticipantDetailController/downloadQR';
+$route['personal-info/download-qr']     = 'usr/ParticipantDetailController/downloadQR';
+$route['personal-info/ajxCheckRC']      = 'usr/ParticipantDetailController/downloadQR';
+
 
 // EMAILING
 $route['send-email/register'] = 'EmailController/register';
