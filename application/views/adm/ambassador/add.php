@@ -79,10 +79,10 @@
               </div>
               <div class="col">
                 <div class="mb-3">
-                  <label for="validationValidInput1">Refferal Code</label>
+                  <label for="validationValidInput1">Referral Code</label>
                   <div class="input-group">
-                    <input type="text"  class="form-control inptRC" id="validationValidInput1" placeholder="Refferal Code" readonly required>
-                    <input type="hidden" name="refferal" class="form-control inptRC" id="validationValidInput1" placeholder="Refferal Code" readonly required>
+                    <input type="text"  class="form-control inptRC" id="validationValidInput1" placeholder="referral Code" readonly required>
+                    <input type="hidden" name="referral" class="form-control inptRC" id="validationValidInput1" placeholder="referral Code" readonly required>
                     <button type="button" onclick="generateRC()" class="btn btn-sm btn-success input-group-text" id="basic-addon2">Generate</button>
                   </div>
                 </div>
@@ -131,7 +131,7 @@
         data: {name},
         success: function(res){
           res = JSON.parse(res)
-          $('.inptRC').val(res.refferal_code)
+          $('.inptRC').val(res.referral_code)
         }
       })
     }

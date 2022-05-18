@@ -8,6 +8,7 @@ class ParticipantDetailController extends CI_Controller{
         $this->load->library('upload');
         $this->load->model('User');
         $this->load->model('ParticipantDetail');
+        $this->load->model('Ambassador');
     }
     public function index(){
         $data['title']      = "Personal Info";
@@ -63,6 +64,14 @@ class ParticipantDetailController extends CI_Controller{
 
         $this->template->user('usr/participant-detail/index', $data);
     }
+    public function checkRC(){
+        $ambassador = $this->Ambassador->get(['referral_code' => $_POST['referral']]);
+        if($ambassador != null){
+           echo json_encode(['status' => true, 'name' => $ambassador[0]->name]);
+        }else{
+            echo json_encode(['status' => true]);
+        }
+    }
     public function submit(){
         $participantDetail = $this->ParticipantDetail->getById($this->session->userdata('id_user'));
 
@@ -84,6 +93,13 @@ class ParticipantDetailController extends CI_Controller{
 
         $this->User->update(['id_user' => $this->session->userdata('id_user'), 'name' => $_POST['fullName']]);
         $this->session->set_userdata('name', $_POST['fullName']);
+
+        $ambassador     = $this->Ambassador->get(['referral_code' => $_POST['referral']]);
+        if($ambassador != null){
+            $referral_code  = $_POST['referral'];
+        }else{
+            $referral_code  = "-";
+        }
 
         $formData['id_user']                = $this->session->userdata('id_user');
         $formData['fullname']               = $_POST['fullName'];
@@ -111,7 +127,7 @@ class ParticipantDetailController extends CI_Controller{
         $formData['source_account']         = $_POST['sourceAccount'];
         $formData['motivation_link']        = $_POST['motivation'];
         $formData['share_proof_link']       = $_POST['shareRequirement'];
-        $formData['referral_code']          = $_POST['referral'];
+        $formData['referral_code']          = $referral_code;
         $formData['qr']                     = $this->generateQR($this->session->userdata('id_user'));
         $formData['termsncondition']        = '1';
         $formData['is_submited']            = '1';
@@ -119,6 +135,10 @@ class ParticipantDetailController extends CI_Controller{
         $this->ParticipantDetail->update($formData);
 
         $this->ParticipantDetail->update(['id_user' => $this->session->userdata('id_user'), 'step' => '5']);
+
+        if($ambassador != null){
+            $this->Ambassador->update(['id_ambassador' => $_POST['referral'], 'total_redeem' => (int)$ambassador->total_reedem + 1]);
+        }
 
         redirect('personal-info');
     }

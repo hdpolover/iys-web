@@ -31,7 +31,7 @@ class AmbassadorController extends CI_Controller{
         $this->template->admin('adm/ambassador/edit', $data);
     }
     public function store(){
-        if($_POST['refferal'] == null || $_POST['refferal'] == ''){
+        if($_POST['referral'] == null || $_POST['referral'] == ''){
             $this->session->set_flashdata('err_msg', 'The referral code has not been filled!');
             redirect('admin/ambassador/add');
         }
@@ -46,7 +46,7 @@ class AmbassadorController extends CI_Controller{
         }
 
         $formData['name']           = $_POST['name'];
-        $formData['refferal_code']  = $_POST['refferal'];
+        $formData['referral_code']  = $_POST['referral'];
 
         $this->Ambassador->insert($formData);
         $this->session->set_flashdata('succ_msg', 'Successfully added a new ambassador!');
@@ -66,10 +66,10 @@ class AmbassadorController extends CI_Controller{
 
         do {
             $newRC      = "AMB23".$initial;
-            $ambassador = $this->Ambassador->get(['refferal_code' => $newRC]);
+            $ambassador = $this->Ambassador->get(['referral_code' => $newRC]);
         } while ($ambassador != null);
 
-        echo json_encode(['refferal_code' => $newRC]);
+        echo json_encode(['referral_code' => $newRC]);
     }
     public function change(){
         if(!empty($_FILES['poster']['name'])){

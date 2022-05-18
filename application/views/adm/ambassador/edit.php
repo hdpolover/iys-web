@@ -79,8 +79,8 @@
               </div>
               <div class="col">
                 <div class="mb-3">
-                    <label for="validationValidInput1">Refferal Code</label>
-                    <input type="text" class="form-control" value="<?= $ambassador->refferal_code ?>" id="validationValidInput1" placeholder="Placeholder" disabled required>
+                    <label for="validationValidInput1">Referral Code</label>
+                    <input type="text" class="form-control" value="<?= $ambassador->referral_code ?>" id="validationValidInput1" placeholder="Placeholder" disabled required>
                 </div>
               </div>
               <div class="mb-3">

@@ -83,7 +83,7 @@
                 <tr>
                   <th scope="col">Name</th>
                   <th scope="col">Photo</th>
-                  <th scope="col">Refferal Code</th>
+                  <th scope="col">referral Code</th>
                   <th scope="col">Total Redeem</th>
                   <th scope="col">Action</th>
                 </tr>
@@ -97,7 +97,7 @@
                         <td>
                           <button onclick="showMdlPoster(\''.$ambassador->photo.'\')" type="button" class="btn btn-soft-dark btn-icon btn-sm"><i class="bi-image"></i></button>
                         </td>
-                        <td>'.$ambassador->refferal_code.'</td>
+                        <td>'.$ambassador->referral_code.'</td>
                         <td>'.$ambassador->total_redeem.'</td>
                         <td>
                           <a href="'.site_url('admin/ambassador/edit/'.$ambassador->id_ambassador).'" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-pencil-square"></i></a>
