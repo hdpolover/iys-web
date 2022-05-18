@@ -69,7 +69,7 @@ class ParticipantDetailController extends CI_Controller{
         if($ambassador != null){
            echo json_encode(['status' => true, 'name' => $ambassador[0]->name]);
         }else{
-            echo json_encode(['status' => true]);
+            echo json_encode(['status' => false]);
         }
     }
     public function submit(){
@@ -137,7 +137,7 @@ class ParticipantDetailController extends CI_Controller{
         $this->ParticipantDetail->update(['id_user' => $this->session->userdata('id_user'), 'step' => '5']);
 
         if($ambassador != null){
-            $this->Ambassador->update(['id_ambassador' => $_POST['referral'], 'total_redeem' => (int)$ambassador->total_reedem + 1]);
+            $this->Ambassador->update(['id_ambassador' => $ambassador[0]->id_ambassador, 'total_redeem' => (int)$ambassador->total_redeem + 1]);
         }
 
         redirect('personal-info');
