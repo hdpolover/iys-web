@@ -52,7 +52,7 @@
       <div class="docs-page-header">
         <div class="row align-items-center">
           <div class="col-sm">
-            <h1 class="docs-page-header-title">Ambassador</h1>
+            <h1 class="docs-page-header-title">Payment Type</h1>
           </div>
         </div>
       </div>
@@ -61,7 +61,7 @@
         <!-- Table -->
         <div class="row">
           <div class="col">
-            <a href="<?= site_url('admin/ambassador/add')?>" class="btn btn-soft-success btn-sm" style="float: right;">
+            <a href="<?= site_url('admin/master/payment-type/add')?>" class="btn btn-soft-success btn-sm" style="float: right;">
               Add
               <i class="bi-plus-lg ms-1"></i>
             </a>
@@ -81,27 +81,27 @@
             <table class="table table-borderless table-thead-bordered">
               <thead class="thead-light">
                 <tr>
-                  <th scope="col">Name</th>
-                  <th scope="col">Photo</th>
-                  <th scope="col">Referral Code</th>
-                  <th scope="col">Total Redeem</th>
+                  <th scope="col">Summit</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Start Date</th>
+                  <th scope="col">End Date</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
                 <?php
-                  foreach ($ambassadors as $ambassador) {
+                  foreach ($payments as $payment) {
                     echo  '
                       <tr>
-                        <th scope="row">'.$ambassador->name.'</th>
+                        <td>'.$payment->name.'</td>
+                        <td>'.$payment->description.'</td>
+                        <td>Rp'.number_format($payment->amount).'</td>
+                        <td>'.date_format(date_create($payment->start_date), 'j F Y H:i').'</td>
+                        <td>'.date_format(date_create($payment->end_date), 'j F Y H:i').'</td>
                         <td>
-                          <button onclick="showMdlPoster(\''.$ambassador->photo.'\')" type="button" class="btn btn-soft-dark btn-icon btn-sm"><i class="bi-image"></i></button>
-                        </td>
-                        <td>'.$ambassador->referral_code.'</td>
-                        <td>'.$ambassador->total_redeem.'</td>
-                        <td>
-                          <a href="'.site_url('admin/ambassador/edit/'.$ambassador->id_ambassador).'" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-pencil-square"></i></a>
-                          <button onclick="showMdlDelete('.$ambassador->id_ambassador.')" type="button" class="btn btn-soft-danger btn-icon btn-sm"><i class="bi-trash"></i></button>
+                          <a href="'.site_url('admin/master/payment-type/edit/'.$payment->id_payment_type).'" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-pencil-square"></i></a>
+                          <button onclick="showMdlDelete('.$payment->id_payment_type.')" type="button" class="btn btn-soft-danger btn-icon btn-sm"><i class="bi-trash"></i></button>
                         </td>
                       </tr>    
                     ';    
@@ -150,7 +150,7 @@
           </div>
 
           <div class="modal-footer">
-            <form action="<?= site_url('admin/ambassador/destroy')?> " method="post">
+            <form action="<?= site_url('admin/master/payment-type/destroy')?> " method="post">
               <input type="hidden" name="id" id="mdlDelete_id" >
               <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
               <button type="submit" class="btn btn-soft-danger">Delete</button>
