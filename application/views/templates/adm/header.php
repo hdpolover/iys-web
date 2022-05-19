@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="<?= site_url()?>assets/css/theme.min.css">
   <link rel="stylesheet" href="<?= site_url()?>assets/css/snippets.min.css">
   <link rel="stylesheet" href="<?= site_url()?>assets/vendor/quill/dist/quill.snow.css">
+  <link rel="stylesheet" href="<?= site_url()?>assets/css/flatpickr.min.css">
   <script src="<?= site_url()?>assets/js/jquery-3.6.0.min.js"></script>
   
 </head>

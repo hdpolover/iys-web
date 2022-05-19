@@ -52,7 +52,7 @@
       <div class="docs-page-header">
         <div class="row align-items-center">
           <div class="col-sm">
-            <h1 class="docs-page-header-title">Add New Ambassador</h1>
+            <h1 class="docs-page-header-title">Add New Payment Type</h1>
           </div>
         </div>
       </div>
@@ -69,31 +69,25 @@
                     ';
                 }
             ?>
-          <form action="<?= site_url('admin/ambassador/store')?>" method="POST" enctype="multipart/form-data">
-            <div class="row">
-              <div class="col">
-                <div class="mb-3">
-                    <label for="validationValidInput1">Name</label>
-                    <input type="text" id="inptName" name="name" class="form-control" id="validationValidInput1" placeholder="Name" required>
-                </div>
-              </div>
-              <div class="col">
-                <div class="mb-3">
-                  <label for="validationValidInput1">Referral Code</label>
-                  <div class="input-group">
-                    <input type="text"  class="form-control inptRC" id="validationValidInput1" placeholder="Referral Code" readonly required>
-                    <input type="hidden" name="referral" class="form-control inptRC" id="validationValidInput1" placeholder="referral Code" readonly required>
-                    <button type="button" onclick="generateRC()" class="btn btn-sm btn-success input-group-text" id="basic-addon2">Generate</button>
-                  </div>
-                </div>
-              </div>
+          <form action="<?= site_url('admin/master/payment-type/store')?>" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="validationValidInput1">Description</label>
+                <input type="text" id="" name="description" class="form-control" id="validationValidInput1" placeholder="Description" required>
             </div>
             <div class="mb-3">
-                <label for="validationValidFileInput1">Photo</label>
-                <div id="boxImg" class="text-center mb-3 p-3" style="border: .0625rem solid rgba(33,50,91,.1);border-radius: .3125rem;cursor: pointer;">
-                    <img style="max-width: 300px;" id="blah" class="" src="<?= site_url('assets/svg/illustrations/oc-lost.svg')?>" />
+                <label for="validationValidInput1">Amount</label>
+                <div class="input-group">
+                  <span class="input-group-text" id="basic-addon1">Rp</span>
+                  <input type="text" id="" onkeypress="return isNumberKey(event)" onkeyup="return addCommaNumeric(event)" name="amount" class="form-control" id="validationValidInput1" placeholder="Amount" required>
                 </div>
-                <input type="file" accept=".jpg,.png,.jpeg,.bmp" class="form-control" name="poster" style="cursor: pointer;" id="imgPoster">
+            </div>
+            <div class="mb-3">
+                <label for="validationValidInput1">Start Date</label>
+                <input type="text" id="" name="startDate" class="form-control flatpickrDT" id="validationValidInput1" placeholder="Start Date" required>
+            </div>
+            <div class="mb-3">
+                <label for="validationValidInput1">End Date</label>
+                <input type="text" id="" name="endDate" class="form-control flatpickrDT" id="validationValidInput1" placeholder="End Date" required>
             </div>
             <!-- <div class="mb-3">
                 <label for="validationValidTextarea1">Content</label>
@@ -123,18 +117,6 @@
     <!-- End Content -->
   </main>
   <script>
-    function generateRC(){
-      const name = $('#inptName').val()
-      $.ajax({
-        url: '<?= site_url('admin/ambassador/ajxGenRC')?>',
-        method: 'POST',
-        data: {name},
-        success: function(res){
-          res = JSON.parse(res)
-          $('.inptRC').val(res.referral_code)
-        }
-      })
-    }
     // var quill = new Quill('.js-quill', {
     //     theme: 'snow',
     //     modules: {

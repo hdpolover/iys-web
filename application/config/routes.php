@@ -92,6 +92,14 @@ $route['admin/ambassador/change']                  = 'adm/AmbassadorController/c
 $route['admin/ambassador/destroy']                 = 'adm/AmbassadorController/destroy';
 $route['admin/ambassador/ajxGenRC']                = 'adm/AmbassadorController/generateRC';
 
+// master payment
+$route['admin/master/payment-type']                  = 'adm/master/PaymentTypeController';
+$route['admin/master/payment-type/add']              = 'adm/master/PaymentTypeController/add';
+$route['admin/master/payment-type/edit/(:any)']      = 'adm/master/PaymentTypeController/edit/$1';
+$route['admin/master/payment-type/store']            = 'adm/master/PaymentTypeController/store';
+$route['admin/master/payment-type/change']           = 'adm/master/PaymentTypeController/change';
+$route['admin/master/payment-type/destroy']          = 'adm/master/PaymentTypeController/destroy';
+
 
 // ===== USER =====
 $route['sign-in']               = 'FrontController/signIn';
@@ -100,7 +108,7 @@ $route['register']              = 'usr/AuthController/register';
 $route['login']                 = 'usr/AuthController/login';
 $route['logout']                = 'usr/AuthController/logout';
 $route['verif-email/(:any)']    = 'usr/AuthController/verifEmail/$1';
-$route['resend-email/(:any)']          = 'usr/AuthController/resendEmail/$1';
+$route['resend-email/(:any)']   = 'usr/AuthController/resendEmail/$1';
 // announcement
 $route['announcement']          = 'usr/AnnouncementController';
 $route['announcement/(:any)']   = 'usr/AnnouncementController/detail/$1';
