@@ -61,8 +61,8 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?= $sidebar == "payment" ? "active" : ""?>" href="#">
-                <i class="bi-credit-card nav-icon"></i> Payments
+              <a class="nav-link <?= $sidebar == "payment" ? "active" : ""?>" href="<?= site_url('payment')?>">
+                <i class="bi-credit-card nav-icon"></i> Payment
               </a>
             </li>
             <li class="nav-item">

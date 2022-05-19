@@ -121,6 +121,8 @@ $route['personal-info/ajxPostProgram']  = 'usr/ParticipantDetailController/ajxPo
 $route['personal-info/submit']          = 'usr/ParticipantDetailController/submit';
 $route['personal-info/download-qr']     = 'usr/ParticipantDetailController/downloadQR';
 $route['personal-info/ajxCheckRC']      = 'usr/ParticipantDetailController/checkRC';
+// payments
+$route['payment']      = 'usr/PaymentController';
 
 
 // EMAILING
