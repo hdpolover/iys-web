@@ -89,6 +89,24 @@
               </div>
             </div>
             <div class="mb-3">
+                <label for="validationValidInput1">Institution</label>
+                <input type="text" id="inptName" name="institution" class="form-control" id="validationValidInput1" placeholder="Institution" required>
+            </div>
+            <div class="mb-3">
+                <label for="validationValidInput1">Instagram</label>
+                <div class="input-group">
+                  <span class="input-group-text" id="basic-addon1">https://instagram.com/</span>
+                  <input type="text" id="inptName" name="instagram" class="form-control" id="validationValidInput1" placeholder="Username" required>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="validationValidInput1">Tiktok</label>
+                <div class="input-group">
+                  <span class="input-group-text" id="basic-addon1">https://tiktok.com/@</span>
+                  <input type="text" id="inptName" name="tiktok" class="form-control" id="validationValidInput1" placeholder="Username" required>
+                </div>
+            </div>
+            <div class="mb-3">
                 <label for="validationValidFileInput1">Photo</label>
                 <div id="boxImg" class="text-center mb-3 p-3" style="border: .0625rem solid rgba(33,50,91,.1);border-radius: .3125rem;cursor: pointer;">
                     <img style="max-width: 300px;" id="blah" class="" src="<?= site_url('assets/svg/illustrations/oc-lost.svg')?>" />

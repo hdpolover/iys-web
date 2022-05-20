@@ -85,12 +85,20 @@
                   <th scope="col">Photo</th>
                   <th scope="col">Referral Code</th>
                   <th scope="col">Total Redeem</th>
+                  <th scope="col">Status</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
                 <?php
                   foreach ($ambassadors as $ambassador) {
+                    $status = "";
+                    if($ambassador->status == "1"){
+                      $status = "<span class='badge bg-soft-success text-success'>Active</span>";
+                    }else{
+                      $status = "<span class='badge bg-soft-danger text-danger'>Disabled</span>";
+                    }
+
                     echo  '
                       <tr>
                         <th scope="row">'.$ambassador->name.'</th>
@@ -99,6 +107,7 @@
                         </td>
                         <td>'.$ambassador->referral_code.'</td>
                         <td>'.$ambassador->total_redeem.'</td>
+                        <td>'.$status.'</td>
                         <td>
                           <a href="'.site_url('admin/ambassador/edit/'.$ambassador->id_ambassador).'" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-pencil-square"></i></a>
                           <button onclick="showMdlDelete('.$ambassador->id_ambassador.')" type="button" class="btn btn-soft-danger btn-icon btn-sm"><i class="bi-trash"></i></button>
