@@ -91,6 +91,13 @@ class AmbassadorController extends CI_Controller{
         $this->session->set_flashdata('succ_msg', 'Successfully edit ambassador!');
         redirect('admin/ambassador');
     }
+    public function changeStatus(){
+        $ambassador = $this->Ambassador->getById($_POST['id']);
+        $status = $ambassador->status == '1' ? '0' : '1';
+        $this->Ambassador->update(['id_ambassador' => $_POST['id'], 'status' => $status]);
+        $this->session->set_flashdata('succ_msg', 'Successfully change status!');
+        redirect('admin/ambassador');
+    }
     public function destroy(){
         $this->Ambassador->delete(['id_ambassador' => $_POST['id']]);
         $this->session->set_flashdata('succ_msg', 'Successfully delete ambassador!');
