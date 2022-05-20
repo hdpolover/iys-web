@@ -91,6 +91,24 @@
                   <input type="file" accept=".jpg,.png,.jpeg,.bmp" class="form-control" name="poster" style="cursor: pointer;" id="imgPoster">
               </div>
             </div>
+            <div class="mb-3">
+                <label for="validationValidInput1">Institution</label>
+                <input type="text" id="inptName" name="institution" class="form-control" id="validationValidInput1" value="<?= $ambassador->institution ?>" placeholder="Institution" required>
+            </div>
+            <div class="mb-3">
+                <label for="validationValidInput1">Instagram</label>
+                <div class="input-group">
+                  <span class="input-group-text" id="basic-addon1">https://instagram.com/</span>
+                  <input type="text" id="inptName" name="instagram" class="form-control" id="validationValidInput1" value="<?= str_replace('https://instagram.com/', '', $ambassador->instagram) ?>" placeholder="Username" required>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="validationValidInput1">Tiktok</label>
+                <div class="input-group">
+                  <span class="input-group-text" id="basic-addon1">https://tiktok.com/@</span>
+                  <input type="text" id="inptName" name="tiktok" class="form-control" id="validationValidInput1" value="<?= str_replace('https://tiktok.com/@', '', $ambassador->tiktok) ?>" placeholder="Username" required>
+                </div>
+            </div>
             <!-- <div class="mb-3">
                 <label for="validationValidTextarea1">Content</label>
                 <div class="quill-custom">

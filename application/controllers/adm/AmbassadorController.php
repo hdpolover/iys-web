@@ -47,29 +47,28 @@ class AmbassadorController extends CI_Controller{
 
         $formData['name']           = $_POST['name'];
         $formData['referral_code']  = $_POST['referral'];
+        $formData['institution']    = $_POST['institution'];
+        $formData['instagram']      = "https://instagram.com/".$_POST['instagram'];
+        $formData['tiktok']         = "https://tiktok.com/@".$_POST['tiktok'];
+        $formData['status']         = 1;
 
         $this->Ambassador->insert($formData);
         $this->session->set_flashdata('succ_msg', 'Successfully added a new ambassador!');
         redirect('admin/ambassador');
     }
     public function generateRC(){
-        $words   = explode(' ', $_POST['name']);
-        $initial = "";
-        foreach ($words as $word) {
-            $initial .= strtoupper($word[0]);
+        $referral = strtoupper(substr($_POST['name'], 0, 3));
+        $ambassador = $this->db->order_by('id_ambassador', 'desc')->limit(1)->get('ambassador')->row();
+
+        if(empty($ambassador->id_ambassador)){
+            $referral .= '001';
+        }else{
+            $lastOrder = (int)strlen($ambassador->referral_code) - 3;
+            $lastOrder = sprintf('%03d', substr($ambassador->referral_code, $lastOrder, 3) + 1);
+            $referral .= $lastOrder;
         }
 
-        if(count($words) < 5){
-            $shfl = $this->generateRandomString(5 - count($words));
-            $initial = $initial.$shfl;
-        }
-
-        do {
-            $newRC      = "AMB23".$initial;
-            $ambassador = $this->Ambassador->get(['referral_code' => $newRC]);
-        } while ($ambassador != null);
-
-        echo json_encode(['referral_code' => $newRC]);
+        echo json_encode(['referral_code' => $referral]);
     }
     public function change(){
         if(!empty($_FILES['poster']['name'])){
@@ -83,9 +82,20 @@ class AmbassadorController extends CI_Controller{
 
         $formData['id_ambassador']    = $_POST['id'];
         $formData['name']             = $_POST['name'];
+        $formData['institution']      = $_POST['institution'];
+        $formData['instagram']        = "https://instagram.com/".$_POST['instagram'];
+        $formData['tiktok']           = "https://tiktok.com/@".$_POST['tiktok'];
+        $formData['status']           = $_POST['status'];
 
         $this->Ambassador->update($formData);
         $this->session->set_flashdata('succ_msg', 'Successfully edit ambassador!');
+        redirect('admin/ambassador');
+    }
+    public function changeStatus(){
+        $ambassador = $this->Ambassador->getById($_POST['id']);
+        $status = $ambassador->status == '1' ? '0' : '1';
+        $this->Ambassador->update(['id_ambassador' => $_POST['id'], 'status' => $status]);
+        $this->session->set_flashdata('succ_msg', 'Successfully change status!');
         redirect('admin/ambassador');
     }
     public function destroy(){

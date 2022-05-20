@@ -65,7 +65,7 @@ class ParticipantDetailController extends CI_Controller{
         $this->template->user('usr/participant-detail/index', $data);
     }
     public function checkRC(){
-        $ambassador = $this->Ambassador->get(['referral_code' => $_POST['referral']]);
+        $ambassador = $this->Ambassador->get(['referral_code' => $_POST['referral'], 'status' => '1']);
         if($ambassador != null){
            echo json_encode(['status' => true, 'name' => $ambassador[0]->name]);
         }else{
@@ -94,7 +94,7 @@ class ParticipantDetailController extends CI_Controller{
         $this->User->update(['id_user' => $this->session->userdata('id_user'), 'name' => $_POST['fullName']]);
         $this->session->set_userdata('name', $_POST['fullName']);
 
-        $ambassador     = $this->Ambassador->get(['referral_code' => $_POST['referral']]);
+        $ambassador     = $this->Ambassador->get(['referral_code' => $_POST['referral'], 'status' => '1']);
         if($ambassador != null){
             $referral_code  = $_POST['referral'];
         }else{

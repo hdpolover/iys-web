@@ -90,6 +90,7 @@ $route['admin/ambassador/edit/(:any)']             = 'adm/AmbassadorController/e
 $route['admin/ambassador/store']                   = 'adm/AmbassadorController/store';
 $route['admin/ambassador/change']                  = 'adm/AmbassadorController/change';
 $route['admin/ambassador/destroy']                 = 'adm/AmbassadorController/destroy';
+$route['admin/ambassador/change-status']            = 'adm/AmbassadorController/changeStatus';
 $route['admin/ambassador/ajxGenRC']                = 'adm/AmbassadorController/generateRC';
 
 // master payment

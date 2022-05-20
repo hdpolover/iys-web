@@ -85,12 +85,20 @@
                   <th scope="col">Photo</th>
                   <th scope="col">Referral Code</th>
                   <th scope="col">Total Redeem</th>
+                  <th scope="col">Status</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
                 <?php
                   foreach ($ambassadors as $ambassador) {
+                    $status = "";
+                    if($ambassador->status == "1"){
+                      $status = "<span class='badge bg-soft-success text-success'>Active</span>";
+                    }else{
+                      $status = "<span class='badge bg-soft-danger text-danger'>Disabled</span>";
+                    }
+
                     echo  '
                       <tr>
                         <th scope="row">'.$ambassador->name.'</th>
@@ -99,8 +107,10 @@
                         </td>
                         <td>'.$ambassador->referral_code.'</td>
                         <td>'.$ambassador->total_redeem.'</td>
+                        <td>'.$status.'</td>
                         <td>
                           <a href="'.site_url('admin/ambassador/edit/'.$ambassador->id_ambassador).'" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-pencil-square"></i></a>
+                          <button onclick="showMdlChangeStatus('.$ambassador->id_ambassador.')" type="button" class="btn btn-soft-info btn-icon btn-sm"><i class="bi-arrow-clockwise"></i></button>
                           <button onclick="showMdlDelete('.$ambassador->id_ambassador.')" type="button" class="btn btn-soft-danger btn-icon btn-sm"><i class="bi-trash"></i></button>
                         </td>
                       </tr>    
@@ -160,6 +170,30 @@
       </div>
     </div>
     <!-- End Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="mdlChangeStatus" tabindex="-1" aria-labelledby="mdlChangeStatusLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="mdlChangeStatusLabel">Change Status</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body text-center">
+              <h4 class="text-center">Are you sure to change the status ?</h4>
+          </div>
+
+          <div class="modal-footer">
+            <form action="<?= site_url('admin/ambassador/change-status')?> " method="post">
+              <input type="hidden" name="id" id="mdlChangeStatus_id" >
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-soft-success">Save</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
   </main>
   <script>
     const showMdlPoster = src => {
@@ -169,5 +203,9 @@
     const showMdlDelete = id => {
       $('#mdlDelete_id').val(id);
       $('#mdlDelete').modal('show')
+    }
+    const showMdlChangeStatus = id => {
+      $('#mdlChangeStatus_id').val(id);
+      $('#mdlChangeStatus').modal('show')
     }
   </script>

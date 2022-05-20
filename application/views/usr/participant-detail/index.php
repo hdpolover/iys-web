@@ -228,10 +228,10 @@
         res = JSON.parse(res)
         if(res.status === true){
           $('#checkRCStatus').attr('hidden', false);
-          $('#checkRCStatus').html(`<span class="text-success">Your referral code is valid: <b>${res.name}</b></span>`);
+          $('#checkRCStatus').html(`<span class="text-success">Your referral code is valid!</span>`);
         }else {
           $('#checkRCStatus').attr('hidden', false);
-          $('#checkRCStatus').html(`<span class="form-text text-danger">Your referral code is wrong!</span>`);
+          $('#checkRCStatus').html(`<span class="form-text text-danger">The referral code you entered doesn't exist. Try again.!</span>`);
         }
       }
     })
