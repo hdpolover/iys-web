@@ -26,4 +26,16 @@ class PaymentController extends CI_Controller{
         
         $this->template->user('usr/announcement/detail', $data);
     }
+    public function choosePayment(){
+        $data['title']          = "Choose Payment Method";
+        $data['sidebar']        = "payment";
+        
+        $this->template->user('usr/payment/method_payment', $data);
+    }
+    public function status(){
+        $data['title']          = "Payment Status";
+        $data['sidebar']        = "payment";
+        
+        $this->template->user('usr/payment/trans_payment', $data);
+    }
 }
