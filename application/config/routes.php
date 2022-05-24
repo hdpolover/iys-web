@@ -123,7 +123,9 @@ $route['personal-info/submit']          = 'usr/ParticipantDetailController/submi
 $route['personal-info/download-qr']     = 'usr/ParticipantDetailController/downloadQR';
 $route['personal-info/ajxCheckRC']      = 'usr/ParticipantDetailController/checkRC';
 // payments
-$route['payment']      = 'usr/PaymentController';
+$route['payment']               = 'usr/PaymentController';
+$route['payment/choose-method'] = 'usr/PaymentController/choosePayment';
+$route['payment/status']        = 'usr/PaymentController/status';
 
 
 // EMAILING
