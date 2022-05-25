@@ -10,6 +10,9 @@ class PaymentController extends CI_Controller{
         $this->load->model('User');
         $this->load->model('Announcement');
         $this->load->model('ParticipantDetail');
+        $this->load->model('PaymentType');
+        $this->load->model('PaymentStatus');
+        $this->load->model('PaymentTransaction');
 
         $params = array('server_key' => 'SB-Mid-server-IgrJW0Rn59m14rGnA30QyPL5', 'production' => false);
 		$this->load->library('Midtrans');
@@ -22,6 +25,19 @@ class PaymentController extends CI_Controller{
     public function index(){
         $data['title']          = "Payment";
         $data['sidebar']        = "payment";
+
+        $paymentTypes = $this->PaymentType->getAll();
+        foreach ($paymentTypes as $paymentType) {
+            $paymentStatus = $this->PaymentStatus->get(['id_payment_type' => $paymentType->id_payment_type, 'id_user' => $this->session->userdata('id_user')]);
+            if($paymentStatus == null){
+                $formData['id_user']            = $this->session->userdata('id_user');
+            $formData['id_payment_type']    = $paymentType->id_payment_type;
+                $formData['status']             = 0;
+                $this->PaymentStatus->insert($formData);
+            }
+        }
+
+        $data['paymentStatuses'] = $this->getQueryStatus($this->session->userdata('id_user'));
         
         $this->template->user('usr/payment/index', $data);
         $this->ParticipantDetail->resetAnnouncement(['id_user' => $this->session->userdata('id_user'), 'id_summit' => '1']);
@@ -95,5 +111,14 @@ class PaymentController extends CI_Controller{
         $data['sidebar']        = "payment";
 
         $this->load->view('usr/payment/trans_payment', $data);
+    }
+    public function getQueryStatus($idUser){
+        return $this->db->query("
+            SELECT ps.*, pt.*
+            FROM payment_status ps , payment_types pt 
+            WHERE ps.id_user = '".$idUser."'
+            GROUP BY pt.id_payment_type 
+            ORDER BY ps.status ASC, ps.id_payment_type ASC
+        ")->result();
     }
 }

@@ -36,6 +36,7 @@ class PaymentTypeController extends CI_Controller{
         $formData['description']    = $_POST['description'];
         $formData['id_summit']      = "1";
         $formData['amount']         = str_replace(',', '', $_POST['amount']);
+        $formData['usd']            = str_replace(',', '', $_POST['usd']);
         $formData['start_date']     = date_format(date_create($_POST['startDate']), 'Y-m-d H:i:s');
         $formData['end_date']       = date_format(date_create($_POST['endDate']), 'Y-m-d H:i:s');
 
@@ -47,6 +48,7 @@ class PaymentTypeController extends CI_Controller{
         $formData['id_payment_type']  = $_POST['id'];
         $formData['description']    = $_POST['description'];
         $formData['amount']         = str_replace(',', '', $_POST['amount']);
+        $formData['usd']            = str_replace(',', '', $_POST['usd']);
         $formData['start_date']     = date_format(date_create($_POST['startDate']), 'Y-m-d H:i:s');
         $formData['end_date']       = date_format(date_create($_POST['endDate']), 'Y-m-d H:i:s');
 
