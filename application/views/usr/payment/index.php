@@ -74,12 +74,14 @@
                     <span class="card-subtitle">Total (USD)</span>
                     <h3 class="text-primary">$264</h3>
                   </div>
+                  <input type="hidden" id="purchase-total" value="2000000">
+                  <input type="hidden" id="purchase-item" value="Batch 1">
                 </div>
                 <!-- End Col -->
 
                 <div class="col-md-auto">
                   <div class="d-grid d-md-flex gap-3">
-                    <a href="<?= site_url('payment/choose-method')?>" type="button" class="btn btn-soft-primary btn-sm" href="./page-pricing.html">Purchase</a>
+                    <button type="button" class="btn btn-soft-primary btn-sm purchase-button">Purchase</a>
                   </div>
                 </div>
                 <!-- End Col -->
@@ -205,7 +207,7 @@
 
                 <div class="col-md-auto">
                   <div class="d-grid d-md-flex gap-3">
-                    <a type="button" class="btn btn-success btn-sm" href="./page-pricing.html">Purchased</a>
+                    <a type="button" class="btn btn-success btn-sm">Purchased</a>
                   </div>
                 </div>
                 <!-- End Col -->
@@ -231,5 +233,66 @@
     <!-- End Row -->
   </div>
   <!-- End Content -->
+  <form id="payment-form" method="post" action="<?=site_url()?>/payment/status">
+      <input type="hidden" name="result_type" id="result-type" value=""></div>
+      <input type="hidden" name="result_data" id="result-data" value=""></div>
+  </form>
 </main>
 <!-- ========== END MAIN CONTENT ========== -->
+<script type="text/javascript"
+  src="https://app.sandbox.midtrans.com/snap/snap.js"
+  data-client-key="SB-Mid-client-gNhX86Gzt1spgT-g">
+</script>
+<script>
+  $('.purchase-button').click(function (event) {
+      event.preventDefault();
+      $(this).attr("disabled", "disabled");
+    
+    $.ajax({
+      url: '<?=site_url()?>/payment/token',
+      method: 'POST',
+      data: {
+        item: $('#purchase-item').val(),
+        total: $('#purchase-total').val(),
+        paymentType: '1'
+      },  
+      cache: false,
+
+      success: function(data) {
+        //location = data;
+
+        console.log('token = '+data);
+        
+        var resultType = document.getElementById('result-type');
+        var resultData = document.getElementById('result-data');
+
+        function changeResult(type,data){
+          $("#result-type").val(type);
+          $("#result-data").val(JSON.stringify(data));
+          //resultType.innerHTML = type;
+          //resultData.innerHTML = JSON.stringify(data);
+        }
+
+        snap.pay(data, {
+          
+          onSuccess: function(result){
+            changeResult('success', result);
+            console.log(result.status_message);
+            console.log(result);
+            $("#payment-form").submit();
+          },
+          onPending: function(result){
+            changeResult('pending', result);
+            console.log(result.status_message);
+            $("#payment-form").submit();
+          },
+          onError: function(result){
+            changeResult('error', result);
+            console.log(result.status_message);
+            $("#payment-form").submit();
+          }
+        });
+      }
+    });
+  });
+</script>

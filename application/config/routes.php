@@ -125,6 +125,7 @@ $route['personal-info/ajxCheckRC']      = 'usr/ParticipantDetailController/check
 // payments
 $route['payment']               = 'usr/PaymentController';
 $route['payment/choose-method'] = 'usr/PaymentController/choosePayment';
+$route['payment/token']         = 'usr/PaymentController/token';
 $route['payment/status']        = 'usr/PaymentController/status';
 
 
