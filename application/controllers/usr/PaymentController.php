@@ -14,13 +14,10 @@ class PaymentController extends CI_Controller{
         $this->load->model('PaymentStatus');
         $this->load->model('PaymentTransaction');
 
-        $params = array('server_key' => 'SB-Mid-server-IgrJW0Rn59m14rGnA30QyPL5', 'production' => false);
+        $params = array('server_key' => 'Mid-server-2mHtL-sr24bWznuA6Lwu_JA3', 'production' => true);
+        // $params = array('server_key' => 'SB-Mid-server-IgrJW0Rn59m14rGnA30QyPL5', 'production' => false);
 		$this->load->library('Midtrans');
 		$this->midtrans->config($params);
-        
-        $params = array('server_key' => 'SB-Mid-server-IgrJW0Rn59m14rGnA30QyPL5', 'production' => false);
-		$this->load->library('Veritrans');
-		$this->veritrans->config($params);
     }
     public function index(){
         $data['title']          = "Payment";
@@ -105,12 +102,24 @@ class PaymentController extends CI_Controller{
     public function finish(){
         $result = json_decode($this->input->post('result_data'));
         $order  = $this->veritrans->status($result->order_id);
+        $idUser = $this->session->userdata('id_user');
+
+        $formData['id_payment_transaction'] = "TRANS".md5($idUser.time().$result->payment_type);
+        $formData['id_user']                = $idUser;
+        $formData['order_id']               = $result->order_id;
+        $formData['method']                 = $result->payment_type;
+        $formData['total']                  = $result->gross_amount;
+        $this->PaymentTransaction->insert($formData);
+        redirect('payment/status/'.$formData['id_payment_transaction']);
+        print_r($result);
+        print_r($order);
     }
-    public function status(){
+    public function status($id){
         $data['title']          = "Payment Status";
         $data['sidebar']        = "payment";
+        $data['paymentDetail']  = $this->PaymentTransaction->getById($id);
 
-        $this->load->view('usr/payment/trans_payment', $data);
+        $this->template->user('usr/payment/trans_payment', $data);
     }
     public function getQueryStatus($idUser){
         return $this->db->query("

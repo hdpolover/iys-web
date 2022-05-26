@@ -133,16 +133,20 @@
     <!-- End Row -->
   </div>
   <!-- End Content -->
-  <form id="payment-form" method="post" action="<?=site_url()?>/payment/status">
+  <form id="payment-form" method="post" action="<?=site_url()?>/payment/finish">
       <input type="hidden" name="result_type" id="result-type" value=""></div>
       <input type="hidden" name="result_data" id="result-data" value=""></div>
   </form>
 </main>
 <!-- ========== END MAIN CONTENT ========== -->
 <script type="text/javascript"
+  src="https://app.midtrans.com/snap/snap.js"
+  data-client-key="Mid-client-Ma4jHxwVr7YEIF-R">
+</script>
+<!-- <script type="text/javascript"
   src="https://app.sandbox.midtrans.com/snap/snap.js"
   data-client-key="SB-Mid-client-gNhX86Gzt1spgT-g">
-</script>
+</script> -->
 <script>
   $('.purchase-button').click(function (event) {
       event.preventDefault();
