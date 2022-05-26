@@ -82,6 +82,13 @@
                 </div>
             </div>
             <div class="mb-3">
+                <label for="validationValidInput1">Amount (in USD)</label>
+                <div class="input-group">
+                  <span class="input-group-text" id="basic-addon1">$</span>
+                  <input type="text" id="" onkeypress="return numComma(event)" name="usd" class="form-control" id="validationValidInput1" placeholder="Amount" required>
+                </div>
+            </div>
+            <div class="mb-3">
                 <label for="validationValidInput1">Start Date</label>
                 <input type="text" id="" name="startDate" class="form-control flatpickrDT" id="validationValidInput1" placeholder="Start Date" required>
             </div>

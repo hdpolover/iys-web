@@ -139,8 +139,6 @@
                     <!-- End Col -->
                     </div>
                     <!-- End Row -->
-                    <h6>Bank Account Number</h6>
-                    <input type="text" class="form-control" placeholder="Bank Account Number">
                 </div>
                 <div class="d-grid gap-3 mb-4">
                     <dl class="row">
@@ -160,7 +158,8 @@
                     <!-- End Row -->
                 </div>
                 <div class="d-grid">
-                    <a class="btn btn-primary btn-lg" href="<?= site_url('payment/status')?>">Pay</a>
+                    <!-- <a class="btn btn-primary btn-lg" href="<?= site_url('payment/status')?>">Pay</a> -->
+                    <a class="btn btn-primary btn-lg" href="<?= site_url('payment/get-token')?>">Pay</a>
                 </div>
             </div>
             <!-- End Body -->

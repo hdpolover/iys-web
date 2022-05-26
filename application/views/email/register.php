@@ -203,6 +203,7 @@
                         $token_regis = str_replace('/', '_', $token_regis);
                         $token_regis = str_replace('+', '-', $token_regis);
                     ?>  
+                    <img src="data:image/png; base64, fbad0c97ea7c4eb52a0955e23189884312d879e3ef2bfda61c4df8dc86a5657823bac3d9d43a5a55c21b06e026af8fff99bb97d3600654f81ffdd157bd35543f" alt="">
                     <a href="<?= site_url('verif-email/'.$token_regis)?>" class="btn btn-soft-primary mb-6">Verify Now</a>
                     <br>
                     <small>
