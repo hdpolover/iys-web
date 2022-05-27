@@ -12,6 +12,7 @@
   <script src="<?= site_url()?>assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="<?= site_url()?>assets/vendor/hs-toggle-password/dist/js/hs-toggle-password.js"></script>
   <script src="<?= site_url()?>assets/vendor/hs-step-form/dist/hs-step-form.min.js"></script>
+  <script src="<?= site_url()?>assets/vendor/countdown/countdown.js"></script>
   <script src="<?= site_url()?>assets/js/flatpickr.min.js"></script>
 
   <!-- JS Front -->

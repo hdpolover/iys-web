@@ -40,26 +40,35 @@
           <?php
             $no = 1;
             foreach ($paymentStatuses as $paymentStatus) {
-              $btn      = "";
-              $cardInfo = "";
-              if($paymentStatus->status == '0'){
-                if($no++ == 1){
-                  $btn = '<button type="button" class="btn btn-soft-primary btn-sm purchase-button">Purchase</a>';
-                }else{
-                  $btn = '<a type="button" class="btn btn-ghost-dark btn-sm">Waiting</a>';
-                }
-              }else if($paymentStatus->status == '1'){
-                $btn = '<button type="button" class="btn btn-soft-primary btn-sm purchase-button">Purchase</a>';
+              $btn          = "";
+              $cardInfo     = "";
+              $paymentType  = "";
+              
+              if($paymentStatus->status == '1'){
+                $btn          = '<button type="button" class="btn btn-soft-primary btn-sm purchase-button">Purchase</a>';
               }else if($paymentStatus->status == '2'){
-                $btn = '<button type="button" class="btn btn-soft-warning btn-sm">Pending</a>';
+                $btn  = '<button type="button" class="btn btn-soft-warning btn-sm">Pending</a>';
               }else if($paymentStatus->status == '3'){
-                $btn = '<button type="button" class="btn btn-soft-danger btn-sm purchase-button">Failure</a>';
-              }else {
+                $btn  = '<button type="button" class="btn btn-soft-danger btn-sm purchase-button">Failure</a>';
+              }else if($paymentStatus->status == '4'){
+                $btn  = '<button type="button" class="btn btn-soft-danger btn-sm purchase-button">Canceled</a>';
+              }else if($paymentStatus->status == '5'){
                 $cardInfo = '
                   <a class="btn btn-white btn-sm" href="#">
                     <i class="bi-file-earmark-arrow-down me-1"></i> Proof of Payment
                   </a>';
                 $btn = '<button type="button" class="btn btn-soft-success btn-sm">Purchased</a>';
+              }
+
+
+              if($paymentStatus->status != '4'){
+                $paymentType  = '
+                  <form id="payment-form" method="post" action="'.site_url().'/payment/finish">
+                      <input type="hidden" name="result_type" id="result-type" value="">
+                      <input type="hidden" name="result_data" id="result-data" value="">
+                      <input type="hidden" name="payment_type" value="'.$paymentStatus->id_payment_type.'">
+                  </form>
+                ';
               }
           ?>
           <!-- Card -->
@@ -101,6 +110,7 @@
                   </div>
                   <input type="hidden" id="purchase-total" value="<?= $paymentStatus->amount?>">
                   <input type="hidden" id="purchase-item" value="<?= $paymentStatus->description?>">
+                  <?= $paymentType?>
                 </div>
                 <!-- End Col -->
 
@@ -133,20 +143,17 @@
     <!-- End Row -->
   </div>
   <!-- End Content -->
-  <form id="payment-form" method="post" action="<?=site_url()?>/payment/finish">
-      <input type="hidden" name="result_type" id="result-type" value=""></div>
-      <input type="hidden" name="result_data" id="result-data" value=""></div>
-  </form>
+  
 </main>
 <!-- ========== END MAIN CONTENT ========== -->
-<script type="text/javascript"
+<!-- <script type="text/javascript"
   src="https://app.midtrans.com/snap/snap.js"
   data-client-key="Mid-client-Ma4jHxwVr7YEIF-R">
-</script>
-<!-- <script type="text/javascript"
+</script> -->
+<script type="text/javascript"
   src="https://app.sandbox.midtrans.com/snap/snap.js"
   data-client-key="SB-Mid-client-gNhX86Gzt1spgT-g">
-</script> -->
+</script>
 <script>
   $('.purchase-button').click(function (event) {
       event.preventDefault();
@@ -157,8 +164,7 @@
       method: 'POST',
       data: {
         item: $('#purchase-item').val(),
-        total: $('#purchase-total').val(),
-        paymentType: '1'
+        total: $('#purchase-total').val()
       },  
       cache: false,
 
