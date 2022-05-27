@@ -14,24 +14,34 @@ class PaymentController extends CI_Controller{
         $this->load->model('PaymentStatus');
         $this->load->model('PaymentTransaction');
 
-        $params = array('server_key' => 'Mid-server-2mHtL-sr24bWznuA6Lwu_JA3', 'production' => true);
-        // $params = array('server_key' => 'SB-Mid-server-IgrJW0Rn59m14rGnA30QyPL5', 'production' => false);
+        $this->load->library('Paymentconf');
+
+        // $params = array('server_key' => 'Mid-server-2mHtL-sr24bWznuA6Lwu_JA3', 'production' => true);
+        $params = array('server_key' => 'SB-Mid-server-IgrJW0Rn59m14rGnA30QyPL5', 'production' => false);
 		$this->load->library('Midtrans');
 		$this->midtrans->config($params);
+        
+        // $params = array('server_key' => 'Mid-server-2mHtL-sr24bWznuA6Lwu_JA3', 'production' => true);
+        $params = array('server_key' => 'SB-Mid-server-IgrJW0Rn59m14rGnA30QyPL5', 'production' => false);
+		$this->load->library('veritrans');
+		$this->veritrans->config($params);
     }
     public function index(){
         $data['title']          = "Payment";
         $data['sidebar']        = "payment";
 
         $paymentTypes = $this->PaymentType->getAll();
+        $index        = 0;
         foreach ($paymentTypes as $paymentType) {
             $paymentStatus = $this->PaymentStatus->get(['id_payment_type' => $paymentType->id_payment_type, 'id_user' => $this->session->userdata('id_user')]);
             if($paymentStatus == null){
                 $formData['id_user']            = $this->session->userdata('id_user');
-            $formData['id_payment_type']    = $paymentType->id_payment_type;
-                $formData['status']             = 0;
+                $formData['id_payment_type']    = $paymentType->id_payment_type;
+                $formData['status']             = 1;
+                $formData['is_active']          = $index == 0 ? '1' : '0';
                 $this->PaymentStatus->insert($formData);
             }
+            $index++;
         }
 
         $data['paymentStatuses'] = $this->getQueryStatus($this->session->userdata('id_user'));
@@ -100,24 +110,37 @@ class PaymentController extends CI_Controller{
         echo $snapToken;
     }
     public function finish(){
-        $result = json_decode($this->input->post('result_data'));
-        $order  = $this->veritrans->status($result->order_id);
-        $idUser = $this->session->userdata('id_user');
+        $result         = json_decode($this->input->post('result_data'));
+        $idUser         = $this->session->userdata('id_user');
+        $paymentType    = $this->PaymentType->getById($this->input->post('payment_type'));
 
-        $formData['id_payment_transaction'] = "TRANS".md5($idUser.time().$result->payment_type);
+        $formData['id_payment_transaction'] = "TRANS".$result->order_id.explode('_', $idUser)[1];
         $formData['id_user']                = $idUser;
+        $formData['id_payment_type']        = $paymentType->id_payment_type;
         $formData['order_id']               = $result->order_id;
-        $formData['method']                 = $result->payment_type;
+        $formData['item']                   = $paymentType->description;
         $formData['total']                  = $result->gross_amount;
+        $formData['date']                   = $result->transaction_time;
+        $formData['date_expired']           = date("Y-m-d H:i:s", strtotime($result->transaction_time.'+1 days'));
+        $formData['status']                 = $this->paymentconf->convertStatus($result->transaction_status);
+
+        $methodDetails = $this->paymentconf->methodDetail($result, site_url());
+        foreach ($methodDetails as $methodDetail) {
+            $formData[$methodDetail['column']] = $methodDetail['value'];
+        }
         $this->PaymentTransaction->insert($formData);
         redirect('payment/status/'.$formData['id_payment_transaction']);
-        print_r($result);
-        print_r($order);
     }
     public function status($id){
         $data['title']          = "Payment Status";
         $data['sidebar']        = "payment";
+
+        $paymentDetail = $this->PaymentTransaction->getById($id);
+        $status = $this->veritrans->status($paymentDetail->order_id);
+        $this->PaymentTransaction->update(['id_payment_transaction' => $id, 'status' => $this->paymentconf->convertStatus($status->transaction_status)]);
+
         $data['paymentDetail']  = $this->PaymentTransaction->getById($id);
+        
 
         $this->template->user('usr/payment/trans_payment', $data);
     }
@@ -125,8 +148,10 @@ class PaymentController extends CI_Controller{
         return $this->db->query("
             SELECT ps.*, pt.*
             FROM payment_status ps , payment_types pt 
-            WHERE ps.id_user = '".$idUser."'
-            GROUP BY pt.id_payment_type 
+            WHERE 
+                ps.id_user = '".$idUser."'
+                AND ps.is_active = '1'
+            	AND ps.id_payment_type = pt.id_payment_type
             ORDER BY ps.status ASC, ps.id_payment_type ASC
         ")->result();
     }

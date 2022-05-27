@@ -53,39 +53,106 @@
                         </a>
                     </div>
                 </div>
-                <div class="js-countdown row mt-4 mb-2 text-center">
-                  <div class="col">
-                    <h2 class="js-cd-days h1 text-dark mb-0">00:59:58</h2>
-                  </div>
+                <div class="js-countdown row mt-3">
+                    <div class="col-3">
+                      <h2 class="js-cd-days h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">:</h5>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-3">
+                      <h2 class="js-cd-hours h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">:</h5>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-3">
+                      <h2 class="js-cd-minutes h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">:</h5>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-3">
+                      <h2 class="js-cd-seconds h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white"></h5>
+                    </div>
+                  <!-- End Col -->
                 </div>
                 <div class="text-center mb-4">
-                    <button type="button" class="btn btn-warning">Waiting</button>
+                    <?php
+                      if($paymentDetail->status == '2'){
+                        echo '
+                          <button type="button" class="btn btn-warning">PENDING</button>    
+                        ';
+                      }else if($paymentDetail->status == '3'){
+                        echo '
+                          <button type="button" class="btn btn-danger">CANCELED</button>    
+                        ';
+                      }else if($paymentDetail->status == '4'){
+                        echo '
+                          <button type="button" class="btn btn-danger">FAILURE</button>    
+                        ';
+                      }else if($paymentDetail->status == '5'){
+                        echo '
+                          <button type="button" class="btn btn-success">PURCHASED</button>    
+                        ';
+                      }
+                    ?>
                 </div>
                 <dl class="row mb-4">
-                    <dt class="col-sm-6">ID Transaction</dt>
-                    <dd class="col-sm-6 text-sm-end mb-0">TRANS748536456</dd>
+                    <dt class="col-sm-6">ID TRANSACTION</dt>
+                    <dd class="col-sm-6 text-sm-end mb-0"><?= $paymentDetail->id_payment_transaction?></dd>
                 </dl>
                 <dl class="row mt-4 mb-4">
-                    <dt class="col-sm-6">Date</dt>
-                    <dd class="col-sm-6 text-sm-end mb-0">24 May 2022 15:40</dd>
+                    <dt class="col-sm-6">DATE</dt>
+                    <dd class="col-sm-6 text-sm-end mb-0"><?= strtoupper(date_format(date_create($paymentDetail->date), 'j F Y H:i'))?></dd>
                 </dl>
                 <dl class="row mb-4">
-                    <dt class="col-sm-6">Order</dt>
-                    <dd class="col-sm-6 text-sm-end mb-0">Batch 1</dd>
+                    <dt class="col-sm-6">ITEM</dt>
+                    <dd class="col-sm-6 text-sm-end mb-0"><?= strtoupper($paymentDetail->item)?></dd>
                 </dl>
                 <dl class="row mb-4">
-                    <dt class="col-sm-6">Method</dt>
+                    <dt class="col-sm-6">METHOD TYPE</dt>
+                    <dd class="col-sm-6 text-sm-end mb-0"><?= strtoupper(str_replace("_", " ", $paymentDetail->method_type))?></dd>
+                </dl>
+                <dl class="row mb-4">
+                    <dt class="col-sm-6">METHOD</dt>
                     <dd class="col-sm-6 text-sm-end mb-0">
-                        <img style="max-width: 75px;" src="<?= site_url('assets/img/payment/bni.png')?>" alt="">
+                        <img style="max-width: 75px;" src="<?= $paymentDetail->method_img?>" alt="">
                     </dd>
                 </dl>
+                <?php
+                  if($paymentDetail->virtual_number != null){
+                    echo '
+                      <dl class="row mb-4">
+                          <dt class="col-sm-6">VIRTUAL NUMBER</dt>
+                          <dd class="col-sm-6 text-sm-end mb-0">'.$paymentDetail->virtual_number.'</dd>
+                      </dl>
+                    ';
+                  }
+
+                  if($paymentDetail->bill_key != null){
+                    echo '
+                      <dl class="row mb-4">
+                          <dt class="col-sm-6">BILL KEY</dt>
+                          <dd class="col-sm-6 text-sm-end mb-0">'.$paymentDetail->bill_key.'</dd>
+                      </dl>
+                    ';
+                  }
+
+                  if($paymentDetail->biller_code != null){
+                    echo '
+                      <dl class="row mb-4">
+                          <dt class="col-sm-6">BILLER CODE</dt>
+                          <dd class="col-sm-6 text-sm-end mb-0">'.$paymentDetail->biller_code.'</dd>
+                      </dl>
+                    ';
+                  }
+                ?>
+                
                 <dl class="row mb-4">
-                    <dt class="col-sm-6">No Virtual Account</dt>
-                    <dd class="col-sm-6 text-sm-end mb-0">7583473485725</dd>
-                </dl>
-                <dl class="row mb-4">
-                    <dt class="col-sm-6">Deadline</dt>
-                    <dd class="col-sm-6 text-sm-end mb-0">25 May 2022 15:40</dd>
+                    <dt class="col-sm-6">EXPIRED DATE</dt>
+                    <dd class="col-sm-6 text-sm-end mb-0"><?= strtoupper(date_format(date_create($paymentDetail->date_expired), 'j F Y H:i'))?></dd>
                 </dl>
             </div>
             <!-- End Body -->
@@ -101,3 +168,18 @@
   <!-- End Content -->
 </main>
 <!-- ========== END MAIN CONTENT ========== -->
+
+<script>
+    var countDownDate = new Date("<?= date_format(date_create($paymentDetail->date_expired), 'F j, Y H:i:s')?>").getTime();
+
+    var myfunc = setInterval(function() {
+        var now = new Date().getTime();
+        var timeleft = countDownDate - now;
+            
+        var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+        
+        }, 1000)
+</script>
