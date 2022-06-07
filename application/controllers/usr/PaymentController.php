@@ -63,6 +63,12 @@ class PaymentController extends CI_Controller{
         
         $this->template->user('usr/payment/method_payment', $data);
     }
+    public function history(){
+        $data['title']          = "Payment History";
+        $data['sidebar']        = "payment";
+        
+        $this->template->user('usr/payment/method_payment', $data);
+    }
     public function token(){
         $idUser         = $this->session->userdata('id_user');
         $user           = $this->User->getById($idUser);

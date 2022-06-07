@@ -123,11 +123,12 @@ $route['personal-info/submit']          = 'usr/ParticipantDetailController/submi
 $route['personal-info/download-qr']     = 'usr/ParticipantDetailController/downloadQR';
 $route['personal-info/ajxCheckRC']      = 'usr/ParticipantDetailController/checkRC';
 // payments
-$route['payment']               = 'usr/PaymentController';
-$route['payment/choose-method'] = 'usr/PaymentController/choosePayment';
-$route['payment/token']         = 'usr/PaymentController/token';
-$route['payment/finish']        = 'usr/PaymentController/finish';
-$route['payment/status/(:any)'] = 'usr/PaymentController/status/$1';
+$route['payment']                   = 'usr/PaymentController';
+$route['payment/choose-method']     = 'usr/PaymentController/choosePayment';
+$route['payment/token']             = 'usr/PaymentController/token';
+$route['payment/finish']            = 'usr/PaymentController/finish';
+$route['payment/history/(:any)']    = 'usr/PaymentController/history/$1';
+$route['payment/status/(:any)']     = 'usr/PaymentController/status/$1';
 
 
 // EMAILING
