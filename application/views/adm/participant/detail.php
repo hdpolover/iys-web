@@ -52,13 +52,13 @@
       <div class="docs-page-header">
         <div class="row align-items-center">
           <div class="col-sm">
-            <h1 class="docs-page-header-title">Participant</h1>
+            <h1 class="docs-page-header-title">Participant Detail</h1>
           </div>
           <div class="col">
-            <a href="<?= site_url('admin/participant/edit/'.$pDetail->id_user)?>" style="float: right;" class="btn btn-soft-primary btn-sm">
+            <!-- <a href="<?= site_url('admin/participant/edit/'.$pDetail->id_user)?>" style="float: right;" class="btn btn-soft-primary btn-sm">
                 <i class="bi-pencil"></i>
                 Edit 
-            </a>
+            </a> -->
           </div>
         </div>
       </div>

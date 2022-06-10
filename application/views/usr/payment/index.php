@@ -50,7 +50,7 @@
                       $paymentType  = "";
                       
                       if($paymentStatus->status == '1'){
-                        $btn          = '<button type="button" class="btn btn-soft-primary btn-sm purchase-button w-100 mt-2">Purchase</button>';
+                        $btn          = '<button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Purchase</button>';
                       }else if($paymentStatus->status == '2'){
                         $btn  = '<button type="button" class="btn btn-soft-warning btn-sm w-100">Pending</button>';
                       }else if($paymentStatus->status == '3'){
@@ -99,7 +99,7 @@
                             <input type="hidden" id="purchase-item" value="<?= $paymentStatus->description?>">
                             <?= $paymentType?>
                             <?= $btn?>
-                            <a class="btn btn-info btn-sm w-100 mt-2" href="#">
+                            <a class="btn btn-info btn-sm w-100 mt-2" href="<?= site_url('payment/history/'.$paymentStatus->id_payment_type)?>">
                               History
                             </a>
                         </div>
