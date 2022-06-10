@@ -34,108 +34,82 @@
       <?php
         $this->load->view('templates/usr/sidebar.php');
       ?>
-      
       <div class="col-lg-9">
         <div class="d-grid gap-3 gap-lg-5">
-          <?php
-            $no = 1;
-            foreach ($paymentStatuses as $paymentStatus) {
-              $btn          = "";
-              $cardInfo     = "";
-              $paymentType  = "";
-              
-              if($paymentStatus->status == '1'){
-                $btn          = '<button type="button" class="btn btn-soft-primary btn-sm purchase-button">Purchase</a>';
-              }else if($paymentStatus->status == '2'){
-                $btn  = '<button type="button" class="btn btn-soft-warning btn-sm">Pending</a>';
-              }else if($paymentStatus->status == '3'){
-                $btn  = '<button type="button" class="btn btn-soft-danger btn-sm purchase-button">Failure</a>';
-              }else if($paymentStatus->status == '4'){
-                $btn  = '<button type="button" class="btn btn-soft-danger btn-sm purchase-button">Canceled</a>';
-              }else if($paymentStatus->status == '5'){
-                $cardInfo = '
-                  <a class="btn btn-white btn-sm" href="#">
-                    <i class="bi-file-earmark-arrow-down me-1"></i> Proof of Payment
-                  </a>';
-                $btn = '<button type="button" class="btn btn-soft-success btn-sm">Purchased</a>';
-              }
-
-
-              if($paymentStatus->status != '4'){
-                $paymentType  = '
-                  <form id="payment-form" method="post" action="'.site_url().'/payment/finish">
-                      <input type="hidden" name="result_type" id="result-type" value="">
-                      <input type="hidden" name="result_data" id="result-data" value="">
-                      <input type="hidden" name="payment_type" value="'.$paymentStatus->id_payment_type.'">
-                  </form>
-                ';
-              }
-          ?>
-          <!-- Card -->
           <div class="card">
             <div class="card-header border-bottom">
-              <h4 class="card-header-title"><?= $paymentStatus->description?></h4>
-              <?= $cardInfo?>
+              <h4 class="card-title">Payment</h4>
             </div>
-            <?php
-              if($this->session->userdata('is_verif') == 0){
-                echo '
-                  <div class="alert alert-soft-danger text-center card-alert" role="alert">
-                    Please verify your email address.
-                  </div>
-                ';
-              }
-              if($this->session->flashdata('succ_alert')){
-                echo '
-                  <div class="alert alert-soft-success text-center card-alert" role="alert">
-                    '.$this->session->flashdata('succ_alert').'
-                  </div>
-                ';
-              }
-            ?>
-
-            <!-- Body -->
-            <div class="card-body">
-              <div class="row">
-                <div class="col-md mb-4 mb-md-0">
-                  <div class="mb-4">
-                    <span class="card-subtitle">Deadline:</span>
-                    <h5><?= date_format(date_create($paymentStatus->end_date), 'j F Y H:i')?></h5>
-                  </div>
-                  <div>
-                    <span class="card-subtitle">Total (IDR)</span>
-                    <h3 class="text-primary">Rp<?= number_format($paymentStatus->amount)?></h3>
-                    <span class="card-subtitle">Total (USD)</span>
-                    <h3 class="text-primary">$<?= $paymentStatus->usd?></h3>
-                  </div>
-                  <input type="hidden" id="purchase-total" value="<?= $paymentStatus->amount?>">
-                  <input type="hidden" id="purchase-item" value="<?= $paymentStatus->description?>">
-                  <?= $paymentType?>
+              <div class="card-body">
+                <div class="row">  
+                  <?php
+                    $no = 1;
+                    foreach ($paymentStatuses as $paymentStatus) {
+                      $btn          = "";
+                      $cardInfo     = "";
+                      $paymentType  = "";
+                      
+                      if($paymentStatus->status == '1'){
+                        $btn          = '<button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Purchase</button>';
+                      }else if($paymentStatus->status == '2'){
+                        $btn  = '<button type="button" class="btn btn-soft-warning btn-sm w-100">Pending</button>';
+                      }else if($paymentStatus->status == '3'){
+                        $btn  = '<button type="button" class="btn btn-soft-danger btn-sm purchase-button w-100">Failure</button>';
+                      }else if($paymentStatus->status == '4'){
+                        $btn  = '<button type="button" class="btn btn-soft-danger btn-sm purchase-button w-100">Canceled</button>';
+                      }else if($paymentStatus->status == '5'){
+                        $cardInfo = '
+                          <a class="btn btn-white btn-sm" href="#">
+                            <i class="bi-file-earmark-arrow-down me-1"></i> Proof of Payment
+                          </a>';
+                        $btn = '<button type="button" class="btn btn-soft-success btn-sm w-100">Purchased</button>';
+                      }
+        
+        
+                      if($paymentStatus->status != '4'){
+                        $paymentType  = '
+                          <form id="payment-form" method="post" action="'.site_url().'/payment/finish">
+                              <input type="hidden" name="result_type" id="result-type" value="">
+                              <input type="hidden" name="result_data" id="result-data" value="">
+                              <input type="hidden" name="payment_type" value="'.$paymentStatus->id_payment_type.'">
+                          </form>
+                        ';
+                      }
+                  ?>
+                    <div class="col col-sm-6 mb-6">
+                      <!-- Card -->
+                      <div class="card card-sm" style="max-width: 20rem;">
+                        <div class="card-header border-bottom">
+                          <h3 class="card-title"><?= $paymentStatus->description?></h3>
+                          
+                          <?= $cardInfo?>
+                        </div>
+                        <div class="card-body">
+                          <div class="mb-4">
+                            <span class="card-subtitle">Deadline:</span>
+                              <h5><?= date_format(date_create($paymentStatus->end_date), 'j F Y H:i')?></h5>
+                            </div>
+                            <div>
+                              <span class="card-subtitle">Total (IDR)</span>
+                              <h3 class="text-primary">Rp<?= number_format($paymentStatus->amount)?></h3>
+                              <span class="card-subtitle">Total (USD)</span>
+                              <h3 class="text-primary">$<?= $paymentStatus->usd?></h3>
+                            </div>
+                            <input type="hidden" id="purchase-total" value="<?= $paymentStatus->amount?>">
+                            <input type="hidden" id="purchase-item" value="<?= $paymentStatus->description?>">
+                            <?= $paymentType?>
+                            <?= $btn?>
+                            <a class="btn btn-info btn-sm w-100 mt-2" href="<?= site_url('payment/history/'.$paymentStatus->id_payment_type)?>">
+                              History
+                            </a>
+                        </div>
+                      </div>
+                      <!-- End Card -->
+                    </div>    
+                  <?php } ?>
                 </div>
-                <!-- End Col -->
-
-                <div class="col-md-auto">
-                  <div class="d-grid d-md-flex gap-3">
-                    <?= $btn?>
-                  </div>
-                </div>
-                <!-- End Col -->
-              </div>
-              <!-- End Row -->
             </div>
-            <!-- End Body -->
-
-            <!-- Footer -->
-            <div class="card-footer pt-0">
-              <!-- <div class="d-flex justify-content-end gap-3">
-                <a class="btn btn-white" href="javascript:;">Cancel</a>
-                <a class="btn btn-primary" href="javascript:;">Save changes</a>
-              </div> -->
-            </div>
-            <!-- End Footer -->
           </div>
-          <!-- End Card -->
-          <?php } ?>
         </div>
       </div>
       <!-- End Col -->

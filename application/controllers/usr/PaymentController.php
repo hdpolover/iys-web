@@ -63,6 +63,13 @@ class PaymentController extends CI_Controller{
         
         $this->template->user('usr/payment/method_payment', $data);
     }
+    public function history($id){
+        $data['title']          = "Payment History";
+        $data['sidebar']        = "payment";
+        $data['historys']       = $this->getQueryHistory($this->session->userdata('id_user'), $id);
+        
+        $this->template->user('usr/payment/history', $data);
+    }
     public function token(){
         $idUser         = $this->session->userdata('id_user');
         $user           = $this->User->getById($idUser);
@@ -123,6 +130,7 @@ class PaymentController extends CI_Controller{
         $formData['date']                   = $result->transaction_time;
         $formData['date_expired']           = date("Y-m-d H:i:s", strtotime($result->transaction_time.'+1 days'));
         $formData['status']                 = $this->paymentconf->convertStatus($result->transaction_status);
+        $formData['status_title']           = $result->transaction_status;
 
         $methodDetails = $this->paymentconf->methodDetail($result, site_url());
         foreach ($methodDetails as $methodDetail) {
@@ -153,6 +161,20 @@ class PaymentController extends CI_Controller{
                 AND ps.is_active = '1'
             	AND ps.id_payment_type = pt.id_payment_type
             ORDER BY ps.status ASC, ps.id_payment_type ASC
+        ")->result();
+    }
+    public function getQueryHistory($id, $idPayment){
+        return $this->db->query("
+            SELECT 
+                pt2.*, pt.*
+            FROM 
+                payment_transaction pt , 
+                payment_types pt2 
+            WHERE 
+                pt.id_user = '".$id."'
+                AND pt.id_payment_type = '".$idPayment."'
+                AND pt.id_payment_type = pt2.id_payment_type
+            ORDER BY date DESC
         ")->result();
     }
 }

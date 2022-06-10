@@ -90,8 +90,17 @@ $route['admin/ambassador/edit/(:any)']             = 'adm/AmbassadorController/e
 $route['admin/ambassador/store']                   = 'adm/AmbassadorController/store';
 $route['admin/ambassador/change']                  = 'adm/AmbassadorController/change';
 $route['admin/ambassador/destroy']                 = 'adm/AmbassadorController/destroy';
-$route['admin/ambassador/change-status']            = 'adm/AmbassadorController/changeStatus';
+$route['admin/ambassador/change-status']           = 'adm/AmbassadorController/changeStatus';
 $route['admin/ambassador/ajxGenRC']                = 'adm/AmbassadorController/generateRC';
+// participant
+$route['admin/participant']                     = 'adm/ParticipantController';
+$route['admin/participant/change-password']     = 'adm/ParticipantController/changePassword';
+$route['admin/participant/edit/(:any)']         = 'adm/ParticipantController/edit/$1';
+$route['admin/participant/(:any)']              = 'adm/ParticipantController/detail/$1';
+// payment
+$route['admin/payment']                     = 'adm/PaymentController';
+$route['admin/payment/add']                 = 'adm/PaymentController/add';
+$route['admin/payment/history/(:any)']      = 'adm/PaymentController/history/$1';
 
 // master payment
 $route['admin/master/payment-type']                  = 'adm/master/PaymentTypeController';
@@ -123,11 +132,12 @@ $route['personal-info/submit']          = 'usr/ParticipantDetailController/submi
 $route['personal-info/download-qr']     = 'usr/ParticipantDetailController/downloadQR';
 $route['personal-info/ajxCheckRC']      = 'usr/ParticipantDetailController/checkRC';
 // payments
-$route['payment']               = 'usr/PaymentController';
-$route['payment/choose-method'] = 'usr/PaymentController/choosePayment';
-$route['payment/token']         = 'usr/PaymentController/token';
-$route['payment/finish']        = 'usr/PaymentController/finish';
-$route['payment/status/(:any)'] = 'usr/PaymentController/status/$1';
+$route['payment']                   = 'usr/PaymentController';
+$route['payment/choose-method']     = 'usr/PaymentController/choosePayment';
+$route['payment/token']             = 'usr/PaymentController/token';
+$route['payment/finish']            = 'usr/PaymentController/finish';
+$route['payment/history/(:any)']    = 'usr/PaymentController/history/$1';
+$route['payment/status/(:any)']     = 'usr/PaymentController/status/$1';
 
 
 // EMAILING
