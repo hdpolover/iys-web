@@ -109,8 +109,8 @@
                         <td>'.$ambassador->total_redeem.'</td>
                         <td>'.$status.'</td>
                         <td>
+                          <button onclick="showMdlChangeStatus('.$ambassador->id_ambassador.')" type="button" class="btn btn-soft-info btn-icon btn-sm"><i class="bi-shuffle"></i></button>
                           <a href="'.site_url('admin/ambassador/edit/'.$ambassador->id_ambassador).'" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-pencil-square"></i></a>
-                          <button onclick="showMdlChangeStatus('.$ambassador->id_ambassador.')" type="button" class="btn btn-soft-info btn-icon btn-sm"><i class="bi-arrow-clockwise"></i></button>
                           <button onclick="showMdlDelete('.$ambassador->id_ambassador.')" type="button" class="btn btn-soft-danger btn-icon btn-sm"><i class="bi-trash"></i></button>
                         </td>
                       </tr>    

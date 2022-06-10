@@ -90,8 +90,13 @@ $route['admin/ambassador/edit/(:any)']             = 'adm/AmbassadorController/e
 $route['admin/ambassador/store']                   = 'adm/AmbassadorController/store';
 $route['admin/ambassador/change']                  = 'adm/AmbassadorController/change';
 $route['admin/ambassador/destroy']                 = 'adm/AmbassadorController/destroy';
-$route['admin/ambassador/change-status']            = 'adm/AmbassadorController/changeStatus';
+$route['admin/ambassador/change-status']           = 'adm/AmbassadorController/changeStatus';
 $route['admin/ambassador/ajxGenRC']                = 'adm/AmbassadorController/generateRC';
+// ambassador
+$route['admin/participant']                     = 'adm/ParticipantController';
+$route['admin/participant/change-password']     = 'adm/ParticipantController/changePassword';
+$route['admin/participant/edit/(:any)']         = 'adm/ParticipantController/edit/$1';
+$route['admin/participant/(:any)']              = 'adm/ParticipantController/detail/$1';
 
 // master payment
 $route['admin/master/payment-type']                  = 'adm/master/PaymentTypeController';

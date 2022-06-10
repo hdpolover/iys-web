@@ -15,7 +15,7 @@
             <a class="nav-link <?= $sidebar == "ambassador" ? "active" : "" ?>" href="<?= site_url('admin/ambassador')?>"><i class="bi-person-check nav-icon"></i>Ambassador</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><i class="bi-people nav-icon"></i>Participant</a>
+            <a class="nav-link <?= $sidebar == "participant" ? "active" : "" ?>" href="<?= site_url('admin/participant')?>"><i class="bi-people nav-icon"></i>Participant</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#"><i class="bi-wallet2 nav-icon"></i>Payment</a>
