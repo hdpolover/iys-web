@@ -25,6 +25,12 @@ class PaymentController extends CI_Controller{
 
         $this->template->admin('adm/payment/history', $data);
     }
+    public function add(){
+        $data['title']          = 'Add Payment';
+        $data['sidebar']        = 'payment';
+        
+        $this->template->admin('adm/payment/add', $data);
+    }
     public function changePassword(){
         $this->User->update(['id_user' => $_POST['id'], 'password' => hash('sha256', md5($_POST['pass']))]);
         $this->session->set_flashdata('succ_msg', 'Successfully change password!');
