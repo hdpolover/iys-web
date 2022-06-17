@@ -1,5 +1,7 @@
   <!-- ========== END SECONDARY CONTENTS ========== -->
-
+  <a href="https://wa.me/6285608004769?text=Halo%20kak.%20Mau%20tanya%20dong." target="_blank" class="float pt-2 ps-0">
+    <i style="font-size: 30px;" class="bi-whatsapp my-float"></i>
+  </a>
   <!-- JS Global Compulsory  -->
   <script src="<?= site_url()?>assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
