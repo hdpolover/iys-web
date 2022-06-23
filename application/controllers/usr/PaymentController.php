@@ -132,6 +132,8 @@ class PaymentController extends CI_Controller{
         $formData['status']                 = $this->paymentconf->convertStatus($result->transaction_status);
         $formData['status_title']           = $result->transaction_status;
 
+        $this->db->where(['id_user' => $idUser, 'id_payment_type' => $paymentType->id_payment_type])->update('payment_status', ['status' => '2']); 
+
         $methodDetails = $this->paymentconf->methodDetail($result, site_url());
         foreach ($methodDetails as $methodDetail) {
             $formData[$methodDetail['column']] = $methodDetail['value'];
@@ -153,10 +155,15 @@ class PaymentController extends CI_Controller{
         $this->template->user('usr/payment/trans_payment', $data);
     }
     public function checkStatus(){
-        $trans = $this->db->get_where("payment_transaction", ['id_payment_transaction' => $_POST['idTrans']])->row();
+        $trans = $this->PaymentTransaction->getById($_POST['idTrans']);
         $status = $this->veritrans->status($trans->order_id);
 
         $data['statCode']   = $this->paymentconf->convertStatus($status->transaction_status);
+
+        if($data['statCode'] != $trans->status){
+            $this->PaymentTransaction->update(['id_payment_transaction' => $_POST['idTrans'], 'status' => $data['statCode']]);
+            $this->db->where(['id_user' => $trans->id_user, 'id_payment_type' => $trans->id_payment_type])->update('payment_status', ['status' => $data['statCode']]);
+        }
         
         echo json_encode($data);
     }

@@ -52,7 +52,8 @@
                       if($paymentStatus->status == '1'){
                         $btn          = '<button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Purchase</button>';
                       }else if($paymentStatus->status == '2'){
-                        $btn  = '<button type="button" class="btn btn-soft-warning btn-sm w-100">Pending</button>';
+                        $idTrans  = $this->db->order_by('date', 'DESC')->get_where('payment_transaction', ['id_user' => $paymentStatus->id_user, 'id_payment_type' => $paymentStatus->id_payment_type, 'status' => '2'])->row()->id_payment_transaction;
+                        $btn      = '<a href="'.site_url('payment/status/'.$idTrans).'" class="btn btn-warning btn-sm w-100">Pending</a>';
                       }else if($paymentStatus->status == '3'){
                         $btn  = '<button type="button" class="btn btn-soft-danger btn-sm purchase-button w-100">Canceled</button>';
                       }else if($paymentStatus->status == '4'){
