@@ -152,6 +152,14 @@ class PaymentController extends CI_Controller{
 
         $this->template->user('usr/payment/trans_payment', $data);
     }
+    public function checkStatus(){
+        $trans = $this->db->get_where("payment_transaction", ['id_payment_transaction' => $_POST['idTrans']])->row();
+        $status = $this->veritrans->status($trans->order_id);
+
+        $data['statCode']   = $this->paymentconf->convertStatus($status->transaction_status);
+        
+        echo json_encode($data);
+    }
     public function getQueryStatus($idUser){
         return $this->db->query("
             SELECT ps.*, pt.*

@@ -78,7 +78,7 @@
                     </div>
                   <!-- End Col -->
                 </div>
-                <div class="text-center mb-4">
+                <div id="boxStatus" class="text-center mb-4">
                     <?php
                       if($paymentDetail->status == '2'){
                         echo '
@@ -90,11 +90,15 @@
                         ';
                       }else if($paymentDetail->status == '4'){
                         echo '
-                          <button type="button" class="btn btn-danger">FAILURE</button>    
+                          <button type="button" class="btn btn-danger">EXPIRED</button>    
                         ';
                       }else if($paymentDetail->status == '5'){
                         echo '
-                          <button type="button" class="btn btn-success">PURCHASED</button>    
+                          <button type="button" class="btn btn-danger">DENY</button>    
+                        ';
+                      }else if($paymentDetail->status == '6'){
+                        echo '
+                          <button type="button" class="btn btn-success">SETTLEMENT</button>    
                         ';
                       }
                     ?>
@@ -170,6 +174,31 @@
 <!-- ========== END MAIN CONTENT ========== -->
 
 <script>
+    $(document).ready(function(){
+      function checkStatus(){
+        $.ajax({
+          url: '<?= site_url('payment/check-status')?>',
+          method: 'POST',
+          data: {idTrans: "<?= $paymentDetail->id_payment_transaction?>"},
+          success: function(res){
+            res = JSON.parse(res)
+            if(res.statCode != "2"){
+              if(res.statCode == '3'){
+                $('#boxStatus').html(`<button type="button" class="btn btn-danger">CANCELED</button>    `);
+              }else if(res.statCode == '4'){
+                $('#boxStatus').html(`<button type="button" class="btn btn-danger">EXPIRED</button>    `)
+              }else if(res.statCode == '5'){
+                $('#boxStatus').html(`<button type="button" class="btn btn-danger">DENY</button>   `) 
+              }else if(res.statCode == '6'){
+                $('#boxStatus').html(`<button type="button" class="btn btn-success">SETTLEMENT</button>    `)
+              }
+              clearInterval(myInterval);
+            }
+          }
+        })
+      }
+      const myInterval = setInterval(checkStatus, 1000)
+    })
     var countDownDate = new Date("<?= date_format(date_create($paymentDetail->date_expired), 'F j, Y H:i:s')?>").getTime();
 
     var myfunc = setInterval(function() {

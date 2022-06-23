@@ -59,10 +59,12 @@ class Paymentconf {
             return '2';
         }else if($status == 'cancel'){
             return '3';
-        }else if($status == 'expire' || $status == 'deny'){
+        }else if($status == 'expire'){
             return '4';
-        }else if($status == 'settlement'){
+        }else if($status == 'deny'){
             return '5';
+        }else if($status == 'settlement'){
+            return '6';
         }
     }
 }
