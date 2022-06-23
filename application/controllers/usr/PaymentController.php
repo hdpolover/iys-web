@@ -30,6 +30,15 @@ class PaymentController extends CI_Controller{
         $data['title']          = "Payment";
         $data['sidebar']        = "payment";
 
+        // $status = $this->veritrans->status($trans->order_id);
+
+        // $data['statCode']   = $this->paymentconf->convertStatus($status->transaction_status);
+
+        // $payStatus = $this->PaymentStatus->get(['id_user' => $this->session->userdata('id_user'), 'is_active' => '0']);
+        // if($payStatus != null){
+        //     $this->PaymentStatus->update(['id_payment_status' => $payStatus[0]->id_payment_status, 'is_active' => '1']);
+        // }
+
         $paymentTypes = $this->PaymentType->getAll();
         $index        = 0;
         foreach ($paymentTypes as $paymentType) {
@@ -100,7 +109,7 @@ class PaymentController extends CI_Controller{
         $custom_expiry = array(
             'start_time' => date("Y-m-d H:i:s O",$time),
             'unit' => 'hour', 
-            'duration'  => 24
+            'duration'  => 1
         );
         
         $transaction_data = array(
@@ -161,8 +170,15 @@ class PaymentController extends CI_Controller{
         $data['statCode']   = $this->paymentconf->convertStatus($status->transaction_status);
 
         if($data['statCode'] != $trans->status){
-            $this->PaymentTransaction->update(['id_payment_transaction' => $_POST['idTrans'], 'status' => $data['statCode']]);
+            $this->PaymentTransaction->update(['id_payment_transaction' => $_POST['idTrans'], 'status' => $data['statCode'], 'status_title' => $status->transaction_status]);
             $this->db->where(['id_user' => $trans->id_user, 'id_payment_type' => $trans->id_payment_type])->update('payment_status', ['status' => $data['statCode']]);
+
+            if($data['statCode'] == '6'){
+                $payStatus = $this->PaymentStatus->get(['id_user' => $trans->id_user, 'is_active' => '0']);
+                if($payStatus != null){
+                    $this->PaymentStatus->update(['id_payment_status' => $payStatus[0]->id_payment_status, 'is_active' => '1']);
+                }
+            }
         }
         
         echo json_encode($data);
