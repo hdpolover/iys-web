@@ -16,19 +16,28 @@ class PaymentController extends CI_Controller{
 
         $this->load->library('Paymentconf');
 
-        // $params = array('server_key' => 'Mid-server-2mHtL-sr24bWznuA6Lwu_JA3', 'production' => true);
-        $params = array('server_key' => 'SB-Mid-server-IgrJW0Rn59m14rGnA30QyPL5', 'production' => false);
+        // $params = array('server_key' => 'Mid-server-gXaK3X0M-oZhY4RPL0g2Mt_z', 'production' => true);
+        $params = array('server_key' => 'SB-Mid-server-qC8YfWnkcF_fjPrZmuNEwb8P', 'production' => false);
 		$this->load->library('Midtrans');
 		$this->midtrans->config($params);
         
-        // $params = array('server_key' => 'Mid-server-2mHtL-sr24bWznuA6Lwu_JA3', 'production' => true);
-        $params = array('server_key' => 'SB-Mid-server-IgrJW0Rn59m14rGnA30QyPL5', 'production' => false);
+        // $params = array('server_key' => 'Mid-server-gXaK3X0M-oZhY4RPL0g2Mt_z', 'production' => true);
+        $params = array('server_key' => 'SB-Mid-server-qC8YfWnkcF_fjPrZmuNEwb8P', 'production' => false);
 		$this->load->library('veritrans');
 		$this->veritrans->config($params);
     }
     public function index(){
         $data['title']          = "Payment";
         $data['sidebar']        = "payment";
+
+        // $status = $this->veritrans->status($trans->order_id);
+
+        // $data['statCode']   = $this->paymentconf->convertStatus($status->transaction_status);
+
+        // $payStatus = $this->PaymentStatus->get(['id_user' => $this->session->userdata('id_user'), 'is_active' => '0']);
+        // if($payStatus != null){
+        //     $this->PaymentStatus->update(['id_payment_status' => $payStatus[0]->id_payment_status, 'is_active' => '1']);
+        // }
 
         $paymentTypes = $this->PaymentType->getAll();
         $index        = 0;
@@ -100,7 +109,7 @@ class PaymentController extends CI_Controller{
         $custom_expiry = array(
             'start_time' => date("Y-m-d H:i:s O",$time),
             'unit' => 'hour', 
-            'duration'  => 24
+            'duration'  => 1
         );
         
         $transaction_data = array(
@@ -132,6 +141,8 @@ class PaymentController extends CI_Controller{
         $formData['status']                 = $this->paymentconf->convertStatus($result->transaction_status);
         $formData['status_title']           = $result->transaction_status;
 
+        $this->db->where(['id_user' => $idUser, 'id_payment_type' => $paymentType->id_payment_type])->update('payment_status', ['status' => '2']); 
+
         $methodDetails = $this->paymentconf->methodDetail($result, site_url());
         foreach ($methodDetails as $methodDetail) {
             $formData[$methodDetail['column']] = $methodDetail['value'];
@@ -151,6 +162,26 @@ class PaymentController extends CI_Controller{
         
 
         $this->template->user('usr/payment/trans_payment', $data);
+    }
+    public function checkStatus(){
+        $trans = $this->PaymentTransaction->getById($_POST['idTrans']);
+        $status = $this->veritrans->status($trans->order_id);
+
+        $data['statCode']   = $this->paymentconf->convertStatus($status->transaction_status);
+
+        if($data['statCode'] != $trans->status){
+            $this->PaymentTransaction->update(['id_payment_transaction' => $_POST['idTrans'], 'status' => $data['statCode'], 'status_title' => $status->transaction_status]);
+            $this->db->where(['id_user' => $trans->id_user, 'id_payment_type' => $trans->id_payment_type])->update('payment_status', ['status' => $data['statCode']]);
+
+            if($data['statCode'] == '6'){
+                $payStatus = $this->PaymentStatus->get(['id_user' => $trans->id_user, 'is_active' => '0']);
+                if($payStatus != null){
+                    $this->PaymentStatus->update(['id_payment_status' => $payStatus[0]->id_payment_status, 'is_active' => '1']);
+                }
+            }
+        }
+        
+        echo json_encode($data);
     }
     public function getQueryStatus($idUser){
         return $this->db->query("

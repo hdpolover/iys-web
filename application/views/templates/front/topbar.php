@@ -44,7 +44,7 @@
       <nav class="js-mega-menu navbar-nav-wrap">
         <!-- Default Logo -->
         <a class="navbar-brand" href="<?= site_url()?>index.html" aria-label="Front">
-          <img class="navbar-brand-logo" src="<?= site_url()?>assets/svg/logos/logo-white.svg" alt="Logo">
+          <img class="" src="<?= site_url()?>assets/img/logo/logo-white.png" style="width: 65px !important;" alt="Logo">
         </a>
         <!-- End Default Logo -->
 

@@ -138,6 +138,7 @@ $route['payment/token']             = 'usr/PaymentController/token';
 $route['payment/finish']            = 'usr/PaymentController/finish';
 $route['payment/history/(:any)']    = 'usr/PaymentController/history/$1';
 $route['payment/status/(:any)']     = 'usr/PaymentController/status/$1';
+$route['payment/check-status']      = 'usr/PaymentController/checkStatus';
 
 
 // EMAILING

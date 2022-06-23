@@ -558,7 +558,7 @@
           <!-- Logo -->
           <div class="mb-5">
             <a class="navbar-brand" href="<?= site_url()?>index.html" aria-label="Space">
-              <img class="navbar-brand-logo" src="<?= site_url()?>assets/svg/logos/logo-white.svg" alt="Image Description">
+              <img class="navbar-brand-logo" src="<?= site_url()?>assets/img/logo/logo-white.png" alt="Image Description">
             </a>
           </div>
           <!-- End Logo -->

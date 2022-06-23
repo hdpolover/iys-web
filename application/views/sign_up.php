@@ -3,13 +3,13 @@
       <nav class="navbar-nav-wrap">
         <!-- White Logo -->
         <a class="navbar-brand d-none d-lg-flex" href="./index.html" aria-label="Front">
-          <img class="navbar-brand-logo" src="./assets/svg/logos/logo-white.svg" alt="Logo">
+          <img class="navbar-brand-logo" src="./assets/img/logo/logo-white.png" alt="Logo">
         </a>
         <!-- End White Logo -->
 
         <!-- Default Logo -->
         <a class="navbar-brand d-flex d-lg-none" href="./index.html" aria-label="Front">
-          <img class="navbar-brand-logo" src="./assets/svg/logos/logo.svg" alt="Logo">
+          <img class="" src="<?= site_url()?>assets/img/logo/logo.png" style="width: 100px;" alt="Logo">
         </a>
         <!-- End Default Logo -->
 
