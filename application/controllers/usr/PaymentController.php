@@ -30,15 +30,6 @@ class PaymentController extends CI_Controller{
         $data['title']          = "Payment";
         $data['sidebar']        = "payment";
 
-        // $status = $this->veritrans->status($trans->order_id);
-
-        // $data['statCode']   = $this->paymentconf->convertStatus($status->transaction_status);
-
-        // $payStatus = $this->PaymentStatus->get(['id_user' => $this->session->userdata('id_user'), 'is_active' => '0']);
-        // if($payStatus != null){
-        //     $this->PaymentStatus->update(['id_payment_status' => $payStatus[0]->id_payment_status, 'is_active' => '1']);
-        // }
-
         $paymentTypes = $this->PaymentType->getAll();
         $index        = 0;
         foreach ($paymentTypes as $paymentType) {
@@ -51,6 +42,43 @@ class PaymentController extends CI_Controller{
                 $this->PaymentStatus->insert($formData);
             }
             $index++;
+        }
+
+        $paymentActive = $this->PaymentStatus->get([
+            'id_user'       => $this->session->userdata('id_user'), 
+            'is_active '    => '1', 
+            'orderBy'       => 'id_payment_status DESC', 
+            'limit'         => '1'
+        ]);
+
+        if($paymentActive != null){
+            $paymentTrans = $this->PaymentTransaction->get([
+                'id_user'           => $paymentActive[0]->id_user,
+                'id_payment_type'   => $paymentActive[0]->id_payment_type,
+                'orderBy'           => 'date DESC',
+                'limit'             => '1'
+            ]);
+            // print_r($paymentTrans[0]);
+            if($paymentTrans != null){
+                $status = $this->veritrans->status($paymentTrans[0]->order_id);
+                $status = $this->paymentconf->convertStatus($status->transaction_status);
+
+                
+                if($status != $paymentTrans[0]->status){
+                    $this->PaymentTransaction->update([
+                        'id_payment_transaction'    => $paymentTrans[0]->id_payment_transaction, 
+                        'status'                    => $status
+                    ]);
+
+                    $this->PaymentStatus->update(['id_payment_status' => $paymentActive[0]->id_payment_status, 'status' => $status]);
+                    if($status == '6'){
+                        $payStatus = $this->PaymentStatus->get(['id_user' => $paymentActive[0]->id_user, 'is_active' => '0']);
+                        if($payStatus != null){
+                            $this->PaymentStatus->update(['id_payment_status' => $payStatus[0]->id_payment_status, 'is_active' => '1']);
+                        }
+                    }
+                }
+            }
         }
 
         $data['paymentStatuses'] = $this->getQueryStatus($this->session->userdata('id_user'));
