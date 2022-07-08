@@ -94,6 +94,7 @@ $route['admin/ambassador/change-status']           = 'adm/AmbassadorController/c
 $route['admin/ambassador/ajxGenRC']                = 'adm/AmbassadorController/generateRC';
 // participant
 $route['admin/participant']                     = 'adm/ParticipantController';
+$route['admin/participant/add']                 = 'adm/ParticipantController/add';
 $route['admin/participant/change-password']     = 'adm/ParticipantController/changePassword';
 $route['admin/participant/edit/(:any)']         = 'adm/ParticipantController/edit/$1';
 $route['admin/participant/(:any)']              = 'adm/ParticipantController/detail/$1';

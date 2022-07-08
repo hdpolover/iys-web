@@ -55,6 +55,14 @@
         </div>
       </div>
       <!-- End Page Header -->
+        <div class="row">
+          <div class="col">
+            <a href="<?= site_url('admin/participant/add')?>" class="btn btn-soft-success btn-sm" style="float: right;">
+              Add
+              <i class="bi-plus-lg ms-1"></i>
+            </a>
+          </div>
+        </div>
 
         <!-- Table -->
         <div class="row mt-3">
