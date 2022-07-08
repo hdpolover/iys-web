@@ -1,6 +1,6 @@
   <!-- ========== END SECONDARY CONTENTS ========== -->
   <!-- ========== END SECONDARY CONTENTS ========== -->
-  <a href="https://wa.me/6285608004769?text=Halo%20kak.%20Mau%20tanya%20dong." target="_blank" class="float pt-2 ps-0">
+  <a href="https://wa.me/6285172201727?text=Halo%20kak.%20Mau%20tanya%20dong." target="_blank" class="float pt-2 ps-0">
     <i style="font-size: 30px;" class="bi-whatsapp my-float"></i>
   </a>
   <!-- JS Global Compulsory  -->

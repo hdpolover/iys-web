@@ -24,6 +24,9 @@ class ParticipantController extends CI_Controller{
 
         $this->template->admin('adm/participant/detail', $data);
     }
+    public function add(){
+        print_r("sjd");
+    }
     public function edit($id){
         $data['title']      = 'Edit Participant';
         $data['sidebar']    = 'participant';

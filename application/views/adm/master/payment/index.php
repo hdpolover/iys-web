@@ -31,9 +31,7 @@
             <a class="navbar-brand" href="../snippets/index.html" aria-label="Space">
               <img class="" src="<?= site_url()?>assets/img/logo/logo.png" style="width: 100px;" alt="Logo">
             </a>
-            <a class="navbar-brand-badge" href="../documentation/changelog.html">
-              <span class="badge bg-soft-primary text-primary ms-2">v4.1</span>
-            </a>
+            
           </div>
           <!-- End Default Logo -->
         </div>

@@ -31,9 +31,7 @@
             <a class="navbar-brand" href="../snippets/index.html" aria-label="Space">
               <img class="" src="<?= site_url()?>assets/img/logo/logo.png" style="width: 100px;" alt="Logo">
             </a>
-            <a class="navbar-brand-badge" href="../documentation/changelog.html">
-              <span class="badge bg-soft-primary text-primary ms-2">v4.1</span>
-            </a>
+            
           </div>
           <!-- End Default Logo -->
         </div>
@@ -57,6 +55,14 @@
         </div>
       </div>
       <!-- End Page Header -->
+        <div class="row">
+          <div class="col">
+            <a href="<?= site_url('admin/participant/add')?>" class="btn btn-soft-success btn-sm" style="float: right;">
+              Add
+              <i class="bi-plus-lg ms-1"></i>
+            </a>
+          </div>
+        </div>
 
         <!-- Table -->
         <div class="row mt-3">

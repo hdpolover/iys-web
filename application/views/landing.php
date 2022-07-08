@@ -124,7 +124,7 @@
             </svg>
             </div>
             <h3>Call Us</h3>
-            <p>+62-81218463506</p>
+            <p>+62 851-7220-1727</p>
           </div>
           <!-- End Icon Blocks -->
         </div>
@@ -138,7 +138,7 @@
             </svg>
             </div>
             <h3>Send Us a Mail</h3>
-            <p>iys@youthbreaktheboundaries.com</p>
+            <p>info@istanbulyouthsummit.com</p>
           </div>
           <!-- End Icon Blocks -->
         </div>
@@ -715,8 +715,8 @@
 
       <!-- Copyright -->
       <div class="w-md-85 text-lg-center mx-lg-auto">
-        <p class="text-white-50 small">&copy; Front. 2021 Htmlstream. All rights reserved.</p>
-        <p class="text-white-50 small">When you visit or interact with our sites, services or tools, we or our authorised service providers may use cookies for storing information to help provide you with a better, faster and safer experience and for marketing purposes.</p>
+        <p class="text-white-50 small">&copy; Istanbul Youth Summit</p>
+        <!-- <p class="text-white-50 small">When you visit or interact with our sites, services or tools, we or our authorised service providers may use cookies for storing information to help provide you with a better, faster and safer experience and for marketing purposes.</p> -->
       </div>
       <!-- End Copyright -->
     </div>

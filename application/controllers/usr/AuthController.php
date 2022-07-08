@@ -18,8 +18,14 @@ class AuthController extends CI_Controller{
             $newId = 'USRP_'.substr(md5(time()), 10, 8);
             $user = $this->User->getById($newId);
         }while(!empty($user->id_user));
+
+        do {
+            $newKey = rand(10000, 99999);
+            $key    = $this->User->get(['key' => $newKey]);
+        }while($key != null);
         
         $formData['id_user']        = $newId;
+        $formData['key']            = $key;
         $formData['email']          = $this->db->escape_str(htmlentities($_POST['email']));
         $formData['name']           = $this->db->escape_str(htmlentities($_POST['fullName']));
         $formData['password']       = hash('sha256', md5($this->db->escape_str(htmlentities($_POST['password']))));
