@@ -25,7 +25,7 @@ class AuthController extends CI_Controller{
         }while($key != null);
         
         $formData['id_user']        = $newId;
-        $formData['key']            = $key;
+        $formData['key']            = $newKey;
         $formData['email']          = $this->db->escape_str(htmlentities($_POST['email']));
         $formData['name']           = $this->db->escape_str(htmlentities($_POST['fullName']));
         $formData['password']       = hash('sha256', md5($this->db->escape_str(htmlentities($_POST['password']))));
@@ -34,21 +34,22 @@ class AuthController extends CI_Controller{
         $this->User->insert($formData);
 
         $this->ParticipantDetail->insert(['id_user' => $newId, 'id_summit' => '1']);
-        $this->setSession($formData['id_user'], $formData['email'], $formData['name'], null, $formData['id_user_role'], 0);
+        $this->setSession($formData['id_user'], $formData['email'], $formData['name'], null, $formData['id_user_role'], 0, 0);
 
         $this->mail->send($formData['email'], 'Email Verification', $this->load->view('email/register', $formData, true));
         redirect('announcement');
     }
     public function login(){
-        $user = $this->User->get(['email' => $_POST['email'], 'password' => hash('sha256', md5($_POST['password']))]);
+        $user       = $this->User->get(['email' => $_POST['email'], 'password' => hash('sha256', md5($_POST['password']))]);
         if($user == null){
             $this->session->set_flashdata('err_msg', 'Your email or password is wrong');
             redirect('sign-in');
         }
+        $userDetail = $this->ParticipantDetail->getById($user->id_user);
 
         $photo = $this->ParticipantDetail->getById($user[0]->id_user)->photo;
 
-        $this->setSession($user[0]->id_user, $user[0]->email, $user[0]->name, $photo, $user[0]->id_user_role, $user[0]->is_verif);
+        $this->setSession($user[0]->id_user, $user[0]->email, $user[0]->name, $photo, $user[0]->id_user_role, $user[0]->is_verif, $userDetail->is_submited);
         redirect('announcement');
     }
     public function verifEmail($token){
@@ -87,7 +88,7 @@ class AuthController extends CI_Controller{
         $this->session->sess_destroy();
         redirect('/');
     }
-    public function setSession($idUser, $email, $name, $photo,  $role, $isVerif){
+    public function setSession($idUser, $email, $name, $photo,  $role, $isVerif, $isSubmit){
         $formSession['id_user']     = $idUser;
         $formSession['email']       = $email;
         $formSession['name']        = $name;
@@ -95,6 +96,7 @@ class AuthController extends CI_Controller{
         $formSession['role']        = $role;
         $formSession['is_logged']   = true;
         $formSession['is_verif']    = $isVerif;
+        $formSession['is_submit']    = $isSubmit;
         $this->session->set_userdata($formSession);
     }
 }

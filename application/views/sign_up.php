@@ -27,28 +27,21 @@
     <div class="row">
     <div class="col-lg-5 col-xl-4 d-none d-lg-flex justify-content-center align-items-center min-vh-lg-100 position-relative bg-dark" style="background-image: url(<?= site_url('assets/img/sign/sign_1.jpg')?>);">
         <div class="flex-grow-1 p-5">
+            <!-- <div class="position-absolute start-0 end-0 bottom-0 text-center p-5">
+                <div class="row justify-content-center">
+                <div class="col text-center py-3">
+                    <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/brands/fitbit-white.svg" alt="Logo">
+                </div>
 
-        <!-- Clients -->
-        <div class="position-absolute start-0 end-0 bottom-0 text-center p-5">
-            <div class="row justify-content-center">
-            <div class="col text-center py-3">
-                <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/brands/fitbit-white.svg" alt="Logo">
-            </div>
-            <!-- End Col -->
+                <div class="col text-center py-3">
+                    <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/brands/business-insider-white.svg" alt="Logo">
+                </div>
 
-            <div class="col text-center py-3">
-                <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/brands/business-insider-white.svg" alt="Logo">
-            </div>
-            <!-- End Col -->
-
-            <div class="col text-center py-3">
-                <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/brands/capsule-white.svg" alt="Logo">
-            </div>
-            <!-- End Col -->
-            </div>
-            <!-- End Row -->
-        </div>
-        <!-- End Clients -->
+                <div class="col text-center py-3">
+                    <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/brands/capsule-white.svg" alt="Logo">
+                </div>
+                </div>
+            </div> -->
         </div>
     </div>
     <!-- End Col -->
