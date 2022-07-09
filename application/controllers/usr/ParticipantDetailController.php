@@ -131,6 +131,7 @@ class ParticipantDetailController extends CI_Controller{
         $formData['qr']                     = $this->generateQR($this->session->userdata('id_user'));
         $formData['termsncondition']        = '1';
         $formData['is_submited']            = '1';
+        
 
         $this->ParticipantDetail->update($formData);
 
@@ -139,6 +140,7 @@ class ParticipantDetailController extends CI_Controller{
         if($ambassador != null){
             $this->Ambassador->update(['id_ambassador' => $ambassador[0]->id_ambassador, 'total_redeem' => (int)$ambassador->total_redeem + 1]);
         }
+        $this->session->set_userdata(['is_submit' => "1"]);
 
         redirect('personal-info');
     }

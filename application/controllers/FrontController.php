@@ -6,11 +6,19 @@ class FrontController extends CI_Controller{
         $this->load->model('Announcement');
     }
     public function signIn(){
+        if($this->session->userdata('role') == '1'){
+            redirect('announcement');
+        }
+
         $data['title']      = 'Sign In';
         
         $this->template->frontWithoutTopBar('sign_in', $data);
     }
     public function signUp(){
+        if($this->session->userdata('role') == '1'){
+            redirect('announcement');
+        }
+        
         $data['title']      = 'Sign Up';
         
         $this->template->frontWithoutTopBar('sign_up', $data);

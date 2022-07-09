@@ -31,25 +31,21 @@
         <!-- End Blockquote -->
 
         <!-- Clients -->
-        <div class="position-absolute start-0 end-0 bottom-0 text-center p-5">
+        <!-- <div class="position-absolute start-0 end-0 bottom-0 text-center p-5">
             <div class="row justify-content-center">
-            <div class="col text-center py-3">
-                <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/brands/fitbit-white.svg" alt="Logo">
-            </div>
-            <!-- End Col -->
+                <div class="col text-center py-3">
+                    <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/brands/fitbit-white.svg" alt="Logo">
+                </div>
 
-            <div class="col text-center py-3">
-                <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/brands/business-insider-white.svg" alt="Logo">
-            </div>
-            <!-- End Col -->
+                <div class="col text-center py-3">
+                    <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/brands/business-insider-white.svg" alt="Logo">
+                </div>
 
-            <div class="col text-center py-3">
-                <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/brands/capsule-white.svg" alt="Logo">
+                <div class="col text-center py-3">
+                    <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/brands/capsule-white.svg" alt="Logo">
+                </div>
             </div>
-            <!-- End Col -->
-            </div>
-            <!-- End Row -->
-        </div>
+        </div> -->
         <!-- End Clients -->
         </div>
     </div>

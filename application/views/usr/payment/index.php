@@ -40,7 +40,26 @@
             <div class="card-header border-bottom">
               <h4 class="card-title">Payment</h4>
             </div>
+            <?php
+              if($this->session->userdata('is_verif') == 0){
+                echo '
+                  <div class="alert alert-soft-danger text-center card-alert" role="alert">
+                    Please verify your email address.
+                  </div>
+                ';
+              }
+              if($this->session->userdata('is_submit') == 0){
+                echo '
+                  <div class="alert alert-soft-danger text-center card-alert" role="alert">
+                    Please submit your personal data.
+                  </div>
+                ';
+              }
+            ?>
               <div class="card-body">
+                <?php
+                  if($this->session->userdata('is_verif') == 1 && $this->session->userdata('is_submit') == 1){
+                ?>
                 <div class="row">  
                   <?php
                     $no = 1;
@@ -111,6 +130,7 @@
                     </div>    
                   <?php } ?>
                 </div>
+                <?php } ?>
             </div>
           </div>
         </div>

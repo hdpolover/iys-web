@@ -21,7 +21,7 @@ class PaymentController extends CI_Controller{
 		$this->load->library('Midtrans');
 		$this->midtrans->config($params);
         
-        // $params = array('server_key' => 'Mid-server-gXaK3X0M-oZhY4RPL0g2Mt_z', 'production' => true);
+        $params = array('server_key' => 'Mid-server-gXaK3X0M-oZhY4RPL0g2Mt_z', 'production' => true);
         $params = array('server_key' => 'SB-Mid-server-qC8YfWnkcF_fjPrZmuNEwb8P', 'production' => false);
 		$this->load->library('veritrans');
 		$this->veritrans->config($params);
@@ -170,6 +170,14 @@ class PaymentController extends CI_Controller{
         $formData['status_title']           = $result->transaction_status;
 
         $this->db->where(['id_user' => $idUser, 'id_payment_type' => $paymentType->id_payment_type])->update('payment_status', ['status' => '2']); 
+
+        if($this->paymentconf->convertStatus($result->transaction_status) == '6'){
+            $this->db->where(['id_user' => $idUser, 'id_payment_type' => $paymentType->id_payment_type])->update('payment_status', ['status' => '6']);
+            $payStatus = $this->PaymentStatus->get(['id_user' => $idUser, 'is_active' => '0']);
+            if($payStatus != null){
+                $this->PaymentStatus->update(['id_payment_status' => $payStatus[0]->id_payment_status, 'is_active' => '1']);
+            }
+        }
 
         $methodDetails = $this->paymentconf->methodDetail($result, site_url());
         foreach ($methodDetails as $methodDetail) {
