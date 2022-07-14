@@ -89,6 +89,11 @@ class ParticipantDetailController extends CI_Controller{
                 $this->session->set_userdata('photo', $uploadPhoto['link']);
             }
         }
+
+        if(str_word_count($_POST['essay']) < 250){
+            $this->session->set_flashdata('err_msg', "Your essay is still less than 250 words");
+            redirect('personal-info');
+        }
         
 
         $this->User->update(['id_user' => $this->session->userdata('id_user'), 'name' => $_POST['fullName']]);

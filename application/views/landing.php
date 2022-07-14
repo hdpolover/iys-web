@@ -1,5 +1,73 @@
   <!-- ========== MAIN CONTENT ========== -->
   <main id="content" role="main">
+    <!-- <figure class="position-absolute zi-n1" style="top: 35rem; left: 50rem; width: 62rem; height: 62rem;">
+      <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 260 260">
+        <circle fill="#e7eaf3" opacity=".7" cx="130" cy="130" r="130"></circle>
+      </svg>
+    </figure> -->
+    <div class="position-absolute zi-n1" style="top: 56rem; left: 60rem; width: 15rem; height: 15rem;">
+      <figure class="position-absolute top-0 end-0 zi-2 me-10 aos-init aos-animate" data-aos="fade-up">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 450 450" width="165" height="165">
+          <g>
+            <defs>
+              <path id="circleImgID2" d="M225,448.7L225,448.7C101.4,448.7,1.3,348.5,1.3,225l0,0C1.2,101.4,101.4,1.3,225,1.3l0,0
+                c123.6,0,223.7,100.2,223.7,223.7l0,0C448.7,348.6,348.5,448.7,225,448.7z"></path>
+            </defs>
+          </g>
+        </svg>
+      </figure>
+
+      <figure class="position-absolute top-0 start-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 335.2 335.2" width="120" height="120">
+          <circle fill="none" stroke="#377dff" stroke-width="75" cx="167.6" cy="167.6" r="130.1"></circle>
+        </svg>
+      </figure>
+
+      <figure class="d-none d-sm-block position-absolute top-0 start-0 mt-10 aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 515 515" width="200" height="200">
+          <g>
+            <defs>
+              <path id="circleImgID4" d="M260,515h-5C114.2,515,0,400.8,0,260v-5C0,114.2,114.2,0,255,0h5c140.8,0,255,114.2,255,255v5
+                C515,400.9,400.8,515,260,515z"></path>
+            </defs>
+          </g>
+        </svg>
+      </figure>
+
+      <figure class="position-absolute top-0 end-0 aos-init aos-animate" style="margin-top: 11rem; margin-right: 13rem;" data-aos="fade-up" data-aos-delay="250">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 67 67" width="25" height="25">
+          <circle fill="#00C9A7" cx="33.5" cy="33.5" r="33.5"></circle>
+        </svg>
+      </figure>
+
+      <figure class="position-absolute top-0 end-0 me-3 aos-init aos-animate" style="margin-top: 8rem;" data-aos="fade-up" data-aos-delay="350">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 141 141" width="50" height="50">
+          <circle fill="#FFC107" cx="70.5" cy="70.5" r="70.5"></circle>
+        </svg>
+      </figure>
+
+      <figure class="position-absolute bottom-0 end-0 aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 770.4 770.4" width="280" height="280">
+          <g>
+            <defs>
+              <path id="circleImgID6" d="M385.2,770.4L385.2,770.4c212.7,0,385.2-172.5,385.2-385.2l0,0C770.4,172.5,597.9,0,385.2,0l0,0
+                C172.5,0,0,172.5,0,385.2l0,0C0,597.9,172.4,770.4,385.2,770.4z"></path>
+            </defs>
+          </g>
+        </svg>
+      </figure>
+    </div>
+    <!-- <figure class="position-absolute zi-n1" style="top: 100rem; left: 5rem; width: 20rem; height: 20rem;">
+      <img class="img-fluid" src="<?= site_url()?>assets/svg/components/circled-stripe.svg" alt="Image Description">
+    </figure> -->
+    <figure class="position-absolute zi-n1" style="top: 130rem; left: 1rem; width: 100%; height: 20rem;">
+      <img class="img-fluid" src="<?= site_url()?>assets/svg/components/shape-6.svg" alt="Image Description">
+    </figure>
+    <figure class="position-absolute zi-n1" style="top: 185rem; left: 5rem; width: 10rem; height: 20rem;">
+      <img class="img-fluid" src="<?= site_url()?>assets/svg/components/dots.svg" alt="Image Description">
+    </figure>
+    
+    
     <!-- Swiper Slider -->
     <div class="border-bottom">
       <!-- Main Slider -->
@@ -35,8 +103,13 @@
                     <h5 class="mb-0 text-white">Secs</h5>
                   </div>
                   <!-- End Col -->
+                
+                
                 </div>
-                <button type="button" class="btn btn-outline-light mt-5">Register</button>
+                <div class="mt-2">
+                    <small class="text-white">West Indonesian Time (GMT+7)</small>
+                </div>
+                <a href="<?= site_url('')?>sign-up" class="btn btn-outline-light mt-5">Register</a>
               </div>
             </div>
           </div>
@@ -46,7 +119,7 @@
           <div class="swiper-slide gradient-y-overlay-sm-gray-900 bg-img-start" style="background-image: url(<?= site_url()?>assets/img/landing/landing_2.jpg);">
             <div class="container d-md-flex align-items-md-center vh-md-70 content-space-t-4 content-space-b-3 content-space-md-0">
               <div class="w-75 w-lg-50">
-                <h1 class="display-4 text-white mb-0">Istanbul Youth Summit 2022</h1>
+                <h1 class="display-4 text-white mb-0">Istanbul Youth Summit 2023</h1>
                 <button type="button" class="btn btn-ghost-light mt-5">Expired</button>
               </div>
             </div>
@@ -80,7 +153,9 @@
         <h2>Event Details</h2>
       </div>
       <!-- End Heading -->
+      
       <div class="row">
+        
         <div class="col-md-3 mb-5 mb-md-0">
           <!-- Icon Blocks -->
           <div class="text-center px-lg-3">
@@ -170,7 +245,7 @@
 
             <div class="flex-grow-1 ms-3">
               <h4>What is IYS ?</h4>
-              <p>Istanbul Youth Summit (IYS) 2022 is a program initiated by Youth Break the Boundaries (YBB). The aim of the activity to build the spirit youth leadership and prepare excellent future leaders, by using a moral based approach to education that focusing on instilling nationalism character values and international culture for youth generation. </p>
+              <p style="text-align: justify;">Istanbul Youth Summit (IYS) 2023 is a program initiated by Youth Break the Boundaries (YBB). The aim of the activity to build the spirit youth leadership and prepare excellent future leaders, by using a moral based approach to education that focusing on instilling nationalism character values and international culture for youth generation. </p>
             </div>
           </div>
           <!-- End Icon Blocks -->
@@ -191,7 +266,7 @@
 
             <div class="flex-grow-1 ms-3">
               <h4>Why you join?</h4>
-              <p>This event is a forum will be held for 4 days that will discuss the main themes and panel discussions that will be carried out in this summit. The main themes of the Istanbul Youth Summit 2022 is: “Development Responses Plan of The Youth in Crisis Recovery”</p>
+              <p style="text-align: justify;">This event is a forum will be held for 4 days that will discuss the main themes and panel discussions that will be carried out in this summit. The main themes of the Istanbul Youth Summit 2023 is: “Social Development Goals For Emerging Leaders”</p>
             </div>
           </div>
           <!-- End Icon Blocks -->
@@ -213,7 +288,8 @@
 
             <div class="flex-grow-1 ms-3">
               <h4>What should do the events?</h4>
-              <p>The program will intends to achieve five main goals. We aim to Sharpen up the spirit of talented youth leaders in various areas, Build a character of youth leadership, Build the existence of the youth on the international scene, Train the leadership soul of the youth who is actively contributing to develop the country, Continue the Istanbul Youth Summit program for years to come by creating a strong network and long term relationship among IYS alumni.</p>
+              <p style="text-align: justify;">The program will intends to achieve five main goals. We aim to Sharpen up the spirit of talented youth leaders in various areas, Build a character of youth leadership, Build the existence of the youth on the international scene, Train the leadership soul of the youth who is actively contributing to develop the country, Continue the Istanbul Youth Summit program for years to come by creating a strong network and long term relationship among IYS alumni.</p>
+              
             </div>
           </div>
           <!-- End Icon Blocks -->
@@ -234,7 +310,7 @@
 
             <div class="flex-grow-1 ms-3">
               <h4>IYS Agenda</h4>
-              <p>This Istanbul Youth Summit (IYS) activity will be held on 14 – 17 Februari 2022 in Ramada Hotel & Suites by Wyndham Istanbul Merter</p>
+              <p style="text-align: justify;">This Istanbul Youth Summit (IYS) activity will be held on 6 – 9 Februari 2023.</p>
             </div>
           </div>
           <!-- End Icon Blocks -->
@@ -310,6 +386,7 @@
             <div class="step-content">
               <h4>6 - 9 February 2023</h4>
               <p class="step-text">Istanbul Youth Summit 2023</p>
+              
               <!-- <button type="button" class="btn btn-soft-primary">Read More</button> -->
             </div>
           </div>
@@ -360,91 +437,25 @@
         <!-- End Nav Scroller -->
 
       <div class="js-shuffle row row-cols-1 row-cols-sm-2 row-cols-md-3">
-        <div class="js-shuffle-item col mb-5" data-groups='["2020"]'>
+        <div class="js-shuffle-item col mb-5" data-groups='["2022"]'>
           <!-- Card -->
           <a class="card card-flush card-transition" href="#">
-            <img class="card-img-top" src="<?= site_url('')?>assets/img/landing/landing_gallery_1.jpg" alt="Image Description">
+            <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2022_1.JPG" alt="Image Description">
             <div class="card-body">
-              <span class="card-subtitle text-body">IYS 2020</span>
-              <h3 class="card-title">Lorem Ipsum</h3>
+              <span class="card-subtitle text-body">IYS 2022</span>
+              <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
             </div>
           </a>
           <!-- End Card -->
         </div>
         <!-- End Col -->
-
-        <div class="js-shuffle-item col mb-5" data-groups='["2021"]'>
+        <div class="js-shuffle-item col mb-5" data-groups='["2022"]'>
           <!-- Card -->
           <a class="card card-flush card-transition" href="#">
-            <img class="card-img-top" src="<?= site_url('')?>assets/img/landing/landing_gallery_2.jpg" alt="Image Description">
+            <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2022_2.JPG" alt="Image Description">
             <div class="card-body">
-              <span class="card-subtitle text-body">IYS 2021</span>
-              <h3 class="card-title">Lorem Ipsum</h3>
-            </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        <!-- End Col -->
-
-        <div class="js-shuffle-item col mb-5" data-groups='["2021"]'>
-          <!-- Card -->
-          <a class="card card-flush card-transition" href="#">
-            <img class="card-img-top" src="<?= site_url('')?>assets/img/landing/landing_gallery_3.jpg" alt="Image Description">
-            <div class="card-body">
-              <span class="card-subtitle text-body">IYS 2021</span>
-              <h3 class="card-title">Lorem Ipsum</h3>
-            </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        <!-- End Col -->
-
-        <div class="js-shuffle-item col mb-5" data-groups='["2020"]'>
-          <!-- Card -->
-          <a class="card card-flush card-transition" href="#">
-            <img class="card-img-top" src="<?= site_url('')?>assets/img/landing/landing_gallery_4.jpg" alt="Image Description">
-            <div class="card-body">
-              <span class="card-subtitle text-body">IYS 2020</span>
-              <h3 class="card-title">Lorem Ipsum</h3>
-            </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        <!-- End Col -->
-
-        <div class="js-shuffle-item col mb-5" data-groups='["2020"]'>
-          <!-- Card -->
-          <a class="card card-flush card-transition" href="#">
-            <img class="card-img-top" src="<?= site_url('')?>assets/img/landing/landing_gallery_5.jpg" alt="Image Description">
-            <div class="card-body">
-              <span class="card-subtitle text-body">IYS 2020</span>
-              <h3 class="card-title">Lorem Ipsum</h3>
-            </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        <!-- End Col -->
-
-        <div class="js-shuffle-item col mb-5" data-groups='["2021"]'>
-          <!-- Card -->
-          <a class="card card-flush card-transition" href="#">
-            <img class="card-img-top" src="<?= site_url('')?>assets/img/landing/landing_gallery_6.jpg" alt="Image Description">
-            <div class="card-body">
-              <span class="card-subtitle text-body">IYS 2021</span>
-              <h3 class="card-title">Lorem Ipsum</h3>
-            </div>
-          </a>
-          <!-- End Card -->
-        </div>
-        <!-- End Col -->
-
-        <div class="js-shuffle-item col mb-5" data-groups='["2021"]'>
-          <!-- Card -->
-          <a class="card card-flush card-transition" href="#">
-            <img class="card-img-top" src="<?= site_url('')?>assets/img/landing/landing_gallery_3.jpg" alt="Image Description">
-            <div class="card-body">
-              <span class="card-subtitle text-body">IYS 2021</span>
-              <h3 class="card-title">Lorem Ipsum</h3>
+              <span class="card-subtitle text-body">IYS 2022</span>
+              <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
             </div>
           </a>
           <!-- End Card -->
@@ -454,28 +465,172 @@
         <div class="js-shuffle-item col mb-5" data-groups='["2022"]'>
           <!-- Card -->
           <a class="card card-flush card-transition" href="#">
-            <img class="card-img-top" src="<?= site_url('')?>assets/img/landing/landing_gallery_1.jpg" alt="Image Description">
+            <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2022_3.jpg" alt="Image Description">
             <div class="card-body">
               <span class="card-subtitle text-body">IYS 2022</span>
-              <h3 class="card-title">Lorem Ipsum</h3>
+              <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
+            </div>
+          </a>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+        
+        <div class="js-shuffle-item col mb-5" data-groups='["2021"]'>
+          <!-- Card -->
+          <a class="card card-flush card-transition" href="#">
+            <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2021_1.JPG" alt="Image Description">
+            <div class="card-body">
+              <span class="card-subtitle text-body">IYS 2021</span>
+              <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
             </div>
           </a>
           <!-- End Card -->
         </div>
         <!-- End Col -->
 
-        <div class="js-shuffle-item col mb-5" data-groups='["2022"]'>
+        <div class="js-shuffle-item col mb-5" data-groups='["2021"]'>
           <!-- Card -->
           <a class="card card-flush card-transition" href="#">
-            <img class="card-img-top" src="<?= site_url('')?>assets/img/landing/landing_gallery_4.jpg" alt="Image Description">
+            <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2021_2.JPG" alt="Image Description">
             <div class="card-body">
-              <span class="card-subtitle text-body">IYS 2022</span>
-              <h3 class="card-title">Lorem Ipsum</h3>
+              <span class="card-subtitle text-body">IYS 2021</span>
+              <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
             </div>
           </a>
           <!-- End Card -->
         </div>
         <!-- End Col -->
+
+        <div class="js-shuffle-item col mb-5" data-groups='["2021"]'>
+          <!-- Card -->
+          <a class="card card-flush card-transition" href="#">
+            <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2021_3.JPG" alt="Image Description">
+            <div class="card-body">
+              <span class="card-subtitle text-body">IYS 2021</span>
+              <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
+            </div>
+          </a>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+
+        <div class="js-shuffle-item col mb-5" data-groups='["2020"]'>
+          <!-- Card -->
+          <a class="card card-flush card-transition" href="#">
+            <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2020_1.JPG" alt="Image Description">
+            <div class="card-body">
+              <span class="card-subtitle text-body">IYS 2020</span>
+              <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
+            </div>
+          </a>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+
+        <div class="js-shuffle-item col mb-5" data-groups='["2020"]'>
+          <!-- Card -->
+          <a class="card card-flush card-transition" href="#">
+            <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2020_2.JPG" alt="Image Description">
+            <div class="card-body">
+              <span class="card-subtitle text-body">IYS 2020</span>
+              <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
+            </div>
+          </a>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+
+        <div class="js-shuffle-item col mb-5" data-groups='["2020"]'>
+          <!-- Card -->
+          <a class="card card-flush card-transition" href="#">
+            <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2020_3.JPG" alt="Image Description">
+            <div class="card-body">
+              <span class="card-subtitle text-body">IYS 2020</span>
+              <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
+            </div>
+          </a>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+
+        <div class="js-shuffle-item col mb-5" data-groups='["2019"]'>
+          <!-- Card -->
+          <a class="card card-flush card-transition" href="#">
+            <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2019_1.JPG" alt="Image Description">
+            <div class="card-body">
+              <span class="card-subtitle text-body">IYS 2019</span>
+              <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
+            </div>
+          </a>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+
+        <div class="js-shuffle-item col mb-5" data-groups='["2019"]'>
+          <!-- Card -->
+          <a class="card card-flush card-transition" href="#">
+            <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2019_2.JPG" alt="Image Description">
+            <div class="card-body">
+              <span class="card-subtitle text-body">IYS 2019</span>
+              <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
+            </div>
+          </a>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+        
+        <div class="js-shuffle-item col mb-5" data-groups='["2019"]'>
+          <!-- Card -->
+          <a class="card card-flush card-transition" href="#">
+            <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2019_3.JPG" alt="Image Description">
+            <div class="card-body">
+              <span class="card-subtitle text-body">IYS 2019</span>
+              <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
+            </div>
+          </a>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+
+        <div class="js-shuffle-item col mb-5" data-groups='["2017"]'>
+          <!-- Card -->
+          <a class="card card-flush card-transition" href="#">
+            <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2017_1.JPG" alt="Image Description">
+            <div class="card-body">
+              <span class="card-subtitle text-body">IYS 2017</span>
+              <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
+            </div>
+          </a>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+
+        <div class="js-shuffle-item col mb-5" data-groups='["2017"]'>
+          <!-- Card -->
+          <a class="card card-flush card-transition" href="#">
+            <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2017_2.JPG" alt="Image Description">
+            <div class="card-body">
+              <span class="card-subtitle text-body">IYS 2017</span>
+              <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
+            </div>
+          </a>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+
+        <div class="js-shuffle-item col mb-5" data-groups='["2017"]'>
+          <!-- Card -->
+          <a class="card card-flush card-transition" href="#">
+            <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2017_3.JPG" alt="Image Description">
+            <div class="card-body">
+              <span class="card-subtitle text-body">IYS 2017</span>
+              <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
+            </div>
+          </a>
+          <!-- End Card -->
+        </div>
+        <!-- End Col -->
+
       </div>
       <!-- End Row -->
     </div>
