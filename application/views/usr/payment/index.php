@@ -103,12 +103,16 @@
                         <div class="card-header border-bottom">
                           <h3 class="card-title"><?= $paymentStatus->description?></h3>
                           
-                          <?= $cardInfo?>
+                          <!-- <?= $cardInfo?> -->
                         </div>
                         <div class="card-body">
-                          <div class="mb-4">
-                            <span class="card-subtitle">Deadline:</span>
-                              <h5><?= date_format(date_create($paymentStatus->end_date), 'j F Y H:i')?></h5>
+                            <div class="mb-4">
+                              <span class="card-subtitle">Open:</span>
+                                <h5><?= date_format(date_create($paymentStatus->start_date), 'j F Y H:i')?></h5>
+                            </div>
+                            <div class="mb-4">
+                              <span class="card-subtitle">Close:</span>
+                                <h5><?= date_format(date_create($paymentStatus->end_date), 'j F Y H:i')?></h5>
                             </div>
                             <div>
                               <span class="card-subtitle">Total (IDR)</span>
@@ -119,10 +123,27 @@
                             <input type="hidden" id="purchase-total" value="<?= $paymentStatus->amount?>">
                             <input type="hidden" id="purchase-item" value="<?= $paymentStatus->description?>">
                             <?= $paymentType?>
-                            <?= $btn?>
-                            <a class="btn btn-info btn-sm w-100 mt-2" href="<?= site_url('payment/history/'.$paymentStatus->id_payment_type)?>">
-                              History
-                            </a>
+                            <?php
+                              $openDate   = $paymentStatus->start_date;
+                              $closedDate = $paymentStatus->end_date;
+                              $currDate   = date('Y-m-d H:i:s');
+                              if(strtotime($currDate) < strtotime($openDate)){
+                                echo '<button type="button" class="btn btn-ghost-primary btn-sm w-100">Coming Soon</button>';
+                              }else if(strtotime($currDate) > strtotime($closedDate) && $paymentStatus->status != '6'){
+                                echo '<button type="button" class="btn btn-ghost-danger btn-sm w-100">Closed</button>';
+                              }else{
+                                echo $btn;
+                                
+                              }
+
+                              if(strtotime($currDate) > strtotime($openDate) && $paymentStatus->status != '1'){
+                                echo '
+                                  <a class="btn btn-info btn-sm w-100 mt-2" href="'.site_url('payment/history/'.$paymentStatus->id_payment_type).'">
+                                    History
+                                  </a>
+                                ';
+                              }
+                            ?>
                         </div>
                       </div>
                       <!-- End Card -->
@@ -142,14 +163,14 @@
   
 </main>
 <!-- ========== END MAIN CONTENT ========== -->
-<script type="text/javascript"
+<!-- <script type="text/javascript"
   src="https://app.midtrans.com/snap/snap.js"
   data-client-key="Mid-client-KKoCMEQRJeeFcpOS">
-</script>
-<!-- <script type="text/javascript"
+</script> -->
+<script type="text/javascript"
   src="https://app.sandbox.midtrans.com/snap/snap.js"
   data-client-key="SB-Mid-client-LAEwpi34CdNrwLgt">
-</script> -->
+</script>
 <script>
   $('.purchase-button').click(function (event) {
       event.preventDefault();

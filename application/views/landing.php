@@ -5,7 +5,7 @@
         <circle fill="#e7eaf3" opacity=".7" cx="130" cy="130" r="130"></circle>
       </svg>
     </figure> -->
-    <div class="position-absolute zi-n1" style="top: 56rem; left: 60rem; width: 15rem; height: 15rem;">
+    <div class="position-absolute zi-n1" style="top: 56rem; left: 85%; width: 15rem; height: 15rem;">
       <figure class="position-absolute top-0 end-0 zi-2 me-10 aos-init aos-animate" data-aos="fade-up">
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 450 450" width="165" height="165">
           <g>
@@ -60,7 +60,7 @@
     <!-- <figure class="position-absolute zi-n1" style="top: 100rem; left: 5rem; width: 20rem; height: 20rem;">
       <img class="img-fluid" src="<?= site_url()?>assets/svg/components/circled-stripe.svg" alt="Image Description">
     </figure> -->
-    <figure class="position-absolute zi-n1" style="top: 130rem; left: 1rem; width: 100%; height: 20rem;">
+    <figure class="position-absolute zi-n1" style="top: 100rem; left: 1rem; width: 100%; height: 20rem;">
       <img class="img-fluid" src="<?= site_url()?>assets/svg/components/shape-6.svg" alt="Image Description">
     </figure>
     <figure class="position-absolute zi-n1" style="top: 185rem; left: 5rem; width: 10rem; height: 20rem;">
@@ -79,37 +79,54 @@
               <div class="w-75 w-lg-50">
                 <h1 class="display-4 text-white mb-0">Istanbul Youth Summit 2023</h1>
                 <h3 class="text-white">6 - 9 February, Istanbul Turkey</h3>
-                <div class="js-countdown row mt-3">
-                  <div class="col-3">
-                    <h2 class="js-cd-days h1 text-white mb-0"></h2>
-                    <h5 class="mb-0 text-white">Days</h5>
-                  </div>
-                  <!-- End Col -->
+                <?php
+                  $dateExpired  = "August 31, 2022 23:59:59";
+                  $dateNow      = date("Y-m-d H:i:s");
+                ?>
 
-                  <div class="col-3">
-                    <h2 class="js-cd-hours h1 text-white mb-0"></h2>
-                    <h5 class="mb-0 text-white">Hours</h5>
-                  </div>
-                  <!-- End Col -->
+                <?php if(strtotime($dateNow) < strtotime($dateExpired)){ ?>
+                  <div class="js-countdown row mt-3">
+                    <div class="col-3">
+                      <h2 class="js-cd-days h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">Days</h5>
+                    </div>
+                    <!-- End Col -->
 
-                  <div class="col-3">
-                    <h2 class="js-cd-minutes h1 text-white mb-0"></h2>
-                    <h5 class="mb-0 text-white">Mins</h5>
-                  </div>
-                  <!-- End Col -->
+                    <div class="col-3">
+                      <h2 class="js-cd-hours h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">Hours</h5>
+                    </div>
+                    <!-- End Col -->
 
-                  <div class="col-3">
-                    <h2 class="js-cd-seconds h1 text-white mb-0"></h2>
-                    <h5 class="mb-0 text-white">Secs</h5>
+                    <div class="col-3">
+                      <h2 class="js-cd-minutes h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">Mins</h5>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-3">
+                      <h2 class="js-cd-seconds h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">Secs</h5>
+                    </div>
+                    <!-- End Col -->
+                  
+                  
                   </div>
-                  <!-- End Col -->
-                
-                
-                </div>
-                <div class="mt-2">
-                    <small class="text-white">West Indonesian Time (GMT+7)</small>
-                </div>
-                <a href="<?= site_url('')?>sign-up" class="btn btn-outline-light mt-5">Register</a>
+                  <div class="mt-2">
+                      <small class="text-white">West Indonesian Time (GMT+7)</small>
+                  </div>
+                <?php } ?>
+                <?php
+                  if(strtotime($dateNow) < strtotime($dateExpired)){
+                    echo '
+                      <a href="'.site_url('').'sign-up" class="btn btn-outline-light mt-5">Register</a>    
+                    ';
+                  }else{
+                    echo '
+                      <button type="button" class="btn btn-soft-danger mt-5">Expired</button>    
+                    ';
+                  }
+                ?>
               </div>
             </div>
           </div>
@@ -317,86 +334,87 @@
         </div>
       </div>
     </div>
-
-    <div class="container content-space-t-2 content-space-t-lg-3 content-space-b-lg-2">
-      <!-- Heading -->
-      <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-        <!-- <span class="text-cap">Event Details</span> -->
-        <h2>Event Schedule</h2>
+    <div class="bg-dark rounded-2" style="background-image: url(./assets/svg/components/wave-pattern-light.svg);">
+      <div class="container content-space-t-2 content-space-t-lg-3 content-space-b-lg-2">
+        <!-- Heading -->
+        <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
+          <!-- <span class="text-cap">Event Details</span> -->
+          <h2 class="text-white">Event Schedule</h2>
+        </div>
+        <!-- End Heading -->
+        <!-- Step -->
+        <ul class="step step-timeline-md">
+          <li class="step-item">
+            <div class="step-content-wrapper">
+              <span class="step-icon step-icon-soft-light">1</span>
+              <div class="step-content">
+                <h4 class="text-white">1 - 31 August 2022</h4>
+  
+                <p class="step-text text-default">
+                  Registration <br>
+                  1 August 2020 - 31 August 2022</p>
+                <!-- <p class="step-text">
+                  Before you continue to fill out this form, there are five steps that you have to do.
+                  Please Click Read More for Complete info
+                </p> -->
+                <!-- <button type="button" class="btn btn-soft-primary">Read More</button> -->
+              </div>
+            </div>
+          </li>
+  
+          <li class="step-item">
+            <div class="step-content-wrapper">
+              <span class="step-icon step-icon-soft-light">2</span>
+              <div class="step-content">
+                <h4 class="text-white">20 October 2022</h4>
+                <p class="step-text">
+                  <!-- The day has come!!! <br>
+                  The day has come!!! <br> -->
+                  Today is the day of the announcement for IYS 2023 selected participants!
+                </p>
+              </div>
+            </div>
+          </li>
+  
+          <li class="step-item">
+            <div class="step-content-wrapper">
+              <span class="step-icon step-icon-soft-light">3</span>
+              <div class="step-content">
+                <h4 class="text-white">22 - 23 October 2022</h4>
+                <p class="step-text">Interview for Fully Funded</p>
+                <!-- <button type="button" class="btn btn-soft-primary">Read More</button> -->
+              </div>
+            </div>
+          </li>
+  
+          <li class="step-item">
+            <div class="step-content-wrapper">
+              <span class="step-icon step-icon-soft-light">4</span>
+              <div class="step-content">
+                <h4 class="text-white">5 December 2022</h4>
+                <p class="step-text">Final Announcement for Fully Funded</p>
+                <!-- <button type="button" class="btn btn-soft-primary">Read More</button> -->
+              </div>
+            </div>
+          </li>
+          <li class="step-item">
+            <div class="step-content-wrapper">
+              <span class="step-icon step-icon-soft-light">5</span>
+              <div class="step-content">
+                <h4 class="text-white">6 - 9 February 2023</h4>
+                <p class="step-text">Istanbul Youth Summit 2023</p>
+                
+                <!-- <button type="button" class="btn btn-soft-primary">Read More</button> -->
+              </div>
+            </div>
+          </li>
+        </ul>
+        <!-- End Step -->
       </div>
-      <!-- End Heading -->
-      <!-- Step -->
-      <ul class="step step-timeline-md">
-        <li class="step-item">
-          <div class="step-content-wrapper">
-            <span class="step-icon step-icon-soft-primary">1</span>
-            <div class="step-content">
-              <h4>1 - 31 August 2022</h4>
-
-              <p class="step-text">
-                Registration <br>
-                1 August 2020 - 31 August 2022</p>
-              <!-- <p class="step-text">
-                Before you continue to fill out this form, there are five steps that you have to do.
-                Please Click Read More for Complete info
-              </p> -->
-              <!-- <button type="button" class="btn btn-soft-primary">Read More</button> -->
-            </div>
-          </div>
-        </li>
-
-        <li class="step-item">
-          <div class="step-content-wrapper">
-            <span class="step-icon step-icon-soft-primary">2</span>
-            <div class="step-content">
-              <h4>20 October 2022</h4>
-              <p class="step-text">
-                <!-- The day has come!!! <br>
-                The day has come!!! <br> -->
-                Today is the day of the announcement for IYS 2023 selected participants!
-              </p>
-            </div>
-          </div>
-        </li>
-
-        <li class="step-item">
-          <div class="step-content-wrapper">
-            <span class="step-icon step-icon-soft-primary">3</span>
-            <div class="step-content">
-              <h4>22 - 23 October 2022</h4>
-              <p class="step-text">Interview for Fully Funded</p>
-              <!-- <button type="button" class="btn btn-soft-primary">Read More</button> -->
-            </div>
-          </div>
-        </li>
-
-        <li class="step-item">
-          <div class="step-content-wrapper">
-            <span class="step-icon step-icon-soft-primary">4</span>
-            <div class="step-content">
-              <h4>5 December 2022</h4>
-              <p class="step-text">Final Announcement for Fully Funded</p>
-              <!-- <button type="button" class="btn btn-soft-primary">Read More</button> -->
-            </div>
-          </div>
-        </li>
-        <li class="step-item">
-          <div class="step-content-wrapper">
-            <span class="step-icon step-icon-soft-primary">5</span>
-            <div class="step-content">
-              <h4>6 - 9 February 2023</h4>
-              <p class="step-text">Istanbul Youth Summit 2023</p>
-              
-              <!-- <button type="button" class="btn btn-soft-primary">Read More</button> -->
-            </div>
-          </div>
-        </li>
-      </ul>
-      <!-- End Step -->
     </div>
     <!-- <div class="container content-space-t-2 content-space-t-lg-3 content-space-b-lg-2"> -->
     <!-- Card Grid -->
-    <div class="container content-space-b-2 content-space-b-lg-3">
+    <div class="container content-space-b-2 content-space-b-lg-3" style="margin-top: 6rem;">
       <!-- Nav Scroller -->
         <div class="js-nav-scroller hs-nav-scroller-horizontal mb-7">
           <span class="hs-nav-scroller-arrow-prev" style="display: none;">
@@ -412,15 +430,15 @@
           </span>
 
           <!-- Nav -->
-          <ul class="js-filter-options nav nav-segment nav-pills d-flex mx-auto" style="max-width: 35rem;">
+          <ul class="js-filter-options nav nav-segment nav-pills d-flex mx-auto" style="max-width: 38rem;">
             <li class="nav-item">
               <a class="nav-link active" href="javascript:;" data-group="all">All</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="javascript:;" data-group="2017">IYS 2017</a>
+              <a class="nav-link" href="javascript:;" data-group="2017">YESS! 2017</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="javascript:;" data-group="2019">IYS 2019</a>
+              <a class="nav-link" href="javascript:;" data-group="2019">YCEE 2019</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="javascript:;" data-group="2020">IYS 2020</a>
@@ -429,7 +447,7 @@
               <a class="nav-link" href="javascript:;" data-group="2021">IYS 2021</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="javascript:;" data-group="2022">IYS 2022</a>
+              <a class="nav-link" href="javascript:;" data-group="2022">the 5th IYS</a>
             </li>
           </ul>
           <!-- End Nav -->
@@ -442,7 +460,7 @@
           <a class="card card-flush card-transition" href="#">
             <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2022_1.JPG" alt="Image Description">
             <div class="card-body">
-              <span class="card-subtitle text-body">IYS 2022</span>
+              <span class="card-subtitle text-body">the 5th IYS</span>
               <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
             </div>
           </a>
@@ -454,7 +472,7 @@
           <a class="card card-flush card-transition" href="#">
             <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2022_2.JPG" alt="Image Description">
             <div class="card-body">
-              <span class="card-subtitle text-body">IYS 2022</span>
+              <span class="card-subtitle text-body">the 5th IYS</span>
               <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
             </div>
           </a>
@@ -467,7 +485,7 @@
           <a class="card card-flush card-transition" href="#">
             <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2022_3.jpg" alt="Image Description">
             <div class="card-body">
-              <span class="card-subtitle text-body">IYS 2022</span>
+              <span class="card-subtitle text-body">the 5th IYS</span>
               <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
             </div>
           </a>
@@ -558,7 +576,7 @@
           <a class="card card-flush card-transition" href="#">
             <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2019_1.JPG" alt="Image Description">
             <div class="card-body">
-              <span class="card-subtitle text-body">IYS 2019</span>
+              <span class="card-subtitle text-body">YCEE 2019</span>
               <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
             </div>
           </a>
@@ -571,7 +589,7 @@
           <a class="card card-flush card-transition" href="#">
             <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2019_2.JPG" alt="Image Description">
             <div class="card-body">
-              <span class="card-subtitle text-body">IYS 2019</span>
+              <span class="card-subtitle text-body">YCEE 2019</span>
               <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
             </div>
           </a>
@@ -584,7 +602,7 @@
           <a class="card card-flush card-transition" href="#">
             <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2019_3.JPG" alt="Image Description">
             <div class="card-body">
-              <span class="card-subtitle text-body">IYS 2019</span>
+              <span class="card-subtitle text-body">YCEE 2019</span>
               <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
             </div>
           </a>
@@ -597,7 +615,7 @@
           <a class="card card-flush card-transition" href="#">
             <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2017_1.JPG" alt="Image Description">
             <div class="card-body">
-              <span class="card-subtitle text-body">IYS 2017</span>
+              <span class="card-subtitle text-body">YESS! 2017</span>
               <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
             </div>
           </a>
@@ -610,7 +628,7 @@
           <a class="card card-flush card-transition" href="#">
             <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2017_2.JPG" alt="Image Description">
             <div class="card-body">
-              <span class="card-subtitle text-body">IYS 2017</span>
+              <span class="card-subtitle text-body">YESS! 2017</span>
               <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
             </div>
           </a>
@@ -623,7 +641,7 @@
           <a class="card card-flush card-transition" href="#">
             <img class="card-img-top" style="object-fit: cover;height: 250px;" src="<?= site_url('')?>assets/img/landing/2017_3.JPG" alt="Image Description">
             <div class="card-body">
-              <span class="card-subtitle text-body">IYS 2017</span>
+              <span class="card-subtitle text-body">YESS! 2017</span>
               <!-- <h3 class="card-title">Lorem Ipsum</h3> -->
             </div>
           </a>

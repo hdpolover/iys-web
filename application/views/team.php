@@ -1,5 +1,14 @@
 <main id="content" role="main">
 <!-- Hero Section -->
+<figure class="position-absolute zi-n1" style="top: 50rem; left: 1rem; width: 100%; height: 20rem;">
+    <img class="img-fluid" src="<?= site_url()?>assets/svg/components/shape-6.svg" alt="Image Description">
+</figure>
+<figure class="position-absolute zi-n1" style="top: 100rem; left: 5rem; width: 10rem; height: 20rem;">
+    <img class="img-fluid" src="<?= site_url()?>assets/svg/components/dots.svg" alt="Image Description">
+</figure>
+<figure class="position-absolute zi-n1" style="top: 140rem; right: 5rem; width: 10rem; height: 20rem;">
+    <img class="img-fluid" src="<?= site_url()?>assets/svg/components/circled-stripe.svg" alt="Image Description">
+</figure>
 <div class="container content-space-2 content-space-lg-3">
     <!-- Heading -->
     <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">

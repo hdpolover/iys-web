@@ -1,4 +1,10 @@
 <main id="content" role="main">
+  <figure class="position-absolute zi-n1" style="top: 110rem; left: 5rem; width: 90%; height: 20rem;">
+    <img class="img-fluid" src="<?= site_url()?>assets/svg/components/shape-5.svg" alt="Image Description">
+  </figure>
+  <figure class="position-absolute zi-n1" style="top: 200rem; left: 5%; width: 10rem; height: 10rem;">
+    <img class="img-fluid" src="<?= site_url()?>assets/svg/components/circled-stripe.svg" alt="Image Description">
+  </figure>
   <!-- Hero Section -->
   <div class="container content-space-t-3 content-space-t-lg-5">
     <div class="w-lg-75 text-center mx-lg-auto">
@@ -42,20 +48,26 @@
     </div>
     <!-- Heading -->
     <!-- Info -->
-    <div class="container content-space-2 content-space-lg-3">
-      <div class="row justify-content-lg-between">
-        <div class="col-lg-4 mb-5 mb-lg-0">
-          <h2>About Istanbul Youth Summit
+    <div>
+      <div class="bg-dark rounded-2" style="margin-top: 8rem; margin-bottom: 2rem; background-image: url(./assets/svg/components/wave-pattern-light.svg);">
+        <div class="col-12">
+          <div class="container content-space-2 content-space-lg-3" >
+            <div class="row justify-content-lg-between">
+              <div class="col-lg-4 mb-5 mb-lg-0">
+                <h2 class="text-white">About Istanbul Youth Summit
+              </div>
+              <!-- End Col -->
+      
+              <div class="col-lg-6">
+                <p class="text-white" style="text-align: justify;"><b>Istanbul Youth Summit (IYS) 2023 </b><span style="font-weight: 400;">is a program initiated by </span><b>Youth Break the Boundaries (YBB)</b>. The aim of the activity to build the spirit youth leadership and prepare excellent future leaders, by using a moral based approach to education that focusing on instilling nationalism character values and international culture for youth generation.</p>
+                <p class="text-white" style="text-align: justify;">The Istanbul Youth Summit is not just a gathering of young leaders from around the world but also sharing their experiences on how they are taking actions in their communities to protect and empower youth in building the nation.</p>
+              </div>
+              <!-- End Col -->
+            </div>
+            <!-- End Row -->
+          </div>
         </div>
-        <!-- End Col -->
-
-        <div class="col-lg-6">
-          <p style="text-align: justify;"><b>Istanbul Youth Summit (IYS) 2023 </b><span style="font-weight: 400;">is a program initiated by </span><b>Youth Break the Boundaries (YBB)</b>. The aim of the activity to build the spirit youth leadership and prepare excellent future leaders, by using a moral based approach to education that focusing on instilling nationalism character values and international culture for youth generation.</p>
-          <p style="text-align: justify;">The Istanbul Youth Summit is not just a gathering of young leaders from around the world but also sharing their experiences on how they are taking actions in their communities to protect and empower youth in building the nation.</p>
-        </div>
-        <!-- End Col -->
       </div>
-      <!-- End Row -->
     </div>
     <div class="containter content-space-2 content-space-lg-3">
       <div class="row justify-content-lg-center">
