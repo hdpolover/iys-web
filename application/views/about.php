@@ -5,7 +5,7 @@
       <!-- Heading -->
       <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
         <span class="text-cap">Inspire The Next</span>
-        <h2>Istanbul Youth Summit 2022</h2>
+        <h2>Istanbul Youth Summit 2023</h2>
       </div>
       <!-- End Heading -->
     </div>
@@ -50,8 +50,8 @@
         <!-- End Col -->
 
         <div class="col-lg-6">
-          <p><b>Istanbul Youth Summit (IYS) 2022 </b><span style="font-weight: 400;">is a program initiated by </span><b>Youth Break the Boundaries (YBB)</b>. The aim of the activity to build the spirit youth leadership and prepare excellent future leaders, by using a moral based approach to education that focusing on instilling nationalism character values and international culture for youth generation.</p>
-          <p>The Istanbul Youth Summit is not just a gathering of young leaders from around the world but also sharing their experiences on how they are taking actions in their communities to protect and empower youth in building the nation.</p>
+          <p style="text-align: justify;"><b>Istanbul Youth Summit (IYS) 2023 </b><span style="font-weight: 400;">is a program initiated by </span><b>Youth Break the Boundaries (YBB)</b>. The aim of the activity to build the spirit youth leadership and prepare excellent future leaders, by using a moral based approach to education that focusing on instilling nationalism character values and international culture for youth generation.</p>
+          <p style="text-align: justify;">The Istanbul Youth Summit is not just a gathering of young leaders from around the world but also sharing their experiences on how they are taking actions in their communities to protect and empower youth in building the nation.</p>
         </div>
         <!-- End Col -->
       </div>
@@ -75,7 +75,7 @@
 
             <div class="flex-grow-1 ms-3">
               <h4>What is IYS ?</h4>
-              <p>Istanbul Youth Summit (IYS) 2022 is a program initiated by Youth Break the Boundaries (YBB). The aim of the activity to build the spirit youth leadership and prepare excellent future leaders, by using a moral based approach to education that focusing on instilling nationalism character values and international culture for youth generation. </p>
+              <p style="text-align: justify;">Istanbul Youth Summit (IYS) 2023 is a program initiated by Youth Break the Boundaries (YBB). The aim of the activity to build the spirit youth leadership and prepare excellent future leaders, by using a moral based approach to education that focusing on instilling nationalism character values and international culture for youth generation. </p>
             </div>
           </div>
           <!-- End Icon Blocks -->
@@ -96,7 +96,7 @@
 
             <div class="flex-grow-1 ms-3">
               <h4>Why you join?</h4>
-              <p>This event is a forum will be held for 4 days that will discuss the main themes and panel discussions that will be carried out in this summit. The main themes of the Istanbul Youth Summit 2022 is: “Development Responses Plan of The Youth in Crisis Recovery”</p>
+              <p style="text-align: justify;">This event is a forum will be held for 4 days that will discuss the main themes and panel discussions that will be carried out in this summit. The main themes of the Istanbul Youth Summit 2023 is: “Social Development Goals For Emerging Leaders”</p>
             </div>
           </div>
           <!-- End Icon Blocks -->
@@ -118,7 +118,7 @@
 
             <div class="flex-grow-1 ms-3">
               <h4>What should do the events?</h4>
-              <p>The program will intends to achieve five main goals. We aim to Sharpen up the spirit of talented youth leaders in various areas, Build a character of youth leadership, Build the existence of the youth on the international scene, Train the leadership soul of the youth who is actively contributing to develop the country, Continue the Istanbul Youth Summit program for years to come by creating a strong network and long term relationship among IYS alumni.</p>
+              <p style="text-align: justify;">The program will intends to achieve five main goals. We aim to Sharpen up the spirit of talented youth leaders in various areas, Build a character of youth leadership, Build the existence of the youth on the international scene, Train the leadership soul of the youth who is actively contributing to develop the country, Continue the Istanbul Youth Summit program for years to come by creating a strong network and long term relationship among IYS alumni.</p>
             </div>
           </div>
           <!-- End Icon Blocks -->
@@ -139,7 +139,7 @@
 
             <div class="flex-grow-1 ms-3">
               <h4>IYS Agenda</h4>
-              <p>This Istanbul Youth Summit (IYS) activity will be held on 14 – 17 Februari 2022 in Ramada Hotel & Suites by Wyndham Istanbul Merter</p>
+              <p style="text-align: justify;">This Istanbul Youth Summit (IYS) activity will be held on 6 – 9 Februari 2023.</p>
             </div>
           </div>
           <!-- End Icon Blocks -->

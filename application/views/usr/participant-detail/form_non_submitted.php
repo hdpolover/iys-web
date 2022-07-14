@@ -466,11 +466,12 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
         <div class="col-sm-9">
         <div class="js-form-message">
             <select name="essayType" class="form-control" id="" required>
-            <option value="" selected disabled>Select a sub-theme</option>
-            <option value="Theme1" <?= $detail->essay_type == 'Theme1' ? 'selected' : ''?>>Theme1</option>
-            <option value="Theme2" <?= $detail->essay_type == 'Theme2' ? 'selected' : ''?>>Theme2</option>
-            <option value="Theme3" <?= $detail->essay_type == 'Theme3' ? 'selected' : ''?>>Theme3</option>
-            
+                <option value="" selected disabled>Select a sub-theme</option>
+                <option value="Good Health And Well-Beings" <?= $detail->essay_type == 'Good Health And Well-Beings' ? 'selected' : ''?>>Good Health And Well-Beings</option>
+                <option value="Quality Education" <?= $detail->essay_type == 'Quality Education' ? 'selected' : ''?>>Quality Education</option>
+                <option value="Decent Work And Economic Growth" <?= $detail->essay_type == 'Decent Work And Economic Growth' ? 'selected' : ''?>>Decent Work And Economic Growth</option>
+                <option value="Industry Innovation And Infrastructure" <?= $detail->essay_type == 'Industry Innovation And Infrastructure' ? 'selected' : ''?>>Industry Innovation And Infrastructure</option>
+                <option value="Sustainable Cities And Communities" <?= $detail->essay_type == 'Sustainable Cities And Communities' ? 'selected' : ''?>>Sustainable Cities And Communities</option>
             </select>
             <span class="invalid-feedback">Please enter a valid tshirt size.</span>
         </div>
@@ -543,13 +544,13 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
     <!-- End Form Group -->
     <!-- Form Group -->
     <div class="row mb-4">
-        <label for="validationFormUsernameLabel" class="col-sm-3 col-form-label form-label">Motivation Video Link</label>
+        <label for="validationFormUsernameLabel" class="col-sm-3 col-form-label form-label">Twibbon Link</label>
 
         <div class="col-sm-9">
         <div class="js-form-message">
-            <input type="text" class="form-control" name="motivation" id="validationFormUsernameLabel" placeholder="Motivation Video Link" aria-label="sourceAccount" value="<?= $detail->motivation_link ?>" required data-msg="Please enter your fullname.">
-            <span class="form-text"><b>Note:</b> Paste the link to your motivation video about why you want to participate in the 5th Istanbul Youth Summit. The video can uploaded to Instagram or Youtube.</span>
-            <span class="invalid-feedback">Please enter a valid motivation.</span>
+            <input type="text" class="form-control" name="motivation" id="validationFormUsernameLabel" placeholder="Tiwbbon Link" aria-label="sourceAccount" value="<?= $detail->motivation_link ?>" required data-msg="Please enter your fullname.">
+            <span class="form-text"><b>Note:</b> Paste the link to your twibbon. The twibbon can uploaded to Instagram or Youtube.</span>
+            <span class="invalid-feedback">Please enter a valid twibbon link.</span>
         </div>
         </div>
     </div>
@@ -583,7 +584,7 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
         <div class="js-form-message input-group">
             <input type="text" id="rc" class="form-control" name="referral" id="validationFormUsernameLabel" placeholder="Referral Code" value="<?= $detail->referral_code ?>" aria-label="sourceAccount" required data-msg="Please enter your fullname.">
             <button class="btn btn-success" onclick="checkRC()" type="button" id="button-addon2">Apply</button>
-            <span class="form-text"><b>Note:</b> if you have the referral code of an IYS influencer. you can input it below. If not, just leave it "-".</span>
+            <span class="form-text"><b>Note:</b> if you have the referral code of an IYS ambassador. you can input it below. If not, just leave it "-".</span>
             <span class="form-text" id="checkRCStatus"></span>
             <span class="invalid-feedback">Please enter a valid referral.</span>
         </div>
