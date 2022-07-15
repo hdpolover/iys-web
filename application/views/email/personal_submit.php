@@ -332,113 +332,6 @@
         .offset-md-11 {
             margin-left: 91.66666667%;
         }
-        .col-sm-1 {
-            flex: 0 0 auto;
-            width: 8.33333333%;
-        }
-
-        .col-sm-2 {
-            flex: 0 0 auto;
-            width: 16.66666667%;
-        }
-
-        .col-sm-3 {
-            flex: 0 0 auto;
-            width: 25%;
-        }
-
-        .col-sm-4 {
-            flex: 0 0 auto;
-            width: 33.33333333%;
-        }
-
-        .col-sm-5 {
-            flex: 0 0 auto;
-            width: 41.66666667%;
-        }
-
-        .col-sm-6 {
-            flex: 0 0 auto;
-            width: 50%;
-        }
-
-        .col-sm-7 {
-            flex: 0 0 auto;
-            width: 58.33333333%;
-        }
-
-        .col-sm-8 {
-            flex: 0 0 auto;
-            width: 66.66666667%;
-        }
-
-        .col-sm-9 {
-            flex: 0 0 auto;
-            width: 75%;
-        }
-
-        .col-sm-10 {
-            flex: 0 0 auto;
-            width: 83.33333333%;
-        }
-
-        .col-sm-11 {
-            flex: 0 0 auto;
-            width: 91.66666667%;
-        }
-
-        .col-sm-12 {
-            flex: 0 0 auto;
-            width: 100%;
-        }
-
-        .offset-sm-0 {
-            margin-left: 0;
-        }
-
-        .offset-sm-1 {
-            margin-left: 8.33333333%;
-        }
-
-        .offset-sm-2 {
-            margin-left: 16.66666667%;
-        }
-
-        .offset-sm-3 {
-            margin-left: 25%;
-        }
-
-        .offset-sm-4 {
-            margin-left: 33.33333333%;
-        }
-
-        .offset-sm-5 {
-            margin-left: 41.66666667%;
-        }
-
-        .offset-sm-6 {
-            margin-left: 50%;
-        }
-
-        .offset-sm-7 {
-            margin-left: 58.33333333%;
-        }
-
-        .offset-sm-8 {
-            margin-left: 66.66666667%;
-        }
-
-        .offset-sm-9 {
-            margin-left: 75%;
-        }
-
-        .offset-sm-10 {
-            margin-left: 83.33333333%;
-        }
-
-        .offset-sm-11 {
-            margin-left: 91.66666667%;
-        }
         .btn{
             display: inline-block;
             font-weight: 400;
@@ -467,6 +360,27 @@
             color: #fff;
             background-color: #377dff;
         }
+        .form-control {
+            display: block;
+            width: 100%;
+            padding: 0.375rem 0.75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #212529;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border-radius: 0.25rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+        .form-control:disabled, .form-control[readonly] {
+            background-color: #e9ecef;
+            opacity: 1;
+        }
     </style>
 </head>
 <body style="background: #f2f2f2;padding-top: 50px;padding-bottom: 50px;padding-left: 50px;padding-right: 50px;">
@@ -475,20 +389,50 @@
             <div  class="mb-4" style="text-align: center;">
                 <img src="https://istanbulyouthsummit.com/assets/img/logo/logo.png" style="width: 100px;"/>
             </div>
-            <h2 class="mb-4">Welcome to <span class="text-primary text-highlight-warning">Istanbul Youth Summit</span>.</h2>
+            <h2 class="mb-4"><span class="text-primary text-highlight-warning">Good Job !</span></h2>
             <p class="mb-2">
                 Hi <?= $name?>,
             </p>
-            <p class="mb-4">We're happy you signed up for IYS. To start exploring the IYS App please confirm your email address.</p>
-            <?php
-                $token_regis = str_replace('/', '_', $token_regis);
-                $token_regis = str_replace('+', '-', $token_regis);
-            ?>  
-            <a href="<?= site_url('verif-email/'.$token_regis)?>" class="btn btn-soft-primary mb-6">Verify Now</a>
-            <br>
-            <small>
+            <p class="mb-4">Congratulations, you have completed your personal data</p>
+            <div class="mb-2">
+                <label for="">Full Name</label>
+                <input type="text" style="background-color: #f8fafd; opacity: 1;" class="form-control" value="<?= $fullname ?>" readonly>
+            </div>
+            <div class="mb-2">
+                <label for="">Birthdate</label>
+                <input type="text" style="background-color: #f8fafd; opacity: 1;" class="form-control" value="<?= date_format(date_create($birth_date), 'j F Y') ?>" readonly>
+            </div>
+            <div class="mb-2">
+                <label for="">Gender</label>
+                <input type="text" style="background-color: #f8fafd; opacity: 1;" class="form-control" value="<?= $gender ?>" readonly>
+            </div>
+            <div class="mb-2">
+                <label for="">Address</label>
+                <input type="text" style="background-color: #f8fafd; opacity: 1;" class="form-control" value="<?= $address ?>" readonly>
+            </div>
+            <div class="mb-2">
+                <label for="">Nationality</label>
+                <input type="text" style="background-color: #f8fafd; opacity: 1;" class="form-control" value="<?= $nationality ?>" readonly>
+            </div>
+            <div class="mb-2">
+                <label for="">Field of Study</label>
+                <input type="text" style="background-color: #f8fafd; opacity: 1;" class="form-control" value="<?= $field_of_study ?>" readonly>
+            </div>
+            <div class="mb-2">
+                <label for="">Whatsapp Number</label>
+                <input type="text" style="background-color: #f8fafd; opacity: 1;" class="form-control" value="<?= $whatsapp_number ?>" readonly>
+            </div>
+            <div class="mb-2">
+                <label for="">Instagram Account</label>
+                <input type="text" style="background-color: #f8fafd; opacity: 1;" class="form-control" value="<?= $instagram ?>" readonly>
+            </div>
+            
+            
+            <a href="<?= site_url('https://istanbulyouthsummit.com/personal-info')?>" class="btn btn-soft-primary mb-6">Read More</a>
+            <!-- <br> -->
+            <!-- <small>
                 Did you receive this email without signing up? <a href="#">Click here.</a> This verification link will expire in 24 hours
-            </small>
+            </small> -->
         </div>
     </div>
 </body>
