@@ -18,6 +18,14 @@ class FrontController extends CI_Controller{
         if($this->session->userdata('role') == '1'){
             redirect('announcement');
         }
+
+        $dateExpired  = "August 31, 2022 23:59:59";
+        $dateNow      = date("Y-m-d H:i:s");
+
+        if(strtotime($dateNow) > strtotime($dateExpired)){
+            $this->session->set_flashdata('err_msg', 'Oops, registration time has passed, try next year :)');
+            redirect('sign-in');
+        }
         
         $data['title']      = 'Sign Up';
         
