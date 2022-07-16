@@ -52,7 +52,7 @@
       <div class="bg-dark rounded-2" style="margin-top: 8rem; margin-bottom: 2rem; background-image: url(./assets/svg/components/wave-pattern-light.svg);">
         <div class="col-12">
           <div class="container content-space-2 content-space-lg-3" >
-            <div class="row justify-content-lg-between">
+            <div class="row justify-content-lg-between px-5">
               <div class="col-lg-4 mb-5 mb-lg-0">
                 <h2 class="text-white">About Istanbul Youth Summit
               </div>

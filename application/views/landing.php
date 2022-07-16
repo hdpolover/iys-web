@@ -137,7 +137,105 @@
             <div class="container d-md-flex align-items-md-center vh-md-70 content-space-t-4 content-space-b-3 content-space-md-0">
               <div class="w-75 w-lg-50">
                 <h1 class="display-4 text-white mb-0">Istanbul Youth Summit 2023</h1>
-                <button type="button" class="btn btn-ghost-light mt-5">Expired</button>
+                <h3 class="text-white">6 - 9 February, Istanbul Turkey</h3>
+
+                <?php if(strtotime($dateNow) < strtotime($dateExpired)){ ?>
+                  <div class="js-countdown row mt-3">
+                    <div class="col-3">
+                      <h2 class="js-cd-days h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">Days</h5>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-3">
+                      <h2 class="js-cd-hours h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">Hours</h5>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-3">
+                      <h2 class="js-cd-minutes h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">Mins</h5>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-3">
+                      <h2 class="js-cd-seconds h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">Secs</h5>
+                    </div>
+                    <!-- End Col -->
+                  
+                  
+                  </div>
+                  <div class="mt-2">
+                      <small class="text-white">West Indonesian Time (GMT+7)</small>
+                  </div>
+                <?php } ?>
+                <?php
+                  if(strtotime($dateNow) < strtotime($dateExpired)){
+                    echo '
+                      <a href="'.site_url('').'sign-up" class="btn btn-outline-light mt-5">Register</a>    
+                    ';
+                  }else{
+                    echo '
+                      <button type="button" class="btn btn-soft-danger mt-5">Expired</button>    
+                    ';
+                  }
+                ?>
+              </div>
+            </div>
+          </div>
+          <!-- End Slide -->
+          <!-- Slide -->
+          <div class="swiper-slide gradient-y-overlay-sm-gray-900 bg-img-start" style="background-image: url(<?= site_url()?>assets/img/landing/landing_3.jpg);">
+            <div class="container d-md-flex align-items-md-center vh-md-70 content-space-t-4 content-space-b-3 content-space-md-0">
+              <div class="w-75 w-lg-50">
+                <h1 class="display-4 text-white mb-0">Istanbul Youth Summit 2023</h1>
+                <h3 class="text-white">6 - 9 February, Istanbul Turkey</h3>
+
+                <?php if(strtotime($dateNow) < strtotime($dateExpired)){ ?>
+                  <div class="js-countdown row mt-3">
+                    <div class="col-3">
+                      <h2 class="js-cd-days h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">Days</h5>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-3">
+                      <h2 class="js-cd-hours h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">Hours</h5>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-3">
+                      <h2 class="js-cd-minutes h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">Mins</h5>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-3">
+                      <h2 class="js-cd-seconds h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">Secs</h5>
+                    </div>
+                    <!-- End Col -->
+                  
+                  
+                  </div>
+                  <div class="mt-2">
+                      <small class="text-white">West Indonesian Time (GMT+7)</small>
+                  </div>
+                <?php } ?>
+                <?php
+                  if(strtotime($dateNow) < strtotime($dateExpired)){
+                    echo '
+                      <a href="'.site_url('').'sign-up" class="btn btn-outline-light mt-5">Register</a>    
+                    ';
+                  }else{
+                    echo '
+                      <button type="button" class="btn btn-soft-danger mt-5">Expired</button>    
+                    ';
+                  }
+                ?>
               </div>
             </div>
           </div>
@@ -146,7 +244,7 @@
 
         <!-- Arrows -->
         <div class="d-none d-md-inline-block">
-          <div class="js-swiper-main-button-next swiper-button-next swiper-button-next-soft-white"></div>
+          <div id="btn-next-banner" class="js-swiper-main-button-next swiper-button-next swiper-button-next-soft-white"></div>
           <div class="js-swiper-main-button-prev swiper-button-prev swiper-button-prev-soft-white"></div>
         </div>
       </div>
@@ -923,6 +1021,12 @@
   // INITIALIZATION OF NAV SCROLLER
     // =======================================================
     new HsNavScroller('.js-nav-scroller')
+
+    $(document).ready(function(){
+        setInterval(function(){
+          $('#btn-next-banner').click()
+        }, 3500)
+    })
 
 
     // INITIALIZATION OF SHUFFLE
