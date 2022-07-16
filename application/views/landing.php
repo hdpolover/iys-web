@@ -137,7 +137,105 @@
             <div class="container d-md-flex align-items-md-center vh-md-70 content-space-t-4 content-space-b-3 content-space-md-0">
               <div class="w-75 w-lg-50">
                 <h1 class="display-4 text-white mb-0">Istanbul Youth Summit 2023</h1>
-                <button type="button" class="btn btn-ghost-light mt-5">Expired</button>
+                <h3 class="text-white">6 - 9 February, Istanbul Turkey</h3>
+
+                <?php if(strtotime($dateNow) < strtotime($dateExpired)){ ?>
+                  <div class="js-countdown row mt-3">
+                    <div class="col-3">
+                      <h2 class="js-cd-days h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">Days</h5>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-3">
+                      <h2 class="js-cd-hours h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">Hours</h5>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-3">
+                      <h2 class="js-cd-minutes h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">Mins</h5>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-3">
+                      <h2 class="js-cd-seconds h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">Secs</h5>
+                    </div>
+                    <!-- End Col -->
+                  
+                  
+                  </div>
+                  <div class="mt-2">
+                      <small class="text-white">West Indonesian Time (GMT+7)</small>
+                  </div>
+                <?php } ?>
+                <?php
+                  if(strtotime($dateNow) < strtotime($dateExpired)){
+                    echo '
+                      <a href="'.site_url('').'sign-up" class="btn btn-outline-light mt-5">Register</a>    
+                    ';
+                  }else{
+                    echo '
+                      <button type="button" class="btn btn-soft-danger mt-5">Expired</button>    
+                    ';
+                  }
+                ?>
+              </div>
+            </div>
+          </div>
+          <!-- End Slide -->
+          <!-- Slide -->
+          <div class="swiper-slide gradient-y-overlay-sm-gray-900 bg-img-start" style="background-image: url(<?= site_url()?>assets/img/landing/landing_3.jpg);">
+            <div class="container d-md-flex align-items-md-center vh-md-70 content-space-t-4 content-space-b-3 content-space-md-0">
+              <div class="w-75 w-lg-50">
+                <h1 class="display-4 text-white mb-0">Istanbul Youth Summit 2023</h1>
+                <h3 class="text-white">6 - 9 February, Istanbul Turkey</h3>
+
+                <?php if(strtotime($dateNow) < strtotime($dateExpired)){ ?>
+                  <div class="js-countdown row mt-3">
+                    <div class="col-3">
+                      <h2 class="js-cd-days h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">Days</h5>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-3">
+                      <h2 class="js-cd-hours h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">Hours</h5>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-3">
+                      <h2 class="js-cd-minutes h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">Mins</h5>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-3">
+                      <h2 class="js-cd-seconds h1 text-white mb-0"></h2>
+                      <h5 class="mb-0 text-white">Secs</h5>
+                    </div>
+                    <!-- End Col -->
+                  
+                  
+                  </div>
+                  <div class="mt-2">
+                      <small class="text-white">West Indonesian Time (GMT+7)</small>
+                  </div>
+                <?php } ?>
+                <?php
+                  if(strtotime($dateNow) < strtotime($dateExpired)){
+                    echo '
+                      <a href="'.site_url('').'sign-up" class="btn btn-outline-light mt-5">Register</a>    
+                    ';
+                  }else{
+                    echo '
+                      <button type="button" class="btn btn-soft-danger mt-5">Expired</button>    
+                    ';
+                  }
+                ?>
               </div>
             </div>
           </div>
@@ -146,7 +244,7 @@
 
         <!-- Arrows -->
         <div class="d-none d-md-inline-block">
-          <div class="js-swiper-main-button-next swiper-button-next swiper-button-next-soft-white"></div>
+          <div id="btn-next-banner" class="js-swiper-main-button-next swiper-button-next swiper-button-next-soft-white"></div>
           <div class="js-swiper-main-button-prev swiper-button-prev swiper-button-prev-soft-white"></div>
         </div>
       </div>
@@ -350,10 +448,10 @@
               <div class="step-content">
                 <h4 class="text-white">1 - 31 August 2022</h4>
   
-                <p class="step-text text-default">
+                <p class="step-text text-white-70">
                   Registration <br>
                   1 August 2020 - 31 August 2022</p>
-                <!-- <p class="step-text">
+                <!-- <p class="step-text text-white-70">
                   Before you continue to fill out this form, there are five steps that you have to do.
                   Please Click Read More for Complete info
                 </p> -->
@@ -367,7 +465,7 @@
               <span class="step-icon step-icon-soft-light">2</span>
               <div class="step-content">
                 <h4 class="text-white">20 October 2022</h4>
-                <p class="step-text">
+                <p class="step-text text-white-70">
                   <!-- The day has come!!! <br>
                   The day has come!!! <br> -->
                   Today is the day of the announcement for IYS 2023 selected participants!
@@ -381,7 +479,7 @@
               <span class="step-icon step-icon-soft-light">3</span>
               <div class="step-content">
                 <h4 class="text-white">22 - 23 October 2022</h4>
-                <p class="step-text">Interview for Fully Funded</p>
+                <p class="step-text text-white-70">Interview for Fully Funded</p>
                 <!-- <button type="button" class="btn btn-soft-primary">Read More</button> -->
               </div>
             </div>
@@ -392,7 +490,7 @@
               <span class="step-icon step-icon-soft-light">4</span>
               <div class="step-content">
                 <h4 class="text-white">5 December 2022</h4>
-                <p class="step-text">Final Announcement for Fully Funded</p>
+                <p class="step-text text-white-70">Final Announcement for Fully Funded</p>
                 <!-- <button type="button" class="btn btn-soft-primary">Read More</button> -->
               </div>
             </div>
@@ -402,7 +500,7 @@
               <span class="step-icon step-icon-soft-light">5</span>
               <div class="step-content">
                 <h4 class="text-white">6 - 9 February 2023</h4>
-                <p class="step-text">Istanbul Youth Summit 2023</p>
+                <p class="step-text text-white-70">Istanbul Youth Summit 2023</p>
                 
                 <!-- <button type="button" class="btn btn-soft-primary">Read More</button> -->
               </div>
@@ -723,177 +821,7 @@
   </main>
   <!-- ========== END MAIN CONTENT ========== -->
 
-  <!-- ========== FOOTER ========== -->
-  <footer class="bg-dark">
-    <div class="container pb-1 pb-lg-5">
-      <div class="row content-space-t-2">
-        <div class="col-lg-3 mb-7 mb-lg-0">
-          <!-- Logo -->
-          <div class="mb-5">
-            <a class="navbar-brand" href="<?= site_url()?>index.html" aria-label="Space">
-              <img class="navbar-brand-logo" src="<?= site_url()?>assets/img/logo/logo-white.png" alt="Image Description">
-            </a>
-          </div>
-          <!-- End Logo -->
-
-          <!-- List -->
-          <ul class="list-unstyled list-py-1">
-            <li><a class="link-sm link-light" href="#"><i class="bi-geo-alt-fill me-1"></i> 153 Williamson Plaza, Maggieberg</a></li>
-            <li><a class="link-sm link-light" href="tel:1-062-109-9222"><i class="bi-telephone-inbound-fill me-1"></i> +1 (062) 109-9222</a></li>
-          </ul>
-          <!-- End List -->
-        
-        </div>
-        <!-- End Col -->
-
-        <div class="col-sm mb-7 mb-sm-0">
-          <h5 class="text-white mb-3">Company</h5>
-
-          <!-- List -->
-          <ul class="list-unstyled list-py-1 mb-0">
-            <li><a class="link-sm link-light" href="#">About</a></li>
-            <li><a class="link-sm link-light" href="#">Careers <span class="badge bg-warning text-dark rounded-pill ms-1">We're hiring</span></a></li>
-            <li><a class="link-sm link-light" href="#">Blog</a></li>
-            <li><a class="link-sm link-light" href="#">Customers <i class="bi-box-arrow-up-right small ms-1"></i></a></li>
-            <li><a class="link-sm link-light" href="#">Hire us</a></li>
-          </ul>
-          <!-- End List -->
-        </div>
-        <!-- End Col -->
-
-        <div class="col-sm mb-7 mb-sm-0">
-          <h5 class="text-white mb-3">Features</h5>
-
-          <!-- List -->
-          <ul class="list-unstyled list-py-1 mb-0">
-            <li><a class="link-sm link-light" href="#">Press <i class="bi-box-arrow-up-right small ms-1"></i></a></li>
-            <li><a class="link-sm link-light" href="#">Release Notes</a></li>
-            <li><a class="link-sm link-light" href="#">Integrations</a></li>
-            <li><a class="link-sm link-light" href="#">Pricing</a></li>
-          </ul>
-          <!-- End List -->
-        </div>
-        <!-- End Col -->
-
-        <div class="col-sm">
-          <h5 class="text-white mb-3">Documentation</h5>
-
-          <!-- List -->
-          <ul class="list-unstyled list-py-1 mb-0">
-            <li><a class="link-sm link-light" href="#">Support</a></li>
-            <li><a class="link-sm link-light" href="#">Docs</a></li>
-            <li><a class="link-sm link-light" href="#">Status</a></li>
-            <li><a class="link-sm link-light" href="#">API Reference</a></li>
-            <li><a class="link-sm link-light" href="#">Tech Requirements</a></li>
-          </ul>
-          <!-- End List -->
-        </div>
-        <!-- End Col -->
-
-        <div class="col-sm">
-          <h5 class="text-white mb-3">Resources</h5>
-
-          <!-- List -->
-          <ul class="list-unstyled list-py-1 mb-5">
-            <li><a class="link-sm link-light" href="#"><i class="bi-question-circle-fill me-1"></i> Help</a></li>
-            <li><a class="link-sm link-light" href="#"><i class="bi-person-circle me-1"></i> Your Account</a></li>
-          </ul>
-          <!-- End List -->
-        </div>
-        <!-- End Col -->
-      </div>
-      <!-- End Row -->
-
-      <div class="border-top border-white-10 my-7"></div>
-
-      <div class="row mb-7">
-        <div class="col-sm mb-3 mb-sm-0">
-          <!-- Socials -->
-          <ul class="list-inline list-separator list-separator-light mb-0">
-            <li class="list-inline-item">
-              <a class="link-sm link-light" href="#">Privacy &amp; Policy</a>
-            </li>
-            <li class="list-inline-item">
-              <a class="link-sm link-light" href="#">Terms</a>
-            </li>
-            <li class="list-inline-item">
-              <a class="link-sm link-light" href="#">Site Map</a>
-            </li>
-          </ul>
-          <!-- End Socials -->
-        </div>
-
-        <div class="col-sm-auto">
-          <!-- Socials -->
-          <ul class="list-inline mb-0">
-            <li class="list-inline-item">
-              <a class="btn btn-soft-light btn-xs btn-icon" href="#">
-                <i class="bi-facebook"></i>
-              </a>
-            </li>
-          
-            <li class="list-inline-item">
-              <a class="btn btn-soft-light btn-xs btn-icon" href="#">
-                <i class="bi-google"></i>
-              </a>
-            </li>
-          
-            <li class="list-inline-item">
-              <a class="btn btn-soft-light btn-xs btn-icon" href="#">
-                <i class="bi-twitter"></i>
-              </a>
-            </li>
-          
-            <li class="list-inline-item">
-              <a class="btn btn-soft-light btn-xs btn-icon" href="#">
-                <i class="bi-github"></i>
-              </a>
-            </li>
-          
-            <li class="list-inline-item">
-              <!-- Button Group -->
-              <div class="btn-group">
-                <button type="button" class="btn btn-soft-light btn-xs dropdown-toggle" id="footerSelectLanguage" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
-                  <span class="d-flex align-items-center">
-                    <img class="avatar avatar-xss avatar-circle me-2" src="<?= site_url()?>assets/vendor/flag-icon-css/flags/1x1/us.svg" alt="Image description" width="16"/>
-                    <span>English (US)</span>
-                  </span>
-                </button>
-
-                <div class="dropdown-menu" aria-labelledby="footerSelectLanguage">
-                  <a class="dropdown-item d-flex align-items-center active" href="#">
-                    <img class="avatar avatar-xss avatar-circle me-2" src="<?= site_url()?>assets/vendor/flag-icon-css/flags/1x1/us.svg" alt="Image description" width="16"/>
-                    <span>English (US)</span>
-                  </a>
-                  <a class="dropdown-item d-flex align-items-center" href="#">
-                    <img class="avatar avatar-xss avatar-circle me-2" src="<?= site_url()?>assets/vendor/flag-icon-css/flags/1x1/de.svg" alt="Image description" width="16"/>
-                    <span>Deutsch</span>
-                  </a>
-                  <a class="dropdown-item d-flex align-items-center" href="#">
-                    <img class="avatar avatar-xss avatar-circle me-2" src="<?= site_url()?>assets/vendor/flag-icon-css/flags/1x1/es.svg" alt="Image description" width="16"/>
-                    <span>Español</span>
-                  </a>
-                  <a class="dropdown-item d-flex align-items-center" href="#">
-                    <img class="avatar avatar-xss avatar-circle me-2" src="<?= site_url()?>assets/vendor/flag-icon-css/flags/1x1/cn.svg" alt="Image description" width="16"/>
-                    <span>中文 (繁體)</span>
-                  </a>
-                </div>
-              </div>
-              <!-- End Button Group -->
-            </li>
-          </ul>
-          <!-- End Socials -->
-        </div>
-      </div>
-
-      <!-- Copyright -->
-      <div class="w-md-85 text-lg-center mx-lg-auto">
-        <p class="text-white-50 small">&copy; Istanbul Youth Summit</p>
-        <!-- <p class="text-white-50 small">When you visit or interact with our sites, services or tools, we or our authorised service providers may use cookies for storing information to help provide you with a better, faster and safer experience and for marketing purposes.</p> -->
-      </div>
-      <!-- End Copyright -->
-    </div>
-  </footer>
+  
 
   <!-- ========== END FOOTER ========== -->
 
@@ -923,6 +851,12 @@
   // INITIALIZATION OF NAV SCROLLER
     // =======================================================
     new HsNavScroller('.js-nav-scroller')
+
+    $(document).ready(function(){
+        setInterval(function(){
+          $('#btn-next-banner').click()
+        }, 3500)
+    })
 
 
     // INITIALIZATION OF SHUFFLE

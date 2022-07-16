@@ -1,17 +1,23 @@
 <main id="content" role="main">
+<figure class="position-absolute zi-n1" style="top: 30rem; left: 5rem; width: 90%; height: 20rem;">
+    <img class="img-fluid" src="<?= site_url()?>assets/svg/components/shape-5.svg" alt="Image Description">
+</figure>
 <!-- Hero Section -->
+<div class="bg-img-start" style="background-image: url(./assets/svg/components/card-11.svg);">
+	<div class="container content-space-2 content-space-b-3 content-space-t-lg-5">
+	<div class="w-lg-65 text-center mx-lg-auto">
+		<h1 class="mb-0">Announcements</h1>
+        <p>Read our latest announcement.</p>
+		<!-- <span class="badge bg-warning text-dark rounded-pill mb-3">Baca pengumuman terbaru dari kami</span> -->
+	</div>
+	</div>
+</div>
 <div class="container content-space-2 content-space-lg-3">
     <!-- Heading -->
     <!-- End Heading -->
 
     <!-- Card -->
-    <div class="card">
-        <div class="card-header border-bottom">
-            <h4 class="card-header-title">Announcements</h4>
-        </div>
-        <!-- Body -->
-        <div class="card-body">
-            <div class="row">
+        <div class="row">
             <?php
                 if($announcements == null){
                 echo '
@@ -51,21 +57,18 @@
                 ';
                 }
             ?>
-            </div>
         </div>
-        <!-- End Body -->
+    </div>
+    <!-- End Body -->
 
-        <!-- Footer -->
-        <div class="card-footer pt-0">
-            <!-- <div class="d-flex justify-content-end gap-3">
-            <a class="btn btn-white" href="javascript:;">Cancel</a>
-            <a class="btn btn-primary" href="javascript:;">Save changes</a>
-            </div> -->
-        </div>
-        <!-- End Footer -->
-        </div>
-        <!-- End Card -->
-    <!-- End Card Info -->
+    <!-- Footer -->
+    <div class="card-footer pt-0">
+        <!-- <div class="d-flex justify-content-end gap-3">
+        <a class="btn btn-white" href="javascript:;">Cancel</a>
+        <a class="btn btn-primary" href="javascript:;">Save changes</a>
+        </div> -->
+    </div>
+
 </div>
 <!-- End Hero Section -->
 </main>

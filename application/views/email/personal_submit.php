@@ -64,6 +64,29 @@
             font-weight: 400;
             line-height: 1.5;
         }
+        .mt-0 {
+        margin-top: 0 !important;
+        }
+
+        .mt-1 {
+        margin-top: 0.25rem !important;
+        }
+
+        .mt-2 {
+        margin-top: 0.5rem !important;
+        }
+
+        .mt-3 {
+        margin-top: 1rem !important;
+        }
+
+        .mt-4 {
+        margin-top: 1.5rem !important;
+        }
+
+        .mt-5 {
+        margin-top: 3rem !important;
+        }
         .mb-0 {
             margin-bottom: 0 !important;
         }
@@ -391,7 +414,7 @@
             </div>
             <h2 class="mb-4"><span class="text-primary text-highlight-warning">Good Job !</span></h2>
             <p class="mb-2">
-                Hi <?= $name?>,
+                Hi <?= $fullname?>,
             </p>
             <p class="mb-4">Congratulations, you have completed your personal data</p>
             <div class="mb-2">
@@ -428,7 +451,7 @@
             </div>
             
             
-            <a href="<?= site_url('https://istanbulyouthsummit.com/personal-info')?>" class="btn btn-soft-primary mb-6">Read More</a>
+            <a href="https://istanbulyouthsummit.com/personal-info" class="btn btn-soft-primary mb-6 mt-3">Read More</a>
             <!-- <br> -->
             <!-- <small>
                 Did you receive this email without signing up? <a href="#">Click here.</a> This verification link will expire in 24 hours
