@@ -140,7 +140,7 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
 
         <div class="col-sm-9">
         <div class="js-form-message">
-            <input type="text" class="form-control flatpickr" value="<?= $detail->birth_date?>" name="birthday" placeholder="Birthday" required>
+            <input type="text" class="form-control flatpickr" value="<?= date_format(date_create($detail->birth_date), 'F d, Y')?>" name="birthday" placeholder="Birthday" required>
             <span class="invalid-feedback">Please enter a valid birthday.</span>
         </div>
         </div>
@@ -185,9 +185,37 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
         <label for="validationFormUsernameLabel" class="col-sm-3 col-form-label form-label">Address</label>
 
         <div class="col-sm-9">
+            <div class="row mb-4">
+                <div class="col-sm-6">
+                    <div class="js-form-message">
+                        <input type="text"  class="form-control" value="<?= $detail->province?>" placeholder="Province" name="province" required />
+                        <span class="invalid-feedback">Please enter a valid province.</span>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="js-form-message">
+                        <input type="text"  class="form-control" value="<?= $detail->city?>" placeholder="City" name="city" required />
+                        <span class="invalid-feedback">Please enter a valid city.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="js-form-message">
+                        <input type="text"  class="form-control" value="<?= $detail->postal_code?>" placeholder="Postal Code" name="postalCode" required />
+                        <span class="invalid-feedback">Please enter a valid postal code.</span>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="js-form-message">
+                        <input type="text"  class="form-control" value="<?= $detail->detail_address?>" placeholder="Additional Address" name="detailAddress" />
+                        <span class="invalid-feedback">Please enter a valid city.</span>
+                    </div>
+                </div>
+            </div>
         <div class="js-form-message">
-            <textarea  class="form-control" name="address" required rows="5"><?= $detail->address?></textarea>
-            <span class="invalid-feedback">Please enter a valid address.</span>
+            <!-- <textarea  class="form-control" name="address" required rows="5"><?= $detail->address?></textarea> -->
+            <!-- <span class="invalid-feedback">Please enter a valid address.</span> -->
         </div>
         </div>
     </div>
@@ -308,6 +336,7 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
         <div class="col-sm-9">
         <div class="js-form-message">
             <textarea  class="form-control" name="disease" required rows="5"><?= $detail->disease_history?></textarea>
+            <span class="form-text"><b>Note:</b> Enter a dash (-) if you have no history of disease.</span>
             <span class="invalid-feedback">Please enter a disease history.</span>
         </div>
         </div>
@@ -396,6 +425,7 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
         <div class="col-sm-9">
         <div class="js-form-message">
             <textarea  class="form-control" name="experience" required rows="5"><?= $detail->experience?></textarea>
+            <span class="form-text"><b>Note:</b> Enter a dash (-) if you have no experience.</span>
             <span class="invalid-feedback">Please enter a experience.</span>
         </div>
         </div>
@@ -408,6 +438,7 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
         <div class="col-sm-9">
         <div class="js-form-message">
             <textarea  class="form-control" name="achievements" required rows="5"><?= $detail->achievements?></textarea>
+            <span class="form-text"><b>Note:</b> Enter a dash (-) if you have no achievements.</span>
             <span class="invalid-feedback">Please enter a achievements.</span>
         </div>
         </div>
@@ -420,6 +451,7 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
         <div class="col-sm-9">
         <div class="js-form-message">
             <textarea  class="form-control" name="socialProjects" required rows="5"><?= $detail->social_projects?></textarea>
+            <span class="form-text"><b>Note:</b> Enter a dash (-) if you have no social projects.</span>
             <span class="invalid-feedback">Please enter a social projects.</span>
         </div>
         </div>
@@ -432,6 +464,7 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
         <div class="col-sm-9">
         <div class="js-form-message">
             <textarea  class="form-control" name="talents" required rows="5"><?= $detail->talents?></textarea>
+            <span class="form-text"><b>Note:</b> Enter a dash (-) if you have no talents.</span>
             <span class="invalid-feedback">Please enter a social talents.</span>
         </div>
         </div>
@@ -486,7 +519,7 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
         <div class="js-form-message">
             <textarea  class="form-control" name="essay" required rows="10"><?= $detail->essay ?></textarea>
             <span class="invalid-feedback">Please enter a valid essay.</span>
-            <span class="form-text"><b>Note:</b> Your essay length must be between 200 to 300 words. It is recommended that you write your essay on other platform.</span>
+            <span class="form-text"><b>Note:</b> Your essay length maximum 250 words. It is recommended that you write your essay on other platform.</span>
         </div>
         </div>
     </div>
@@ -565,7 +598,7 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
             <span class="form-text">
             <b>Note:</b> As mentioned on the Registration Guidelines, you need to do the followings:
             <ul>
-                <li>Follow and Youth Break the Boundaries on Instagram</li>
+                <li>Follow Istanbul Youth Summit and Youth Break the Boundaries</li>
                 <li>Tag 5 of your friends on your Instagram post.</li>
                 <li>Share the event to 3 WhatsApp Groups</li>
             </ul>
@@ -584,10 +617,10 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
         <div class="js-form-message input-group">
             <input type="text" id="rc" class="form-control" name="referral" id="validationFormUsernameLabel" placeholder="Referral Code" value="<?= $detail->referral_code ?>" aria-label="sourceAccount" required data-msg="Please enter your fullname.">
             <button class="btn btn-success" onclick="checkRC()" type="button" id="button-addon2">Apply</button>
-            <span class="form-text"><b>Note:</b> if you have the referral code of an IYS ambassador. you can input it below. If not, just leave it "-".</span>
-            <span class="form-text" id="checkRCStatus"></span>
-            <span class="invalid-feedback">Please enter a valid referral.</span>
         </div>
+        <span class="form-text"><b>Note:</b> Enter a dash (-) if you don't have any code.</span>
+        <div class="form-text" id="checkRCStatus"></div>
+        <div class="invalid-feedback">Please enter a valid referral.</div>
         </div>
     </div>
     <!-- End Form Group -->

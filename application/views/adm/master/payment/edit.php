@@ -88,11 +88,11 @@
             </div>
             <div class="mb-3">
                 <label for="validationValidInput1">Start Date</label>
-                <input type="text" id="" name="startDate" class="form-control flatpickrDT" id="validationValidInput1" placeholder="Start Date" value="<?= date_format(date_create($payment->start_date), 'j F Y H:i')?>" required>
+                <input type="text" id="" name="startDate" class="form-control flatpickrDT" id="validationValidInput1" placeholder="Start Date" value="<?= date_format(date_create($payment->start_date), 'F d, Y H:i')?>" required>
             </div>
             <div class="mb-3">
                 <label for="validationValidInput1">End Date</label>
-                <input type="text" id="" name="endDate" class="form-control flatpickrDT" id="validationValidInput1" placeholder="End Date" value="<?= date_format(date_create($payment->end_date), 'j F Y H:i')?>" required>
+                <input type="text" id="" name="endDate" class="form-control flatpickrDT" id="validationValidInput1" placeholder="End Date" value="<?= date_format(date_create($payment->end_date), 'F d, Y H:i')?>" required>
             </div>
             <!-- <div class="mb-3">
                 <label for="validationValidTextarea1">Content</label>

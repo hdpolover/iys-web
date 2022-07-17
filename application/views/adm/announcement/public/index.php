@@ -95,7 +95,7 @@
                         <td>
                           <button onclick="showMdlPoster(\''.$announcement->poster.'\')" type="button" class="btn btn-soft-dark btn-icon btn-sm"><i class="bi-image"></i></button>
                         </td>
-                        <td>'.date_format(date_create($announcement->date), 'j F Y H:i').'</td>
+                        <td>'.date_format(date_create($announcement->date), 'F d, Y H:i').'</td>
                         <td>'.$announcement->title.'</td>
                         <td>
                           <a href="'.site_url('admin/announcement-public/edit/'.$announcement->id_announcement).'" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-pencil-square"></i></a>

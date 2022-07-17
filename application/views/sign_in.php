@@ -102,6 +102,13 @@
                         </div>        
                     ';
                 }
+                if($this->session->flashdata('succ_msg')){
+                    echo '
+                        <div class="alert alert-soft-success mb-3" role="alert">
+                            '.$this->session->flashdata('succ_msg').'
+                        </div>        
+                    ';
+                }
             ?>
             <div class="d-grid mb-3">
             <button type="submit" class="btn btn-primary btn-lg">Log in</button>

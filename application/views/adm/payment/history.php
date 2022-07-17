@@ -85,7 +85,7 @@
                         echo '
                             <tr>
                                 <td scope="col">'.$history->description.'</td>
-                                <td scope="col">'.date_format(date_create($history->date), 'j F Y H:i:s').'</td>
+                                <td scope="col">'.date_format(date_create($history->date), 'F d, Y H:i:s').'</td>
                                 <td scope="col">'.str_replace('_', ' ', strtoupper($history->method_type)).'</td>
                                 <td scope="col">
                                     <img style="max-width: 75px;" src="'.$history->method_img.'" />

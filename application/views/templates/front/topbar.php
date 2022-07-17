@@ -43,7 +43,7 @@
     <div class="container">
       <nav class="js-mega-menu navbar-nav-wrap">
         <!-- Default Logo -->
-        <a class="navbar-brand" href="<?= site_url()?>index.html" aria-label="Front">
+        <a class="navbar-brand" href="<?= site_url('/')?>" aria-label="Front">
           <img class="" src="<?= site_url()?>assets/img/logo/logo-white.png" style="width: 65px !important;" alt="Logo">
         </a>
         <!-- End Default Logo -->

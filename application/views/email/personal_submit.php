@@ -423,7 +423,7 @@
             </div>
             <div class="mb-2">
                 <label for="">Birthdate</label>
-                <input type="text" style="background-color: #f8fafd; opacity: 1;" class="form-control" value="<?= date_format(date_create($birth_date), 'j F Y') ?>" readonly>
+                <input type="text" style="background-color: #f8fafd; opacity: 1;" class="form-control" value="<?= date_format(date_create($birth_date), 'F d, Y') ?>" readonly>
             </div>
             <div class="mb-2">
                 <label for="">Gender</label>

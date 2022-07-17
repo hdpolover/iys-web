@@ -89,11 +89,6 @@ class ParticipantDetailController extends CI_Controller{
                 $this->session->set_userdata('photo', $uploadPhoto['link']);
             }
         }
-
-        if(str_word_count($_POST['essay']) < 250){
-            $this->session->set_flashdata('err_msg', "Your essay is still less than 250 words");
-            redirect('personal-info');
-        }
         
 
         $this->User->update(['id_user' => $this->session->userdata('id_user'), 'name' => $_POST['fullName']]);
@@ -121,7 +116,10 @@ class ParticipantDetailController extends CI_Controller{
         $formData['disease_history']        = $_POST['disease'];
         $formData['tshirt_size']            = $_POST['tshirt'];
         $formData['is_vegetarian']          = $_POST['vegetarian'];
-        $formData['address']                = $_POST['address'];
+        $formData['province']               = $_POST['province'];
+        $formData['city']                   = $_POST['city'];
+        $formData['postal_code']            = $_POST['postalCode'];
+        $formData['detail_address']         = $_POST['detailAddress'];
         $formData['achievements']           = $_POST['achievements'];
         $formData['experience']             = $_POST['experience'];
         $formData['social_projects']        = $_POST['socialProjects'];
@@ -159,7 +157,7 @@ class ParticipantDetailController extends CI_Controller{
         $formData['id_user']                = $this->session->userdata('id_user');
         $formData['fullname']               = $_POST['fullName'];
         $formData['gender']                 = $_POST['gender'];
-        $formData['birth_date']             = date_format(date_create_from_format('j F Y', $_POST['birthday']), 'Y-m-d');
+        $formData['birth_date']             = date_format(date_create_from_format('F d, Y', $_POST['birthday']), 'Y-m-d');
         $formData['nationality']            = $_POST['nationality'];
         $formData['occupation']             = $_POST['occupation'];
         $formData['field_of_study']         = $_POST['fullOfStudy'];
@@ -171,7 +169,10 @@ class ParticipantDetailController extends CI_Controller{
         $formData['disease_history']        = $_POST['disease'];
         $formData['tshirt_size']            = $_POST['tshirt'];
         $formData['is_vegetarian']          = $_POST['vegetarian'];
-        $formData['address']                = $_POST['address'];
+        $formData['province']               = $_POST['province'];
+        $formData['city']                   = $_POST['city'];
+        $formData['postal_code']            = $_POST['postalCode'];
+        $formData['detail_address']         = $_POST['detailAddress'];
         $this->ParticipantDetail->update($formData);
         echo json_encode('sukses');
     }

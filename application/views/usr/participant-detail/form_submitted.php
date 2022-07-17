@@ -62,7 +62,7 @@
 
         <div class="col-sm-9">
         <div class="js-form-message">
-            <span><b><?= date_format(date_create($detail->birth_date), 'j F Y')?></b></span>
+            <span><b><?= date_format(date_create($detail->birth_date), 'F d, Y')?></b></span>
         </div>
         </div>
     </div>

@@ -92,7 +92,7 @@
                             <span class="card-text maxText mb-1">'.$announcement->content.'</span>
                             <a class="card-link" href="'.site_url('announcement/'.$announcement->id_announcement).'">Read more <i class="bi-chevron-right small ms-1"></i></a>
                             <p class="card-text mt-3">
-                              <small class="text-muted">'.date_format(date_create($announcement->date), 'j F Y H:i').'</small>
+                              <small class="text-muted">'.date_format(date_create($announcement->date), 'F d, Y H:i').'</small>
                             </p>
                           </div>
                         </div>

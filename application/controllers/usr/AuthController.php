@@ -34,10 +34,11 @@ class AuthController extends CI_Controller{
         $this->User->insert($formData);
 
         $this->ParticipantDetail->insert(['id_user' => $newId, 'id_summit' => '1']);
-        $this->setSession($formData['id_user'], $formData['email'], $formData['name'], null, $formData['id_user_role'], 0, 0);
+        // $this->setSession($formData['id_user'], $formData['email'], $formData['name'], null, $formData['id_user_role'], 0, 0);
 
         $this->mail->send($formData['email'], 'Email Verification', $this->load->view('email/register', $formData, true));
-        redirect('announcement');
+        $this->session->set_flashdata('succ_msg', 'Yeay, you have successfully registered and checked your verification email !');
+        redirect('sign-in');
     }
     public function login(){
         $user       = $this->User->get(['email' => $_POST['email'], 'password' => hash('sha256', md5($_POST['password']))]);
