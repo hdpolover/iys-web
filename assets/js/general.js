@@ -28,10 +28,10 @@ function space(evt){
 }
 
 $(".flatpickr").flatpickr({
-    dateFormat: "j F Y",
+    dateFormat: "F d, Y",
 });
 $(".flatpickrDT").flatpickr({
-    dateFormat: "j F Y H:i",
+    dateFormat: "F d, Y H:i",
     enableTime: true,
     time_24hr: true
 });

@@ -95,8 +95,8 @@
                         <td>'.$payment->name.'</td>
                         <td>'.$payment->description.'</td>
                         <td>Rp'.number_format($payment->amount).'</td>
-                        <td>'.date_format(date_create($payment->start_date), 'j F Y H:i').'</td>
-                        <td>'.date_format(date_create($payment->end_date), 'j F Y H:i').'</td>
+                        <td>'.date_format(date_create($payment->start_date), 'F d, Y H:i').'</td>
+                        <td>'.date_format(date_create($payment->end_date), 'F d, Y H:i').'</td>
                         <td>
                           <a href="'.site_url('admin/master/payment-type/edit/'.$payment->id_payment_type).'" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-pencil-square"></i></a>
                           <button onclick="showMdlDelete('.$payment->id_payment_type.')" type="button" class="btn btn-soft-danger btn-icon btn-sm"><i class="bi-trash"></i></button>

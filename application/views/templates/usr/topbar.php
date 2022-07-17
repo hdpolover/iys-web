@@ -109,7 +109,7 @@
     <div class="container">
       <nav class="js-mega-menu navbar-nav-wrap">
         <!-- Default Logo -->
-        <a class="navbar-brand" href="./index.html" aria-label="Front">
+        <a class="navbar-brand" href="<?= site_url('/')?>" aria-label="Front">
           <img class="" src="<?= site_url()?>assets/img/logo/logo.png" style="width: 100px;" alt="Logo">
         </a>
         <!-- End Default Logo -->

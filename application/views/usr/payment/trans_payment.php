@@ -109,7 +109,7 @@
                 </dl>
                 <dl class="row mt-4 mb-4">
                     <dt class="col-sm-6">DATE</dt>
-                    <dd class="col-sm-6 text-sm-end mb-0"><?= strtoupper(date_format(date_create($paymentDetail->date), 'j F Y H:i'))?></dd>
+                    <dd class="col-sm-6 text-sm-end mb-0"><?= strtoupper(date_format(date_create($paymentDetail->date), 'F d, Y H:i'))?></dd>
                 </dl>
                 <dl class="row mb-4">
                     <dt class="col-sm-6">ITEM</dt>
@@ -156,7 +156,7 @@
                 
                 <dl class="row mb-4">
                     <dt class="col-sm-6">EXPIRED DATE</dt>
-                    <dd class="col-sm-6 text-sm-end mb-0"><?= strtoupper(date_format(date_create($paymentDetail->date_expired), 'j F Y H:i'))?></dd>
+                    <dd class="col-sm-6 text-sm-end mb-0"><?= strtoupper(date_format(date_create($paymentDetail->date_expired), 'F d, Y H:i'))?></dd>
                 </dl>
             </div>
             <!-- End Body -->

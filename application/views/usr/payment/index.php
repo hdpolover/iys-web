@@ -108,11 +108,11 @@
                         <div class="card-body">
                             <div class="mb-4">
                               <span class="card-subtitle">Open:</span>
-                                <h5><?= date_format(date_create($paymentStatus->start_date), 'j F Y H:i')?></h5>
+                                <h5><?= date_format(date_create($paymentStatus->start_date), 'F d, Y H:i')?></h5>
                             </div>
                             <div class="mb-4">
                               <span class="card-subtitle">Close:</span>
-                                <h5><?= date_format(date_create($paymentStatus->end_date), 'j F Y H:i')?></h5>
+                                <h5><?= date_format(date_create($paymentStatus->end_date), 'F d, Y H:i')?></h5>
                             </div>
                             <div>
                               <span class="card-subtitle">Total (IDR)</span>

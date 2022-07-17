@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <p class="card-text mb-5">
-                    <small class="text-muted"><?= date_format(date_create($announcement->date), 'l, j F Y H:i')?></small>
+                    <small class="text-muted"><?= date_format(date_create($announcement->date), 'l, F d, Y H:i')?></small>
                 </p>
                 <div class="text-center mb-6">
                     <?php
