@@ -4,6 +4,7 @@ class FrontController extends CI_Controller{
     public function __construct(){
         parent::__construct();
         $this->load->model('Announcement');
+        $this->load->model('User');
     }
     public function signIn(){
         if($this->session->userdata('role') == '1'){
@@ -30,6 +31,39 @@ class FrontController extends CI_Controller{
         $data['title']      = 'Sign Up';
         
         $this->template->frontWithoutTopBar('sign_up', $data);
+    }
+    public function verifEmail($token){
+        
+        $this->load->library('encryption');
+        $token = str_replace('-', '+', $token);
+        $token = str_replace('_', '/', $token);
+        $token = $this->encryption->decrypt($token);
+
+        $data     = explode(';', $token);
+        $currDate = date('Y-m-d H:i');
+        
+        $user = $this->User->getById($data[0]);
+        if($user->is_verif == "1") redirect('sign-in');
+
+        if($user->id_user != $data[0]) redirect('sign-in');
+        if($currDate > date_format(date_create($data[1]), 'Y-m-d H:i')) $this->load->view('email/verif', ['id' => $data[0]]);
+
+        $this->User->update(['id_user' => $data[0], 'is_verif' => 1]);
+        $this->session->set_userdata('is_verif', 1);
+        $this->session->set_flashdata('succ_msg', 'Congratulations your email has been verified');
+        $this->session->set_flashdata('succ_alert', 'Congratulations your email has been verified');
+        redirect('sign-in');        
+    }
+    public function resendEmail($idUser){
+        $this->User->update(['id_user' => $idUser, 'token_regis' => $this->encryption->encrypt($idUser.';'.date('Y-m-d H:i', strtotime("+1 day")))]);
+
+        $user = $this->User->getById($idUser);
+        $usr['email']       = $user->email;
+        $usr['name']        = $user->name;
+        $usr['token_regis'] = $user->token_regis;
+
+        $this->mail->send($usr['email'], 'Email Verification', $this->load->view('email/register', $usr, true));
+        redirect('announcement');
     }
     public function about(){
         $data['title']      = 'About IYS';

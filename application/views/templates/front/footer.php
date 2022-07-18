@@ -13,65 +13,46 @@
 
           <!-- List -->
           <ul class="list-unstyled list-py-1">
-            <li><a class="link-sm link-light" href="#"><i class="bi-geo-alt-fill me-1"></i> 153 Williamson Plaza, Maggieberg</a></li>
-            <li><a class="link-sm link-light" href="tel:1-062-109-9222"><i class="bi-telephone-inbound-fill me-1"></i> +1 (062) 109-9222</a></li>
+            <li><a class="link-sm link-light" href="#"><i class="bi-geo-alt-fill me-1"></i>Hallicioğlu Mah. Elvandirek sok. No. 35 d. 2 Beyoğlu, İstanbul, Türkey.</a></li>
+            <li><a class="link-sm link-light" href="https://wa.me/6285172201727?text=Hello,%20IYS%20Admin.%20I'd%20like%20to%20know%20more%20about%20the%20IYS%202023.%20Could%20you%20help%20me?" target="_blank"><i class="bi-telephone-inbound-fill me-1"></i> +62 851-7220-1727</a></li>
           </ul>
           <!-- End List -->
         
         </div>
         <!-- End Col -->
 
-        <div class="col-sm mb-7 mb-sm-0">
-          <h5 class="text-white mb-3">Company</h5>
-
-          <!-- List -->
-          <ul class="list-unstyled list-py-1 mb-0">
-            <li><a class="link-sm link-light" href="#">About</a></li>
-            <li><a class="link-sm link-light" href="#">Careers <span class="badge bg-warning text-dark rounded-pill ms-1">We're hiring</span></a></li>
-            <li><a class="link-sm link-light" href="#">Blog</a></li>
-            <li><a class="link-sm link-light" href="#">Customers <i class="bi-box-arrow-up-right small ms-1"></i></a></li>
-            <li><a class="link-sm link-light" href="#">Hire us</a></li>
-          </ul>
-          <!-- End List -->
-        </div>
+        <div class="col-sm mb-7 mb-sm-0"></div>
         <!-- End Col -->
 
         <div class="col-sm mb-7 mb-sm-0">
-          <h5 class="text-white mb-3">Features</h5>
+          <h5 class="text-white mb-3">Information</h5>
 
           <!-- List -->
           <ul class="list-unstyled list-py-1 mb-0">
-            <li><a class="link-sm link-light" href="#">Press <i class="bi-box-arrow-up-right small ms-1"></i></a></li>
-            <li><a class="link-sm link-light" href="#">Release Notes</a></li>
-            <li><a class="link-sm link-light" href="#">Integrations</a></li>
-            <li><a class="link-sm link-light" href="#">Pricing</a></li>
+            <li><a class="link-sm link-light" href="#">Announcement <i class="bi-box-arrow-up-right small ms-1"></i></a></li>
           </ul>
           <!-- End List -->
         </div>
         <!-- End Col -->
 
         <div class="col-sm">
-          <h5 class="text-white mb-3">Documentation</h5>
+          <h5 class="text-white mb-3">Help Center</h5>
 
           <!-- List -->
           <ul class="list-unstyled list-py-1 mb-0">
-            <li><a class="link-sm link-light" href="#">Support</a></li>
-            <li><a class="link-sm link-light" href="#">Docs</a></li>
-            <li><a class="link-sm link-light" href="#">Status</a></li>
-            <li><a class="link-sm link-light" href="#">API Reference</a></li>
-            <li><a class="link-sm link-light" href="#">Tech Requirements</a></li>
+            <li><a class="link-sm link-light" href="<?= site_url('faq')?>">FAQ</a></li>
           </ul>
           <!-- End List -->
         </div>
         <!-- End Col -->
 
         <div class="col-sm">
-          <h5 class="text-white mb-3">Resources</h5>
+          <h5 class="text-white mb-3">Account</h5>
 
           <!-- List -->
           <ul class="list-unstyled list-py-1 mb-5">
-            <li><a class="link-sm link-light" href="#"><i class="bi-question-circle-fill me-1"></i> Help</a></li>
-            <li><a class="link-sm link-light" href="#"><i class="bi-person-circle me-1"></i> Your Account</a></li>
+            <li><a class="link-sm link-light" href="<?= site_url('faq')?>"><i class="bi-question-circle-fill me-1"></i> Help</a></li>
+            <li><a class="link-sm link-light" href="<?= site_url('sign-in')?>"><i class="bi-person-circle me-1"></i> Your Account</a></li>
           </ul>
           <!-- End List -->
         </div>
@@ -88,12 +69,6 @@
             <li class="list-inline-item">
               <a class="link-sm link-light" href="#">Privacy &amp; Policy</a>
             </li>
-            <li class="list-inline-item">
-              <a class="link-sm link-light" href="#">Terms</a>
-            </li>
-            <li class="list-inline-item">
-              <a class="link-sm link-light" href="#">Site Map</a>
-            </li>
           </ul>
           <!-- End Socials -->
         </div>
@@ -102,59 +77,20 @@
           <!-- Socials -->
           <ul class="list-inline mb-0">
             <li class="list-inline-item">
-              <a class="btn btn-soft-light btn-xs btn-icon" href="#">
-                <i class="bi-facebook"></i>
-              </a>
-            </li>
-          
-            <li class="list-inline-item">
-              <a class="btn btn-soft-light btn-xs btn-icon" href="#">
+              <a class="btn btn-soft-light btn-xs btn-icon" href="mailto:info@istanbulyouthsummit.com" target="_blank">
                 <i class="bi-google"></i>
               </a>
             </li>
           
             <li class="list-inline-item">
-              <a class="btn btn-soft-light btn-xs btn-icon" href="#">
-                <i class="bi-twitter"></i>
+              <a class="btn btn-soft-light btn-xs btn-icon" href="https://instagram.com/istanbulyouthsummit" target="_blank">
+                <i class="bi-instagram"></i>
               </a>
             </li>
-          
             <li class="list-inline-item">
-              <a class="btn btn-soft-light btn-xs btn-icon" href="#">
-                <i class="bi-github"></i>
+              <a class="btn btn-soft-light btn-xs btn-icon" href="https://www.youtube.com/channel/UCC5bEuG6JmV_ZPw5p-WzH7g" target="_blank">
+                <i class="bi-youtube"></i>
               </a>
-            </li>
-          
-            <li class="list-inline-item">
-              <!-- Button Group -->
-              <div class="btn-group">
-                <button type="button" class="btn btn-soft-light btn-xs dropdown-toggle" id="footerSelectLanguage" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
-                  <span class="d-flex align-items-center">
-                    <img class="avatar avatar-xss avatar-circle me-2" src="<?= site_url()?>assets/vendor/flag-icon-css/flags/1x1/us.svg" alt="Image description" width="16"/>
-                    <span>English (US)</span>
-                  </span>
-                </button>
-
-                <div class="dropdown-menu" aria-labelledby="footerSelectLanguage">
-                  <a class="dropdown-item d-flex align-items-center active" href="#">
-                    <img class="avatar avatar-xss avatar-circle me-2" src="<?= site_url()?>assets/vendor/flag-icon-css/flags/1x1/us.svg" alt="Image description" width="16"/>
-                    <span>English (US)</span>
-                  </a>
-                  <a class="dropdown-item d-flex align-items-center" href="#">
-                    <img class="avatar avatar-xss avatar-circle me-2" src="<?= site_url()?>assets/vendor/flag-icon-css/flags/1x1/de.svg" alt="Image description" width="16"/>
-                    <span>Deutsch</span>
-                  </a>
-                  <a class="dropdown-item d-flex align-items-center" href="#">
-                    <img class="avatar avatar-xss avatar-circle me-2" src="<?= site_url()?>assets/vendor/flag-icon-css/flags/1x1/es.svg" alt="Image description" width="16"/>
-                    <span>Español</span>
-                  </a>
-                  <a class="dropdown-item d-flex align-items-center" href="#">
-                    <img class="avatar avatar-xss avatar-circle me-2" src="<?= site_url()?>assets/vendor/flag-icon-css/flags/1x1/cn.svg" alt="Image description" width="16"/>
-                    <span>中文 (繁體)</span>
-                  </a>
-                </div>
-              </div>
-              <!-- End Button Group -->
             </li>
           </ul>
           <!-- End Socials -->

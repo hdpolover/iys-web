@@ -431,7 +431,7 @@
             </div>
             <div class="mb-2">
                 <label for="">Address</label>
-                <input type="text" style="background-color: #f8fafd; opacity: 1;" class="form-control" value="<?= $address ?>" readonly>
+                <input type="text" style="background-color: #f8fafd; opacity: 1;" class="form-control" value="<?= $detail_address.", ".$postal_code.", ".$city.", ".$province ?>" readonly>
             </div>
             <div class="mb-2">
                 <label for="">Nationality</label>
