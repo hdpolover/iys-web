@@ -22,8 +22,8 @@
                 if($announcements == null){
                 echo '
                     <div class="d-flex">
-                        <div class="container d-flex align-items-center vh-100 mt-5">
-                            <div class="w-sm-75 w-lg-50 text-center mx-sm-auto">
+                        <div class="container d-flex align-items-center">
+                            <div class="text-center mx-sm-auto" style="width: 350px;">
                                 <div class="mb-7">
                                 <img class="img-fluid" src="'.site_url("assets/svg/illustrations/oc-relaxing.svg").'" alt="SVG Illustration">
                                 </div>

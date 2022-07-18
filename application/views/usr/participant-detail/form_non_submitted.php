@@ -140,7 +140,7 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
 
         <div class="col-sm-9">
         <div class="js-form-message">
-            <input type="text" class="form-control flatpickr" value="<?= date_format(date_create($detail->birth_date), 'F d, Y')?>" name="birthday" placeholder="Birthday" required>
+            <input type="text" class="form-control flatpickr" value="<?= $detail->birth_date != null ? date_format(date_create($detail->birth_date), 'F d, Y') : ""?>" name="birthday" placeholder="Birthday" required>
             <span class="invalid-feedback">Please enter a valid birthday.</span>
         </div>
         </div>
@@ -188,28 +188,29 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
             <div class="row mb-4">
                 <div class="col-sm-6">
                     <div class="js-form-message">
-                        <input type="text"  class="form-control" value="<?= $detail->province?>" placeholder="Province" name="province" required />
-                        <span class="invalid-feedback">Please enter a valid province.</span>
+                        <input type="text"  class="form-control" value="<?= $detail->detail_address?>" placeholder="Street Name" name="detailAddress" required />
+                        <span class="invalid-feedback">Please enter a valid street name.</span>
                     </div>
                 </div>
+                <div class="col-sm-6">
+                    <div class="js-form-message">
+                        <input type="text"  class="form-control" value="<?= $detail->postal_code?>" placeholder="Postal Code" name="postalCode" required />
+                        <span class="invalid-feedback">Please enter a valid postal code.</span>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-sm-6">
                     <div class="js-form-message">
                         <input type="text"  class="form-control" value="<?= $detail->city?>" placeholder="City" name="city" required />
                         <span class="invalid-feedback">Please enter a valid city.</span>
                     </div>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-sm-6">
                     <div class="js-form-message">
-                        <input type="text"  class="form-control" value="<?= $detail->postal_code?>" placeholder="Postal Code" name="postalCode" required />
-                        <span class="invalid-feedback">Please enter a valid postal code.</span>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="js-form-message">
-                        <input type="text"  class="form-control" value="<?= $detail->detail_address?>" placeholder="Additional Address" name="detailAddress" />
-                        <span class="invalid-feedback">Please enter a valid city.</span>
+                        <input type="text"  class="form-control" value="<?= $detail->province?>" placeholder="Province" name="province" required />
+                        <span class="invalid-feedback">Please enter a valid province.</span>
                     </div>
                 </div>
             </div>

@@ -104,7 +104,7 @@ class ParticipantDetailController extends CI_Controller{
         $formData['id_user']                = $this->session->userdata('id_user');
         $formData['fullname']               = $_POST['fullName'];
         $formData['gender']                 = $_POST['gender'];
-        $formData['birth_date']             = date_format(date_create_from_format('j F Y', $_POST['birthday']), 'Y-m-d');
+        $formData['birth_date']             = date_format(date_create_from_format('F d, Y', $_POST['birthday']), 'Y-m-d');
         $formData['nationality']            = $_POST['nationality'];
         $formData['occupation']             = $_POST['occupation'];
         $formData['field_of_study']         = $_POST['fullOfStudy'];

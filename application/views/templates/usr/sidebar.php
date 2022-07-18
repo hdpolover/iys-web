@@ -19,7 +19,7 @@
                   ';
                 }else{
                   echo '
-                    <img class="avatar-img mb-3" src="'.$this->session->userdata('photo').'" style="max-width: 160px;" alt="Image Description">    
+                    <img class="avatar-img mb-3" src="'.$this->session->userdata('photo').'" alt="Image Description">    
                   ';
                 }
               ?>
