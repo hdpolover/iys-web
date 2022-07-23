@@ -21,12 +21,12 @@
                 <div class="accordion-item">
                     <div class="accordion-header" id="headingBasic1">
                     <a class="accordion-button" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasic1" aria-expanded="true" aria-controls="collapseBasic1">
-                        What’s Istanbul Youth Summit?
+                        How to register Istanbul Youth Summit
                     </a>
                     </div>
                     <div id="collapseBasic1" class="accordion-collapse collapse show" aria-labelledby="headingBasic1" data-bs-parent="#accordionFAQBasics">
                     <div class="accordion-body">
-                        Istanbul Youth Summit is an annual international youth summit organized by Youth Break the Boundaries Foundation. The 5th Istanbul Youth Summit will be held in Istanbul on February 14<sup>th</sup> - 17<sup>th</sup> 2022.
+                        Istanbul Youth Summit is an annual international youth summit organized by Youth Break the Boundaries Foundation. The Istanbul Youth Summit 2023 will be held in Istanbul on February 6-9, 2023.
                     </div>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                     </div>
                     <div id="collapseBasic2" class="accordion-collapse collapse" aria-labelledby="headingBasics2" data-bs-parent="#accordionFAQBasics">
                     <div class="accordion-body">
-                        The 5<sup>th</sup>  Istanbul Youth Summit will bring the theme “Development Responses Plan of the Youth in Crisis Recovery” with four sub themes: Economy, Education, Public Policy and Mental Health. With this theme, Istanbul Youth Summit also encourages young people from all backgrounds and sectors to collaborate together and utilize their leadership capabilities in facing the crisis.
+                        The Istanbul Youth Summit 2023 will bring the theme “Social Development Goals for Emerging Leaders” with four sub themes: Good Health And Well-Beings, Quality Education, Decent Work And Economic Growth, Industry Innovation And Infrastructure, Sustainable Cities And Communities.
                     </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
                     </div>
                     <div id="collapseBasic3" class="accordion-collapse collapse" aria-labelledby="headingBasics3" data-bs-parent="#accordionFAQBasics">
                     <div class="accordion-body">
-                        Istanbul Youth Summit will be held four days starts from February 14<sup>th</sup> to 17<sup>th</sup> 2022. The program will consist of International Summit, Social Project Presentation, Cross-Cultural Exploration, Leadership Training, and Global Networking.
+                        Istanbul Youth Summit 2023 will be held for four days starting from February 6, 2023 to February 9, 2023. The program will consist of International Summit, Social Project Presentation, Cross-Cultural Exploration, Leadership Training, and Global Networking.
                     </div>
                     </div>
                 </div>
@@ -183,6 +183,90 @@
                     <div id="collapseBasic12" class="accordion-collapse collapse" aria-labelledby="headingBasics12" data-bs-parent="#accordionFAQBasics">
                     <div class="accordion-body">
                         You can contact IYS Project Manager on <a href="mailto:istanbulyouthsummit@gmail.com">istanbulyouthsummit@gmail.com</a> and IYS Public Relations on Whatsapp +62812 1846 3506
+                    </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" id="headingBasics13">
+                    <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasic13" aria-expanded="false" aria-controls="collapseBasic13">
+                        How to register Istanbul Youth Summit
+                    </a>
+                    </div>
+                    <div id="collapseBasic13" class="accordion-collapse collapse" aria-labelledby="headingBasics13" data-bs-parent="#accordionFAQBasics">
+                    <div class="accordion-body">
+                        Participants need to register through our website, <a href="https://istanbulyouthsummit.com">https://istanbulyouthsummit.com</a> . Then, all participants will create a new account, fill in the personal information details, write an essay and submit it. The last step to register is to make sure the payment is complete.
+                    </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" id="headingBasics14">
+                    <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasic14" aria-expanded="false" aria-controls="collapseBasic14">
+                        How to join Istanbul Youth Summit & get the scholarship?
+                    </a>
+                    </div>
+                    <div id="collapseBasic14" class="accordion-collapse collapse" aria-labelledby="headingBasics14" data-bs-parent="#accordionFAQBasics">
+                    <div class="accordion-body">
+                        Istanbul Youth Summit is a self funded program. In addition, we also provide fully funded for the best participants. To join the fully funded selection process, selected participants who passed the first round (application form selection)  will be invited to the interview selection round.
+                    </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" id="headingBasics15">
+                    <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasic15" aria-expanded="false" aria-controls="collapseBasic15">
+                        What kind of document we should prepare for the application?
+                    </a>
+                    </div>
+                    <div id="collapseBasic15" class="accordion-collapse collapse" aria-labelledby="headingBasics15" data-bs-parent="#accordionFAQBasics">
+                    <div class="accordion-body">
+                        Participants only need to prepare an essay. For the rules of writing the essay, all the details can be found in this link (hyperlink ke guidelines essay)
+                    </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" id="headingBasics16">
+                    <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasic16" aria-expanded="false" aria-controls="collapseBasic16">
+                        Where should I submit my application?
+                    </a>
+                    </div>
+                    <div id="collapseBasic16" class="accordion-collapse collapse" aria-labelledby="headingBasics16" data-bs-parent="#accordionFAQBasics">
+                    <div class="accordion-body">
+                        Participants submit their application on the website https://istanbulyouthsummit.com.
+                    </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" id="headingBasics17">
+                    <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasic17" aria-expanded="false" aria-controls="collapseBasic17">
+                        What are the requirements to join Istanbul Youth Summit?
+                    </a>
+                    </div>
+                    <div id="collapseBasic17" class="accordion-collapse collapse" aria-labelledby="headingBasics17" data-bs-parent="#accordionFAQBasics">
+                    <div class="accordion-body">
+                        The eligibility criteria is 15 - 35 years old, open for any educational and nationality background, never involved in criminal issue.
+                    </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" id="headingBasics18">
+                    <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasic18" aria-expanded="false" aria-controls="collapseBasic18">
+                        Is English/TOEFL is required to join Istanbul Youth Summit?
+                    </a>
+                    </div>
+                    <div id="collapseBasic18" class="accordion-collapse collapse" aria-labelledby="headingBasics18" data-bs-parent="#accordionFAQBasics">
+                    <div class="accordion-body">
+                        All the programs in Istanbul Youth Summit will be delivered in english. Therefore, it is advised for participants to know english well.
+                    </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" id="headingBasics19">
+                    <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasic19" aria-expanded="false" aria-controls="collapseBasic19">
+                        How can I know if my application & payment  is submitted successfully?
+                    </a>
+                    </div>
+                    <div id="collapseBasic19" class="accordion-collapse collapse" aria-labelledby="headingBasics19" data-bs-parent="#accordionFAQBasics">
+                    <div class="accordion-body">
+                        Participants will receive email confirmation from Youth Break Boundaries when the application and payment is submitted successfully.
                     </div>
                     </div>
                 </div>
