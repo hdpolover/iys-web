@@ -442,11 +442,11 @@
             <div class="step-content-wrapper">
               <span class="step-icon step-icon-soft-light">1</span>
               <div class="step-content">
-                <h4 class="text-white">1 - 31 August 2022</h4>
+                <h4 class="text-white">August 1 - 31, 2022</h4>
   
                 <p class="step-text text-white-70">
                   Registration <br>
-                  1 August 2020 - 31 August 2022</p>
+                  August 1 - 31, 2022</p>
                 <!-- <p class="step-text text-white-70">
                   Before you continue to fill out this form, there are five steps that you have to do.
                   Please Click Read More for Complete info
@@ -460,7 +460,7 @@
             <div class="step-content-wrapper">
               <span class="step-icon step-icon-soft-light">2</span>
               <div class="step-content">
-                <h4 class="text-white">20 October 2022</h4>
+                <h4 class="text-white">October 20, 2022</h4>
                 <p class="step-text text-white-70">
                   <!-- The day has come!!! <br>
                   The day has come!!! <br> -->
@@ -474,7 +474,7 @@
             <div class="step-content-wrapper">
               <span class="step-icon step-icon-soft-light">3</span>
               <div class="step-content">
-                <h4 class="text-white">22 - 23 October 2022</h4>
+                <h4 class="text-white">October 22 - 23, 2022</h4>
                 <p class="step-text text-white-70">Interview for Fully Funded</p>
                 <!-- <button type="button" class="btn btn-soft-primary">Read More</button> -->
               </div>
@@ -485,7 +485,7 @@
             <div class="step-content-wrapper">
               <span class="step-icon step-icon-soft-light">4</span>
               <div class="step-content">
-                <h4 class="text-white">5 December 2022</h4>
+                <h4 class="text-white">December 5, 2022</h4>
                 <p class="step-text text-white-70">Final Announcement for Fully Funded</p>
                 <!-- <button type="button" class="btn btn-soft-primary">Read More</button> -->
               </div>
@@ -495,7 +495,7 @@
             <div class="step-content-wrapper">
               <span class="step-icon step-icon-soft-light">5</span>
               <div class="step-content">
-                <h4 class="text-white">6 - 9 February 2023</h4>
+                <h4 class="text-white">February 6 - 9, 2023</h4>
                 <p class="step-text text-white-70">Istanbul Youth Summit 2023</p>
                 
                 <!-- <button type="button" class="btn btn-soft-primary">Read More</button> -->
