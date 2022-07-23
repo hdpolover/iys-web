@@ -477,9 +477,9 @@
             </div>
             <h2 class="mb-4">Welcome to <span class="text-primary text-highlight-warning">Istanbul Youth Summit</span>.</h2>
             <p class="mb-2">
-                Hi <?= $name?>,
+                Hi, <?= $name?>!
             </p>
-            <p class="mb-4">We're happy you signed up for IYS. To start exploring the IYS App please confirm your email address.</p>
+            <p class="mb-4">We're happy that you signed up for the IYS 2023. To start your journey in the IYS, please confirm your email address below.</p>
             <?php
                 $token_regis = str_replace('/', '_', $token_regis);
                 $token_regis = str_replace('+', '-', $token_regis);

@@ -144,7 +144,7 @@ class ParticipantDetailController extends CI_Controller{
             $this->Ambassador->update(['id_ambassador' => $ambassador[0]->id_ambassador, 'total_redeem' => (int)$ambassador->total_redeem + 1]);
         }
         $this->session->set_userdata(['is_submit' => "1"]);
-        $this->mail->send($this->session->userdata('email'), 'Personal Data', $this->load->view('email/personal_submit', $formData, true));
+        $this->mail->send($this->session->userdata('email'), 'REGISTRATION FORM COMPLETION NOTICE', $this->load->view('email/personal_submit', $formData, true));
         redirect('personal-info');
     }
     public function ajxPostBasic(){

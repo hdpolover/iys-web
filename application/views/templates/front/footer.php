@@ -99,7 +99,7 @@
 
       <!-- Copyright -->
       <div class="w-md-85 text-lg-center mx-lg-auto">
-        <p class="text-white-50 small">&copy; Istanbul Youth Summit</p>
+        <p class="text-white-50 small">&copy; Istanbul Youth Summit 2023. All copyrights reserved</p>
         <!-- <p class="text-white-50 small">When you visit or interact with our sites, services or tools, we or our authorised service providers may use cookies for storing information to help provide you with a better, faster and safer experience and for marketing purposes.</p> -->
       </div>
       <!-- End Copyright -->

@@ -8,7 +8,7 @@
             <img src="<?= $detail->qr?>" style="width: 160px;" alt="">
             </div>
             <h3 class="card-title">Your QR Code</h3>
-            <p class="card-text text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p class="card-text text-body">Welcome to The IYS 2023</p>
         </div>
         <div class="card-footer pt-0">
             <form action="<?= site_url('personal-info/download-qr')?>" method="POST">

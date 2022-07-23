@@ -299,7 +299,7 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
 
         <div class="col-sm-9">
         <div class="js-form-message input-group">
-            <span class="input-group-text" id="basic-addon1">@</span>
+            <span class="input-group-text" id="basic-addon1">https://www.instagram.com/</span>
             <input type="text" class="form-control" onkeypress="return space(event)" name="instagram" id="validationFormUsernameLabel" placeholder="Instagram Account" aria-label="Username" value="<?= $detail->instagram?>" required data-msg="Please enter your fullname.">
             <span class="invalid-feedback">Please enter a valid instagram account.</span>
         </div>
@@ -411,7 +411,7 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
                 data-hs-step-form-next-options='{
                     "targetSelector": "#validationFormOther"
                 }'>
-            Next <i class="bi-chevron-right small"></i>
+            Save & Next <i class="bi-chevron-right small"></i>
         </button>
         </div>
     </div>
@@ -486,7 +486,7 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
                 data-hs-step-form-next-options='{
                     "targetSelector": "#validationFormEssay"
                 }'>
-            Next <i class="bi-chevron-right small"></i>
+            Save & Next <i class="bi-chevron-right small"></i>
         </button>
         </div>
         
@@ -540,7 +540,7 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
                 data-hs-step-form-next-options='{
                     "targetSelector": "#validationFormProgram"
                 }'>
-            Next <i class="bi-chevron-right small"></i>
+            Save & Next <i class="bi-chevron-right small"></i>
         </button>
         </div>
     </div>
@@ -640,7 +640,7 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
                 data-hs-step-form-next-options='{
                     "targetSelector": "#validationFormSelfPhoto"
                 }'>
-            Next <i class="bi-chevron-right small"></i>
+            Save & Next <i class="bi-chevron-right small"></i>
         </button>
         </div>
     </div>
@@ -670,7 +670,7 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
         <div class="js-form-message form-check">
             <input type="checkbox" id="formHelperCheck1" name="terms" class="form-check-input" <?= $detail->termsncondition == '1' ? 'checked' : ''?> required>
             <label class="form-check-label" for="formHelperCheck1">I Agree</label>
-            <div class="text-muted">I understand and agree to the terms and conditions of this program and that this program basically is self funded meaning that participants have to pay for the program fee, flights to-from istanbul, visa and other expenses themselves. However best applicants have a chance to be a fully-funded participant (excluding flight tickets and visa). Fully-funded quota will refer to the quality of the applicants themselves. I am ready to join the 5th Istanbul Youth Summit.</div>
+            <div class="text-muted">I understand and agree to the terms and conditions of this program and that this program basically is self funded meaning that participants have to pay for the program fee, flights to-from istanbul, visa and other expenses themselves. However best applicants have a chance to be a fully-funded participant (excluding flight tickets and visa). Fully-funded quota will refer to the quality of the applicants themselves. I am ready to join Istanbul Youth Summit 2023.</div>
             <span class="invalid-feedback">Please enter a checked terms and conditions.</span>
         </div>
         </div>
