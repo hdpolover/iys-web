@@ -163,14 +163,14 @@
   
 </main>
 <!-- ========== END MAIN CONTENT ========== -->
-<!-- <script type="text/javascript"
+<script type="text/javascript"
   src="https://app.midtrans.com/snap/snap.js"
   data-client-key="Mid-client-KKoCMEQRJeeFcpOS">
-</script> -->
-<script type="text/javascript"
+</script>
+<!-- <script type="text/javascript"
   src="https://app.sandbox.midtrans.com/snap/snap.js"
   data-client-key="SB-Mid-client-LAEwpi34CdNrwLgt">
-</script>
+</script> -->
 <script>
   $('.purchase-button').click(function (event) {
       event.preventDefault();

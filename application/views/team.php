@@ -1,6 +1,6 @@
 <main id="content" role="main">
 <!-- Hero Section -->
-<figure class="position-absolute zi-n1" style="top: 50rem; left: 1rem; width: 100%; height: 20rem;">
+<figure class="position-absolute zi-n1" style="top: 50rem; width: 100%; height: 20rem;">
     <img class="img-fluid" src="<?= site_url()?>assets/svg/components/shape-6.svg" alt="Image Description">
 </figure>
 <figure class="position-absolute zi-n1" style="top: 100rem; left: 5rem; width: 10rem; height: 20rem;">
@@ -80,7 +80,7 @@
     <div class="row mb-7">
         <div class="col-sm-6 col-md-3 mb-5 mb-lg-0">
             <!-- Team -->
-            <img class="card-img rounded-2" style="object-fit: cover;height: 350px;" src="<?= site_url('assets/img/team/team_8.jpg')?>" alt="Image Description">
+            <img class="card-img rounded-2" style="object-fit: cover;height: 350px;" src="<?= site_url('assets/img/team/sidni.jpg')?>" alt="Image Description">
             <div class="card card-sm text-center mt-n7 mx-3">
             <div class="card-body">
                 <h4 class="card-title">Sidni Rizal M</h4>

@@ -36,8 +36,8 @@ class AuthController extends CI_Controller{
         $this->ParticipantDetail->insert(['id_user' => $newId, 'id_summit' => '1']);
         // $this->setSession($formData['id_user'], $formData['email'], $formData['name'], null, $formData['id_user_role'], 0, 0);
 
-        $this->mail->send($formData['email'], 'Email Verification', $this->load->view('email/register', $formData, true));
-        $this->session->set_flashdata('succ_msg', 'Yeay, you have successfully registered and checked your verification email !');
+        $this->mail->send($formData['email'], 'EMAIL VERIFICATION', $this->load->view('email/register', $formData, true));
+        $this->session->set_flashdata('succ_msg', 'Please verify your email to continue. Check your inbox or spam folder.');
         redirect('sign-in');
     }
     public function login(){

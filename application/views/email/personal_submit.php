@@ -412,11 +412,15 @@
             <div  class="mb-4" style="text-align: center;">
                 <img src="https://istanbulyouthsummit.com/assets/img/logo/logo.png" style="width: 100px;"/>
             </div>
-            <h2 class="mb-4"><span class="text-primary text-highlight-warning">Good Job !</span></h2>
+            <h2 class="mb-4"><span class="text-primary text-highlight-warning">REGISTRATION FORM COMPLETION NOTICE</span></h2>
             <p class="mb-2">
-                Hi <?= $fullname?>,
+                Hi, <?= $fullname?>!
             </p>
-            <p class="mb-4">Congratulations, you have completed your personal data</p>
+            <p class="mb-2">Congratulations! You have completed your registration form. You are one step closer to becoming the IYS 2023 participant. Go to your participant dashboard and make a payment for the registration fee.</p>
+            <p class="mb-2">Below is a summary of what you have just submitted. For more, check it on your dashboard.</p>
+            <p class="mb-2">Thank you. We are looking forward to seeing you in Istanbul.</p>
+            <p class="mb-4">Best regards, The IYS 2023 Team</p>
+            <p class="mb-2 mt-2">Registration Form Summary</p>
             <div class="mb-2">
                 <label for="">Full Name</label>
                 <input type="text" style="background-color: #f8fafd; opacity: 1;" class="form-control" value="<?= $fullname ?>" readonly>

@@ -5,7 +5,7 @@
         <circle fill="#e7eaf3" opacity=".7" cx="130" cy="130" r="130"></circle>
       </svg>
     </figure> -->
-    <div class="position-absolute zi-n1" style="top: 56rem; left: 85%; width: 15rem; height: 15rem;">
+    <div class="position-absolute zi-n1" style="top: 56rem; right: 3%; width: 15rem; height: 15rem;">
       <figure class="position-absolute top-0 end-0 zi-2 me-10 aos-init aos-animate" data-aos="fade-up">
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 450 450" width="165" height="165">
           <g>
@@ -60,7 +60,7 @@
     <!-- <figure class="position-absolute zi-n1" style="top: 100rem; left: 5rem; width: 20rem; height: 20rem;">
       <img class="img-fluid" src="<?= site_url()?>assets/svg/components/circled-stripe.svg" alt="Image Description">
     </figure> -->
-    <figure class="position-absolute zi-n1" style="top: 100rem; left: 1rem; width: 100%; height: 20rem;">
+    <figure class="position-absolute zi-n1" style="top: 100rem; width: 99%; height: 20rem;">
       <img class="img-fluid" src="<?= site_url()?>assets/svg/components/shape-6.svg" alt="Image Description">
     </figure>
     <figure class="position-absolute zi-n1" style="top: 185rem; left: 5rem; width: 10rem; height: 20rem;">
@@ -278,7 +278,7 @@
             </svg>
             </div>
             <h3>Event Date</h3>
-            <p>February, 6-Feb-2023</p>
+            <p>February 6 - 9, 2023</p>
           </div>
           <!-- End Icon Blocks -->
         </div>

@@ -50,8 +50,8 @@ class FrontController extends CI_Controller{
 
         $this->User->update(['id_user' => $data[0], 'is_verif' => 1]);
         $this->session->set_userdata('is_verif', 1);
-        $this->session->set_flashdata('succ_msg', 'Congratulations your email has been verified');
-        $this->session->set_flashdata('succ_alert', 'Congratulations your email has been verified');
+        $this->session->set_flashdata('succ_msg', 'Congratulations! Your email has been verified.');
+        $this->session->set_flashdata('succ_alert', 'Congratulations! Your email has been verified.');
         redirect('sign-in');        
     }
     public function resendEmail($idUser){
@@ -62,7 +62,7 @@ class FrontController extends CI_Controller{
         $usr['name']        = $user->name;
         $usr['token_regis'] = $user->token_regis;
 
-        $this->mail->send($usr['email'], 'Email Verification', $this->load->view('email/register', $usr, true));
+        $this->mail->send($usr['email'], 'EMAIL VERIFICATION', $this->load->view('email/register', $usr, true));
         redirect('announcement');
     }
     public function about(){
