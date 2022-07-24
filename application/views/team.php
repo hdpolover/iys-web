@@ -23,7 +23,7 @@
             <div class="card card-sm text-center mt-n7 mx-3">
             <div class="card-body">
                 <h4 class="card-title">M. Aldi Subakti</h4>
-                <p class="card-text">Chairman IYS</p>
+                <p class="card-text">Chairman of IYS</p>
             </div>
             </div>
             <!-- End Team -->
@@ -36,7 +36,7 @@
             <div class="card card-sm text-center mt-n7 mx-3">
             <div class="card-body">
                 <h4 class="card-title">Meldi Latifah S</h4>
-                <p class="card-text">CEO YBB</p>
+                <p class="card-text">CEO of YBB</p>
             </div>
             </div>
             <!-- End Team -->
@@ -221,11 +221,11 @@
 
             <div class="col-sm-6 col-md-3 mb-5 mb-lg-0">
                 <!-- Team -->
-                <img class="card-img rounded-2" style="object-fit: cover;height: 350px;" src="<?= site_url('assets/img/team/team_8.jpg')?>" alt="Image Description">
+                <img class="card-img rounded-2" style="object-fit: cover;height: 350px;" src="<?= site_url('assets/img/team/maula.jpeg')?>" alt="Image Description">
                 <div class="card card-sm text-center mt-n7 mx-3">
                 <div class="card-body">
-                    <h4 class="card-title">Ilham Muhammad</h4>
-                    <p class="card-text">Project Manager</p>
+                    <h4 class="card-title">Maula Khatami</h4>
+                    <p class="card-text">Logistic</p>
                 </div>
                 </div>
                 <!-- End Team -->
@@ -261,17 +261,17 @@
             </div>
             <!-- End Col -->
 
-            <div class="col-sm-6 col-md-3">
+            <!-- <div class="col-sm-6 col-md-3"> -->
                 <!-- Team -->
-            <img class="card-img rounded-2" style="object-fit: cover;height: 350px;" src="<?= site_url('assets/img/team/team_8.jpg')?>" alt="Image Description">
+            <!-- <img class="card-img rounded-2" style="object-fit: cover;height: 350px;" src="<?= site_url('assets/img/team/team_8.jpg')?>" alt="Image Description">
                 <div class="card card-sm text-center mt-n7 mx-3">
                 <div class="card-body">
                     <h4 class="card-title">Maula Khatami</h4>
                     <p class="card-text">Logistic</p>
                 </div>
-                </div>
+                </div> -->
                 <!-- End Team -->
-            </div>
+            <!-- </div> -->
             <!-- End Col -->
 
             <div class="col-sm-6 col-md-3">

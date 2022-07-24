@@ -21,7 +21,7 @@
                 <div class="accordion-item">
                     <div class="accordion-header" id="headingBasic1">
                     <a class="accordion-button" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasic1" aria-expanded="true" aria-controls="collapseBasic1">
-                        How to register Istanbul Youth Summit
+                        What is Istanbul Youth Summit
                     </a>
                     </div>
                     <div id="collapseBasic1" class="accordion-collapse collapse show" aria-labelledby="headingBasic1" data-bs-parent="#accordionFAQBasics">
@@ -35,7 +35,7 @@
                 <div class="accordion-item">
                     <div class="accordion-header" id="headingBasics2">
                     <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasic2" aria-expanded="false" aria-controls="collapseBasic2">
-                        What’s the theme of Istanbul Youth Summit?
+                        What is the theme of Istanbul Youth Summit?
                     </a>
                     </div>
                     <div id="collapseBasic2" class="accordion-collapse collapse" aria-labelledby="headingBasics2" data-bs-parent="#accordionFAQBasics">
@@ -49,7 +49,7 @@
                 <div class="accordion-item">
                     <div class="accordion-header" id="headingBasics3">
                     <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasic3" aria-expanded="false" aria-controls="collapseBasic3">
-                        What’s the agenda in Istanbul Youth Summit?
+                        What is the agenda in Istanbul Youth Summit?
                     </a>
                     </div>
                     <div id="collapseBasic3" class="accordion-collapse collapse" aria-labelledby="headingBasics3" data-bs-parent="#accordionFAQBasics">
@@ -63,7 +63,7 @@
                 <div class="accordion-item">
                     <div class="accordion-header" id="headingBasics4">
                     <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasic4" aria-expanded="false" aria-controls="collapseBasic4">
-                        What’s the goal of Istanbul Youth Summit?
+                        What is the goal of Istanbul Youth Summit?
                     </a>
                     </div>
                     <div id="collapseBasic4" class="accordion-collapse collapse" aria-labelledby="headingBasics4" data-bs-parent="#accordionFAQBasics">
@@ -82,7 +82,7 @@
                     </div>
                     <div id="collapseBasic5" class="accordion-collapse collapse" aria-labelledby="headingBasics5" data-bs-parent="#accordionFAQBasics">
                     <div class="accordion-body">
-                        The registration will be held on 1<sup>st</sup> - 31<sup>st</sup>  August 2021. Then we will give the announcement for the selected participants on September 15<sup>th</sup> 2021.
+                        The registration will be held on August 1 - 31, 2022. Then we will give the announcement for the selected participants on September 15, 2022.
                     </div>
                     </div>
                 </div>
@@ -96,9 +96,7 @@
                     </div>
                     <div id="collapseBasic6" class="accordion-collapse collapse" aria-labelledby="headingBasics6" data-bs-parent="#accordionFAQBasics">
                     <div class="accordion-body">
-                        <p>Make sure you already have an account on YBB Apps.</p>
-                        <p>For Android User: <a href="https://bit.ly/ybbAndroidApp">https://bit.ly/ybbAndroidApp</a> &nbsp;</p>
-                        <p>For iOS User: <a href="https://bit.ly/YBBiOSApps">https://bit.ly/YBBiOSApps</a></p>
+                        <p>Please read the guideline for the registration process [here]. The registration is on this website.</p>
                     </div>
                     </div>
                 </div>
@@ -107,12 +105,12 @@
                 <div class="accordion-item">
                     <div class="accordion-header" id="headingBasics7">
                     <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasic7" aria-expanded="false" aria-controls="collapseBasic7">
-                        I have registered but my payment has not been verified?
+                        I made a payment but it is still pending. Why?
                     </a>
                     </div>
                     <div id="collapseBasic7" class="accordion-collapse collapse" aria-labelledby="headingBasics7" data-bs-parent="#accordionFAQBasics">
                     <div class="accordion-body">
-                        Make sure the payment proof that you send is correct because our committee will check it. If the payment has not been verified for more than 3×24 hours, please contact <a href="mailto:istanbulyouthsummit@gmail.com">istanbulyouthsummit@gmail.com</a>  or Whatsapp +62812 1846 3506
+                        Make sure that you have made a purchase with the selected payment method on our website. The process is automatic. Please contact <a href="mailto:info@istanbulyouthsummit.com">info@istanbulyouthsummit.com</a> or Whatsapp <a target="_blank" href="https://wa.me/6285172201727?text=Hello,%20IYS%20Admin.%20I'd%20like%20to%20know%20more%20about%20the%20IYS%202023.%20Could%20you%20help%20me?">+62 851-7220-1727</a> 
                     </div>
                     </div>
                 </div>
@@ -121,7 +119,7 @@
                 <div class="accordion-item">
                     <div class="accordion-header" id="headingBasics8">
                     <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasic8" aria-expanded="false" aria-controls="collapseBasic8">
-                        Am I eligible for fully funded program?
+                        Am I eligible for the fully funded participant program?
                     </a>
                     </div>
                     <div id="collapseBasic8" class="accordion-collapse collapse" aria-labelledby="headingBasics8" data-bs-parent="#accordionFAQBasics">
@@ -132,7 +130,7 @@
                 </div>
                 <!-- End Accordion Item -->
                 <!-- Accordion Item -->
-                <div class="accordion-item">
+                <!-- <div class="accordion-item">
                     <div class="accordion-header" id="headingBasics9">
                     <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasic9" aria-expanded="false" aria-controls="collapseBasic9">
                         Will there be any awards for this summit?
@@ -143,10 +141,10 @@
                         All of the participants can have opportunity to get fully funded program. We will assess your profile, application form, essay, plus interview. Show the best version of yourself and grab this golden chance!
                     </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- End Accordion Item -->
                 <!-- Accordion Item -->
-                <div class="accordion-item">
+                <!-- <div class="accordion-item">
                     <div class="accordion-header" id="headingBasics10">
                     <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasic10" aria-expanded="false" aria-controls="collapseBasic10">
                         Do I need to pay the program fee if I am selected as the participant?
@@ -157,7 +155,7 @@
                         All of the participants can have opportunity to get fully funded program. We will assess your profile, application form, essay, plus interview. Show the best version of yourself and grab this golden chance!
                     </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- End Accordion Item -->
                 <!-- Accordion Item -->
                 <div class="accordion-item">
@@ -201,19 +199,19 @@
                 <div class="accordion-item">
                     <div class="accordion-header" id="headingBasics14">
                     <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasic14" aria-expanded="false" aria-controls="collapseBasic14">
-                        How to join Istanbul Youth Summit & get the scholarship?
+                        How to join Istanbul Youth Summit & get the fully funded program?
                     </a>
                     </div>
                     <div id="collapseBasic14" class="accordion-collapse collapse" aria-labelledby="headingBasics14" data-bs-parent="#accordionFAQBasics">
                     <div class="accordion-body">
-                        Istanbul Youth Summit is a self funded program. In addition, we also provide fully funded for the best participants. To join the fully funded selection process, selected participants who passed the first round (application form selection)  will be invited to the interview selection round.
+                        Istanbul Youth Summit is a self funded program. In addition, we also provide a fully funded program for the best participants. To join the fully funded selection process, selected participants who passed the first round (application form selection) will be invited to the interview selection round.
                     </div>
                     </div>
                 </div>
                 <div class="accordion-item">
                     <div class="accordion-header" id="headingBasics15">
                     <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasic15" aria-expanded="false" aria-controls="collapseBasic15">
-                        What kind of document we should prepare for the application?
+                        What documents should we prepare for the application?
                     </a>
                     </div>
                     <div id="collapseBasic15" class="accordion-collapse collapse" aria-labelledby="headingBasics15" data-bs-parent="#accordionFAQBasics">
@@ -249,7 +247,7 @@
                 <div class="accordion-item">
                     <div class="accordion-header" id="headingBasics18">
                     <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasic18" aria-expanded="false" aria-controls="collapseBasic18">
-                        Is English/TOEFL is required to join Istanbul Youth Summit?
+                        Is English/TOEFL required for joining the Istanbul Youth Summit?
                     </a>
                     </div>
                     <div id="collapseBasic18" class="accordion-collapse collapse" aria-labelledby="headingBasics18" data-bs-parent="#accordionFAQBasics">

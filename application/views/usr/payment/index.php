@@ -83,7 +83,7 @@
                           <a class="btn btn-white btn-sm" href="#">
                             <i class="bi-file-earmark-arrow-down me-1"></i> Proof of Payment
                           </a>';
-                        $btn = '<button type="button" class="btn btn-success btn-sm w-100">Settlement</button>';
+                        $btn = '<button type="button" class="btn btn-success btn-sm w-100">Success</button>';
                       }
         
         
@@ -101,7 +101,8 @@
                       <!-- Card -->
                       <div class="card card-sm" style="max-width: 20rem;">
                         <div class="card-header border-bottom">
-                          <h3 class="card-title"><?= $paymentStatus->description?></h3>
+                          <h3 class="card-title" style="margin-bottom: 0px !important;"><?= $paymentStatus->description?></h3>
+                          <small>West Indonesian Time (GMT+7)</small>
                           
                           <!-- <?= $cardInfo?> -->
                         </div>

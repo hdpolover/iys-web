@@ -190,7 +190,7 @@
               }else if(res.statCode == '5'){
                 $('#boxStatus').html(`<button type="button" class="btn btn-danger">DENY</button>   `) 
               }else if(res.statCode == '6'){
-                $('#boxStatus').html(`<button type="button" class="btn btn-success">SETTLEMENT</button>    `)
+                $('#boxStatus').html(`<button type="button" class="btn btn-success">SUCCESS</button>    `)
               }
               clearInterval(myInterval);
             }
