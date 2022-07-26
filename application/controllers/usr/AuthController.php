@@ -46,7 +46,7 @@ class AuthController extends CI_Controller{
             $this->session->set_flashdata('err_msg', 'Your email or password is wrong');
             redirect('sign-in');
         }
-        $userDetail = $this->ParticipantDetail->getById($user->id_user);
+        $userDetail = $this->ParticipantDetail->getById($user[0]->id_user);
 
         $photo = $this->ParticipantDetail->getById($user[0]->id_user)->photo;
 
