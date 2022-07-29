@@ -55,6 +55,12 @@
                         <span style="float: right;" class="badge bg-soft-success text-success">Submitted</span>
                       ';
                     }
+
+                    if($detail->is_update == "1"){
+                      echo '
+                        <span style="float: right;" class="badge bg-soft-warning text-warning">Update</span>
+                      ';
+                    }
                   ?>
                 </div>
               </div>
@@ -83,7 +89,7 @@
               
               <?php
                 if($this->session->userdata('is_verif') == 1){
-                  if($detail->is_submited == false){
+                  if($detail->is_submited == 0 || $detail->is_update == 1){
                     $this->load->view('usr/participant-detail/form_non_submitted');
                   }else{
                     $this->load->view('usr/participant-detail/form_submitted');
@@ -153,7 +159,6 @@
       'emergency'       : $('input[name="emergency"]').val(),
       'disease'         : $('textarea[name="disease"]').val(),
       'tshirt'          : $('select[name="tshirt"]').val(),
-      'vegetarian'      : $('input[name="vegetarian"]:checked').val()
     }
 
     $.ajax({

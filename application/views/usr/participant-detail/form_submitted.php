@@ -14,11 +14,13 @@
             <form action="<?= site_url('personal-info/download-qr')?>" method="POST">
                 <button type="submit" class="btn btn-soft-primary">Download</button>
             </form>
+            
         </div>
         </a>
         <!-- End Card -->
     </div>
 </div>
+<a href="<?= site_url('personal-info/update')?>" class="btn btn-soft-primary mt-4">Update Form</a>
 <div class="text-center mb-3">
 </div>
 <div class="alert alert-soft-success" role="alert">
@@ -80,7 +82,7 @@
 
         <div class="col-sm-9">
         <div class="js-form-message">
-            <span><b><?= $detail->address ?></b></span>
+            <span><b><?= $detail->detail_address.", ".$detail->postal_code.", ".$detail->city.", ".$detail->province ?></b></span>
         </div>
         </div>
     </div>
@@ -174,15 +176,6 @@
         </div>
         </div>
     </div>
-    <div class="row mb-4">
-        <label for="validationFormUsernameLabel" class="col-sm-3 col-form-label form-label">Are you vegetarian?</label>
-
-        <div class="col-sm-9">
-        <div class="js-form-message">
-            <span><b><?= $detail->is_vegetarian == "1" ? "Yes" : "No" ?></b></span>
-        </div>
-        </div>
-    </div>
   </div>
 
   <div class="tab-pane fade" id="nav-two-eg1" role="tabpanel" aria-labelledby="nav-two-eg1-tab">
@@ -264,7 +257,7 @@
         </div>
     </div>
     <div class="row mb-4">
-        <label for="validationFormUsernameLabel" class="col-sm-3 col-form-label form-label">Motivation Video Link</label>
+        <label for="validationFormUsernameLabel" class="col-sm-3 col-form-label form-label">Twibbon IG</label>
 
         <div class="col-sm-9">
         <div class="js-form-message">

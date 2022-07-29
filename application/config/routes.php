@@ -130,6 +130,8 @@ $route['personal-info/ajxPostOther']    = 'usr/ParticipantDetailController/ajxPo
 $route['personal-info/ajxPostEssay']    = 'usr/ParticipantDetailController/ajxPostEssay';
 $route['personal-info/ajxPostProgram']  = 'usr/ParticipantDetailController/ajxPostProgram';
 $route['personal-info/submit']          = 'usr/ParticipantDetailController/submit';
+$route['personal-info/update']          = 'usr/ParticipantDetailController/update';
+$route['personal-info/update-save']     = 'usr/ParticipantDetailController/updateSave';
 $route['personal-info/download-qr']     = 'usr/ParticipantDetailController/downloadQR';
 $route['personal-info/ajxCheckRC']      = 'usr/ParticipantDetailController/checkRC';
 // payments

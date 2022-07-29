@@ -309,7 +309,7 @@
                             </div>
                         </div>
                         <div class="row mb-4">
-                            <label for="validationFormUsernameLabel" class="col-sm-3 col-form-label form-label">Motivation Video Link</label>
+                            <label for="validationFormUsernameLabel" class="col-sm-3 col-form-label form-label">Twibbon Link</label>
 
                             <div class="col-sm-9">
                             <div class="js-form-message">
