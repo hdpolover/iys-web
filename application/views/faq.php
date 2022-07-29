@@ -268,6 +268,18 @@
                     </div>
                     </div>
                 </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" id="headingBasics20">
+                    <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasic20" aria-expanded="false" aria-controls="collapseBasic20">
+                        What is the minimum age requirement to be able to participate in the IYS?
+                    </a>
+                    </div>
+                    <div id="collapseBasic20" class="accordion-collapse collapse" aria-labelledby="headingBasics20" data-bs-parent="#accordionFAQBasics">
+                    <div class="accordion-body">
+                        Anyone between the age of 17 to 35 years old.
+                    </div>
+                    </div>
+                </div>
                 <!-- End Accordion Item -->
                 </div>
                 <!-- End Accordion -->

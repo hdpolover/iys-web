@@ -572,7 +572,7 @@ action="<?= $detail->is_update == 0 ? site_url('personal-info/submit') : site_ur
                 <li>Tag 5 of your friends & istanbulyouthsummit on your twibbon Instagram post.</li>
                 <li>Share the event to 3 WhatsApp Groups</li>
             </ul>
-            Take a screenshot of each of the actions above and upload them to your Google Drive. Copy the link and paste it in the input form below. (make sure the folder is accessible by public)
+            Take a screenshot of each of the actions above and upload them to your Google Drive. Copy the link and paste it in the input form above. (make sure the folder is accessible by public)
             </span>
             <span class="invalid-feedback">Please enter a valid share requirement proof link.</span>
         </div>
