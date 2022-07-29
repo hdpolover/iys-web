@@ -761,8 +761,16 @@
               <span class="text-cap text-white-70 mb-5">Event Testimonials</span>
             </div>
             <!-- Swiper -->
-              <div class="js-swiper-space-between swiper">
+              <div class="js-swiper-single-testimonials swiper">
                 <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <blockquote class="blockquote blockquote-light mb-5">"Joining Istanbul Youth Summit allow me to expand my knowledge, widen my connection and that is what I get during IYS."</blockquote>
+                    <img class="avatar avatar-circle" src="<?= site_url('assets/img/testimoni/testimoni_4.jpg')?>" alt="">
+                    <figcaption class="blockquote-footer blockquote-light">
+                      Irfan bin Jasni
+                      <span class="blockquote-footer-source">Best presenter Istanbul Youth Summit 2022</span>
+                    </figcaption>
+                  </div>
                   <div class="swiper-slide">
                     <blockquote class="blockquote blockquote-light mb-5">"I feel honor to be chosen as one of the delegates of Istanbul Youth Summit 2020, because IYS motivates me that as youth, we have an important role in the development of our country.  IYS also provides many new broader networks and suppport the delegates to become positive and active youth."</blockquote>
                     <img class="avatar avatar-circle" src="<?= site_url('assets/img/testimoni/testimoni_1.jpg')?>" alt="">
@@ -772,10 +780,18 @@
                     </figcaption>
                   </div>
                   <div class="swiper-slide">
-                    <blockquote class="blockquote blockquote-light mb-5">"I feel honor to be chosen as one of the delegates of Istanbul Youth Summit 2020, because IYS motivates me that as youth, we have an important role in the development of our country.  IYS also provides many new broader networks and suppport the delegates to become positive and active youth."</blockquote>
-                    <img class="avatar avatar-circle" src="<?= site_url('assets/img/testimoni/testimoni_1.jpg')?>" alt="">
+                    <blockquote class="blockquote blockquote-light mb-5">"For me, Istanbul Youth Summit gave me many new lessons in my life, such as learning to think critically, learning to come up with new ideas, learning to respect other people's opinions, and learning to dare to dream big. So, I want to say thank you very much to IYS for the opportunities, lessons, and experiences that have been given while in Turkey. Wishing the next IYS more success!"</blockquote>
+                    <img class="avatar avatar-circle" src="<?= site_url('assets/img/testimoni/testimoni_2.jpg')?>" alt="">
                     <figcaption class="blockquote-footer blockquote-light">
-                      Shinta Ilham
+                      Raisya Azzahra
+                      <!-- <span class="blockquote-footer-source">Head of IT department</span> -->
+                    </figcaption>
+                  </div>
+                  <div class="swiper-slide">
+                    <blockquote class="blockquote blockquote-light mb-5">"Istanbul Youth Summit 2021 is a big leap of experience in my life, i was never able to express my ideas and opinions in front of many great people and audiences, and i am able to discuss that idea with many other great young leaders that follows the event, having to work with strangers from far away to create a solid and fun team, i was also able to expand my networks with the people from around the world that participate in the event. Fear is the only thing keeping me behind, get out of your comfort zone, don't miss your chance and join the event!"</blockquote>
+                    <img class="avatar avatar-circle" src="<?= site_url('assets/img/testimoni/testimoni_3.jpeg')?>" alt="">
+                    <figcaption class="blockquote-footer blockquote-light">
+                      Admiral Arief Prabowo
                       <!-- <span class="blockquote-footer-source">Head of IT department</span> -->
                     </figcaption>
                   </div>

@@ -288,6 +288,7 @@ action="<?= $detail->is_update == 0 ? site_url('personal-info/submit') : site_ur
         <div class="col-sm-9">
         <div class="js-form-message">
             <input type="text" class="form-control" onkeypress="return isNumberKey(event)" name="whatsAppNumber" id="validationFormUsernameLabel" placeholder="Whatsapp Number" aria-label="Username"  value="<?= $detail->whatsapp_number?>"required data-msg="Please enter your fullname.">
+            <span class="form-text"><b>Example:</b> +628123456789 </span>
             <span class="invalid-feedback">Please enter a valid whatsapp number.</span>
         </div>
         </div>
@@ -565,8 +566,10 @@ action="<?= $detail->is_update == 0 ? site_url('personal-info/submit') : site_ur
             <span class="form-text">
             <b>Note:</b> As mentioned on the Registration Guidelines, you need to do the followings:
             <ul>
-                <li>Follow Istanbul Youth Summit and Youth Break the Boundaries Instagram</li>
-                <li>Tag 5 of your friends on your Instagram post.</li>
+                <li>Follow Istanbul Youth Summit and Youth Break the Boundaries Instagram & TikTok</li>
+                <li>Join Istanbul Youth Summit and Youth Break the Boundaries Telegram channel</li>
+                <li>Subscribe YouTube channel YBB</li>
+                <li>Tag 5 of your friends & istanbulyouthsummit on your twibbon Instagram post.</li>
                 <li>Share the event to 3 WhatsApp Groups</li>
             </ul>
             Take a screenshot of each of the actions above and upload them to your Google Drive. Copy the link and paste it in the input form below. (make sure the folder is accessible by public)
@@ -585,7 +588,7 @@ action="<?= $detail->is_update == 0 ? site_url('personal-info/submit') : site_ur
             <?php
                 if($detail->is_update == 0){
                     echo '
-                        <input type="text" id="rc" class="form-control" name="referral" id="validationFormUsernameLabel" placeholder="Referral Code" value="'.$detail->referral_code.'" aria-label="sourceAccount" required data-msg="Please enter your fullname.">
+                        <input type="text" isd="rc" class="form-control" name="referral" id="validationFormUsernameLabel" placeholder="Referral Code" value="'.$detail->referral_code.'" aria-label="sourceAccount" required data-msg="Please enter your fullname.">
                         <button class="btn btn-success" onclick="checkRC()" type="button" id="button-addon2">Apply</button>
                     ';
                 }else{

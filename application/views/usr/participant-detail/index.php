@@ -127,7 +127,7 @@
       </div>
 
       <div class="modal-body text-center">
-        <p>Are you sure to submit your personal data form?, if yes then only admin can change your data</p>
+        <p>You can still edit your data until the registration is closed (August 31)</p>
       </div>
 
       <div class="modal-footer">
