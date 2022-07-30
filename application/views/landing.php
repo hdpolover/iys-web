@@ -67,6 +67,10 @@
       <img class="img-fluid" src="<?= site_url()?>assets/svg/components/dots.svg" alt="Image Description">
     </figure>
     
+    <figure class="position-absolute zi-n1" style="top: 250rem; right: 5%; width: 13rem; height: 13rem;">
+        <img class="img-fluid" src="<?= site_url()?>assets/svg/components/circled-stripe.svg" alt="Image Description">
+      </figure>
+    
     
     <!-- Swiper Slider -->
     <div class="border-bottom">
@@ -507,6 +511,15 @@
       </div>
     </div>
     <!-- <div class="container content-space-t-2 content-space-t-lg-3 content-space-b-lg-2"> -->
+      <div class="container content-space-t-3 content-space-t-lg-5">
+        <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
+          <!-- <span class="text-cap">Event Details</span> -->
+          <h2>Registration Video</h2>
+        </div>
+
+        <iframe width="100%" height="550" style="margin-bottom: 5rem;" src="https://www.youtube.com/embed/o254-8BPCqg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
+      </div>
     <!-- Card Grid -->
     <div class="container content-space-b-2 content-space-b-lg-3" style="margin-top: 6rem;">
       <!-- Nav Scroller -->

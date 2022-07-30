@@ -57,14 +57,14 @@
       <!-- End Page Header -->
 
         <!-- Table -->
-        <div class="row">
+        <!-- <div class="row">
           <div class="col">
             <a href="<?= site_url('admin/payment/add')?>" class="btn btn-soft-success btn-sm" style="float: right;">
               Add
               <i class="bi-plus-lg ms-1"></i>
             </a>
           </div>
-        </div>
+        </div> -->
         <div class="row mt-3">
           <div class="col">
             <?php
@@ -138,17 +138,6 @@
                           ';
                         }
                         
-                        $lastTrans = $this->db->order_by('id_payment_transaction', 'DESC')->get_where('payment_transaction', ['id_user' => $participant->id_user, 'id_payment_type' => $paymentStatus->id_payment_type])->result();
-                        $btnValid = "";
-                        if(!empty($lastTrans)){
-                          if($lastTrans[0]->method_name == 'paypal'){
-                            $btnValid =  '
-                              <button onclick="showMdlValidasi(\''.$participant->id_user.'\')" class="btn btn-soft-success btn-icon btn-sm"><i class="bi-check"></i></button>
-                            ';
-                          }
-                        }
-                        
-
                         echo '
                             <tr>
                                 <td scope="col">'.$participant->name.'</td>
@@ -156,7 +145,6 @@
                                 <td scope="col">'.(!empty($paymentStatus->description) ? $paymentStatus->description : "NOT SUBMIT").'</td>
                                 <td scope="col">'.$status.'</td>
                                 <td scope="col">
-                                    '.$btnValid.'
                                     <a href="'.site_url('admin/payment/history/'.$participant->id_user).'" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-list"></i></a>
                                 </td>
                             </tr>   
@@ -170,37 +158,5 @@
           <!-- End Table -->
     </div>
     <!-- End Content -->
-    <!-- Modal -->
-    <div class="modal fade" id="mdlValidation" tabindex="-1" aria-labelledby="mdlDeleteLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="mdlDeleteLabel">Update Payment</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-
-          <div class="modal-body text-center">
-              <div class="text-center">Are you sure to update payment?</div>
-          </div>
-
-          <div class="modal-footer">
-            <form action="<?= site_url('admin/payment/validation')?> " method="post">
-              <input type="hidden" name="pass" id="mdlChangePass_id" >
-              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-              <button type="submit" class="btn btn-soft-success">Save</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Modal -->
+   
   </main>
-  <script>
-    const showMdlValidasi = id => {
-      const pass = Math.random().toString(36).slice(-8);
-      $('#mdlValidasi_id').val(id);
-      $('#mdlValidasi_pass').val(pass);
-      $('.mdlValidasi_passLabel').html(pass);
-      $('#mdlValidation').modal('show')
-    }
-  </script>

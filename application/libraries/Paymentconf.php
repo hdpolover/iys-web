@@ -67,4 +67,18 @@ class Paymentconf {
             return '6';
         }
     }
+
+    public function convertStatusTitle($status){
+        if($status == '2'){
+            return 'pending';
+        }else if($status == '3'){
+            return 'cancel';
+        }else if($status == '4'){
+            return 'expire';
+        }else if($status == '5'){
+            return 'deny';
+        }else if($status == '6'){
+            return 'success';
+        }
+    }
 }

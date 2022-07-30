@@ -168,7 +168,7 @@ class PaymentController extends CI_Controller{
         $formData['date']                   = $result->transaction_time;
         $formData['date_expired']           = date("Y-m-d H:i:s", strtotime($result->transaction_time.'+1 days'));
         $formData['status']                 = $this->paymentconf->convertStatus($result->transaction_status);
-        $formData['status_title']           = $result->transaction_status;
+        $formData['status_title']           = $this->paymentconf->convertStatusTitle($formData['status']);
 
         $this->db->where(['id_user' => $idUser, 'id_payment_type' => $paymentType->id_payment_type])->update('payment_status', ['status' => '2']); 
 
@@ -214,7 +214,7 @@ class PaymentController extends CI_Controller{
         $data['statCode']   = $this->paymentconf->convertStatus($status->transaction_status);
 
         if($data['statCode'] != $trans->status){
-            $this->PaymentTransaction->update(['id_payment_transaction' => $_POST['idTrans'], 'status' => $data['statCode'], 'status_title' => $status->transaction_status]);
+            $this->PaymentTransaction->update(['id_payment_transaction' => $_POST['idTrans'], 'status' => $data['statCode'], 'status_title' => $this->paymentconf->convertStatusTitle($data['statCode'])]);
             $this->db->where(['id_user' => $trans->id_user, 'id_payment_type' => $trans->id_payment_type])->update('payment_status', ['status' => $data['statCode']]);
 
             if($data['statCode'] == '6'){

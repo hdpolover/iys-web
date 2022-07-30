@@ -125,7 +125,7 @@ $route['resend-email/(:any)']   = 'FrontController/resendEmail/$1';
 $route['announcement']          = 'usr/AnnouncementController';
 $route['announcement/(:any)']   = 'usr/AnnouncementController/detail/$1';
 // personal-info
-$route['personal-info']                 = 'usr/sParticipantDetailController';
+$route['personal-info']                 = 'usr/ParticipantDetailController';
 $route['personal-info/ajxPostBasic']    = 'usr/ParticipantDetailController/ajxPostBasic';
 $route['personal-info/ajxPostOther']    = 'usr/ParticipantDetailController/ajxPostOther';
 $route['personal-info/ajxPostEssay']    = 'usr/ParticipantDetailController/ajxPostEssay';

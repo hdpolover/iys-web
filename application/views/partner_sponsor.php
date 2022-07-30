@@ -10,36 +10,73 @@
             </iframe>
         </div>
     </div>
+    <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mt-5 mb-md-9">
+      <!-- <span class="text-cap">Event Details</span> -->
+      <h2>Partnership</h2>
+    </div>
     <div class="row justify-content-center text-center mt-5 mb-5 px-5">
-        <div class="col-4 col-sm-3 col-md-2 py-3">
-          <img class="avatar avatar-lg avatar-4x3 avatar-centered" src="<?= site_url('assets/img/partnership/almizan.png')?>" alt="Logo">
-        </div>
-        <!-- End Col -->
+      <div class="col-3 col-sm-4 col-md-2 py-3" style="display: flex;justify-content: center;align-items: center;">
+        <img class="w-75" src="<?= site_url('assets/img/partnership/almizan.png')?>" alt="Logo">
+      </div>
+      <!-- End Col -->
 
-        <div class="col-4 col-sm-3 col-md-2 py-3">
-          <img class="avatar avatar-lg avatar-4x3 avatar-centered" src="<?= site_url('assets/img/partnership/arrohmah.jpg')?>" alt="Logo">
-        </div>
-        <!-- End Col -->
+      <div class="col-3 col-sm-4 col-md-2 py-3" style="display: flex;justify-content: center;align-items: center;">
+        <img class="w-75" src="<?= site_url('assets/img/partnership/arrohmah.jpg')?>" alt="Logo">
+      </div>
+      <!-- End Col -->
 
-        <div class="col-4 col-sm-3 col-md-2 py-3">
-          <img class="avatar avatar-lg avatar-4x3 avatar-centered" src="<?= site_url('assets/img/partnership/daqu.png')?>" alt="Logo">
-        </div>
-        <!-- End Col -->
+      <div class="col-3 col-sm-4 col-md-2 py-3" style="display: flex;justify-content: center;align-items: center;">
+        <img class="w-75" src="<?= site_url('assets/img/partnership/daqu.png')?>" alt="Logo">
+      </div>
+      <!-- End Col -->
 
-        <div class="col-4 col-sm-3 col-md-2 py-3">
-          <img class="avatar avatar-lg avatar-4x3 avatar-centered" src="<?= site_url('assets/img/partnership/sawaed19.png')?>" alt="Logo">
-        </div>
-        <!-- End Col -->
+      <div class="col-3 col-sm-4 col-md-2 py-3" style="display: flex;justify-content: center;align-items: center;">
+        <img class="w-75" src="<?= site_url('assets/img/partnership/sawaed19.png')?>" alt="Logo">
+      </div>
+      <!-- End Col -->
+    </div>
+    <div class="row justify-content-center text-center mt-5 mb-5 px-5">
+      <div class="col-3 col-sm-3 col-md-2 py-3" style="display: flex;justify-content: center;align-items: center;">
+        <img class="w-75" src="<?= site_url('assets/img/partnership/oiy.jpg')?>" alt="Logo">
+      </div>
+      <!-- End Col -->
 
-        <div class="col-4 col-sm-3 col-md-2 py-3">
-          <img class="avatar avatar-lg avatar-4x3 avatar-centered" src="<?= site_url('assets/img/partnership/oiy.jpg')?>" alt="Logo">
-        </div>
-        <!-- End Col -->
+      <div class="col-3 col-sm-3 col-md-2 py-3" style="display: flex;justify-content: center;align-items: center;">
+        <img class="w-75" src="<?= site_url('assets/img/partnership/lib.jpg')?>" alt="Logo">
+      </div>
+      <!-- End Col -->
 
-        <div class="col-4 col-sm-3 col-md-2 py-3">
-          <img class="avatar avatar-lg avatar-4x3 avatar-centered" src="<?= site_url('assets/img/partnership/lib.jpg')?>" alt="Logo">
-        </div>
-        <!-- End Col -->
+      <div class="col-3 col-sm-3 col-md-2 py-3" style="display: flex;justify-content: center;align-items: center;">
+        <img class="w-75" src="<?= site_url('assets/img/partnership/scolarship.png')?>" alt="Logo">
+      </div>
+      <!-- End Col -->
+
+      <div class="col-3 col-sm-3 col-md-2 py-3" style="display: flex;justify-content: center;align-items: center;">
+        <img class="w-75" src="<?= site_url('assets/img/partnership/iwe.jpg')?>" alt="Logo">
+      </div>
+      <!-- End Col -->
+    </div>
+    <div class="row justify-content-center text-center mt-5 mb-5 px-5">
+      <div class="col-3 col-sm-3 col-md-2 py-3" style="display: flex;justify-content: center;align-items: center;">
+        <img class="w-75" src="<?= site_url('assets/img/partnership/uskudar.png')?>" alt="Logo">
+      </div>
+      <!-- End Col -->
+
+      <div class="col-3 col-sm-3 col-md-2 py-3" style="display: flex;justify-content: center;align-items: center;">
+        <img class="w-75" src="<?= site_url('assets/img/partnership/kbriankara.jpg')?>" alt="Logo">
+      </div>
+      <!-- End Col -->
+
+      <div class="col-3 col-sm-3 col-md-2 py-3" style="display: flex;justify-content: center;align-items: center;">
+        <img class="w-75" src="<?= site_url('assets/img/partnership/kbriistanbul.jpg')?>" alt="Logo">
+      </div>
+      <!-- End Col -->
+
+      <div class="col-3 col-sm-3 col-md-2 py-3" style="display: flex;justify-content: center;align-items: center;">
+        <img class="w-75" src="<?= site_url('assets/img/partnership/yeni.png')?>" alt="Logo">
+      </div>
+      <!-- End Col -->
+      
     </div>
 </div>
 <!-- End Hero Section -->
