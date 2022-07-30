@@ -22,6 +22,19 @@
         </div>
         <!-- End Col -->
 
+        <div class="col-auto">
+          <!-- Responsive Toggle Button -->
+          <button class="navbar-toggler d-lg-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarNav" aria-controls="sidebarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-default">
+              <i class="bi-list"></i>
+            </span>
+            <span class="navbar-toggler-toggled">
+              <i class="bi-x"></i>
+            </span>
+          </button>
+          <!-- End Responsive Toggle Button -->
+        </div>
+
         <!-- End Col -->
       </div>
       <!-- End Row -->

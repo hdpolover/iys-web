@@ -60,21 +60,22 @@ class PaymentController extends CI_Controller{
             ]);
             // print_r($paymentTrans[0]);
             if($paymentTrans != null){
-                $status = $this->veritrans->status($paymentTrans[0]->order_id);
-                $status = $this->paymentconf->convertStatus($status->transaction_status);
+                if($paymentTrans[0]->method_name != 'paypal'){
+                    $status = $this->veritrans->status($paymentTrans[0]->order_id);
+                    $status = $this->paymentconf->convertStatus($status->transaction_status);
 
-                
-                if($status != $paymentTrans[0]->status){
-                    $this->PaymentTransaction->update([
-                        'id_payment_transaction'    => $paymentTrans[0]->id_payment_transaction, 
-                        'status'                    => $status
-                    ]);
-
-                    $this->PaymentStatus->update(['id_payment_status' => $paymentActive[0]->id_payment_status, 'status' => $status]);
-                    if($status == '6'){
-                        $payStatus = $this->PaymentStatus->get(['id_user' => $paymentActive[0]->id_user, 'is_active' => '0']);
-                        if($payStatus != null){
-                            $this->PaymentStatus->update(['id_payment_status' => $payStatus[0]->id_payment_status, 'is_active' => '1']);
+                    if($status != $paymentTrans[0]->status){
+                        $this->PaymentTransaction->update([
+                            'id_payment_transaction'    => $paymentTrans[0]->id_payment_transaction, 
+                            'status'                    => $status
+                        ]);
+    
+                        $this->PaymentStatus->update(['id_payment_status' => $paymentActive[0]->id_payment_status, 'status' => $status]);
+                        if($status == '6'){
+                            $payStatus = $this->PaymentStatus->get(['id_user' => $paymentActive[0]->id_user, 'is_active' => '0']);
+                            if($payStatus != null){
+                                $this->PaymentStatus->update(['id_payment_status' => $payStatus[0]->id_payment_status, 'is_active' => '1']);
+                            }
                         }
                     }
                 }
@@ -199,6 +200,13 @@ class PaymentController extends CI_Controller{
 
         $this->template->user('usr/payment/trans_payment', $data);
     }
+    public function statusPaypal($id){
+        $data['title']          = "Payment Status";
+        $data['sidebar']        = "payment";
+        $data['paymentDetail']  = $this->PaymentTransaction->getById($id);
+
+        $this->template->user('usr/payment/trans_paypal', $data);
+    }
     public function checkStatus(){
         $trans = $this->PaymentTransaction->getById($_POST['idTrans']);
         $status = $this->veritrans->status($trans->order_id);
@@ -218,6 +226,32 @@ class PaymentController extends CI_Controller{
         }
         
         echo json_encode($data);
+    }
+    public function paypalTransaction($idPaymentType){
+        $idUser         = $this->session->userdata('id_user');
+        $orderId        = rand();
+        $paymentType    = $this->PaymentType->getById($idPaymentType);
+        $idTrans        = "TRANS".rand().explode('_', $idUser)[1];
+
+        $this->db->where(['id_user' => $idUser, 'id_payment_type' => $idPaymentType])->update('payment_status', ['status' => 2]);
+
+        $formData['id_payment_transaction'] = $idTrans;
+        $formData['id_user']                = $idUser;
+        $formData['id_payment_type']        = $idPaymentType;
+        $formData['order_id']               = $orderId;
+        $formData['item']                   = $paymentType->description;
+        $formData['total']                  = $paymentType->amount;
+        $formData['method_img']             = site_url('assets/img/payment/paypal.png');
+        $formData['method_type']            = 'paypal';
+        $formData['method_name']            = 'paypal';
+        $formData['date']                   = date('Y-m-d H:i:s');
+        $formData['status']                 = 2;
+        $formData['status_title']           = 'pending';
+
+        print_r($formData);
+        $this->PaymentTransaction->insert($formData);
+
+        redirect('payment/status-paypal/'.$idTrans);
     }
     public function getQueryStatus($idUser){
         return $this->db->query("

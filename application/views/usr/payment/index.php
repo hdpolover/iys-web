@@ -20,6 +20,19 @@
           </nav>
           <!-- End Breadcrumb -->
         </div>
+
+        <div class="col-auto">
+          <!-- Responsive Toggle Button -->
+          <button class="navbar-toggler d-lg-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarNav" aria-controls="sidebarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-default">
+              <i class="bi-list"></i>
+            </span>
+            <span class="navbar-toggler-toggled">
+              <i class="bi-x"></i>
+            </span>
+          </button>
+          <!-- End Responsive Toggle Button -->
+        </div>
         <!-- End Col -->
 
         <!-- End Col -->
@@ -68,10 +81,17 @@
                       $paymentType  = "";
                       
                       if($paymentStatus->status == '1'){
-                        $btn          = '<button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Purchase</button>';
+                        $btn          = '
+                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Purchase</button>
+                          <a href="'.site_url('payment/paypal-transaction/'.$paymentStatus->id_payment_type).'" class="btn btn-warning btn-sm w-100 mt-2">PayPal</a>
+                        ';
                       }else if($paymentStatus->status == '2'){
-                        $idTrans  = $this->db->order_by('date', 'DESC')->get_where('payment_transaction', ['id_user' => $paymentStatus->id_user, 'id_payment_type' => $paymentStatus->id_payment_type, 'status' => '2'])->row()->id_payment_transaction;
-                        $btn      = '<a href="'.site_url('payment/status/'.$idTrans).'" class="btn btn-warning btn-sm w-100">Pending</a>';
+                        $paymentTransaction  = $this->db->order_by('date', 'DESC')->get_where('payment_transaction', ['id_user' => $paymentStatus->id_user, 'id_payment_type' => $paymentStatus->id_payment_type, 'status' => '2'])->row();
+                        if($paymentTransaction->method_name == 'paypal'){
+                          $btn      = '<a href="'.site_url('payment/status-paypal/'.$paymentTransaction->id_payment_transaction).'" class="btn btn-warning btn-sm w-100">Pending</a>';
+                        }else{
+                          $btn      = '<a href="'.site_url('payment/status/'.$paymentTransaction->id_payment_transaction).'" class="btn btn-warning btn-sm w-100">Pending</a>';
+                        }
                       }else if($paymentStatus->status == '3'){
                         $btn  = '<button type="button" class="btn btn-soft-danger btn-sm purchase-button w-100">Canceled</button>';
                       }else if($paymentStatus->status == '4'){
@@ -152,6 +172,9 @@
                   <?php } ?>
                 </div>
                 <?php } ?>
+            </div>
+            <div class="card-footer">
+              <p>Note: "Paypal" button is only for purchases by non Indonesian participants. Confirm your payment to the IYS admin on WhatsApp.</p>
             </div>
           </div>
         </div>

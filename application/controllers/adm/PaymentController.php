@@ -9,6 +9,7 @@ class PaymentController extends CI_Controller{
         $this->load->model('Admin');
         $this->load->model('User');
         $this->load->model('ParticipantDetail');
+        $this->load->model('PaymentStatus');
     }
     public function index(){
         $data['title']          = 'Payment';
@@ -31,9 +32,12 @@ class PaymentController extends CI_Controller{
         
         $this->template->admin('adm/payment/add', $data);
     }
-    public function changePassword(){
-        $this->User->update(['id_user' => $_POST['id'], 'password' => hash('sha256', md5($_POST['pass']))]);
-        $this->session->set_flashdata('succ_msg', 'Successfully change password!');
+    public function validation(){
+        $payStatus = $this->PaymentStatus->get(['id_user' => $this->session->userdata('id_user'), 'is_active' => '0']);
+        if($payStatus != null){
+            $this->PaymentStatus->update(['id_payment_status' => $payStatus[0]->id_payment_status, 'is_active' => '1']);
+        }
+        $this->session->set_flashdata('succ_msg', 'Successfully update payment!');
         redirect('admin/payment');
     }
     public function getQueryHistory($id){
