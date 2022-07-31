@@ -20,7 +20,7 @@ class ParticipantDetail extends CI_Model{
         return $this->db->get_where('participant_details', $param)->result();
     }
     public function getStatusStep($id){
-        $this->db->select('fullname, gender, birth_date, nationality, occupation, field_of_study, institution_workplace, whatsapp_number, instagram, emergency_contact, contact_relation, disease_history, tshirt_size, is_vegetarian, province, city, postal_code, detail_address');
+        $this->db->select('fullname, gender, birth_date, nationality, occupation, field_of_study, institution_workplace, whatsapp_number, instagram, emergency_contact, contact_relation, disease_history, tshirt_size, province, city, postal_code, detail_address');
         $basic = $this->db->where('id_user', $id)->get('participant_details')->row_array();
 
         $this->db->select('achievements, experience, social_projects, talents');

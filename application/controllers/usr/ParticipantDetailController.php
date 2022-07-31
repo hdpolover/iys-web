@@ -72,6 +72,67 @@ class ParticipantDetailController extends CI_Controller{
             echo json_encode(['status' => false]);
         }
     }
+    public function update(){
+        $this->ParticipantDetail->update(['id_user' => $this->session->userdata('id_user'), 'is_update' => 1]);
+        redirect('personal-info');
+    }
+    public function updateSave(){
+        $participantDetail = $this->ParticipantDetail->getById($this->session->userdata('id_user'));
+
+        if(empty($_FILES['poster']['name'])){
+            if($participantDetail->photo == NULL || $participantDetail->photo == ''){
+                $this->session->set_flashdata('err_msg', "You haven't uploaded a photo yet");
+            }
+        }else{
+            $uploadPhoto = $this->uploadImage();
+            if($uploadPhoto['status'] == false){
+                $this->session->set_flashdata('err_msg', $uploadPhoto['msg']);
+                redirect('personal-info');
+            }else{
+                $formData['photo']  = $uploadPhoto['link'];
+                $this->session->set_userdata('photo', $uploadPhoto['link']);
+            }
+        }
+        
+
+        $this->User->update(['id_user' => $this->session->userdata('id_user'), 'name' => $_POST['fullName']]);
+        $this->session->set_userdata('name', $_POST['fullName']);
+
+        $formData['id_user']                = $this->session->userdata('id_user');
+        $formData['fullname']               = $_POST['fullName'];
+        $formData['gender']                 = $_POST['gender'];
+        $formData['birth_date']             = date_format(date_create_from_format('F d, Y', $_POST['birthday']), 'Y-m-d');
+        $formData['nationality']            = $_POST['nationality'];
+        $formData['occupation']             = $_POST['occupation'];
+        $formData['field_of_study']         = $_POST['fullOfStudy'];
+        $formData['institution_workplace']  = $_POST['instWork'];
+        $formData['whatsapp_number']        = $_POST['whatsAppNumber'];
+        $formData['instagram']              = $_POST['instagram'];
+        $formData['emergency_contact']      = $_POST['emergency'];
+        $formData['contact_relation']       = $_POST['contactRelation'];
+        $formData['disease_history']        = $_POST['disease'];
+        $formData['tshirt_size']            = $_POST['tshirt'];
+        $formData['province']               = $_POST['province'];
+        $formData['city']                   = $_POST['city'];
+        $formData['postal_code']            = $_POST['postalCode'];
+        $formData['detail_address']         = $_POST['detailAddress'];
+        $formData['achievements']           = $_POST['achievements'];
+        $formData['experience']             = $_POST['experience'];
+        $formData['social_projects']        = $_POST['socialProjects'];
+        $formData['talents']                = $_POST['talents'];
+        $formData['essay_type']             = $_POST['essayType'];
+        $formData['essay']                  = $_POST['essay'];
+        $formData['source']                 = $_POST['source'];
+        $formData['source_account']         = $_POST['sourceAccount'];
+        $formData['motivation_link']        = $_POST['motivation'];
+        $formData['share_proof_link']       = $_POST['shareRequirement'];
+        $formData['termsncondition']        = '1';
+        $formData['is_submited']            = '1';
+        $formData['is_update']              = '0';
+        $this->ParticipantDetail->update($formData);
+
+        redirect('personal-info');
+    }
     public function submit(){
         $participantDetail = $this->ParticipantDetail->getById($this->session->userdata('id_user'));
 
@@ -115,7 +176,6 @@ class ParticipantDetailController extends CI_Controller{
         $formData['contact_relation']       = $_POST['contactRelation'];
         $formData['disease_history']        = $_POST['disease'];
         $formData['tshirt_size']            = $_POST['tshirt'];
-        $formData['is_vegetarian']          = $_POST['vegetarian'];
         $formData['province']               = $_POST['province'];
         $formData['city']                   = $_POST['city'];
         $formData['postal_code']            = $_POST['postalCode'];
@@ -145,7 +205,7 @@ class ParticipantDetailController extends CI_Controller{
         }
         $this->session->set_userdata(['is_submit' => "1"]);
         $this->mail->send($this->session->userdata('email'), 'REGISTRATION FORM COMPLETION NOTICE', $this->load->view('email/personal_submit', $formData, true));
-        redirect('personal-info');
+        redirect('personal-info-completed');
     }
     public function ajxPostBasic(){
         $step = $this->ParticipantDetail->getById($this->session->userdata('id_user'))->step;
@@ -168,7 +228,6 @@ class ParticipantDetailController extends CI_Controller{
         $formData['contact_relation']       = $_POST['contactRelation'];
         $formData['disease_history']        = $_POST['disease'];
         $formData['tshirt_size']            = $_POST['tshirt'];
-        $formData['is_vegetarian']          = $_POST['vegetarian'];
         $formData['province']               = $_POST['province'];
         $formData['city']                   = $_POST['city'];
         $formData['postal_code']            = $_POST['postalCode'];
@@ -262,5 +321,59 @@ class ParticipantDetailController extends CI_Controller{
         $this->ciqrcode->generate($params); // fungsi untuk generate QR CODE
 
         return site_url('uploads/qr/'.$image_name);
+    }
+    public function afterSubmit(){
+        $data['title']      = "Personal Info";
+        $data['sidebar']    = "personal-info";
+        $data['countries']  = $this->db->get('countries')->result();
+        $statusSteps        = $this->ParticipantDetail->getStatusStep($this->session->userdata('id_user'));
+
+        $data['statStepSelfPhoto'] = true;
+        foreach ($statusSteps['selfPhoto'] as $items => $item) {
+            if($item == NULL || $item == '' || $item == '0'){
+                $data['statStepSelfPhoto'] = false;
+                $this->ParticipantDetail->update(['id_user' => $this->session->userdata('id_user'), 'step' => '4', 'is_submited' => '0']);
+                break;
+            }
+        }
+
+        $data['statStepProgram'] = true;
+        foreach ($statusSteps['program'] as $items => $item) {
+            if($item == NULL || $item == ''){
+                $data['statStepProgram'] = false;
+                $this->ParticipantDetail->update(['id_user' => $this->session->userdata('id_user'), 'step' => '3', 'is_submited' => '0']);
+                break;
+            }
+        }
+
+        $data['statStepEssay'] = true;
+        foreach ($statusSteps['essay'] as $items => $item) {
+            if($item == NULL || $item == ''){
+                $data['statStepEssay'] = false;
+                $this->ParticipantDetail->update(['id_user' => $this->session->userdata('id_user'), 'step' => '2', 'is_submited' => '0']);
+                break;
+            }
+        }
+
+        $data['statStepOther'] = true;
+        foreach ($statusSteps['other'] as $items => $item) {
+            if($item == NULL || $item == ''){
+                $data['statStepOther'] = false;
+                $this->ParticipantDetail->update(['id_user' => $this->session->userdata('id_user'), 'step' => '1', 'is_submited' => '0']);
+                break;
+            }
+        }
+
+        $data['statStepBasic'] = true;
+        foreach ($statusSteps['basic'] as $items => $item) {
+            if($item == NULL || $item == ''){
+                $data['statStepBasic'] = false;
+                $this->ParticipantDetail->update(['id_user' => $this->session->userdata('id_user'), 'step' => '0', 'is_submited' => '0']);
+                break;
+            }
+        }
+        $data['detail']     = $this->ParticipantDetail->getById($this->session->userdata('id_user'));
+
+        $this->template->user('usr/participant-detail/form_aftersubmit', $data);
     }
 }

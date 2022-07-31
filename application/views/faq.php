@@ -216,7 +216,7 @@
                     </div>
                     <div id="collapseBasic15" class="accordion-collapse collapse" aria-labelledby="headingBasics15" data-bs-parent="#accordionFAQBasics">
                     <div class="accordion-body">
-                        Participants only need to prepare an essay. For the rules of writing the essay, all the details can be found in this link (hyperlink ke guidelines essay)
+                        Participants only need to prepare an essay. For the rules of writing the essay, all the details can be found in this link (hyperlink to guidelines)
                     </div>
                     </div>
                 </div>
@@ -247,12 +247,12 @@
                 <div class="accordion-item">
                     <div class="accordion-header" id="headingBasics18">
                     <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasic18" aria-expanded="false" aria-controls="collapseBasic18">
-                        Is English/TOEFL required for joining the Istanbul Youth Summit?
+                        Is TOEFL required for joining the Istanbul Youth Summit?
                     </a>
                     </div>
                     <div id="collapseBasic18" class="accordion-collapse collapse" aria-labelledby="headingBasics18" data-bs-parent="#accordionFAQBasics">
                     <div class="accordion-body">
-                        All the programs in Istanbul Youth Summit will be delivered in english. Therefore, it is advised for participants to know english well.
+                        TOEFL certification is not required to attend Istanbul Youth Summit.
                     </div>
                     </div>
                 </div>
@@ -265,6 +265,18 @@
                     <div id="collapseBasic19" class="accordion-collapse collapse" aria-labelledby="headingBasics19" data-bs-parent="#accordionFAQBasics">
                     <div class="accordion-body">
                         Participants will receive email confirmation from Youth Break Boundaries when the application and payment is submitted successfully.
+                    </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" id="headingBasics20">
+                    <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseBasic20" aria-expanded="false" aria-controls="collapseBasic20">
+                        What is the minimum age requirement to be able to participate in the IYS?
+                    </a>
+                    </div>
+                    <div id="collapseBasic20" class="accordion-collapse collapse" aria-labelledby="headingBasics20" data-bs-parent="#accordionFAQBasics">
+                    <div class="accordion-body">
+                        Anyone between the age of 17 to 35 years old.
                     </div>
                     </div>
                 </div>

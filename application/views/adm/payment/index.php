@@ -57,14 +57,14 @@
       <!-- End Page Header -->
 
         <!-- Table -->
-        <div class="row">
+        <!-- <div class="row">
           <div class="col">
             <a href="<?= site_url('admin/payment/add')?>" class="btn btn-soft-success btn-sm" style="float: right;">
               Add
               <i class="bi-plus-lg ms-1"></i>
             </a>
           </div>
-        </div>
+        </div> -->
         <div class="row mt-3">
           <div class="col">
             <?php
@@ -81,7 +81,8 @@
                 <tr>
                   <th scope="col">Name</th>
                   <th scope="col">Email</th>
-                  <!-- <th scope="col">Payment State</th> -->
+                  <th scope="col">Payment State</th>
+                  <th scope="col">Status</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -89,19 +90,60 @@
                 <?php
                     foreach ($payments as $participant) {
                         $status = '';
-                        if($participant->is_verif == '1'){
-                            $status = '
-                                <span class="badge bg-soft-success text-success">Verified</span>
-                            ';
-                        }else{
-                            $status = '
-                                <span class="badge bg-soft-danger text-danger">Not Verified</span>
-                            ';
+                        $paymentStatus = $this->db->query("
+                          SELECT
+                            ps.id_payment_status ,
+                            ps.id_payment_type ,
+                            ps.status ,
+                            pt.description 
+                          FROM 
+                            payment_status ps ,
+                            users u ,
+                            payment_types pt 
+                          WHERE 
+                            u.id_user = '".$participant->id_user."'
+                            AND ps.is_active = 1
+                            AND ps.id_user = u.id_user
+                            AND pt.id_payment_type = ps.id_payment_type 
+                          ORDER BY ps.id_payment_status DESC
+                        ")->row();
+
+                        if(empty($paymentStatus->status)){
+                          $status = '
+                            <span class="badge bg-soft-dark text-dark">NOT SUBMIT</span>    
+                          ';
+                        }else if($paymentStatus->status == '1'){
+                          $status = '
+                            <span class="badge bg-soft-secondary text-secondary">NEW</span>    
+                          ';
+                        }else if($paymentStatus->status == '2'){
+                          $status = '
+                            <span class="badge bg-soft-warning text-warning">PENDING</span>    
+                          ';
+                        }else if($paymentStatus->status == '3'){
+                          $status = '
+                            <span class="badge bg-soft-danger text-danger">CANCELED</span>    
+                          ';
+                        }else if($paymentStatus->status == '4'){
+                          $status = '
+                            <span class="badge bg-soft-danger text-danger">EXPIRED</span>    
+                          ';
+                        }else if($paymentStatus->status == '5'){
+                          $status = '
+                            <span class="badge bg-soft-danger text-danger">DENY</span>    
+                          ';
+                        }else if($paymentStatus->status == '6'){
+                          $status = '
+                            <span class="badge bg-soft-success text-success">SUCCESS</span>    
+                          ';
                         }
+                        
                         echo '
                             <tr>
                                 <td scope="col">'.$participant->name.'</td>
                                 <td scope="col">'.$participant->email.'</td>
+                                <td scope="col">'.(!empty($paymentStatus->description) ? $paymentStatus->description : "NOT SUBMIT").'</td>
+                                <td scope="col">'.$status.'</td>
                                 <td scope="col">
                                     <a href="'.site_url('admin/payment/history/'.$participant->id_user).'" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-list"></i></a>
                                 </td>
@@ -116,38 +158,5 @@
           <!-- End Table -->
     </div>
     <!-- End Content -->
-    <!-- Modal -->
-    <div class="modal fade" id="mdlChangePass" tabindex="-1" aria-labelledby="mdlDeleteLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="mdlDeleteLabel">Change Password</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-
-          <div class="modal-body text-center">
-              <div class="text-center">Are you sure to change the password? new passwords: <span class="mdlChangePass_passLabel" style="font-weight: bold;"></span></div>
-          </div>
-
-          <div class="modal-footer">
-            <form action="<?= site_url('admin/participant/change-password')?> " method="post">
-              <input type="hidden" name="id" id="mdlChangePass_id" >
-              <input type="hidden" name="pass" id="mdlChangePass_pass" >
-              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-              <button type="submit" class="btn btn-soft-success">Save</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Modal -->
+   
   </main>
-  <script>
-    const showMdlChangePassword = id => {
-      const pass = Math.random().toString(36).slice(-8);
-      $('#mdlChangePass_id').val(id);
-      $('#mdlChangePass_pass').val(pass);
-      $('.mdlChangePass_passLabel').html(pass);
-      $('#mdlChangePass').modal('show')
-    }
-  </script>

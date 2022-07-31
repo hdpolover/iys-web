@@ -161,62 +161,8 @@
         </div>
       </div>
     </div>
-    <iframe width="100%" height="550" src="https://www.youtube.com/embed/75okUDnLLiE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <div class="content-space-2 content-space-lg-3">
-      <div class="border-top mx-auto" style="max-width: 25rem;"></div>
-      <!-- Testimonials -->
-      <div class="container content-space-1 content-space-md-3">
-        <!-- Swiper Slider -->
-        <div class="js-swiper-single-testimonials swiper">
-          <div class="swiper-wrapper">
-            <!-- Slide -->
-            <div class="swiper-slide">
-              <!-- Blockquote -->
-              <figure class="w-md-65 text-center mx-md-auto">
-                <div class="mb-3">
-                  <img class="avatar avatar-xl avatar-circle" src="<?= site_url('assets/img/testimoni/testimoni_2.jpg')?>" alt="Image Description">
-                </div>
+    <iframe width="100%" height="550" style="margin-bottom: 5rem;" src="https://www.youtube.com/embed/75okUDnLLiE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-                <blockquote class="blockquote">“ For me, Istanbul Youth Summit gave me many new lessons in my life, such as learning to think critically, learning to come up with new ideas, learning to respect other people's opinions, and learning to dare to dream big. So, I want to say thank you very much to IYS for the opportunities, lessons, and experiences that have been given while in Turkey. Wishing the next IYS more success!					 ”</blockquote>
-                <figcaption class="blockquote-footer mb-5">
-                    Raisya Azzahra
-                  <span class="blockquote-footer-source">Indonesia University</span>
-                </figcaption>
-              </figure>
-              <!-- End Blockquote -->
-            </div>
-            <!-- End Slide -->
-
-            <!-- Slide -->
-            <div class="swiper-slide">
-              <!-- Blockquote -->
-              <figure class="w-md-65 text-center mx-md-auto">
-                <div class="mb-3">
-                  <img class="avatar avatar-xl avatar-circle" src="<?= site_url('assets/img/testimoni/testimoni_3.jpeg')?>" alt="Image Description">
-                </div>
-
-                <blockquote class="blockquote">“ 
-						Istanbul Youth Summit 2021 is a big leap of experience in my life, i was never able to express my ideas and opinions in front of many great people and audiences, and i am able to discuss that idea with many other great young leaders that follows the event, having to work with strangers from far away to create a solid and fun team, i was also able to expand my networks with the people from around the world that participate in the event.
-            Fear is the only thing keeping me behind, get out of your comfort zone, don't miss your chance and join the event!					 ”</blockquote>
-
-                <figcaption class="blockquote-footer mb-5">
-                  Admiral Arief Prabowo
-                  <span class="blockquote-footer-source">Al Azhar University Cairo</span>
-                </figcaption>
-              </figure>
-              <!-- End Blockquote -->
-            </div>
-            <!-- End Slide -->
-          </div>
-
-          <!-- Pagination -->
-          <div class="js-swiper-single-testimonials-pagination swiper-pagination"></div>
-        </div>
-        <!-- End Swiper Slider -->
-      </div>
-      <!-- End Testimonials -->
-      <div class="border-top mx-auto" style="max-width: 25rem;"></div>
-    </div>
   </div>
   <!-- End Info -->
   <!-- End Heading -->

@@ -46,17 +46,17 @@ class AuthController extends CI_Controller{
             $this->session->set_flashdata('err_msg', 'Your email or password is wrong');
             redirect('sign-in');
         }
-        $userDetail = $this->ParticipantDetail->getById($user->id_user);
+        $userDetail = $this->ParticipantDetail->getById($user[0]->id_user);
 
         $photo = $this->ParticipantDetail->getById($user[0]->id_user)->photo;
 
         $this->setSession($user[0]->id_user, $user[0]->email, $user[0]->name, $photo, $user[0]->id_user_role, $user[0]->is_verif, $userDetail->is_submited);
-        redirect('announcement');
+        redirect('personal-info');
     }
     
     public function logout(){
         $this->session->sess_destroy();
-        redirect('/');
+        redirect('home');
     }
     public function setSession($idUser, $email, $name, $photo,  $role, $isVerif, $isSubmit){
         $formSession['id_user']     = $idUser;

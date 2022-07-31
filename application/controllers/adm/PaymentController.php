@@ -9,6 +9,15 @@ class PaymentController extends CI_Controller{
         $this->load->model('Admin');
         $this->load->model('User');
         $this->load->model('ParticipantDetail');
+        $this->load->model('PaymentStatus');
+        $this->load->model('PaymentTransaction');
+
+        $this->load->library('Paymentconf');
+
+        $params = array('server_key' => 'Mid-server-gXaK3X0M-oZhY4RPL0g2Mt_z', 'production' => true);
+        // $params = array('server_key' => 'SB-Mid-server-qC8YfWnkcF_fjPrZmuNEwb8P', 'production' => false);
+		$this->load->library('veritrans');
+		$this->veritrans->config($params);
     }
     public function index(){
         $data['title']          = 'Payment';
@@ -31,10 +40,26 @@ class PaymentController extends CI_Controller{
         
         $this->template->admin('adm/payment/add', $data);
     }
-    public function changePassword(){
-        $this->User->update(['id_user' => $_POST['id'], 'password' => hash('sha256', md5($_POST['pass']))]);
-        $this->session->set_flashdata('succ_msg', 'Successfully change password!');
-        redirect('admin/payment');
+    public function validation(){
+        $paymentStatus = $this->PaymentStatus->get(['id_payment_type' => $_POST['id_payment_type'], 'id_user' => $_POST['id_user']])[0];
+
+        if($_POST['status'] == '3' && $_POST['method_name'] != 'paypal'){
+            $paymentTransaction = $this->PaymentTransaction->getById($_POST['id_payment_transaction']);
+            $this->veritrans->cancel($paymentTransaction->order_id);
+        }
+
+        $this->PaymentTransaction->update(['id_payment_transaction' => $_POST['id_payment_transaction'], 'status' => $_POST['status'], 'status_title' => $this->paymentconf->convertStatusTitle($_POST['status'])]);
+        $this->PaymentStatus->update(['id_payment_status' => $paymentStatus->id_payment_status, 'status' => $_POST['status']]);
+        
+        if($_POST['status'] == '6'){
+            $payStatus = $this->PaymentStatus->get(['id_user' => $_POST['id_user'], 'is_active' => '0']);
+            if($payStatus != null){
+                $this->PaymentStatus->update(['id_payment_status' => $payStatus[0]->id_payment_status, 'is_active' => '1']);
+            }
+        }
+
+        $this->session->set_flashdata('succ_msg', 'Successfully update payment!');
+        redirect('admin/payment/history/'.$_POST['id_user']);
     }
     public function getQueryHistory($id){
         return $this->db->query("

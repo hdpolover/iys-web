@@ -20,6 +20,19 @@
           </nav>
           <!-- End Breadcrumb -->
         </div>
+
+        <div class="col-auto">
+          <!-- Responsive Toggle Button -->
+          <button class="navbar-toggler d-lg-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarNav" aria-controls="sidebarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-default">
+              <i class="bi-list"></i>
+            </span>
+            <span class="navbar-toggler-toggled">
+              <i class="bi-x"></i>
+            </span>
+          </button>
+          <!-- End Responsive Toggle Button -->
+        </div>
         <!-- End Col -->
 
         <!-- End Col -->
@@ -66,24 +79,45 @@
                       $btn          = "";
                       $cardInfo     = "";
                       $paymentType  = "";
+                      $badgeStatus  = '<span class="badge bg-secondary">NEW</span>';
                       
                       if($paymentStatus->status == '1'){
-                        $btn          = '<button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Purchase</button>';
+                        $btn          = '
+                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Purchase</button>
+                          <a href="'.site_url('payment/paypal-transaction/'.$paymentStatus->id_payment_type).'" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</a>
+                        ';
                       }else if($paymentStatus->status == '2'){
-                        $idTrans  = $this->db->order_by('date', 'DESC')->get_where('payment_transaction', ['id_user' => $paymentStatus->id_user, 'id_payment_type' => $paymentStatus->id_payment_type, 'status' => '2'])->row()->id_payment_transaction;
-                        $btn      = '<a href="'.site_url('payment/status/'.$idTrans).'" class="btn btn-warning btn-sm w-100">Pending</a>';
+                        $paymentTransaction  = $this->db->order_by('date', 'DESC')->get_where('payment_transaction', ['id_user' => $paymentStatus->id_user, 'id_payment_type' => $paymentStatus->id_payment_type, 'status' => '2'])->row();
+                        if($paymentTransaction->method_name == 'paypal'){
+                          $btn      = '<a href="'.site_url('payment/status-paypal/'.$paymentTransaction->id_payment_transaction).'" class="btn btn-warning btn-sm w-100">View Transaction</a>';
+                        }else{
+                          $btn      = '<a href="'.site_url('payment/status/'.$paymentTransaction->id_payment_transaction).'" class="btn btn-warning btn-sm w-100">View Transaction</a>';
+                        }
+                        $badgeStatus  = '<span class="badge bg-warning text-dark">PENDING</span>';
                       }else if($paymentStatus->status == '3'){
-                        $btn  = '<button type="button" class="btn btn-soft-danger btn-sm purchase-button w-100">Canceled</button>';
+                        $btn  = '
+                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Purchase</button>
+                          <a href="'.site_url('payment/paypal-transaction/'.$paymentStatus->id_payment_type).'" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</a>
+                        ';
+                        $badgeStatus  = '<span class="badge bg-danger">CANCELED</span>';
                       }else if($paymentStatus->status == '4'){
-                        $btn  = '<button type="button" class="btn btn-soft-danger btn-sm purchase-button w-100">Expired</button>';
+                        $btn  = '
+                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Purchase</button>
+                          <a href="'.site_url('payment/paypal-transaction/'.$paymentStatus->id_payment_type).'" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</a>
+                        ';
+                        $badgeStatus  = '<span class="badge bg-danger">EXPIRED</span>';
                       }else if($paymentStatus->status == '5'){
-                        $btn  = '<button type="button" class="btn btn-soft-danger btn-sm purchase-button w-100">Deny</button>';
+                        $btn  = '
+                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Purchase</button>
+                          <a href="'.site_url('payment/paypal-transaction/'.$paymentStatus->id_payment_type).'" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</a>
+                        ';
+                        $badgeStatus  = '<span class="badge bg-danger">DENY</span>';
                       }else if($paymentStatus->status == '6'){
                         $cardInfo = '
                           <a class="btn btn-white btn-sm" href="#">
                             <i class="bi-file-earmark-arrow-down me-1"></i> Proof of Payment
                           </a>';
-                        $btn = '<button type="button" class="btn btn-success btn-sm w-100">Success</button>';
+                        $badgeStatus  = '<span class="badge bg-success">SUCCESS</span>';
                       }
         
         
@@ -103,6 +137,9 @@
                         <div class="card-header border-bottom">
                           <h3 class="card-title" style="margin-bottom: 0px !important;"><?= $paymentStatus->description?></h3>
                           <small>West Indonesian Time (GMT+7)</small>
+                          <br>
+                          <?= $badgeStatus?>
+                          
                           
                           <!-- <?= $cardInfo?> -->
                         </div>
@@ -152,6 +189,11 @@
                   <?php } ?>
                 </div>
                 <?php } ?>
+            </div>
+            <div class="card-footer">
+              <p><b>Note:</b></p>
+              <p>- "Paypal" button is only for purchases by non Indonesian participants. Confirm your payment to the IYS admin on WhatsApp.</p>
+              <p>- If there is an error, please refresh your browser</p>
             </div>
           </div>
         </div>

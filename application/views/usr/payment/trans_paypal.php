@@ -121,6 +121,14 @@
                     <dd class="col-sm-6 text-sm-end mb-0"><?= $paymentDetail->id_payment_transaction?></dd>
                 </dl>
                 <dl class="row mt-4 mb-4">
+                    <dt class="col-sm-6">PAYPAL ID</dt>
+                    <dd class="col-sm-6 text-sm-end mb-0">istanbulyouthsummit</dd>
+                </dl>
+                <dl class="row mt-4 mb-4">
+                    <dt class="col-sm-6">PAYPAL EMAIL</dt>
+                    <dd class="col-sm-6 text-sm-end mb-0">istanbulyouthsummit@gmail.com</dd>
+                </dl>
+                <dl class="row mt-4 mb-4">
                     <dt class="col-sm-6">DATE</dt>
                     <dd class="col-sm-6 text-sm-end mb-0"><?= strtoupper(date_format(date_create($paymentDetail->date), 'F d, Y H:i'))?></dd>
                 </dl>
@@ -166,11 +174,6 @@
                     ';
                   }
                 ?>
-                
-                <dl class="row mb-4">
-                    <dt class="col-sm-6">EXPIRED DATE</dt>
-                    <dd class="col-sm-6 text-sm-end mb-0"><?= strtoupper(date_format(date_create($paymentDetail->date_expired), 'F d, Y H:i'))?></dd>
-                </dl>
             </div>
             <!-- End Body -->
             <!-- End Footer -->
@@ -185,43 +188,3 @@
   <!-- End Content -->
 </main>
 <!-- ========== END MAIN CONTENT ========== -->
-
-<script>
-    $(document).ready(function(){
-      function checkStatus(){
-        $.ajax({
-          url: '<?= site_url('payment/check-status')?>',
-          method: 'POST',
-          data: {idTrans: "<?= $paymentDetail->id_payment_transaction?>"},
-          success: function(res){
-            res = JSON.parse(res)
-            if(res.statCode != "2"){
-              if(res.statCode == '3'){
-                $('#boxStatus').html(`<button type="button" class="btn btn-danger">CANCELED</button>    `);
-              }else if(res.statCode == '4'){
-                $('#boxStatus').html(`<button type="button" class="btn btn-danger">EXPIRED</button>    `)
-              }else if(res.statCode == '5'){
-                $('#boxStatus').html(`<button type="button" class="btn btn-danger">DENY</button>   `) 
-              }else if(res.statCode == '6'){
-                $('#boxStatus').html(`<button type="button" class="btn btn-success">SUCCESS</button>    `)
-              }
-              clearInterval(myInterval);
-            }
-          }
-        })
-      }
-      const myInterval = setInterval(checkStatus, 1000)
-    })
-    var countDownDate = new Date("<?= date_format(date_create($paymentDetail->date_expired), 'F j, Y H:i:s')?>").getTime();
-
-    var myfunc = setInterval(function() {
-        var now = new Date().getTime();
-        var timeleft = countDownDate - now;
-            
-        var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
-        
-        }, 1000)
-</script>

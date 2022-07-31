@@ -431,7 +431,7 @@
             </div>
             <div class="mb-2">
                 <label for="">Gender</label>
-                <input type="text" style="background-color: #f8fafd; opacity: 1;" class="form-control" value="<?= $gender ?>" readonly>
+                <input type="text" style="background-color: #f8fafd; opacity: 1;" class="form-control" value="<?= $gender == '1' ? 'Male' : 'Female'?>" readonly>
             </div>
             <div class="mb-2">
                 <label for="">Address</label>

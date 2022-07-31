@@ -6,7 +6,7 @@ data-hs-step-form-options='{
     "endSelector": "#validationFormFinishBtn",
     "isValidate": true
 }'
-action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart/form-data"
+action="<?= $detail->is_update == 0 ? site_url('personal-info/submit') : site_url('personal-info/update-save')?>" method="POST" enctype="multipart/form-data"
 >
 <!-- Step -->
 <ul id="validationFormProgress" class="js-step-progress step step-sm step-icon-sm step-inline step-item-between mb-7">
@@ -186,28 +186,28 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
 
         <div class="col-sm-9">
             <div class="row mb-4">
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <div class="js-form-message">
-                        <input type="text"  class="form-control" value="<?= $detail->detail_address?>" placeholder="Street Name" name="detailAddress" required />
-                        <span class="invalid-feedback">Please enter a valid street name.</span>
+                        <input type="text"  class="form-control" value="<?= $detail->detail_address?>" placeholder="Detail Address Ex: Village/Street/House No" name="detailAddress" required />
+                        <span class="invalid-feedback">Please enter a valid detail address.</span>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
                     <div class="js-form-message">
                         <input type="text"  class="form-control" value="<?= $detail->postal_code?>" placeholder="Postal Code" name="postalCode" required />
                         <span class="invalid-feedback">Please enter a valid postal code.</span>
                     </div>
-                    
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <div class="js-form-message">
                         <input type="text"  class="form-control" value="<?= $detail->city?>" placeholder="City" name="city" required />
                         <span class="invalid-feedback">Please enter a valid city.</span>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <div class="js-form-message">
                         <input type="text"  class="form-control" value="<?= $detail->province?>" placeholder="Province" name="province" required />
                         <span class="invalid-feedback">Please enter a valid province.</span>
@@ -288,6 +288,7 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
         <div class="col-sm-9">
         <div class="js-form-message">
             <input type="text" class="form-control" onkeypress="return isNumberKey(event)" name="whatsAppNumber" id="validationFormUsernameLabel" placeholder="Whatsapp Number" aria-label="Username"  value="<?= $detail->whatsapp_number?>"required data-msg="Please enter your fullname.">
+            <span class="form-text"><b>Example:</b> +628123456789 </span>
             <span class="invalid-feedback">Please enter a valid whatsapp number.</span>
         </div>
         </div>
@@ -359,40 +360,6 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
             
             </select>
             <span class="invalid-feedback">Please enter a valid tshirt size.</span>
-        </div>
-        </div>
-    </div>
-    <!-- End Form Group -->
-    <!-- Form Group -->
-    <div class="row mb-4">
-        <label for="validationFormUsernameLabel" class="col-sm-3 col-form-label form-label">Are you vegetarian?</label>
-
-        <div class="col-sm-9">
-        <div class="js-form-message">
-            <div class="row">
-            <div class="col-sm mb-2 mb-sm-0">
-                <!-- Form Radio -->
-                <label class="form-control" for="formControlRadioEg3">
-                <span class="form-check">
-                    <input type="radio" class="form-check-input" name="vegetarian" value="1" id="formControlRadioEg3" <?= $detail->is_vegetarian == '1' ? 'checked' : ''?> required>
-                    <span class="form-check-label">Yes</span>
-                </span>
-                </label>
-                <!-- End Form Radio -->
-            </div>
-
-            <div class="col-sm mb-2 mb-sm-0">
-                <!-- Form Radio -->
-                <label class="form-control" for="formControlRadioEg4">
-                <span class="form-check">
-                    <input type="radio" class="form-check-input" name="vegetarian" value="0" id="formControlRadioEg4" <?= $detail->is_vegetarian == '0' ? 'checked' : ''?> required>
-                    <span class="form-check-label">No</span>
-                </span>
-                </label>
-                <!-- End Form Radio -->
-            </div>
-            </div>
-            <span class="invalid-feedback">Please enter a vegetarian.</span>
         </div>
         </div>
     </div>
@@ -583,7 +550,7 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
         <div class="col-sm-9">
         <div class="js-form-message">
             <input type="text" class="form-control" name="motivation" id="validationFormUsernameLabel" placeholder="Tiwbbon Link" aria-label="sourceAccount" value="<?= $detail->motivation_link ?>" required data-msg="Please enter your fullname.">
-            <span class="form-text"><b>Note:</b> Paste the link to your twibbon. The twibbon can uploaded to Instagram or Youtube.</span>
+            <span class="form-text"><b>Note:</b> Paste the link to your twibbon. The twibbon can uploaded to Instagram or Facebook.</span>
             <span class="invalid-feedback">Please enter a valid twibbon link.</span>
         </div>
         </div>
@@ -599,11 +566,13 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
             <span class="form-text">
             <b>Note:</b> As mentioned on the Registration Guidelines, you need to do the followings:
             <ul>
-                <li>Follow Istanbul Youth Summit and Youth Break the Boundaries</li>
-                <li>Tag 5 of your friends on your Instagram post.</li>
+                <li>Follow Istanbul Youth Summit and Youth Break the Boundaries Instagram & TikTok</li>
+                <li>Join Istanbul Youth Summit and Youth Break the Boundaries Telegram channel</li>
+                <li>Subscribe YouTube channel YBB</li>
+                <li>Tag 5 of your friends & istanbulyouthsummit on your twibbon Instagram post.</li>
                 <li>Share the event to 3 WhatsApp Groups</li>
             </ul>
-            Take a screenshot of each of the actions above and upload them to your Google Drive. Copy the link and paste it in the input form below. (make sure the folder is accessible by public)
+            Take a screenshot of each of the actions above and upload them to your Google Drive. Copy the link and paste it in the input form above. (make sure the folder is accessible by public)
             </span>
             <span class="invalid-feedback">Please enter a valid share requirement proof link.</span>
         </div>
@@ -616,8 +585,19 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
 
         <div class="col-sm-9">
         <div class="js-form-message input-group">
-            <input type="text" id="rc" class="form-control" name="referral" id="validationFormUsernameLabel" placeholder="Referral Code" value="<?= $detail->referral_code ?>" aria-label="sourceAccount" required data-msg="Please enter your fullname.">
-            <button class="btn btn-success" onclick="checkRC()" type="button" id="button-addon2">Apply</button>
+            <?php
+                if($detail->is_update == 0){
+                    echo '
+                        <input type="text" isd="rc" class="form-control" name="referral" id="validationFormUsernameLabel" placeholder="Referral Code" value="'.$detail->referral_code.'" aria-label="sourceAccount" required data-msg="Please enter your fullname.">
+                        <button class="btn btn-success" onclick="checkRC()" type="button" id="button-addon2">Apply</button>
+                    ';
+                }else{
+                    echo '
+                        <input type="text" id="rc" class="form-control" name="referral" id="validationFormUsernameLabel" placeholder="Referral Code" value="'.$detail->referral_code.'" aria-label="sourceAccount" required data-msg="Please enter your fullname." disabled>
+                    ';
+                }
+            ?>
+            
         </div>
         <span class="form-text"><b>Note:</b> Enter a dash (-) if you don't have any code.</span>
         <div class="form-text" id="checkRCStatus"></div>
@@ -688,7 +668,7 @@ action="<?= site_url('personal-info/submit')?>" method="POST" enctype="multipart
 
         <div class="ms-auto">
         <button type="button" data-bs-toggle="modal" data-bs-target="#mdlConfirmation" class="btn btn-soft-primary">
-            Submit
+            <?= $detail->is_update == 0 ? 'Submit' : "Update"?>
         </button>
         </div>
     </div>

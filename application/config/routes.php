@@ -54,6 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
+$route['home']                          = 'Welcome/home';
 $route['about']                         = 'FrontController/about';
 $route['team']                          = 'FrontController/ourTeam';
 $route['partner-sponsor']               = 'FrontController/partnerSponsor';
@@ -102,6 +103,7 @@ $route['admin/participant/(:any)']              = 'adm/ParticipantController/det
 $route['admin/payment']                     = 'adm/PaymentController';
 $route['admin/payment/add']                 = 'adm/PaymentController/add';
 $route['admin/payment/history/(:any)']      = 'adm/PaymentController/history/$1';
+$route['admin/payment/validation']          = 'adm/PaymentController/validation';
 
 // master payment
 $route['admin/master/payment-type']                  = 'adm/master/PaymentTypeController';
@@ -130,17 +132,22 @@ $route['personal-info/ajxPostOther']    = 'usr/ParticipantDetailController/ajxPo
 $route['personal-info/ajxPostEssay']    = 'usr/ParticipantDetailController/ajxPostEssay';
 $route['personal-info/ajxPostProgram']  = 'usr/ParticipantDetailController/ajxPostProgram';
 $route['personal-info/submit']          = 'usr/ParticipantDetailController/submit';
+$route['personal-info/update']          = 'usr/ParticipantDetailController/update';
+$route['personal-info/update-save']     = 'usr/ParticipantDetailController/updateSave';
 $route['personal-info/download-qr']     = 'usr/ParticipantDetailController/downloadQR';
 $route['personal-info/ajxCheckRC']      = 'usr/ParticipantDetailController/checkRC';
+$route['personal-info-completed']       = 'usr/ParticipantDetailController/afterSubmit';
 // payments
-$route['payment']                   = 'usr/PaymentController';
-$route['payment/choose-method']     = 'usr/PaymentController/choosePayment';
-$route['payment/token']             = 'usr/PaymentController/token';
-$route['payment/finish']            = 'usr/PaymentController/finish';
-$route['payment/history/(:any)']    = 'usr/PaymentController/history/$1';
-$route['payment/status/(:any)']     = 'usr/PaymentController/status/$1';
-$route['payment/check-status']      = 'usr/PaymentController/checkStatus';
-
+$route['payment']                           = 'usr/PaymentController';
+$route['payment/choose-method']             = 'usr/PaymentController/choosePayment';
+$route['payment/token']                     = 'usr/PaymentController/token';
+$route['payment/finish']                    = 'usr/PaymentController/finish';
+$route['payment/history/(:any)']            = 'usr/PaymentController/history/$1';
+$route['payment/status/(:any)']             = 'usr/PaymentController/status/$1';
+$route['payment/status-paypal/(:any)']      = 'usr/PaymentController/statusPaypal/$1';
+$route['payment/check-status']              = 'usr/PaymentController/checkStatus';
+$route['payment/paypal-transaction/(:any)'] = 'usr/PaymentController/paypalTransaction/$1';
+$route['payment/paypal-transaction/(:any)'] = 'usr/PaymentController/paypalTransaction/$1';
 
 // EMAILING
 $route['send-email/register'] = 'EmailController/register';
