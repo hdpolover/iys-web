@@ -121,6 +121,14 @@
                     <dd class="col-sm-6 text-sm-end mb-0"><?= $paymentDetail->id_payment_transaction?></dd>
                 </dl>
                 <dl class="row mt-4 mb-4">
+                    <dt class="col-sm-6">PAYPAL ID</dt>
+                    <dd class="col-sm-6 text-sm-end mb-0">istanbulyouthsummit</dd>
+                </dl>
+                <dl class="row mt-4 mb-4">
+                    <dt class="col-sm-6">PAYPAL EMAIL</dt>
+                    <dd class="col-sm-6 text-sm-end mb-0">istanbulyouthsummit@gmail.com</dd>
+                </dl>
+                <dl class="row mt-4 mb-4">
                     <dt class="col-sm-6">DATE</dt>
                     <dd class="col-sm-6 text-sm-end mb-0"><?= strtoupper(date_format(date_create($paymentDetail->date), 'F d, Y H:i'))?></dd>
                 </dl>

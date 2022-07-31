@@ -20,6 +20,9 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		redirect('home');
+	}
+	public function home(){
 		$data['title'] 	= "Home";
 		$data['topBar'] = "home";
 		$this->template->front('landing', $data);

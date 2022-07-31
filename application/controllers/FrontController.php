@@ -8,7 +8,7 @@ class FrontController extends CI_Controller{
     }
     public function signIn(){
         if($this->session->userdata('role') == '1'){
-            redirect('announcement');
+            redirect('personal-info');
         }
 
         $data['title']      = 'Sign In';

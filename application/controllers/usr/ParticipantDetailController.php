@@ -205,7 +205,7 @@ class ParticipantDetailController extends CI_Controller{
         }
         $this->session->set_userdata(['is_submit' => "1"]);
         $this->mail->send($this->session->userdata('email'), 'REGISTRATION FORM COMPLETION NOTICE', $this->load->view('email/personal_submit', $formData, true));
-        redirect('personal-info');
+        redirect('personal-info-completed');
     }
     public function ajxPostBasic(){
         $step = $this->ParticipantDetail->getById($this->session->userdata('id_user'))->step;
@@ -321,5 +321,59 @@ class ParticipantDetailController extends CI_Controller{
         $this->ciqrcode->generate($params); // fungsi untuk generate QR CODE
 
         return site_url('uploads/qr/'.$image_name);
+    }
+    public function afterSubmit(){
+        $data['title']      = "Personal Info";
+        $data['sidebar']    = "personal-info";
+        $data['countries']  = $this->db->get('countries')->result();
+        $statusSteps        = $this->ParticipantDetail->getStatusStep($this->session->userdata('id_user'));
+
+        $data['statStepSelfPhoto'] = true;
+        foreach ($statusSteps['selfPhoto'] as $items => $item) {
+            if($item == NULL || $item == '' || $item == '0'){
+                $data['statStepSelfPhoto'] = false;
+                $this->ParticipantDetail->update(['id_user' => $this->session->userdata('id_user'), 'step' => '4', 'is_submited' => '0']);
+                break;
+            }
+        }
+
+        $data['statStepProgram'] = true;
+        foreach ($statusSteps['program'] as $items => $item) {
+            if($item == NULL || $item == ''){
+                $data['statStepProgram'] = false;
+                $this->ParticipantDetail->update(['id_user' => $this->session->userdata('id_user'), 'step' => '3', 'is_submited' => '0']);
+                break;
+            }
+        }
+
+        $data['statStepEssay'] = true;
+        foreach ($statusSteps['essay'] as $items => $item) {
+            if($item == NULL || $item == ''){
+                $data['statStepEssay'] = false;
+                $this->ParticipantDetail->update(['id_user' => $this->session->userdata('id_user'), 'step' => '2', 'is_submited' => '0']);
+                break;
+            }
+        }
+
+        $data['statStepOther'] = true;
+        foreach ($statusSteps['other'] as $items => $item) {
+            if($item == NULL || $item == ''){
+                $data['statStepOther'] = false;
+                $this->ParticipantDetail->update(['id_user' => $this->session->userdata('id_user'), 'step' => '1', 'is_submited' => '0']);
+                break;
+            }
+        }
+
+        $data['statStepBasic'] = true;
+        foreach ($statusSteps['basic'] as $items => $item) {
+            if($item == NULL || $item == ''){
+                $data['statStepBasic'] = false;
+                $this->ParticipantDetail->update(['id_user' => $this->session->userdata('id_user'), 'step' => '0', 'is_submited' => '0']);
+                break;
+            }
+        }
+        $data['detail']     = $this->ParticipantDetail->getById($this->session->userdata('id_user'));
+
+        $this->template->user('usr/participant-detail/form_aftersubmit', $data);
     }
 }

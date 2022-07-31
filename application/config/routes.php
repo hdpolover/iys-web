@@ -54,6 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
+$route['home']                          = 'Welcome/home';
 $route['about']                         = 'FrontController/about';
 $route['team']                          = 'FrontController/ourTeam';
 $route['partner-sponsor']               = 'FrontController/partnerSponsor';
@@ -135,6 +136,7 @@ $route['personal-info/update']          = 'usr/ParticipantDetailController/updat
 $route['personal-info/update-save']     = 'usr/ParticipantDetailController/updateSave';
 $route['personal-info/download-qr']     = 'usr/ParticipantDetailController/downloadQR';
 $route['personal-info/ajxCheckRC']      = 'usr/ParticipantDetailController/checkRC';
+$route['personal-info-completed']       = 'usr/ParticipantDetailController/afterSubmit';
 // payments
 $route['payment']                           = 'usr/PaymentController';
 $route['payment/choose-method']             = 'usr/PaymentController/choosePayment';
