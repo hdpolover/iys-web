@@ -96,7 +96,7 @@
                     </div>
                     <div id="collapseBasic6" class="accordion-collapse collapse" aria-labelledby="headingBasics6" data-bs-parent="#accordionFAQBasics">
                     <div class="accordion-body">
-                        <p>Please read the guideline for the registration process [here]. The registration is on this website.</p>
+                        <p>Please read the guideline for the registration process [<a href="https://bit.ly/IYSRegistrationGuidelines" target="_blank">Guideline</a>]. The registration is on this website.</p>
                     </div>
                     </div>
                 </div>

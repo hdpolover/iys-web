@@ -521,6 +521,25 @@
         
       </div>
     <!-- Card Grid -->
+    <div class="container mt-3">
+      <div class="row">
+        <div class="col">
+          <div class="card bg-primary h-100 overflow-hidden">
+            <div class="card-body">
+              <div class="w-65 pe-2">
+                <h2 class="card-title text-white">Guideline</h2>
+                <p class="card-text text-white">Are you confused about the IYS guide? You can download the guide below.</p>
+                <a class="btn btn-light btn-sm btn-transition" href="https://bit.ly/IYSRegistrationGuidelines" target="_blank">Download <i class="bi-chevron-right small ms-1"></i></a>
+              </div>
+
+              <div style="width: 300px; right: 10px; top: 10px;" class="position-absolute">
+                <img class="card-img" src="./assets/svg/illustrations/add-file.svg" alt="Image Description">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="container content-space-b-2 content-space-b-lg-3" style="margin-top: 6rem;">
       <!-- Nav Scroller -->
         <div class="js-nav-scroller hs-nav-scroller-horizontal mb-7">
