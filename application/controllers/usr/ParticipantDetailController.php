@@ -156,11 +156,7 @@ class ParticipantDetailController extends CI_Controller{
         $this->session->set_userdata('name', $_POST['fullName']);
 
         $ambassador     = $this->Ambassador->get(['referral_code' => strtoupper($_POST['referral']), 'status' => '1']);
-        if($ambassador != null){
-            $referral_code  = $_POST['referral'];
-        }else{
-            $referral_code  = "-";
-        }
+        $referral_code  = $_POST['referral'];
 
         $formData['id_user']                = $this->session->userdata('id_user');
         $formData['fullname']               = $_POST['fullName'];
