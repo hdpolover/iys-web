@@ -586,15 +586,23 @@ action="<?= $detail->is_update == 0 ? site_url('personal-info/submit') : site_ur
         <div class="col-sm-9">
         <div class="js-form-message input-group">
             <?php
-                if($detail->is_update == 0){
+                if($detail->register_affiliate != null){
                     echo '
-                        <input type="text" isd="rc" class="form-control" name="referral" id="validationFormUsernameLabel" placeholder="Referral Code" value="'.$detail->referral_code.'" aria-label="sourceAccount" required data-msg="Please enter your fullname.">
-                        <button class="btn btn-success" onclick="checkRC()" type="button" id="button-addon2">Apply</button>
+                        <input type="text" id="rc" class="form-control" name="referral" id="validationFormUsernameLabel" placeholder="Referral Code" value="'.$detail->register_affiliate.'" aria-label="sourceAccount" required data-msg="Please enter your fullname." disabled>
+                        <input type="hidden" name="affiliateCode" value="'.$detail->register_affiliate.'">
+
                     ';
                 }else{
-                    echo '
-                        <input type="text" id="rc" class="form-control" name="referral" id="validationFormUsernameLabel" placeholder="Referral Code" value="'.$detail->referral_code.'" aria-label="sourceAccount" required data-msg="Please enter your fullname." disabled>
-                    ';
+                    if($detail->is_update == 0){
+                        echo '
+                            <input type="text" id="rc" class="form-control" name="referral" id="validationFormUsernameLabel" placeholder="Referral Code" value="'.$detail->referral_code.'" aria-label="sourceAccount" required data-msg="Please enter your fullname.">
+                            <button class="btn btn-success" onclick="checkRC()" type="button" id="button-addon2">Apply</button>
+                        ';
+                    }else{
+                        echo '
+                            <input type="text" id="rc" class="form-control" name="referral" id="validationFormUsernameLabel" placeholder="Referral Code" value="'.$detail->referral_code.'" aria-label="sourceAccount" required data-msg="Please enter your fullname." disabled>
+                        ';
+                    }
                 }
             ?>
             

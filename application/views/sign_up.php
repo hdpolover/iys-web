@@ -112,6 +112,7 @@
                 </a>
             </div>
 
+            <input type="hidden" name="affiliateCode" value="<?= $affiliateCode ?>">
             <span class="invalid-feedback">Password does not match the confirm password.</span>
             </div>
             <!-- End Form -->
@@ -128,6 +129,13 @@
                     echo '
                         <div class="alert alert-soft-danger mb-3" role="alert">
                             '.$this->session->flashdata('err_msg').'
+                        </div>        
+                    ';
+                }
+                if($this->session->flashdata('succ_msg')){
+                    echo '
+                        <div class="alert alert-soft-success mb-3" role="alert">
+                            '.$this->session->flashdata('succ_msg').'
                         </div>        
                     ';
                 }
