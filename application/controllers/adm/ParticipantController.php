@@ -39,6 +39,11 @@ class ParticipantController extends CI_Controller{
         $this->session->set_flashdata('succ_msg', 'Successfully change password!');
         redirect('admin/participant');
     }
+    public function checked(){
+        $this->ParticipantDetail->update(['id_user' => $_POST['id'], 'is_checked' => '1']);
+        $this->session->set_flashdata('succ_msg', 'Successfully checked user!');
+        redirect('admin/'.$_POST['page']);
+    }
     public function getQueryData(){
         return $this->db->query("
             SELECT
@@ -47,7 +52,8 @@ class ParticipantController extends CI_Controller{
                 u.name ,
                 pd.step ,
                 u.is_verif ,
-                pd.is_submited 
+                pd.is_submited ,
+                pd.is_checked
             FROM
                 participant_details pd ,
                 users u 

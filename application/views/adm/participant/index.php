@@ -50,19 +50,19 @@
       <div class="docs-page-header">
         <div class="row align-items-center">
           <div class="col-sm">
-            <h1 class="docs-page-header-title">Participant</h1>
+            <h1 class="docs-page-header-title mt-5">Participant</h1>
           </div>
         </div>
       </div>
       <!-- End Page Header -->
-        <div class="row">
+        <!-- <div class="row">
           <div class="col">
             <a href="<?= site_url('admin/participant/add')?>" class="btn btn-soft-success btn-sm" style="float: right;">
               Add
               <i class="bi-plus-lg ms-1"></i>
             </a>
           </div>
-        </div>
+        </div> -->
 
         <!-- Table -->
         <div class="row mt-3">
@@ -84,6 +84,7 @@
                   <th scope="col">Status Verif</th>
                   <th scope="col">Step</th>
                   <th scope="col">Status Submit</th>
+                  <th scope="col">Status Check</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -129,6 +130,26 @@
                         }
 
 
+                        $isChecked = '';
+                        if($participant->is_checked == '1'){
+                            $isChecked = '
+                                <span class="badge bg-soft-success text-success">Checked</span>
+                            ';
+                        }else{
+                            $isChecked = '
+                                <span class="badge bg-soft-danger text-danger">Not Checked</span>
+                            ';
+                        }
+
+
+                        $btnChekced = "";
+                        if($participant->is_checked == '0' && $participant->is_submited == '1'){
+                          $btnChekced = '
+                            <button onclick="showMdlChecked(\''.$participant->id_user.'\')" class="btn btn-soft-info btn-icon btn-sm"><i class="bi-check"></i></button>
+                          ';
+                        }
+
+
                         echo '
                             <tr>
                                 <td scope="col">'.$no++.'</td>
@@ -136,9 +157,11 @@
                                 <td scope="col">'.$isVerif.'</td>
                                 <td scope="col">'.$step.'</td>
                                 <td scope="col">'.$isSubmit.'</td>
+                                <td scope="col">'.$isChecked.'</td>
                                 <td scope="col">
-                                    <a href="'.site_url('admin/participant/'.$participant->id_user).'" class="btn btn-soft-info btn-icon btn-sm"><i class="bi-eye"></i></a>
-                                    <button onclick="showMdlChangePassword(\''.$participant->id_user.'\')" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-key"></i></button>
+                                  '.$btnChekced.'
+                                  <a target="_blank" href="'.site_url('admin/participant/'.$participant->id_user).'" class="btn btn-soft-info btn-icon btn-sm"><i class="bi-eye"></i></a>
+                                  <button onclick="showMdlChangePassword(\''.$participant->id_user.'\')" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-key"></i></button>
                                 </td>
                             </tr>   
                         ';
@@ -176,6 +199,31 @@
       </div>
     </div>
     <!-- End Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="mdlChecked" tabindex="-1" aria-labelledby="mdlDeleteLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="mdlDeleteLabel">Checked Participant</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body text-center">
+              <div class="text-center">Are you sure to checked this user?</div>
+          </div>
+
+          <div class="modal-footer">
+            <form action="<?= site_url('admin/participant/checked')?> " method="post">
+              <input type="hidden" name="id" id="mdlChecked_id" >
+              <input type="hidden" name="page" value="participant" >
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-soft-success">Save</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
   </main>
   <script>
     const showMdlChangePassword = id => {
@@ -184,5 +232,10 @@
       $('#mdlChangePass_pass').val(pass);
       $('.mdlChangePass_passLabel').html(pass);
       $('#mdlChangePass').modal('show')
+    }
+    const showMdlChecked = id => {
+      const pass = Math.random().toString(36).slice(-8);
+      $('#mdlChecked_id').val(id);
+      $('#mdlChecked').modal('show')
     }
   </script>

@@ -50,7 +50,7 @@
       <div class="docs-page-header">
         <div class="row align-items-center">
           <div class="col-sm">
-            <h1 class="docs-page-header-title">Payment</h1>
+            <h1 class="docs-page-header-title mt-5">Payment</h1>
           </div>
         </div>
       </div>
@@ -148,7 +148,7 @@
                                 <td scope="col">'.(!empty($paymentStatus->description) ? $paymentStatus->description : "NOT SUBMIT").'</td>
                                 <td scope="col">'.$status.'</td>
                                 <td scope="col">
-                                    <a href="'.site_url('admin/payment/history/'.$participant->id_user).'" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-list"></i></a>
+                                    <a target="_blank" href="'.site_url('admin/payment/history/'.$participant->id_user).'" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-list"></i></a>
                                 </td>
                             </tr>   
                         ';
