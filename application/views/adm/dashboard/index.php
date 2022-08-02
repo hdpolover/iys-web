@@ -46,28 +46,22 @@
 
     <!-- Content -->
     <div class="navbar-sidebar-aside-content content-space-1 content-space-md-2 px-lg-5 px-xl-10">
-      <!-- Page Header -->
-      <div class="docs-page-header">
-        <div class="row align-items-center">
-          <div class="col-sm">
-            <h1 class="docs-page-header-title">Dashboard</h1>
+        <div class="container mt-5">
+          <h2>Participant Info</h2>
+          <hr>
+          <div class="row">
+            <div class="col-md-3 col-sm-12">
+              <div class="card">
+                <div class="card-header">
+                  <div class="card-title">Submited</div>
+                </div>
+                <div class="card-body">
+                  <h5>50</h5>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- End Page Header -->
-
-      <div class="d-flex">
-          <div class="container d-flex align-items-center vh-100 mt-5">
-              <div class="w-sm-75 w-lg-50 text-center mx-sm-auto">
-                  <div class="mb-7">
-                  <img class="img-fluid" src="<?= site_url()?>assets/svg/illustrations/oc-maintenance.svg" alt="SVG Illustration">
-                  </div>
-
-                  <h1 class="h2">We're just tuning up a few things.</h1>
-                  <p>We apologize for the inconvenience but IYS Web is currently undergoing planned maintenance. Stay tuned!</p>
-              </div>
-          </div>
-      </div>
     </div>
     <!-- End Content -->
   </main>

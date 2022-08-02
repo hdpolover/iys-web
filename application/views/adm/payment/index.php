@@ -79,6 +79,7 @@
             <table class="table table-borderless table-thead-bordered datatable">
               <thead class="thead-light">
                 <tr>
+                  <th scope="col">No</th>
                   <th scope="col">Name</th>
                   <th scope="col">Email</th>
                   <th scope="col">Payment State</th>
@@ -88,6 +89,7 @@
               </thead>
               <tbody>
                 <?php
+                    $no = 1;
                     foreach ($payments as $participant) {
                         $status = '';
                         $paymentStatus = $this->db->query("
@@ -140,6 +142,7 @@
                         
                         echo '
                             <tr>
+                                <td scope="col">'.$no++.'</td>
                                 <td scope="col">'.$participant->name.'</td>
                                 <td scope="col">'.$participant->email.'</td>
                                 <td scope="col">'.(!empty($paymentStatus->description) ? $paymentStatus->description : "NOT SUBMIT").'</td>

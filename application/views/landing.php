@@ -189,56 +189,14 @@
           </div>
           <!-- End Slide -->
           <!-- Slide -->
-          <!-- <div class="swiper-slide gradient-y-overlay-sm-gray-900 bg-img-start" style="background-image: url(<?= site_url()?>assets/img/landing/landing_3.jpg);">
+          <div class="swiper-slide gradient-y-overlay-sm-gray-900 bg-img-start" style="background-image: url(<?= site_url()?>assets/img/landing/landing_3.jpg);">
             <div class="container d-md-flex align-items-md-center vh-md-70 content-space-t-4 content-space-b-3 content-space-md-0">
               <div class="w-75 w-lg-50">
-                <h1 class="display-4 text-white mb-0">Istanbul Youth Summit 2023</h1>
-                <h3 class="text-white">February 6 - 9, 2023 - Istanbul Turkey</h3>
-                <?php
-                  $startEvent   = "February 06, 2023 00:00:00";
-                ?>
-                <?php if(strtotime($dateNow) < strtotime($startEvent)){ ?>
-                  <div class="js-countdown row mt-3">
-                    <div class="col-3">
-                      <h2 class="js-cd-days h1 text-white mb-0"></h2>
-                      <h5 class="mb-0 text-white">Days</h5>
-                    </div>
-
-                    <div class="col-3">
-                      <h2 class="js-cd-hours h1 text-white mb-0"></h2>
-                      <h5 class="mb-0 text-white">Hours</h5>
-                    </div>
-
-                    <div class="col-3">
-                      <h2 class="js-cd-minutes h1 text-white mb-0"></h2>
-                      <h5 class="mb-0 text-white">Mins</h5>
-                    </div>
-
-                    <div class="col-3">
-                      <h2 class="js-cd-seconds h1 text-white mb-0"></h2>
-                      <h5 class="mb-0 text-white">Secs</h5>
-                    </div>
-                  
-                  
-                  </div>
-                  <div class="mt-2">
-                      <small class="text-white">West Indonesian Time (GMT+7)</small>
-                  </div>
-                <?php } ?>
-                <?php
-                  if(strtotime($dateNow) < strtotime($startEvent)){
-                    echo '
-                      <a href="'.site_url('').'sign-up" class="btn btn-outline-light mt-5">Register</a>    
-                    ';
-                  }else{
-                    echo '
-                      <button type="button" class="btn btn-soft-danger mt-5">Event Start</button>    
-                    ';
-                  }
-                ?>
+                <h1 class="display-4 text-white mb-0">Registration Guidelines</h1>
+                <a href="https://bit.ly/IYSRegistrationGuidelines" class="btn btn-outline-light mt-5">Download Guideline</a>    
               </div>
             </div>
-          </div> -->
+          </div>
           <!-- End Slide -->
         </div>
 

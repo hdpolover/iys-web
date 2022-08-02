@@ -125,7 +125,7 @@
 
                             <div class="col-sm-9">
                             <div class="js-form-message">
-                                <span><b><?= $pDetail->address ?></b></span>
+                                <span><b><?= $pDetail->detail_address.", ".$pDetail->postal_code.", ".$pDetail->city.", ".$pDetail->city ?></b></span>
                             </div>
                             </div>
                         </div>
@@ -216,15 +216,6 @@
                             <div class="col-sm-9">
                             <div class="js-form-message">
                                 <span><b><?= $pDetail->tshirt_size ?></b></span>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <label for="validationFormUsernameLabel" class="col-sm-3 col-form-label form-label">Are you vegetarian?</label>
-
-                            <div class="col-sm-9">
-                            <div class="js-form-message">
-                                <span><b><?= $pDetail->is_vegetarian == "1" ? "Yes" : "No" ?></b></span>
                             </div>
                             </div>
                         </div>

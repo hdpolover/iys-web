@@ -22,7 +22,7 @@ class PaymentController extends CI_Controller{
     public function index(){
         $data['title']          = 'Payment';
         $data['sidebar']        = 'payment';
-        $data['payments']       = $this->User->get(['id_user_role' => '1']);
+        $data['payments']       = $this->User->get(['id_user_role' => '1', 'orderBy' => 'name ASC']);
         
         $this->template->admin('adm/payment/index', $data);
     }

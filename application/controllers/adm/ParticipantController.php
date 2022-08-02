@@ -13,7 +13,7 @@ class ParticipantController extends CI_Controller{
     public function index(){
         $data['title']          = 'Participant';
         $data['sidebar']        = 'participant';
-        $data['participants']   = $this->User->get(['id_user_role' => '1']);
+        $data['participants']   = $this->getQueryData();
         
         $this->template->admin('adm/participant/index', $data);
     }
@@ -38,5 +38,23 @@ class ParticipantController extends CI_Controller{
         $this->User->update(['id_user' => $_POST['id'], 'password' => hash('sha256', md5($_POST['pass']))]);
         $this->session->set_flashdata('succ_msg', 'Successfully change password!');
         redirect('admin/participant');
+    }
+    public function getQueryData(){
+        return $this->db->query("
+            SELECT
+                pd.id_user ,
+                u.email ,
+                u.name ,
+                pd.step ,
+                u.is_verif ,
+                pd.is_submited 
+            FROM
+                participant_details pd ,
+                users u 
+            WHERE 
+                u.id_user_role = '1'
+                AND pd.id_user = u.id_user
+            ORDER BY pd.fullname ASC
+        ")->result();
     }
 }

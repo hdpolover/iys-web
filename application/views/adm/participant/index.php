@@ -79,30 +79,63 @@
             <table class="table table-borderless table-thead-bordered datatable">
               <thead class="thead-light">
                 <tr>
+                  <th scope="col">No</th>
                   <th scope="col">Name</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Status</th>
+                  <th scope="col">Status Verif</th>
+                  <th scope="col">Step</th>
+                  <th scope="col">Status Submit</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
                 <?php
+                    $no = 1;
                     foreach ($participants as $participant) {
-                        $status = '';
+                        $isVerif = '';
                         if($participant->is_verif == '1'){
-                            $status = '
+                            $isVerif = '
                                 <span class="badge bg-soft-success text-success">Verified</span>
                             ';
                         }else{
-                            $status = '
+                            $isVerif = '
                                 <span class="badge bg-soft-danger text-danger">Not Verified</span>
                             ';
                         }
+
+                        $isSubmit = '';
+                        if($participant->is_submited == '1'){
+                            $isSubmit = '
+                                <span class="badge bg-soft-success text-success">Submited</span>
+                            ';
+                        }else{
+                            $isSubmit = '
+                                <span class="badge bg-soft-danger text-danger">Not Submited</span>
+                            ';
+                        }
+
+                        $step = '';
+                        if($participant->step == '0'){
+                          $step = "1. Basic";
+                        }else if($participant->step == '1'){
+                          $step = "2. Other";
+                        }else if($participant->step == '2'){
+                          $step = "3. Essay";
+                        }else if($participant->step == '3'){
+                          $step = "4. Essay";
+                        }else if($participant->step == '4'){
+                          $step = "5. Essay";
+                        }else{
+                          $step = "Completed";
+                        }
+
+
                         echo '
                             <tr>
+                                <td scope="col">'.$no++.'</td>
                                 <td scope="col">'.$participant->name.'</td>
-                                <td scope="col">'.$participant->email.'</td>
-                                <td scope="col">'.$status.'</td>
+                                <td scope="col">'.$isVerif.'</td>
+                                <td scope="col">'.$step.'</td>
+                                <td scope="col">'.$isSubmit.'</td>
                                 <td scope="col">
                                     <a href="'.site_url('admin/participant/'.$participant->id_user).'" class="btn btn-soft-info btn-icon btn-sm"><i class="bi-eye"></i></a>
                                     <button onclick="showMdlChangePassword(\''.$participant->id_user.'\')" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-key"></i></button>
