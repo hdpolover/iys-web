@@ -33,7 +33,8 @@ class AuthController extends CI_Controller{
         $formData['token_regis']    = $this->encryption->encrypt($newId.';'.date('Y-m-d H:i', strtotime("+1 day")));
         $this->User->insert($formData);
 
-        $this->ParticipantDetail->insert(['id_user' => $newId, 'id_summit' => '1']);
+        $affiliateCode = $_POST['affiliateCode'] != "" ? $_POST['affiliateCode'] : NULL;
+        $this->ParticipantDetail->insert(['id_user' => $newId, 'id_summit' => '1', 'register_affiliate' => $affiliateCode]);
         // $this->setSession($formData['id_user'], $formData['email'], $formData['name'], null, $formData['id_user_role'], 0, 0);
 
         $this->mail->send($formData['email'], 'EMAIL VERIFICATION', $this->load->view('email/register', $formData, true));

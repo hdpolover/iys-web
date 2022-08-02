@@ -5,6 +5,7 @@ class FrontController extends CI_Controller{
         parent::__construct();
         $this->load->model('Announcement');
         $this->load->model('User');
+        $this->load->model('Ambassador');
     }
     public function signIn(){
         if($this->session->userdata('role') == '1'){
@@ -20,6 +21,20 @@ class FrontController extends CI_Controller{
             redirect('announcement');
         }
 
+        $affiliateCode = $this->input->get('affiliate_code');
+        if($affiliateCode != null){
+            $ambassador = $this->Ambassador->get(['referral_code' => strtoupper($affiliateCode)]);
+            if($ambassador != null){
+                $this->session->set_flashdata('succ_msg', 'You register using <b>'.$ambassador[0]->name.'\'s</b> affiliate code!');
+                $affiliateCode = strtoupper($affiliateCode);
+            }else{
+                $this->session->set_flashdata('err_msg', 'The affiliate code you entered is wrong!');
+                $affiliateCode = "";
+            }
+        }else{
+            $affiliateCode = "";
+        }
+
         $dateExpired  = "August 31, 2022 23:59:59";
         $dateNow      = date("Y-m-d H:i:s");
 
@@ -28,7 +43,8 @@ class FrontController extends CI_Controller{
             redirect('sign-in');
         }
         
-        $data['title']      = 'Sign Up';
+        $data['title']          = 'Sign Up';
+        $data['affiliateCode']  = $affiliateCode;
         
         $this->template->frontWithoutTopBar('sign_up', $data);
     }
