@@ -76,6 +76,24 @@
                     ';
                 }
             ?>
+            <div class="row mb-5">
+              <div class="col">
+                                <!-- Dropdown -->
+                <div style="float: right;" class="btn-group">
+                  <button class="btn btn-sm btn-success dropdown-toggle" type="button" id="dropdownMenuButtonClickAnimation" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
+                    <i class="bi-file-earmark-excel-fill"></i>&nbsp;
+                    Export
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButtonClickAnimation">
+                    <a class="dropdown-item" href="<?= site_url('admin/participant/export/1')?>">All</a>
+                    <a class="dropdown-item" href="<?= site_url('admin/participant/export/2')?>">Verified</a>
+                    <a class="dropdown-item" href="<?= site_url('admin/participant/export/3')?>">Submited</a>
+                    <a class="dropdown-item" href="<?= site_url('admin/participant/export/4')?>">Checked</a>
+                  </div>
+                </div>
+                <!-- End Dropdown -->
+              </div>
+            </div>
             <table class="table table-borderless table-thead-bordered datatable">
               <thead class="thead-light">
                 <tr>

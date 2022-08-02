@@ -99,6 +99,7 @@ $route['admin/participant/add']                 = 'adm/ParticipantController/add
 $route['admin/participant/change-password']     = 'adm/ParticipantController/changePassword';
 $route['admin/participant/edit/(:any)']         = 'adm/ParticipantController/edit/$1';
 $route['admin/participant/checked']             = 'adm/ParticipantController/checked';
+$route['admin/participant/export/(:any)']       = 'adm/ParticipantController/export/$1';
 $route['admin/participant/(:any)']              = 'adm/ParticipantController/detail/$1';
 // payment
 $route['admin/payment']                     = 'adm/PaymentController';
