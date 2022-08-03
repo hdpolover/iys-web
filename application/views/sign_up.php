@@ -131,8 +131,7 @@
                             '.$this->session->flashdata('err_msg').'
                         </div>        
                     ';
-                }
-                if($this->session->flashdata('succ_msg')){
+                }else if($this->session->flashdata('succ_msg')){
                     echo '
                         <div class="alert alert-soft-success mb-3" role="alert">
                             '.$this->session->flashdata('succ_msg').'
