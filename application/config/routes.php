@@ -147,9 +147,20 @@ $route['payment/finish']                    = 'usr/PaymentController/finish';
 $route['payment/history/(:any)']            = 'usr/PaymentController/history/$1';
 $route['payment/status/(:any)']             = 'usr/PaymentController/status/$1';
 $route['payment/status-paypal/(:any)']      = 'usr/PaymentController/statusPaypal/$1';
-$route['payment/check-status']              = 'usr/PaymentController/checkStatus';
+$route['payment/check-status']              = 'usr/PaymentController/checkStsatus';
 $route['payment/paypal-transaction/(:any)'] = 'usr/PaymentController/paypalTransaction/$1';
 $route['payment/paypal-transaction/(:any)'] = 'usr/PaymentController/paypalTransaction/$1';
+
+
+//
+// ===== ADMIN =====
+$route['affiliate']             = 'aff/AuthController';
+// auth
+$route['affiliate/sign-in']     = 'aff/AuthController/signIn';
+$route['affiliate/login']       = 'aff/AuthController/login';
+$route['affiliate/logout']      = 'aff/AuthController/logout';
+// dashboard
+$route['affiliate/dashboard']   = 'aff/DashboardController';
 
 // EMAILING
 $route['send-email/register'] = 'EmailController/register';

@@ -479,6 +479,17 @@
         
       </div>
     <!-- Card Grid -->
+    <!-- <div class="container content-space-t-2 content-space-t-lg-3 content-space-b-lg-2"> -->
+      <div class="container content-space-t-3 content-space-t-lg-5">
+        <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
+          <!-- <span class="text-cap">Event Details</span> -->
+          <h2>Istanbul Youth Summit Song - We Are the Youth</h2>
+        </div>
+
+        <iframe width="100%" height="550" style="margin-bottom: 5rem;" src="https://www.youtube.com/embed/ZwWmpPqs5tU?autoplay=1&t=3" allow="autoplay" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
+      </div>
+    <!-- Card Grid -->
     <div class="container mt-3">
       <div class="row">
         <div class="col">
