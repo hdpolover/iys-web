@@ -79,26 +79,14 @@
                 </div>
                 <input type="file" accept=".jpg,.png,.jpeg,.bmp" class="form-control" name="poster" style="cursor: pointer;" id="imgPoster">
             </div>
-            <div class="mb-3">
+            <!-- <div class="mb-3">
                 <label for="">Content</label>
                 <textarea class="form-control" name="content" id="" cols="30" rows="10" required></textarea>
-            </div>
-            <!-- <div class="mb-3">
-                <label for="validationValidTextarea1">Content</label>
-                <div class="quill-custom">
-                    <input type="hidden" id="content" name="content">
-                    <div class="js-quill" style="min-height: 15rem;"
-                        data-hs-quill-options='{
-                        "placeholder": "Type your message...",
-                        "modules": {
-                            "toolbar": [
-                            ["bold", "italic", "underline", "strike", "link", "image", "blockquote", "code", {"list": "bullet"}]
-                            ]
-                        }
-                        }'>
-                    </div>
-                </div>
             </div> -->
+            <div class="mb-3">
+                <label for="validationValidTextarea1">Content</label>
+                <textarea class="summernote-editor" name="content"></textarea>
+            </div>
             <div style="float: right;">
                 <input type="hidden" name="summit" value="1">
                 <button type="submit" class="btn btn-soft-success">Save</button>

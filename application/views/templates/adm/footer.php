@@ -29,7 +29,7 @@
   <script src="<?= site_url()?>assets/vendor/list.js/dist/list.min.js"></script>
   <script src="<?= site_url()?>assets/vendor/hs-go-to/dist/hs-go-to.min.js"></script>
   <script src="<?= site_url()?>assets/vendor/prism/prism.js"></script>
-  <script src="<?= site_url()?>assets/vendor/quill/dist/quill.min.js"></script>
+  <!-- <script src="<?= site_url()?>assets/vendor/quill/dist/quill.min.js"></script> -->
   <script src="<?= site_url()?>assets/js/flatpickr.min.js"></script>
 
   <!-- JS Front -->
@@ -38,12 +38,28 @@
 
   <!-- JS Plugins Init. -->
   <script>
+    $(document).ready(function(){
+      $('.summernote-editor').summernote({
+        placeholder: 'Type here..',
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      })
+    })
     $('.datatable').DataTable();
     (function() {
       // INITIALIZATION OF HEADER
       // =======================================================
-      new HSHeader('#header').init()
-      HSCore.components.HSQuill.init('.js-quill')
+      // new HSHeader('#header').init()
+      // HSCore.components.HSQuill.init('.js-quill')
       // INITIALIZATION OF GO TO
       // =======================================================
       new HSGoTo('.js-go-to')

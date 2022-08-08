@@ -83,7 +83,7 @@
                       
                       if($paymentStatus->status == '1'){
                         $btn          = '
-                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Purchase</button>
+                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Pay</button>
                           <a href="'.site_url('payment/paypal-transaction/'.$paymentStatus->id_payment_type).'" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</a>
                         ';
                       }else if($paymentStatus->status == '2'){
@@ -96,19 +96,19 @@
                         $badgeStatus  = '<span class="badge bg-warning text-dark">PENDING</span>';
                       }else if($paymentStatus->status == '3'){
                         $btn  = '
-                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Purchase</button>
+                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Pay</button>
                           <a href="'.site_url('payment/paypal-transaction/'.$paymentStatus->id_payment_type).'" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</a>
                         ';
                         $badgeStatus  = '<span class="badge bg-danger">CANCELED</span>';
                       }else if($paymentStatus->status == '4'){
                         $btn  = '
-                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Purchase</button>
+                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Pay</button>
                           <a href="'.site_url('payment/paypal-transaction/'.$paymentStatus->id_payment_type).'" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</a>
                         ';
                         $badgeStatus  = '<span class="badge bg-danger">EXPIRED</span>';
                       }else if($paymentStatus->status == '5'){
                         $btn  = '
-                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Purchase</button>
+                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Pay</button>
                           <a href="'.site_url('payment/paypal-transaction/'.$paymentStatus->id_payment_type).'" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</a>
                         ';
                         $badgeStatus  = '<span class="badge bg-danger">DENY</span>';
@@ -192,7 +192,7 @@
             </div>
             <div class="card-footer">
               <p><b>Note:</b></p>
-              <p>- "Paypal" button is only for purchases by non Indonesian participants. Confirm your payment to the IYS admin on WhatsApp.</p>
+              <p>- The "Pay" button provides many different payment methods of your choice such as Credit/Debit Card, Virtual Account, Bank Transfer, and GoPay). Meanwhile the "PayPal" button is provided for those who wish to pay with Paypal and do not have access to previously mentioned payment methods.</p>
               <p>- If there is an error, please refresh your browser</p>
             </div>
           </div>

@@ -50,7 +50,7 @@
           <h2>Statistic "<?= $ambassador[0]->referral_code." - ".$ambassador[0]->name?>"</h2>
           <hr>
           <div class="row">
-            <div class="col-sm-12 col-lg-6 mb-3 mb-lg-5">
+            <div class="col-sm-12 col-lg-4 mb-3 mb-lg-5">
               <!-- Card -->
               <div class="card">
                 <div class="card-body">
@@ -68,7 +68,7 @@
               </div>
               <!-- End Card -->
             </div>
-            <div class="col-sm-12 col-lg-6 mb-3 mb-lg-5">
+            <div class="col-sm-12 col-lg-4 mb-3 mb-lg-5">
               <!-- Card -->
               <div class="card">
                 <div class="card-body">
@@ -86,68 +86,138 @@
               </div>
               <!-- End Card -->
             </div>
+            <div class="col-sm-12 col-lg-4 mb-3 mb-lg-5">
+              <!-- Card -->
+              <div class="card">
+                <div class="card-body">
+                  <h6 class="card-subtitle mb-2">Total Payment</h6>
+                  <small>Total user purchase register fee with referral code</small>
+
+                  <div class="row align-items-center gx-2">
+                    <div class="col">
+                      <span class="js-counter display-5 text-dark" data-value="24"><?= number_format(count($totalPayment))?></span>
+                    </div>
+                    <!-- End Col -->
+                  </div>
+                  <!-- End Row -->
+                </div>
+              </div>
+              <!-- End Card -->
+            </div>
 
           </div>
           <div class="row mt-4">
             <div class="col">
-              <h4>List User Register</h4>
-              <small >List users register account with referral code</small>
-              <table style="margin-top: 5rem;" class="table table-borderless table-thead-bordered datatable">
-                <thead class="thead-light">
-                  <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Nationality</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                      $no = 1;
-                      foreach ($totalRegis as $regis) {
-                          echo '
-                              <tr>
-                                  <td scope="col">'.$no++.'</td>
-                                  <td scope="col">'.$regis->email.'</td>
-                                  <td scope="col">'.$regis->fullname.'</td>
-                                  <td scope="col">'.$regis->nationality.'</td>
-                              </tr>   
-                          ';
-                      }
-                  ?>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="row mt-5">
-            <div class="col">
-              <h4>List User Submit</h4>
-              <small>List user submits self data with referral code</small>
-              <table style="margin-top: 5rem;" class="table table-borderless table-thead-bordered datatable">
-                <thead class="thead-light">
-                  <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Nationality</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-                      $no = 1;
-                      foreach ($totalSubmit as $regis) {
-                          echo '
-                              <tr>
-                                  <td scope="col">'.$no++.'</td>
-                                  <td scope="col">'.$regis->email.'</td>
-                                  <td scope="col">'.$regis->name.'</td>
-                                  <td scope="col">'.$regis->nationality.'</td>
-                              </tr>   
-                          ';
-                      }
-                  ?>
-                </tbody>
-              </table>
+              <!-- Nav -->
+              <div class="text-center">
+                <ul class="nav nav-segment nav-pills mb-7" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="nav-one-eg1-tab" href="#nav-one-eg1" data-bs-toggle="pill" data-bs-target="#nav-one-eg1" role="tab" aria-controls="nav-one-eg1" aria-selected="true">List Register</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="nav-two-eg1-tab" href="#nav-two-eg1" data-bs-toggle="pill" data-bs-target="#nav-two-eg1" role="tab" aria-controls="nav-two-eg1" aria-selected="false">List Submited</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="nav-three-eg1-tab" href="#nav-three-eg1" data-bs-toggle="pill" data-bs-target="#nav-three-eg1" role="tab" aria-controls="nav-three-eg1" aria-selected="false">List Payment</a>
+                  </li>
+                </ul>
+              </div>
+              <!-- End Nav -->
+
+              <!-- Tab Content -->
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="nav-one-eg1" role="tabpanel" aria-labelledby="nav-one-eg1-tab">
+                  <h4>List User Register</h4>
+                  <small >List users register account with referral code</small>
+                  <table style="margin-top: 5rem;" class="table table-borderless table-thead-bordered datatable">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Nationality</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php
+                          $no = 1;
+                          foreach ($totalRegis as $regis) {
+                              echo '
+                                  <tr>
+                                      <td scope="col">'.$no++.'</td>
+                                      <td scope="col">'.$regis->email.'</td>
+                                      <td scope="col">'.$regis->name.'</td>
+                                      <td scope="col">'.$regis->nationality.'</td>
+                                  </tr>   
+                              ';
+                          }
+                      ?>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="tab-pane fade" id="nav-two-eg1" role="tabpanel" aria-labelledby="nav-two-eg1-tab">
+                  <h4>List User Submit</h4>
+                  <small>List user submits self data with referral code</small>
+                  <table style="margin-top: 5rem;" class="table table-borderless table-thead-bordered datatable">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Nationality</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php
+                          $no = 1;
+                          foreach ($totalSubmit as $regis) {
+                              echo '
+                                  <tr>
+                                      <td scope="col">'.$no++.'</td>
+                                      <td scope="col">'.$regis->email.'</td>
+                                      <td scope="col">'.$regis->name.'</td>
+                                      <td scope="col">'.$regis->nationality.'</td>
+                                  </tr>   
+                              ';
+                          }
+                      ?>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="tab-pane fade" id="nav-three-eg1" role="tabpanel" aria-labelledby="nav-three-eg1-tab">
+                <h4>List User Submit</h4>
+                  <small>List user submits self data with referral code</small>
+                  <table style="margin-top: 5rem;" class="table table-borderless table-thead-bordered datatable">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Nationality</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php
+                          $no = 1;
+                          foreach ($totalPayment as $regis) {
+                              echo '
+                                  <tr>
+                                      <td scope="col">'.$no++.'</td>
+                                      <td scope="col">'.$regis->email.'</td>
+                                      <td scope="col">'.$regis->name.'</td>
+                                      <td scope="col">'.$regis->nationality.'</td>
+                                  </tr>   
+                              ';
+                          }
+                      ?>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- End Tab Content -->
+              
             </div>
           </div>
         </div>
