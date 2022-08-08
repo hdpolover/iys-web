@@ -38,6 +38,7 @@ class AuthController extends CI_Controller{
         // $this->setSession($formData['id_user'], $formData['email'], $formData['name'], null, $formData['id_user_role'], 0, 0);
 
         $this->mail->send($formData['email'], 'EMAIL VERIFICATION', $this->load->view('email/register', $formData, true));
+        $this->session->unset_userdata('affiliate');
         $this->session->set_flashdata('succ_msg', 'Please verify your email to continue. Check your inbox or spam folder.');
         redirect('sign-in');
     }

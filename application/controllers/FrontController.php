@@ -21,14 +21,22 @@ class FrontController extends CI_Controller{
             redirect('announcement');
         }
 
-        $affiliateCode = $this->input->get('affiliate_code');
-        if($affiliateCode != null){
-            $ambassador = $this->Ambassador->get(['referral_code' => strtoupper($affiliateCode)]);
+        $affiliateCodeUrl = $this->input->get('affiliate_code');
+        if($affiliateCodeUrl != null || $this->session->userdata('affiliate')){
+            $affiliateCode = "";
+            if($affiliateCodeUrl != null){
+                $affiliateCode = strtoupper($affiliateCodeUrl);
+            }else if($this->session->userdata('affiliate')){
+                $affiliateCode = strtoupper($this->session->userdata('affiliate'));
+            }
+            
+            $this->session->set_userdata('affiliate', $affiliateCode);
+            $ambassador = $this->Ambassador->get(['referral_code' => $affiliateCode]);
             if($ambassador != null){
                 $this->session->set_flashdata('succ_msg', 'You register using <b>'.$ambassador[0]->name.'\'s</b> affiliate code!');
-                $affiliateCode = strtoupper($affiliateCode);
-            }else{
+            }else if($affiliateCodeUrl != null){
                 $this->session->set_flashdata('err_msg', 'The affiliate code you entered is wrong!');
+                $this->session->unset_userdata('affiliate');
                 $affiliateCode = "";
             }
         }else{

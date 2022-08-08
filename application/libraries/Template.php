@@ -29,4 +29,10 @@ class Template {
         $this->_ci->load->view($content, $data); // Content
         $this->_ci->load->view('templates/adm/footer', $data);
     }
+    public function affiliate($content, $data){
+        $this->_ci->load->view('templates/aff/header', $data);
+        $this->_ci->load->view('templates/aff/topbar', $data);
+        $this->_ci->load->view($content, $data); // Content
+        $this->_ci->load->view('templates/aff/footer', $data);
+    }
 }
