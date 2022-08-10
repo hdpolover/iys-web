@@ -6,6 +6,7 @@ class FrontController extends CI_Controller{
         $this->load->model('Announcement');
         $this->load->model('User');
         $this->load->model('Ambassador');
+        $this->load->library('encryption');
     }
     public function signIn(){
         if($this->session->userdata('role') == '1'){
@@ -86,8 +87,9 @@ class FrontController extends CI_Controller{
         $usr['name']        = $user->name;
         $usr['token_regis'] = $user->token_regis;
 
+        $this->session->set_flashdata('succ_msg', 'Please verify your email to continue. Check your inbox or spam folder.');
         $this->mail->send($usr['email'], 'EMAIL VERIFICATION', $this->load->view('email/register', $usr, true));
-        redirect('announcement');
+        redirect('personal-info');
     }
     public function about(){
         $data['title']      = 'About IYS';

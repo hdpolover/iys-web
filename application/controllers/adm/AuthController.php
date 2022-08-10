@@ -18,7 +18,11 @@ class AuthController extends CI_Controller{
             redirect('admin/sign-in');
         }
 
-        $this->setSession($admin[0]->id_admin, $admin[0]->username, "0");
+        $this->setSession($admin[0]->id_admin, $admin[0]->username, $admin[0]->role);
+
+        if($admin[0]->role == '6'){
+            redirect('admin/announcement-public');
+        }
         redirect('admin/dashboard');
     }
     public function logout(){

@@ -57,7 +57,7 @@
               if($this->session->userdata('is_verif') == 0){
                 echo '
                   <div class="alert alert-soft-danger text-center card-alert" role="alert">
-                    Please verify your email address.
+                    Please verify your email address, , <a class="text-red" href="'.site_url('resend-email/'.$this->session->userdata('id_user')).'">resend email verification</a>
                   </div>
                 ';
               }else if($this->session->userdata('is_submit') == 0){

@@ -82,7 +82,7 @@
               if($this->session->userdata('is_verif') == 0){
                 echo '
                   <div class="alert alert-soft-danger text-center card-alert" role="alert">
-                    Please verify your email address.
+                    Please verify your email address, <a class="text-red" href="'.site_url('resend-email/'.$this->session->userdata('id_user')).'">resend email verification</a>
                   </div>
                 ';
               }
@@ -95,6 +95,16 @@
                   echo '
                     <div class="alert alert-soft-danger" role="alert">
                       '.$this->session->flashdata('err_msg').'
+                    </div>    
+                  ';
+                }
+              ?>
+              
+               <?php 
+                if($this->session->flashdata('succ_msg')){
+                  echo '
+                    <div class="alert alert-soft-success" role="alert">
+                      '.$this->session->flashdata('succ_msg').'
                     </div>    
                   ';
                 }

@@ -3,12 +3,13 @@
 class AnnouncementController extends CI_Controller{
     public function __construct(){
         parent::__construct();
-        if($this->session->userdata('role') != "0"){
+        if($this->session->userdata('role') == "0" || $this->session->userdata('role') == "6"){
+            $this->load->library('upload');
+            $this->load->model('Announcement');
+            $this->load->model('ParticipantDetail');
+        }else{
             redirect('/');
         }
-        $this->load->library('upload');
-        $this->load->model('Announcement');
-        $this->load->model('ParticipantDetail');
     }
     public function index(){
         $data['title']          = 'Announcement';
