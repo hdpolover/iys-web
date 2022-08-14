@@ -152,19 +152,27 @@
                               <span class="card-subtitle">Close:</span>
                                 <h5><?= date_format(date_create($paymentStatus->end_date), 'F d, Y H:i')?></h5>
                             </div>
-                            <div>
-                              <span class="card-subtitle">Total (IDR)</span>
-                              <h3 class="text-primary">Rp<?= number_format($paymentStatus->amount)?></h3>
-                              <span class="card-subtitle">Total (USD)</span>
-                              <h3 class="text-primary">$<?= $paymentStatus->usd?></h3>
-                            </div>
-                            <input type="hidden" id="purchase-total" value="<?= $paymentStatus->amount?>">
-                            <input type="hidden" id="purchase-item" value="<?= $paymentStatus->description?>">
-                            <?= $paymentType?>
                             <?php
                               $openDate   = $paymentStatus->start_date;
                               $closedDate = $paymentStatus->end_date;
                               $currDate   = date('Y-m-d H:i:s');
+
+                              if(strtotime($currDate) < strtotime($openDate)){
+
+                              }else {
+                            ?>
+                              <div>
+                                <span class="card-subtitle">Total (IDR)</span>
+                                <h3 class="text-primary">Rp<?= number_format($paymentStatus->amount)?></h3>
+                                <span class="card-subtitle">Total (USD)</span>
+                                <h3 class="text-primary">$<?= $paymentStatus->usd?></h3>
+                              </div>
+                            <?php }?>
+
+                            <input type="hidden" id="purchase-total" value="<?= $paymentStatus->amount?>">
+                            <input type="hidden" id="purchase-item" value="<?= $paymentStatus->description?>">
+                            <?= $paymentType?>
+                            <?php
                               if(strtotime($currDate) < strtotime($openDate)){
                                 echo '<button type="button" class="btn btn-ghost-primary btn-sm w-100">Coming Soon</button>';
                               }else if(strtotime($currDate) > strtotime($closedDate) && $paymentStatus->status != '6'){

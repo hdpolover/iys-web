@@ -246,6 +246,105 @@ class ParticipantController extends CI_Controller{
          $writer->save('php://output');
         
     }
+    public function ajxGet(){
+        $draw   = $_POST['draw'];
+        $offset = $_POST['start'];
+        $limit  = $_POST['length']; // Rows display per page
+        $search = $_POST['search']['value'];
+
+        $filter = array();
+        if($_POST['filterEmail'] != null || $_POST['filterEmail'] != '') $filter[] = "u.email like '%".$_POST['filterEmail']."%'";
+        if($_POST['filterName'] != null || $_POST['filterName'] != '') $filter[] = "u.name like '%".$_POST['filterName']."%'";
+        if($_POST['filterNumber'] != null || $_POST['filterNumber'] != '') $filter[] = "pd.whatsapp_number like '%".$_POST['filterNumber']."%'";
+        if($_POST['filterVerified'] != null || $_POST['filterVerified'] != '') $filter[] = "u.is_verif = '".$_POST['filterVerified']."'";
+        if($_POST['filterSubmited'] != null || $_POST['filterSubmited'] != '') $filter[] = "pd.is_submited = '".$_POST['filterSubmited']."'";
+        if($_POST['filterChecked'] != null || $_POST['filterChecked'] != '') $filter[] = "pd.is_checked = '".$_POST['filterChecked']."'";
+        
+        $participants = $this->ParticipantDetail->getDataTable(['filter' => $filter, 'offset' => $offset, 'limit' => $limit, 'search' => $search, 'idWarehouse' => $this->session->userdata('ID_WAREHOUSE')]);
+        $datas = array();
+        $no = 1;
+        foreach ($participants['records'] as $participant) {
+            $isVerif = '';
+            if($participant->is_verif == '1'){
+                $isVerif = '
+                    <span class="badge bg-soft-success text-success">Verified</span>
+                ';
+            }else{
+                $isVerif = '
+                    <span class="badge bg-soft-danger text-danger">Not Verified</span>
+                ';
+            }
+
+            $isSubmit = '';
+            if($participant->is_submited == '1'){
+                $isSubmit = '
+                    <span class="badge bg-soft-success text-success">Submited</span>
+                ';
+            }else{
+                $isSubmit = '
+                    <span class="badge bg-soft-danger text-danger">Not Submited</span>
+                ';
+            }
+
+            $step = '';
+            if($participant->step == '0'){
+                $step = "1. Basic";
+            }else if($participant->step == '1'){
+                $step = "2. Other";
+            }else if($participant->step == '2'){
+                $step = "3. Essay";
+            }else if($participant->step == '3'){
+                $step = "4. Essay";
+            }else if($participant->step == '4'){
+                $step = "5. Essay";
+            }else{
+                $step = "Completed";
+            }
+
+
+            $isChecked = '';
+            if($participant->is_checked == '1'){
+                $isChecked = '
+                    <span class="badge bg-soft-success text-success">Checked</span>
+                ';
+            }else{
+                $isChecked = '
+                    <span class="badge bg-soft-danger text-danger">Not Checked</span>
+                ';
+            }
+
+
+            $btnChekced = "";
+            if($participant->is_checked == '0' && $participant->is_submited == '1'){
+                $btnChekced = '
+                <button onclick="showMdlChecked(\''.$participant->id_user.'\')" class="btn btn-soft-info btn-icon btn-sm"><i class="bi-check"></i></button>
+                ';
+            }
+
+            $datas[] = array( 
+                "no"            => $no++,
+                "name"          => $participant->name,
+                "statusVerif"   => $isVerif,
+                "step"          => $step,
+                "statusSubmit"  => $isSubmit,
+                "statusCheck"   => $isChecked,
+                "action"        => '
+                    '.$btnChekced.'
+                    <a target="_blank" href="'.site_url('admin/participant/'.$participant->id_user).'" class="btn btn-soft-info btn-icon btn-sm"><i class="bi-eye"></i></a>
+                    <button onclick="showMdlChangePassword(\''.$participant->id_user.'\')" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-key"></i></button>
+                    '
+            );
+        }
+
+        $response = array(
+            "draw" => intval($draw),
+            "recordsTotal" => $participants['totalRecords'],
+            "recordsFiltered" => ($search != "" ? $participants['totalDisplayRecords'] : $participants['totalRecords']),
+            "aaData" => $datas,
+        );
+
+        echo json_encode($response);
+    }
     public function getQueryData(){
         return $this->db->query("
             SELECT

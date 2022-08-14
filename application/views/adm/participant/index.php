@@ -94,7 +94,52 @@
                 <!-- End Dropdown -->
               </div>
             </div>
-            <table class="table table-borderless table-thead-bordered datatable">
+            <div class="row mb-4">
+              <div class="col-sm mb-2 mb-sm-0">
+                <label for="">Email</label>
+                <input type="text" id="filter_email" class="form-control" placeholder="Email Filter" />
+              </div>
+
+              <div class="col-sm mb-2 mb-sm-0">
+                <label for="">Name</label>
+                <input type="text" id="filter_name" class="form-control" placeholder="Name Filter" >
+              </div>
+
+              <div class="col-sm mb-2 mb-sm-0">
+                <label for="">Phone Number</label>
+                <input type="text" id="filter_number" class="form-control" placeholder="Phone Filter" >
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm mb-2 mb-sm-0">
+                <label for="">Verified</label>
+                <select id="filter_verified" class="form-control">
+                  <option value="">All</option>
+                  <option value="1">Verified</option>
+                  <option value="0">Not Verified</option>
+                </select>
+              </div>
+
+              <div class="col-sm mb-2 mb-sm-0">
+                <label for="">Submited</label>
+                <select id="filter_submited" class="form-control">
+                  <option value="">All</option>
+                  <option value="1">Submited</option>
+                  <option value="0">Not Submited</option>
+                </select>
+              </div>
+              <div class="col-sm mb-2 mb-sm-0">
+                <label for="">Checked</label>
+                <select id="filter_checked" class="form-control">
+                  <option value="">All</option>
+                  <option value="1">Checked</option>
+                  <option value="0">Not Checked</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn btn-sm btn-primary mb-4 mt-2" onclick="btnSearch()"><i class="bi-search"></i>&nbsp&nbspSearch</button>
+            <!-- End Row -->
+            <table id="dataTable" class="table table-borderless table-thead-bordered">
               <thead class="thead-light">
                 <tr>
                   <th scope="col">No</th>
@@ -108,82 +153,82 @@
               </thead>
               <tbody>
                 <?php
-                    $no = 1;
-                    foreach ($participants as $participant) {
-                        $isVerif = '';
-                        if($participant->is_verif == '1'){
-                            $isVerif = '
-                                <span class="badge bg-soft-success text-success">Verified</span>
-                            ';
-                        }else{
-                            $isVerif = '
-                                <span class="badge bg-soft-danger text-danger">Not Verified</span>
-                            ';
-                        }
+                    // $no = 1;
+                    // foreach ($participants as $participant) {
+                    //     $isVerif = '';
+                    //     if($participant->is_verif == '1'){
+                    //         $isVerif = '
+                    //             <span class="badge bg-soft-success text-success">Verified</span>
+                    //         ';
+                    //     }else{
+                    //         $isVerif = '
+                    //             <span class="badge bg-soft-danger text-danger">Not Verified</span>
+                    //         ';
+                    //     }
 
-                        $isSubmit = '';
-                        if($participant->is_submited == '1'){
-                            $isSubmit = '
-                                <span class="badge bg-soft-success text-success">Submited</span>
-                            ';
-                        }else{
-                            $isSubmit = '
-                                <span class="badge bg-soft-danger text-danger">Not Submited</span>
-                            ';
-                        }
+                    //     $isSubmit = '';
+                    //     if($participant->is_submited == '1'){
+                    //         $isSubmit = '
+                    //             <span class="badge bg-soft-success text-success">Submited</span>
+                    //         ';
+                    //     }else{
+                    //         $isSubmit = '
+                    //             <span class="badge bg-soft-danger text-danger">Not Submited</span>
+                    //         ';
+                    //     }
 
-                        $step = '';
-                        if($participant->step == '0'){
-                          $step = "1. Basic";
-                        }else if($participant->step == '1'){
-                          $step = "2. Other";
-                        }else if($participant->step == '2'){
-                          $step = "3. Essay";
-                        }else if($participant->step == '3'){
-                          $step = "4. Essay";
-                        }else if($participant->step == '4'){
-                          $step = "5. Essay";
-                        }else{
-                          $step = "Completed";
-                        }
-
-
-                        $isChecked = '';
-                        if($participant->is_checked == '1'){
-                            $isChecked = '
-                                <span class="badge bg-soft-success text-success">Checked</span>
-                            ';
-                        }else{
-                            $isChecked = '
-                                <span class="badge bg-soft-danger text-danger">Not Checked</span>
-                            ';
-                        }
+                    //     $step = '';
+                    //     if($participant->step == '0'){
+                    //       $step = "1. Basic";
+                    //     }else if($participant->step == '1'){
+                    //       $step = "2. Other";
+                    //     }else if($participant->step == '2'){
+                    //       $step = "3. Essay";
+                    //     }else if($participant->step == '3'){
+                    //       $step = "4. Essay";
+                    //     }else if($participant->step == '4'){
+                    //       $step = "5. Essay";
+                    //     }else{
+                    //       $step = "Completed";
+                    //     }
 
 
-                        $btnChekced = "";
-                        if($participant->is_checked == '0' && $participant->is_submited == '1'){
-                          $btnChekced = '
-                            <button onclick="showMdlChecked(\''.$participant->id_user.'\')" class="btn btn-soft-info btn-icon btn-sm"><i class="bi-check"></i></button>
-                          ';
-                        }
+                    //     $isChecked = '';
+                    //     if($participant->is_checked == '1'){
+                    //         $isChecked = '
+                    //             <span class="badge bg-soft-success text-success">Checked</span>
+                    //         ';
+                    //     }else{
+                    //         $isChecked = '
+                    //             <span class="badge bg-soft-danger text-danger">Not Checked</span>
+                    //         ';
+                    //     }
 
 
-                        echo '
-                            <tr>
-                                <td scope="col">'.$no++.'</td>
-                                <td scope="col">'.$participant->name.'</td>
-                                <td scope="col">'.$isVerif.'</td>
-                                <td scope="col">'.$step.'</td>
-                                <td scope="col">'.$isSubmit.'</td>
-                                <td scope="col">'.$isChecked.'</td>
-                                <td scope="col">
-                                  '.$btnChekced.'
-                                  <a target="_blank" href="'.site_url('admin/participant/'.$participant->id_user).'" class="btn btn-soft-info btn-icon btn-sm"><i class="bi-eye"></i></a>
-                                  <button onclick="showMdlChangePassword(\''.$participant->id_user.'\')" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-key"></i></button>
-                                </td>
-                            </tr>   
-                        ';
-                    }
+                    //     $btnChekced = "";
+                    //     if($participant->is_checked == '0' && $participant->is_submited == '1'){
+                    //       $btnChekced = '
+                    //         <button onclick="showMdlChecked(\''.$participant->id_user.'\')" class="btn btn-soft-info btn-icon btn-sm"><i class="bi-check"></i></button>
+                    //       ';
+                    //     }
+
+
+                    //     echo '
+                    //         <tr>
+                    //             <td scope="col">'.$no++.'</td>
+                    //             <td scope="col">'.$participant->name.'</td>
+                    //             <td scope="col">'.$isVerif.'</td>
+                    //             <td scope="col">'.$step.'</td>
+                    //             <td scope="col">'.$isSubmit.'</td>
+                    //             <td scope="col">'.$isChecked.'</td>
+                    //             <td scope="col">
+                    //               '.$btnChekced.'
+                    //               <a target="_blank" href="'.site_url('admin/participant/'.$participant->id_user).'" class="btn btn-soft-info btn-icon btn-sm"><i class="bi-eye"></i></a>
+                    //               <button onclick="showMdlChangePassword(\''.$participant->id_user.'\')" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-key"></i></button>
+                    //             </td>
+                    //         </tr>   
+                    //     ';
+                    // }
                 ?>
               </tbody>
             </table>
@@ -244,6 +289,33 @@
     <!-- End Modal -->
   </main>
   <script>
+    var table = $('#dataTable').DataTable({
+        'processing': true,
+        'serverSide': true,
+        'ordering': false,
+        'searching': false,
+        'serverMethod': 'post',
+        'ajax': {
+            'url':'<?= site_url('admin/participant/ajxGet')?>',
+            'data': function(d){
+                d.filterEmail     = $('#filter_email').val()
+                d.filterName      = $('#filter_name').val()
+                d.filterNumber    = $('#filter_number').val()
+                d.filterVerified  = $('#filter_verified').val()
+                d.filterSubmited  = $('#filter_submited').val()
+                d.filterChecked  = $('#filter_checked').val()
+            }
+        },
+        'columns': [
+            { data: 'no' },
+            { data: 'name' },
+            { data: 'statusVerif' },
+            { data: 'step' },
+            { data: 'statusSubmit' },
+            { data: 'statusCheck' },
+            { data: 'action' }
+        ]
+    });
     const showMdlChangePassword = id => {
       const pass = Math.random().toString(36).slice(-8);
       $('#mdlChangePass_id').val(id);
@@ -255,5 +327,8 @@
       const pass = Math.random().toString(36).slice(-8);
       $('#mdlChecked_id').val(id);
       $('#mdlChecked').modal('show')
+    }
+    function btnSearch(){
+        table.ajax.reload();
     }
   </script>
