@@ -5,6 +5,8 @@ class FrontController extends CI_Controller{
         parent::__construct();
         $this->load->model('Announcement');
         $this->load->model('User');
+        $this->load->model('Ambassador');
+        $this->load->library('encryption');
     }
     public function signIn(){
         if($this->session->userdata('role') == '1'){
@@ -20,6 +22,28 @@ class FrontController extends CI_Controller{
             redirect('announcement');
         }
 
+        $affiliateCodeUrl = $this->input->get('affiliate_code');
+        if($affiliateCodeUrl != null || $this->session->userdata('affiliate')){
+            $affiliateCode = "";
+            if($affiliateCodeUrl != null){
+                $affiliateCode = strtoupper($affiliateCodeUrl);
+            }else if($this->session->userdata('affiliate')){
+                $affiliateCode = strtoupper($this->session->userdata('affiliate'));
+            }
+            
+            $this->session->set_userdata('affiliate', $affiliateCode);
+            $ambassador = $this->Ambassador->get(['referral_code' => $affiliateCode]);
+            if($ambassador != null){
+                $this->session->set_flashdata('succ_msg', 'You register using <b>'.$ambassador[0]->name.'\'s</b> affiliate code!');
+            }else if($affiliateCodeUrl != null){
+                $this->session->set_flashdata('err_msg', 'The affiliate code you entered is wrong!');
+                $this->session->unset_userdata('affiliate');
+                $affiliateCode = "";
+            }
+        }else{
+            $affiliateCode = "";
+        }
+
         $dateExpired  = "August 31, 2022 23:59:59";
         $dateNow      = date("Y-m-d H:i:s");
 
@@ -28,12 +52,12 @@ class FrontController extends CI_Controller{
             redirect('sign-in');
         }
         
-        $data['title']      = 'Sign Up';
+        $data['title']          = 'Sign Up';
+        $data['affiliateCode']  = $affiliateCode;
         
         $this->template->frontWithoutTopBar('sign_up', $data);
     }
     public function verifEmail($token){
-        
         $this->load->library('encryption');
         $token = str_replace('-', '+', $token);
         $token = str_replace('_', '/', $token);
@@ -62,8 +86,9 @@ class FrontController extends CI_Controller{
         $usr['name']        = $user->name;
         $usr['token_regis'] = $user->token_regis;
 
+        $this->session->set_flashdata('succ_msg', 'Please verify your email to continue. Check your inbox or spam folder.');
         $this->mail->send($usr['email'], 'EMAIL VERIFICATION', $this->load->view('email/register', $usr, true));
-        redirect('announcement');
+        redirect('personal-info');
     }
     public function about(){
         $data['title']      = 'About IYS';
@@ -115,5 +140,62 @@ class FrontController extends CI_Controller{
         $data['announcement']   = $this->Announcement->getById($id);
         
         $this->template->front('announcement_general_detail', $data);
+    }
+    public function forgotPassowordEmail(){
+        $data['title']      = 'Forgot Password';
+        
+        $this->template->frontWithoutTopBar('forgot_password_send_email', $data);
+    }
+    public function forgotPassowordSendEmail(){
+        $user = $this->User->get(['email' => $_POST['email']]);
+
+        if($user == null){
+            $this->session->set_flashdata('err_msg', 'This email is not registered');
+        }else{
+            $this->User->update(['id_user' => $user[0]->id_user, 'token_forgot' => $this->encryption->encrypt($user[0]->id_user.';'.date('Y-m-d H:i', strtotime("+1 day")))]);
+
+            $user = $this->User->getById($user[0]->id_user);
+            $usr['email']           = $user->email;
+            $usr['name']            = $user->name;
+            $usr['token_forgot']    = $user->token_forgot;
+
+            $this->session->set_flashdata('succ_msg', 'Please check your email to change password. Check your inbox or spam folder.');
+            $this->mail->send($usr['email'], 'CHANGE PASSWORD', $this->load->view('email/change_password', $usr, true));
+        }
+
+        redirect('forgot-password/email');
+    }
+    public function forgotPasswordChangePassword($token){
+        try {
+            $this->load->library('encryption');
+            $token = str_replace('-', '+', $token);
+            $token = str_replace('_', '/', $token);
+            $token = $this->encryption->decrypt($token);
+
+            $data     = explode(';', $token);
+            $currDate = date('Y-m-d H:i');
+            
+            $user = $this->User->getById($data[0]);
+
+            if($user->id_user != $data[0]) redirect('sign-in');
+            if($currDate > date_format(date_create($data[1]), 'Y-m-d H:i')){
+                $this->session->set_flashdata('err_msg', 'Opps, The link has expired');
+                redirect('sign-in');
+            }
+
+            $dataa = [];
+            $dataa['title']  = 'Change Password';
+            $dataa['idUser'] = $data[0];
+            $this->template->frontWithoutTopBar('forgot_password_change_password', $dataa);
+        } catch (\Throwable $th) {
+            $this->session->set_flashdata('err_msg', 'Opps, The link not found');
+            redirect('sign-in');
+        }
+        
+    }
+    public function forgotPasswordNewPassword(){
+        $this->User->update(['id_user' => $_POST['id_user'], 'password' => hash('sha256', md5($this->db->escape_str(htmlentities($_POST['password'])))), 'token_forgot' => NULL]);
+        $this->session->set_flashdata('succ_msg', 'Congratulations, you have successfully changed your password!');
+        redirect('sign-in');
     }
 }

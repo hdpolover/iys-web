@@ -50,7 +50,7 @@
       <div class="docs-page-header">
         <div class="row align-items-center">
           <div class="col-sm">
-            <h1 class="docs-page-header-title">Ambassador</h1>
+            <h1 class="docs-page-header-title mt-5">Ambassador</h1>
           </div>
         </div>
       </div>
@@ -76,7 +76,7 @@
                     ';
                 }
             ?>
-            <table class="table table-borderless table-thead-bordered">
+            <table class="table table-borderless table-thead-bordered datatable">
               <thead class="thead-light">
                 <tr>
                   <th scope="col">Name</th>

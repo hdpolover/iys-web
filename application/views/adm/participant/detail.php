@@ -50,9 +50,11 @@
       <div class="docs-page-header">
         <div class="row align-items-center">
           <div class="col-sm">
-            <h1 class="docs-page-header-title">Participant Detail</h1>
+            <h1 class="docs-page-header-title mt-5">Participant Detail</h1>
+            <small><?= $pDetail->fullname?></small>
           </div>
           <div class="col">
+            
             <!-- <a href="<?= site_url('admin/participant/edit/'.$pDetail->id_user)?>" style="float: right;" class="btn btn-soft-primary btn-sm">
                 <i class="bi-pencil"></i>
                 Edit 
@@ -61,6 +63,33 @@
         </div>
       </div>
       <!-- End Page Header -->
+
+      <div class="row">
+        <div class="col">
+            <?php
+                if($this->session->flashdata('succ_msg')){
+                    echo '
+                        <div class="alert alert-soft-success mb-3" role="alert">
+                            '.$this->session->flashdata('succ_msg').'
+                        </div>        
+                    ';
+                }
+            ?>
+            <?php
+                if($pDetail->is_submited == '1' && $pDetail->is_checked == '0'){
+                    echo '
+                        <button onclick="showMdlChecked(\''.$pDetail->id_user.'\')" style="float: right;" class="btn btn-soft-info btn-sm"><i class="bi-check"></i> Check</button>
+                    ';
+                }
+
+                if($pDetail->is_checked == '1'){
+                    echo '
+                        <span style="float: right;" class="badge bg-soft-success text-success">Checked</span>
+                    ';
+                }
+            ?>
+        </div>
+      </div>
 
         <!-- Table -->
         <div class="row mt-3">
@@ -125,7 +154,7 @@
 
                             <div class="col-sm-9">
                             <div class="js-form-message">
-                                <span><b><?= $pDetail->address ?></b></span>
+                                <span><b><?= $pDetail->detail_address.", ".$pDetail->postal_code.", ".$pDetail->city.", ".$pDetail->city ?></b></span>
                             </div>
                             </div>
                         </div>
@@ -216,15 +245,6 @@
                             <div class="col-sm-9">
                             <div class="js-form-message">
                                 <span><b><?= $pDetail->tshirt_size ?></b></span>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="row mb-4">
-                            <label for="validationFormUsernameLabel" class="col-sm-3 col-form-label form-label">Are you vegetarian?</label>
-
-                            <div class="col-sm-9">
-                            <div class="js-form-message">
-                                <span><b><?= $pDetail->is_vegetarian == "1" ? "Yes" : "No" ?></b></span>
                             </div>
                             </div>
                         </div>
@@ -355,4 +375,36 @@
           <!-- End Table -->
     </div>
     <!-- End Content -->
+    <!-- Modal -->
+    <div class="modal fade" id="mdlChecked" tabindex="-1" aria-labelledby="mdlDeleteLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="mdlDeleteLabel">Checked Participant</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body text-center">
+              <div class="text-center">Are you sure to checked this user?</div>
+          </div>
+
+          <div class="modal-footer">
+            <form action="<?= site_url('admin/participant/checked')?> " method="post">
+              <input type="hidden" name="id" id="mdlChecked_id" >
+              <input type="hidden" name="page" value="participant/<?= $pDetail->id_user?>" >
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-soft-success">Save</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
   </main>
+  <script>
+    const showMdlChecked = id => {
+      const pass = Math.random().toString(36).slice(-8);
+      $('#mdlChecked_id').val(id);
+      $('#mdlChecked').modal('show')
+    }
+  </script>

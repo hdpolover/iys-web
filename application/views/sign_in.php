@@ -75,7 +75,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <label class="form-label" for="signupModalFormLoginPassword">Password</label>
 
-                    <a class="form-label-link" href="./page-reset-password.html">Forgot Password?</a>
+                    <a class="form-label-link" href="<?= site_url('forgot-password/send-email')?>">Forgot Password?</a>
                 </div>
 
                 <div class="input-group input-group-merge" data-hs-validation-validate-class>

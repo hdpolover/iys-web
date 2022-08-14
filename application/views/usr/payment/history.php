@@ -55,7 +55,7 @@
             </div>
               <div class="card-body">
                 <div class="row">  
-                  <table class="table table-borderless table-thead-bordered">
+                  <table class="table table-borderless table-thead-bordered datatable">
                     <thead class="thead-light">
                       <tr>
                         <th scope="col">Payment</th>

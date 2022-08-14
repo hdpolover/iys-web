@@ -61,13 +61,15 @@ class PaymentController extends CI_Controller{
             // print_r($paymentTrans[0]);
             if($paymentTrans != null){
                 if($paymentTrans[0]->method_name != 'paypal'){
-                    $status = $this->veritrans->status($paymentTrans[0]->order_id);
-                    $status = $this->paymentconf->convertStatus($status->transaction_status);
+                    $status         = $this->veritrans->status($paymentTrans[0]->order_id);
+                    $status         = $this->paymentconf->convertStatus($status->transaction_status);
+                    $statusTitle    = $this->paymentconf->convertStatusTitle($status);
 
                     if($status != $paymentTrans[0]->status){
                         $this->PaymentTransaction->update([
                             'id_payment_transaction'    => $paymentTrans[0]->id_payment_transaction, 
-                            'status'                    => $status
+                            'status'                    => $status,
+                            'status_title'              => $statusTitle
                         ]);
     
                         $this->PaymentStatus->update(['id_payment_status' => $paymentActive[0]->id_payment_status, 'status' => $status]);

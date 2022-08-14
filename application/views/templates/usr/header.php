@@ -4,6 +4,7 @@
   <!-- Required Meta Tags Always Come First -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="facebook-domain-verification" content="inxbw4nkni3rs781kphdfzkf5hl3mb" />
 
   <!-- Title -->
   <title><?= $title?> - Istanbul Youth Summit</title>
@@ -22,11 +23,14 @@
   <link rel="stylesheet" href="<?= site_url()?>assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.css">
   <link rel="stylesheet" href="<?= site_url()?>assets/vendor/quill/dist/quill.snow.css">
   <link rel="stylesheet" href="<?= site_url()?>assets/css/flatpickr.min.css">
+  <link rel="stylesheet" href="<?= site_url()?>assets/css/dataTables.bootstrap5.min.css">
   <!-- <link rel="stylesheet" href="<?= site_url()?>assets/vendor/tom-select/dist/css/tom-select.bootstrap5.css"> -->
 
   <!-- CSS Front Template -->
   <link rel="stylesheet" href="<?= site_url()?>assets/css/theme.min.css">
   <script src="<?= site_url()?>assets/js/jquery-3.6.0.min.js"></script>
+  <script src="<?= site_url()?>assets/js/jquery.dataTables.min.js"></script>
+  <script src="<?= site_url()?>assets/js/dataTables.bootstrap5.min.js"></script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

@@ -50,6 +50,15 @@ class Paymentconf {
             $data[1]['value']   = 'gopay';
             $data[2]['column']  = 'method_img';
             $data[2]['value']   = $site_url."assets/img/payment/gopay.png";
+        }else if($resultMidtrans->payment_type == 'credit_card'){
+            $data[0]['column']  = 'method_type';
+            $data[0]['value']   = $resultMidtrans->payment_type;
+            $data[1]['column']  = 'method_name';
+            $data[1]['value']   = $resultMidtrans->card_type;
+            $data[1]['column']  = 'masked_card';
+            $data[1]['value']   = $resultMidtrans->masked_card;
+            $data[2]['column']  = 'method_img';
+            $data[2]['value']   = $site_url."assets/img/payment/creditcard.png";
         }
 
         return $data;
@@ -57,13 +66,13 @@ class Paymentconf {
     public function convertStatus($status){
         if($status == 'pending'){
             return '2';
-        }else if($status == 'cancel'){
+        }else if($status == 'cancel' || $status == 'failure'){
             return '3';
         }else if($status == 'expire'){
             return '4';
         }else if($status == 'deny'){
             return '5';
-        }else if($status == 'settlement'){
+        }else if($status == 'settlement' || $status == 'capture'){
             return '6';
         }
     }

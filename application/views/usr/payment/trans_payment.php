@@ -139,6 +139,15 @@
                     </dd>
                 </dl>
                 <?php
+                  if($paymentDetail->masked_card != null){
+                    echo '
+                      <dl class="row mb-4">
+                          <dt class="col-sm-6">MASKED CARD</dt>
+                          <dd class="col-sm-6 text-sm-end mb-0">'.$paymentDetail->masked_card.'</dd>
+                      </dl>
+                    ';
+                  }
+
                   if($paymentDetail->virtual_number != null){
                     echo '
                       <dl class="row mb-4">

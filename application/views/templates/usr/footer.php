@@ -23,6 +23,7 @@
 
   <!-- JS Plugins Init. -->
   <script>
+    $('.datatable').DataTable();
     (function() {
       // INITIALIZATION OF HEADER
       // =======================================================

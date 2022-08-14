@@ -50,7 +50,7 @@
       <div class="docs-page-header">
         <div class="row align-items-center">
           <div class="col-sm">
-            <h1 class="docs-page-header-title">Payment</h1>
+            <h1 class="docs-page-header-title mt-5">Payment</h1>
           </div>
         </div>
       </div>
@@ -76,9 +76,10 @@
                     ';
                 }
             ?>
-            <table class="table table-borderless table-thead-bordered">
+            <table class="table table-borderless table-thead-bordered datatable">
               <thead class="thead-light">
                 <tr>
+                  <th scope="col">No</th>
                   <th scope="col">Name</th>
                   <th scope="col">Email</th>
                   <th scope="col">Payment State</th>
@@ -88,6 +89,7 @@
               </thead>
               <tbody>
                 <?php
+                    $no = 1;
                     foreach ($payments as $participant) {
                         $status = '';
                         $paymentStatus = $this->db->query("
@@ -140,12 +142,13 @@
                         
                         echo '
                             <tr>
+                                <td scope="col">'.$no++.'</td>
                                 <td scope="col">'.$participant->name.'</td>
                                 <td scope="col">'.$participant->email.'</td>
                                 <td scope="col">'.(!empty($paymentStatus->description) ? $paymentStatus->description : "NOT SUBMIT").'</td>
                                 <td scope="col">'.$status.'</td>
                                 <td scope="col">
-                                    <a href="'.site_url('admin/payment/history/'.$participant->id_user).'" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-list"></i></a>
+                                    <a target="_blank" href="'.site_url('admin/payment/history/'.$participant->id_user).'" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-list"></i></a>
                                 </td>
                             </tr>   
                         ';

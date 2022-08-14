@@ -1,8 +1,15 @@
 <div class="docs-navbar-sidebar-aside-body navbar-sidebar-aside-body">
     <ul id="navbarSettings" class="navbar-nav nav nav-vertical nav-tabs nav-tabs-borderless nav-sm">
+        <?php
+            if($this->session->userdata('role') == '0'){
+        ?>
         <li class="nav-item">
             <a class="nav-link <?= $sidebar == "dashboard" ? "active" : "" ?>" href="<?= site_url('admin/dashboard')?>"><i class="bi-activity nav-icon"></i>Dashboard</a>
         </li>
+        <?php
+            }
+        ?>
+        
         <li class="nav-item <?= $sidebar == "announcement" ? "active" : "" ?>">
             <a class="nav-link dropdown-toggle" href="#sidebarannouncement" role="button" data-bs-toggle="collapse" aria-expanded="<?= $sidebar == "announcement" ? "true" : "false" ?>" aria-controls="sidebarannouncement"><i class="bi-megaphone nav-icon"></i>Announcement</a>
 
@@ -11,6 +18,10 @@
                 <a class="nav-link <?= !empty($subSidebar) && $subSidebar == "announceRegis" ? "active" : ""?>" href="<?= site_url('admin/announcement-registered')?>">Registered</a>
             </div>
         </li>
+        
+        <?php
+            if($this->session->userdata('role') == '0'){
+        ?>
         <li class="nav-item">
             <a class="nav-link <?= $sidebar == "ambassador" ? "active" : "" ?>" href="<?= site_url('admin/ambassador')?>"><i class="bi-person-check nav-icon"></i>Ambassador</a>
         </li>
@@ -45,8 +56,12 @@
         <li class="nav-item">
             <a class="nav-link" href="../snippets/index.html"><i class="bi-gear nav-icon"></i>Setting</a>
         </li>
+        <?php
+            }
+        ?>
         <li class="nav-item">
-            <a class="nav-link text-danger" href="../snippets/index.html" ><i class="bi-box-arrow-left nav-icon"></i>Sign Out</a>
+            <a class="nav-link text-danger" href="<?= site_url('admin/logout')?>" ><i class="bi-box-arrow-left nav-icon"></i>Sign Out</a>
         </li>
+        
     </ul>
 </div>

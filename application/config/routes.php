@@ -54,14 +54,18 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
-$route['home']                          = 'Welcome/home';
-$route['about']                         = 'FrontController/about';
-$route['team']                          = 'FrontController/ourTeam';
-$route['partner-sponsor']               = 'FrontController/partnerSponsor';
-$route['faq']                           = 'FrontController/faq';
-$route['privacy-policy']                = 'FrontController/privacyPolicy';
-$route['announcement-general']          = 'FrontController/announcementGeneral';
-$route['announcement-general/(:any)']   = 'FrontController/announcementGeneralDetail/$1';
+$route['home']                                      = 'Welcome/home';
+$route['about']                                     = 'FrontController/about';
+$route['team']                                      = 'FrontController/ourTeam';
+$route['partner-sponsor']                           = 'FrontController/partnerSponsor';
+$route['faq']                                       = 'FrontController/faq';
+$route['privacy-policy']                            = 'FrontController/privacyPolicy';
+$route['announcement-general']                      = 'FrontController/announcementGeneral';
+$route['announcement-general/(:any)']               = 'FrontController/announcementGeneralDetail/$1';
+$route['forgot-password/email']                     = 'FrontController/forgotPassowordEmail';
+$route['forgot-password/send-email']                = 'FrontController/forgotPassowordSendEmail';
+$route['forgot-password/change-password/(:any)']    = 'FrontController/forgotPasswordChangePassword/$1';
+$route['forgot-password/new-password']              = 'FrontController/forgotPasswordNewPassword/$1';
 
 // ===== ADMIN =====
 $route['admin']             = 'adm/AuthController';
@@ -95,9 +99,12 @@ $route['admin/ambassador/change-status']           = 'adm/AmbassadorController/c
 $route['admin/ambassador/ajxGenRC']                = 'adm/AmbassadorController/generateRC';
 // participant
 $route['admin/participant']                     = 'adm/ParticipantController';
+$route['admin/participant/ajxGet']              = 'adm/ParticipantController/ajxGet';
 $route['admin/participant/add']                 = 'adm/ParticipantController/add';
 $route['admin/participant/change-password']     = 'adm/ParticipantController/changePassword';
 $route['admin/participant/edit/(:any)']         = 'adm/ParticipantController/edit/$1';
+$route['admin/participant/checked']             = 'adm/ParticipantController/checked';
+$route['admin/participant/export/(:any)']       = 'adm/ParticipantController/export/$1';
 $route['admin/participant/(:any)']              = 'adm/ParticipantController/detail/$1';
 // payment
 $route['admin/payment']                     = 'adm/PaymentController';
@@ -145,9 +152,20 @@ $route['payment/finish']                    = 'usr/PaymentController/finish';
 $route['payment/history/(:any)']            = 'usr/PaymentController/history/$1';
 $route['payment/status/(:any)']             = 'usr/PaymentController/status/$1';
 $route['payment/status-paypal/(:any)']      = 'usr/PaymentController/statusPaypal/$1';
-$route['payment/check-status']              = 'usr/PaymentController/checkStatus';
+$route['payment/check-status']              = 'usr/PaymentController/checkStsatus';
 $route['payment/paypal-transaction/(:any)'] = 'usr/PaymentController/paypalTransaction/$1';
 $route['payment/paypal-transaction/(:any)'] = 'usr/PaymentController/paypalTransaction/$1';
+
+
+//
+// ===== ADMIN =====
+$route['affiliate']             = 'aff/AuthController';
+// auth
+$route['affiliate/sign-in']     = 'aff/AuthController/signIn';
+$route['affiliate/login']       = 'aff/AuthController/login';
+$route['affiliate/logout']      = 'aff/AuthController/logout';
+// dashboard
+$route['affiliate/dashboard']   = 'aff/DashboardController';
 
 // EMAILING
 $route['send-email/register'] = 'EmailController/register';

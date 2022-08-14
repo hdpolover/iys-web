@@ -155,12 +155,8 @@ class ParticipantDetailController extends CI_Controller{
         $this->User->update(['id_user' => $this->session->userdata('id_user'), 'name' => $_POST['fullName']]);
         $this->session->set_userdata('name', $_POST['fullName']);
 
-        $ambassador     = $this->Ambassador->get(['referral_code' => $_POST['referral'], 'status' => '1']);
-        if($ambassador != null){
-            $referral_code  = $_POST['referral'];
-        }else{
-            $referral_code  = "-";
-        }
+        $referral_code  = !empty($_POST['affiliateCode']) ? strtoupper($_POST['affiliateCode']) : strtoupper($_POST['referral']);
+        $ambassador     = $this->Ambassador->get(['referral_code' => $referral_code, 'status' => '1']);
 
         $formData['id_user']                = $this->session->userdata('id_user');
         $formData['fullname']               = $_POST['fullName'];
@@ -201,7 +197,7 @@ class ParticipantDetailController extends CI_Controller{
         $this->ParticipantDetail->update(['id_user' => $this->session->userdata('id_user'), 'step' => '5']);
 
         if($ambassador != null){
-            $this->Ambassador->update(['id_ambassador' => $ambassador[0]->id_ambassador, 'total_redeem' => (int)$ambassador->total_redeem + 1]);
+            $this->Ambassador->update(['id_ambassador' => $ambassador[0]->id_ambassador, 'total_redeem' => (int)$ambassador[0]->total_redeem + 1]);
         }
         $this->session->set_userdata(['is_submit' => "1"]);
         $this->mail->send($this->session->userdata('email'), 'REGISTRATION FORM COMPLETION NOTICE', $this->load->view('email/personal_submit', $formData, true));

@@ -61,4 +61,52 @@ class ParticipantDetail extends CI_Model{
     public function delete($param){
         $this->db->delete('participant_details', $param);
     }
+    public function getDataTable($param){
+        $filter = "";
+        if($param['filter'] != null){
+            $filter = " AND ".implode(' AND ', $param['filter']);
+        }
+
+        $filteredRecords = $this->db->query("
+            SELECT
+                pd.id_user ,
+                u.email ,
+                u.name ,
+                pd.step ,
+                u.is_verif ,
+                pd.is_submited ,
+                pd.is_checked
+            FROM
+                participant_details pd ,
+                users u 
+            WHERE 
+                u.id_user_role = '1' 
+                ".$filter."
+                AND pd.id_user = u.id_user
+            ORDER BY pd.fullname ASC
+            LIMIT ".$param['limit']."
+            OFFSET ".$param['offset']."
+        ")->result();
+
+        $realRecords = $this->db->query("
+            SELECT
+                pd.id_user ,
+                u.email ,
+                u.name ,
+                pd.step ,
+                u.is_verif ,
+                pd.is_submited ,
+                pd.is_checked
+            FROM
+                participant_details pd ,
+                users u 
+            WHERE 
+                u.id_user_role = '1'
+                ".$filter."
+                AND pd.id_user = u.id_user
+            ORDER BY pd.fullname ASC
+        ")->result();
+        
+        return ['records' => $filteredRecords, 'totalDisplayRecords' => count($filteredRecords), 'totalRecords' => count($realRecords)];
+    }
 }

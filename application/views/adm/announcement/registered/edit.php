@@ -80,8 +80,10 @@
                 <input type="file" accept=".jpg,.png,.jpeg,.bmp" class="form-control" name="poster" style="cursor: pointer;" id="imgPoster">
             </div>
             <div class="mb-3">
-                <label for="">Content</label>
-                <textarea class="form-control" name="content" id="" cols="30" rows="10" required><?= $announcement->content ?></textarea>
+                <label for="validationValidTextarea1">Content</label>
+                <textarea class="summernote-editor" name="content">
+                  <?= $announcement->content?>
+                </textarea>
             </div>
             <!-- <div class="mb-3">
                 <label for="validationValidTextarea1">Content</label>

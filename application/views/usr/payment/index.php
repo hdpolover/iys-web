@@ -57,7 +57,7 @@
               if($this->session->userdata('is_verif') == 0){
                 echo '
                   <div class="alert alert-soft-danger text-center card-alert" role="alert">
-                    Please verify your email address.
+                    Please verify your email address, , <a class="text-red" href="'.site_url('resend-email/'.$this->session->userdata('id_user')).'">resend email verification</a>
                   </div>
                 ';
               }else if($this->session->userdata('is_submit') == 0){
@@ -83,7 +83,7 @@
                       
                       if($paymentStatus->status == '1'){
                         $btn          = '
-                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Purchase</button>
+                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Pay</button>
                           <a href="'.site_url('payment/paypal-transaction/'.$paymentStatus->id_payment_type).'" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</a>
                         ';
                       }else if($paymentStatus->status == '2'){
@@ -96,19 +96,19 @@
                         $badgeStatus  = '<span class="badge bg-warning text-dark">PENDING</span>';
                       }else if($paymentStatus->status == '3'){
                         $btn  = '
-                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Purchase</button>
+                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Pay</button>
                           <a href="'.site_url('payment/paypal-transaction/'.$paymentStatus->id_payment_type).'" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</a>
                         ';
                         $badgeStatus  = '<span class="badge bg-danger">CANCELED</span>';
                       }else if($paymentStatus->status == '4'){
                         $btn  = '
-                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Purchase</button>
+                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Pay</button>
                           <a href="'.site_url('payment/paypal-transaction/'.$paymentStatus->id_payment_type).'" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</a>
                         ';
                         $badgeStatus  = '<span class="badge bg-danger">EXPIRED</span>';
                       }else if($paymentStatus->status == '5'){
                         $btn  = '
-                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Purchase</button>
+                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Pay</button>
                           <a href="'.site_url('payment/paypal-transaction/'.$paymentStatus->id_payment_type).'" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</a>
                         ';
                         $badgeStatus  = '<span class="badge bg-danger">DENY</span>';
@@ -152,19 +152,27 @@
                               <span class="card-subtitle">Close:</span>
                                 <h5><?= date_format(date_create($paymentStatus->end_date), 'F d, Y H:i')?></h5>
                             </div>
-                            <div>
-                              <span class="card-subtitle">Total (IDR)</span>
-                              <h3 class="text-primary">Rp<?= number_format($paymentStatus->amount)?></h3>
-                              <span class="card-subtitle">Total (USD)</span>
-                              <h3 class="text-primary">$<?= $paymentStatus->usd?></h3>
-                            </div>
-                            <input type="hidden" id="purchase-total" value="<?= $paymentStatus->amount?>">
-                            <input type="hidden" id="purchase-item" value="<?= $paymentStatus->description?>">
-                            <?= $paymentType?>
                             <?php
                               $openDate   = $paymentStatus->start_date;
                               $closedDate = $paymentStatus->end_date;
                               $currDate   = date('Y-m-d H:i:s');
+
+                              if(strtotime($currDate) < strtotime($openDate)){
+
+                              }else {
+                            ?>
+                              <div>
+                                <span class="card-subtitle">Total (IDR)</span>
+                                <h3 class="text-primary">Rp<?= number_format($paymentStatus->amount)?></h3>
+                                <span class="card-subtitle">Total (USD)</span>
+                                <h3 class="text-primary">$<?= $paymentStatus->usd?></h3>
+                              </div>
+                            <?php }?>
+
+                            <input type="hidden" id="purchase-total" value="<?= $paymentStatus->amount?>">
+                            <input type="hidden" id="purchase-item" value="<?= $paymentStatus->description?>">
+                            <?= $paymentType?>
+                            <?php
                               if(strtotime($currDate) < strtotime($openDate)){
                                 echo '<button type="button" class="btn btn-ghost-primary btn-sm w-100">Coming Soon</button>';
                               }else if(strtotime($currDate) > strtotime($closedDate) && $paymentStatus->status != '6'){
@@ -192,7 +200,7 @@
             </div>
             <div class="card-footer">
               <p><b>Note:</b></p>
-              <p>- "Paypal" button is only for purchases by non Indonesian participants. Confirm your payment to the IYS admin on WhatsApp.</p>
+              <p>- The "Pay" button provides many different payment methods of your choice such as Credit/Debit Card, Virtual Account, Bank Transfer, and GoPay). Meanwhile the "PayPal" button is provided for those who wish to pay with Paypal and do not have access to previously mentioned payment methods.</p>
               <p>- If there is an error, please refresh your browser</p>
             </div>
           </div>
