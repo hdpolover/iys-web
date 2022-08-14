@@ -164,7 +164,8 @@
                               <div>
                                 <span class="card-subtitle">Total (IDR)</span>
                                 <h3 class="text-primary">Rp<?= number_format($paymentStatus->amount)?></h3>
-                                <span class="card-subtitle">Total (USD)</span>
+                                <b>OR</b>
+                                <span class="card-subtitle mt-1">Total (USD)</span>
                                 <h3 class="text-primary">$<?= $paymentStatus->usd?></h3>
                               </div>
                             <?php }?>
