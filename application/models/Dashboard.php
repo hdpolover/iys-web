@@ -63,4 +63,80 @@ class Dashboard extends CI_Model{
             GROUP BY pd.referral_code 
         ")->result();
     }
+    public function getPaymentSuccess($idPaymentType){
+        return $this->db->query("
+            SELECT COUNT(*) AS TOTAL
+            FROM payment_transaction pt 
+            WHERE pt.id_payment_type = '".$idPaymentType."' AND pt.status = '6'
+        ")->row();
+    }
+    public function getPaymentPending($idPaymentType){
+        return $this->db->query("
+            SELECT COUNT(*) AS TOTAL
+            FROM payment_transaction pt 
+            WHERE pt.id_payment_type = '".$idPaymentType."' AND pt.status = '2'
+        ")->row();
+    }
+    public function getPaymentCancel($idPaymentType){
+        return $this->db->query("
+            SELECT COUNT(*) AS TOTAL
+            FROM payment_transaction pt 
+            WHERE pt.id_payment_type = '".$idPaymentType."' AND (pt.status = '3' OR pt.status = '5')
+        ")->row();
+    }
+    public function getPaymentExpired($idPaymentType){
+        return $this->db->query("
+            SELECT COUNT(*) AS TOTAL
+            FROM payment_transaction pt 
+            WHERE pt.id_payment_type = '".$idPaymentType."' AND pt.status = '4'
+        ")->row();
+    }
+    public function getIncomeMidtrans(){
+        return $this->db->query("
+            SELECT SUM(pt.total) AS TOTAL
+            FROM payment_transaction pt
+            WHERE pt.status = '6' AND pt.method_type != 'paypal'
+        ")->row();
+    }
+    public function getIncomePaypal(){
+        return $this->db->query("
+            SELECT SUM(pt.total) AS TOTAL
+            FROM payment_transaction pt
+            WHERE pt.status = '6' AND pt.method_type = 'paypal'
+        ")->row();
+    }
+    public function getPendingPayment(){
+        return $this->db->query("
+            SELECT ps.id_user , u.name , u.email 
+            FROM payment_status ps , users u  
+            WHERE ps.status = '2' AND ps.id_user = u.id_user 
+            ORDER BY u.name ASC
+        ")->result();
+    }
+    public function getPopularMethod(){
+        return $this->db->query("
+            SELECT COUNT(pt.id_payment_transaction) AS TOTAL, pt.method_name, pt.method_img  
+            FROM payment_transaction pt 
+            GROUP BY pt.method_name
+            ORDER BY COUNT(pt.id_payment_transaction) DESC
+        ")->result();
+    }
+    public function getSuccessMethod(){
+        return $this->db->query("
+            SELECT COUNT(pt.id_payment_transaction) AS TOTAL, pt.method_name, pt.method_img  
+            FROM payment_transaction pt 
+            WHERE pt.status = '6'
+            GROUP BY pt.method_name
+            ORDER BY COUNT(pt.id_payment_transaction) DESC
+        ")->result();
+    }
+    public function getFailedMethod(){
+        return $this->db->query("
+            SELECT COUNT(pt.id_payment_transaction) AS TOTAL, pt.method_name, pt.method_img  
+            FROM payment_transaction pt 
+            WHERE (pt.status = '3' OR pt.status = '4' OR pt.status = '5')
+            GROUP BY pt.method_name
+            ORDER BY COUNT(pt.id_payment_transaction) DESC
+        ")->result();
+    }
 }
