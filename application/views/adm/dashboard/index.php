@@ -153,7 +153,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="row">
+                <div class="row mb-5">
                   <div class="col-md-6 col-sm-12">
                     <div class="card">
                       <div class="card-body">
@@ -185,6 +185,9 @@
                     </div>
                   </div>
                 </div>
+                <!-- <div class="row"> -->
+                  
+                <!-- </div> -->
               </div>
               <div class="tab-pane fade" id="nav-two-eg1" role="tabpanel" aria-labelledby="nav-two-eg1-tab">
                 <h4>Summary</h4>
@@ -697,7 +700,7 @@
         ?>
       ],
       chart: {
-        width: 380,
+        width: 500,
         type: 'pie',
       },
       labels: [
@@ -708,10 +711,10 @@
         ?>
       ],
       responsive: [{
-        breakpoint: 480,
+        breakpoint: 500,
         options: {
           chart: {
-            width: 200
+            width: 500
           },
           legend: {
             position: 'bottom'
@@ -730,7 +733,7 @@
         ?>
       ],
       chart: {
-        width: 380,
+        width: 500,
         type: 'donut',
       },
       labels: [
@@ -741,10 +744,10 @@
         ?>
       ],
       responsive: [{
-        breakpoint: 480,
+        breakpoint: 400,
         options: {
           chart: {
-            width: 200
+            width: 500
           },
           legend: {
             position: 'bottom'

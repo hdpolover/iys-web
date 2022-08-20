@@ -61,6 +61,7 @@ class Dashboard extends CI_Model{
                 pd.is_submited = '1'
                 AND pd.referral_code = a.referral_code 
             GROUP BY pd.referral_code 
+            ORDER BY COUNT(*) DESC
         ")->result();
     }
     public function getPaymentSuccess($idPaymentType){
