@@ -117,7 +117,7 @@
   </footer>
   <!-- ========== END SECONDARY CONTENTS ========== -->
   <!-- ========== END SECONDARY CONTENTS ========== -->
-  <a href="https://wa.me/6285172201727?text=Hello,%20IYS%20Admin.%20I'd%20like%20to%20know%20more%20about%20the%20IYS%202023.%20Could%20you%20help%20me?" target="_blank" class="float pt-2 ps-0">
+  <a href="https://wa.me/6285172201727" target="_blank" class="float pt-2 ps-0">
     <i style="font-size: 30px;" class="bi-whatsapp my-float"></i>
   </a>
   <!-- JS Global Compulsory  -->

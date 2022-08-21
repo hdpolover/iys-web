@@ -148,6 +148,13 @@
             </div>
         </form>
         <!-- End Form -->
+        <div class="row mt-5 mb-5">
+            <div class="col">
+                <a target="_blank" href="https://bit.ly/YBBBOOTCAMP">
+                    <img src="<?= site_url('assets/img/landing/iklan.png')?>"style="width: 100%;" alt="">
+                </a>
+            </div>
+        </div>
         </div>
     </div>
     <!-- End Col -->

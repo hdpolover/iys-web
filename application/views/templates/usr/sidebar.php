@@ -30,6 +30,14 @@
 
             <h4 class="card-title mb-0"><?= $this->session->userdata('name')?></h4>
             <p class="card-text small"><?= $this->session->userdata('email')?></p>
+            <?php
+              $this->load->model('ParticipantDetail');
+              $pDetail = $this->ParticipantDetail->getById($this->session->userdata('id_user'));
+
+              if($pDetail->is_checked == '1'){
+            ?>
+              <span class="badge bg-success">Checked <i class="bi-check"></i></span>
+            <?php }?>
           </div>
           <!-- End Avatar -->
 

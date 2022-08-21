@@ -54,7 +54,7 @@ class Paymentconf {
             $data[0]['column']  = 'method_type';
             $data[0]['value']   = $resultMidtrans->payment_type;
             $data[1]['column']  = 'method_name';
-            $data[1]['value']   = $resultMidtrans->card_type;
+            $data[1]['value']   = 'credit_card';
             $data[1]['column']  = 'masked_card';
             $data[1]['value']   = $resultMidtrans->masked_card;
             $data[2]['column']  = 'method_img';
@@ -72,7 +72,7 @@ class Paymentconf {
             return '4';
         }else if($status == 'deny'){
             return '5';
-        }else if($status == 'settlement' || $status == 'capture'){
+        }else if($status == 'settlement' || $status == 'capture' || $status == 'success'){
             return '6';
         }
     }

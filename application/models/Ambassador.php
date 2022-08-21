@@ -28,4 +28,18 @@ class Ambassador extends CI_Model{
     public function delete($param){
         $this->db->delete('ambassador', $param);
     }
+    public function getAllWithTotalReferral(){
+        return $this->db->query("
+            SELECT 
+                a.*,
+                (
+                    SELECT COUNT(*)
+                    FROM participant_details pd 
+                    WHERE
+                        pd.is_submited = '1'
+                        AND UPPER(pd.referral_code) = a.referral_code  
+                ) as referral_total
+            FROM ambassador a 
+        ")->result();
+    }
 }

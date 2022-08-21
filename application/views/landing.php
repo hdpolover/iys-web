@@ -220,14 +220,23 @@
 
     <!-- Step -->
     <div class="container content-space-t-2 content-space-t-lg-3 content-space-b-lg-2">
+      <div class="row mb-5">
+          <div class="col text-center">
+              <a target="_blank" href="https://bit.ly/YBBBOOTCAMP">
+                  <img src="<?= site_url('assets/img/landing/iklan.png')?>"style="height: 350px;" alt="">
+              </a>
+          </div>
+      </div>
       <!-- Heading -->
       <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
         <!-- <span class="text-cap">Event Details</span> -->
         <h2>Event Details</h2>
       </div>
       <!-- End Heading -->
+
       
-      <div class="row">
+      
+      <div class="row mt-5">
         
         <div class="col-md-3 mb-5 mb-md-0">
           <!-- Icon Blocks -->

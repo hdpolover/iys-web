@@ -12,7 +12,7 @@ class AmbassadorController extends CI_Controller{
     public function index(){
         $data['title']          = 'Ambassador';
         $data['sidebar']        = 'ambassador';
-        $data['ambassadors']    = $this->Ambassador->getAll();
+        $data['ambassadors']    = $this->Ambassador->getAllWithTotalReferral();
 
         $this->template->admin('adm/ambassador/index', $data);
     }
