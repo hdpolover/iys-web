@@ -60,6 +60,8 @@
         </div>
         <!-- End Heading -->
 
+        
+
         <!-- Form -->
         <form class="js-validate needs-validation" action="<?= site_url('login')?>" method="POST" novalidate>
             <!-- Form -->
@@ -119,6 +121,15 @@
             </div>
         </form>
         <!-- End Form -->
+
+        <div class="row mt-5">
+            <div class="col">
+                <a target="_blank" href="https://bit.ly/YBBBOOTCAMP">
+                    <img src="<?= site_url('assets/img/landing/iklan.png')?>"style="width: 100%;" alt="">
+                </a>
+            </div>
+        </div>
+
         </div>
     </div>
     <!-- End Col -->

@@ -72,7 +72,7 @@ class Paymentconf {
             return '4';
         }else if($status == 'deny'){
             return '5';
-        }else if($status == 'settlement' || $status == 'capture'){
+        }else if($status == 'settlement' || $status == 'capture' || $status == 'success'){
             return '6';
         }
     }
