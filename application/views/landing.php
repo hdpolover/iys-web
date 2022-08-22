@@ -192,6 +192,28 @@
           <div class="swiper-slide gradient-y-overlay-sm-gray-900 bg-img-start" style="background-image: url(<?= site_url()?>assets/img/landing/landing_3.jpg);">
             <div class="container d-md-flex align-items-md-center vh-md-70 content-space-t-4 content-space-b-3 content-space-md-0">
               <div class="w-75 w-lg-50">
+                <h3 class="text-white">Registered participants count</h3>
+                <h3 class="display-4 text-white mb-0"><?= number_format($totalParticipant)?></h3>
+                <h3 class="text-white mb-0">Don't miss your chance!</h3>
+                <?php
+                  if(strtotime($dateNow) < strtotime($dateExpiredRegist)){
+                    echo '
+                      <a href="'.site_url('').'sign-up" class="btn btn-outline-light mt-5">Register Now!</a>    
+                    ';
+                  }else{
+                    echo '
+                      <button type="button" class="btn btn-soft-danger mt-5">Expired</button>    
+                    ';
+                  }
+                ?>
+              </div>
+            </div>
+          </div>
+          <!-- End Slide -->
+          <!-- Slide -->
+          <div class="swiper-slide gradient-y-overlay-sm-gray-900 bg-img-start" style="background-image: url(<?= site_url()?>assets/img/landing/landing_3.jpg);">
+            <div class="container d-md-flex align-items-md-center vh-md-70 content-space-t-4 content-space-b-3 content-space-md-0">
+              <div class="w-75 w-lg-50">
                 <h1 class="display-4 text-white mb-0">Registration Guidelines</h1>
                 <a href="https://bit.ly/IYSRegistrationGuidelines" class="btn btn-outline-light mt-5">Download Guideline</a>    
               </div>

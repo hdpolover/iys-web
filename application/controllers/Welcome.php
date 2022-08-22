@@ -23,8 +23,12 @@ class Welcome extends CI_Controller {
 		redirect('home');
 	}
 	public function home(){
-		$data['title'] 	= "Home";
-		$data['topBar'] = "home";
+
+		$data['title'] 				= "Home";
+		$data['topBar'] 			= "home";
+		$data['totalParticipant'] 	= $this->db->query("
+			SELECT COUNT(*) as total FROM users
+		")->row()->total;
 		$this->template->front('landing', $data);
 	}
 	public function tes(){
