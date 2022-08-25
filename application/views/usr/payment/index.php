@@ -202,6 +202,7 @@
             <div class="card-footer">
               <p><b>Note:</b></p>
               <p>- The "Pay" button provides many different payment methods of your choice such as Credit/Debit Card, Virtual Account, Bank Transfer, and GoPay). Meanwhile the "PayPal" button is provided for those who wish to pay with Paypal and do not have access to previously mentioned payment methods.</p>
+              <p>- Confirm your PayPal payments by sending the payment proof, full name, and account email to <a href="mailto:istanbulyouthsummit@gmail.com">istanbulyouthsummit@gmail.com</a></p>
               <p>- If there is an error, please refresh your browser</p>
             </div>
           </div>
