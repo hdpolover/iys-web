@@ -192,7 +192,7 @@
               <div class="tab-pane fade" id="nav-two-eg1" role="tabpanel" aria-labelledby="nav-two-eg1-tab">
                 <h4>Summary</h4>
                 <div class="row">
-                  <div class="col-sm-6 col-lg-4 mb-3 mb-lg-5">
+                  <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
                     <!-- Card -->
                     <div class="card">
                       <div class="card-body">
@@ -209,7 +209,7 @@
                     </div>
                     <!-- End Card -->
                   </div>
-                  <div class="col-sm-6 col-lg-4 mb-3 mb-lg-5">
+                  <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
                     <!-- Card -->
                     <div class="card">
                       <div class="card-body">
@@ -226,7 +226,7 @@
                     </div>
                     <!-- End Card -->
                   </div>
-                  <div class="col-sm-6 col-lg-4 mb-3 mb-lg-5">
+                  <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
                     <!-- Card -->
                     <div class="card">
                       <div class="card-body">
@@ -235,6 +235,23 @@
                         <div class="row align-items-center gx-2">
                           <div class="col">
                             <span class="text-dark" data-value="24">Rp<?= number_format($payIncome) ?></span>
+                          </div>
+                          <!-- End Col -->
+                        </div>
+                        <!-- End Row -->
+                      </div>
+                    </div>
+                    <!-- End Card -->
+                  </div>
+                  <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                    <!-- Card -->
+                    <div class="card">
+                      <div class="card-body">
+                        <h6 class="card-subtitle mb-2">Manual Income</h6>
+
+                        <div class="row align-items-center gx-2">
+                          <div class="col">
+                            <span class="text-dark" data-value="24">Rp<?= number_format($manIncome) ?></span>
                           </div>
                           <!-- End Col -->
                         </div>
