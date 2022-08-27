@@ -113,6 +113,12 @@
                         ';
                         $badgeStatus  = '<span class="badge bg-danger">DENY</span>';
                       }else if($paymentStatus->status == '6'){
+                        $btn  = '
+                          <form action="'.site_url('document/generate-payment').'" method="POST">
+                            <input type="hidden" name="id_payment_type" value="'.$paymentStatus->id_payment_type.'">
+                            <button type="submit" class="btn btn-success btn-sm w-100 mt-2">Download Invoice</button>
+                          </form>
+                        ';
                         $cardInfo = '
                           <a class="btn btn-white btn-sm" href="#">
                             <i class="bi-file-earmark-arrow-down me-1"></i> Proof of Payment
