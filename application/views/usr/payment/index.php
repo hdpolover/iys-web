@@ -70,6 +70,14 @@
             ?>
               <div class="card-body">
                 <?php
+                  if($this->session->flashdata('err_msg')){
+                    echo '
+                      <div class="alert alert-soft-danger text-center card-alert mb-4" role="alert">
+                        '.$this->session->flashdata('err_msg').'
+                      </div>
+                    ';
+                  }
+
                   if($this->session->userdata('is_verif') == 1 && $this->session->userdata('is_submit') == 1){
                 ?>
                 <div class="row">  

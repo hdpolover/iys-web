@@ -32,6 +32,7 @@ class Welcome extends CI_Controller {
 		$this->template->front('landing', $data);
 	}
 	public function tes(){
+        $this->load->helper('download');
 		// print_r(hash('sha256', md5('123NewsWriter456')));
 		// $this->load->view('email/register');
 		// $this->load->library('encryption');
@@ -50,7 +51,7 @@ class Welcome extends CI_Controller {
             $image = new \claviska\SimpleImage();
 
             $image
-                ->fromFile('assets/img/documents/invoice/batch_1.jpg')
+                ->fromFile('assets/img/documents/invoice/batch_1_x.jpg')
                 ->autoOrient()
                 ->text(
                     "ILHAM SAGITA PUTRA PUTRI DIMAS BIN WAHID",
@@ -74,7 +75,7 @@ class Welcome extends CI_Controller {
                 )
                 //->toScreen();                               // output to the screen
                 ->toFile('uploads/invoice/tes.png');
-
+				force_download('uploads/invoice/tes.png', NULL);
             // And much more! 💪
         } catch (Exception $err) {
             // Handle errors
