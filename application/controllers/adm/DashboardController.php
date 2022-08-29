@@ -44,6 +44,7 @@ class DashboardController extends CI_Controller{
 
         $data['midIncome']  = $this->Dashboard->getIncomeMidtrans()->TOTAL;
         $data['payIncome']  = $this->Dashboard->getIncomePaypal()->TOTAL;
+        $data['manIncome']  = $this->Dashboard->getIncomeManual()->TOTAL;
         $data['totIncome']  = (int)$data['midIncome'] + (int)$data['payIncome'];
 
         $data['pendings']   = $this->Dashboard->getPendingPayment();

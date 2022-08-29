@@ -156,6 +156,9 @@ $route['payment/check-status']              = 'usr/PaymentController/checkStsatu
 $route['payment/paypal-transaction/(:any)'] = 'usr/PaymentController/paypalTransaction/$1';
 $route['payment/paypal-transaction/(:any)'] = 'usr/PaymentController/paypalTransaction/$1';
 
+// documents
+$route['document/generate-payment'] = 'usr/DocumentController/generatePayment';
+
 
 //
 // ===== ADMIN =====

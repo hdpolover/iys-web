@@ -35,7 +35,10 @@ class DashboardController extends CI_Controller{
         return $this->db->query("
             SELECT  u.email , u.name , pd.nationality  
             FROM participant_details pd , users u 
-            WHERE pd.referral_code = '".$referralCode."' AND pd.id_user = u.id_user 
+            WHERE 
+                pd.referral_code = '".$referralCode."' 
+                AND pd.is_submited = '1'
+                AND pd.id_user = u.id_user 
         ")->result();
     }
     public function getPayment($referralCode){

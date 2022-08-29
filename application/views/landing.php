@@ -189,6 +189,28 @@
           </div>
           <!-- End Slide -->
           <!-- Slide -->
+          <div class="swiper-slide gradient-y-overlay-sm-gray-900 bg-img-start" style="background-image: url(<?= site_url()?>assets/img/landing/landing_4.jpg);">
+            <div class="container d-md-flex align-items-md-center vh-md-70 content-space-t-4 content-space-b-3 content-space-md-0">
+              <div class="w-75 w-lg-50">
+                <h3 class="text-white">Registered participants count</h3>
+                <h3 class="display-4 text-white mb-0"><?= number_format($totalParticipant)?></h3>
+                <h3 class="text-white mb-0">Don't miss your chance!</h3>
+                <?php
+                  if(strtotime($dateNow) < strtotime($dateExpiredRegist)){
+                    echo '
+                      <a href="'.site_url('').'sign-up" class="btn btn-outline-light mt-5">Register Now!</a>
+                    ';
+                  }else{
+                    echo '
+                      <button type="button" class="btn btn-soft-danger mt-5">Expired</button>    
+                    ';
+                  }
+                ?>
+              </div>
+            </div>
+          </div>
+          <!-- End Slide -->
+          <!-- Slide -->
           <div class="swiper-slide gradient-y-overlay-sm-gray-900 bg-img-start" style="background-image: url(<?= site_url()?>assets/img/landing/landing_3.jpg);">
             <div class="container d-md-flex align-items-md-center vh-md-70 content-space-t-4 content-space-b-3 content-space-md-0">
               <div class="w-75 w-lg-50">
@@ -220,13 +242,13 @@
 
     <!-- Step -->
     <div class="container content-space-t-2 content-space-t-lg-3 content-space-b-lg-2">
-      <div class="row mb-5">
+      <!-- <div class="row mb-5">
           <div class="col text-center">
               <a target="_blank" href="https://bit.ly/YBBBOOTCAMP">
                   <img src="<?= site_url('assets/img/landing/iklan.png')?>"style="height: 350px;" alt="">
               </a>
           </div>
-      </div>
+      </div> -->
       <!-- Heading -->
       <div class="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
         <!-- <span class="text-cap">Event Details</span> -->

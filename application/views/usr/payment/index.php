@@ -70,6 +70,14 @@
             ?>
               <div class="card-body">
                 <?php
+                  if($this->session->flashdata('err_msg')){
+                    echo '
+                      <div class="alert alert-soft-danger text-center card-alert mb-4" role="alert">
+                        '.$this->session->flashdata('err_msg').'
+                      </div>
+                    ';
+                  }
+
                   if($this->session->userdata('is_verif') == 1 && $this->session->userdata('is_submit') == 1){
                 ?>
                 <div class="row">  
@@ -113,6 +121,12 @@
                         ';
                         $badgeStatus  = '<span class="badge bg-danger">DENY</span>';
                       }else if($paymentStatus->status == '6'){
+                        $btn  = '
+                          <form action="'.site_url('document/generate-payment').'" method="POST">
+                            <input type="hidden" name="id_payment_type" value="'.$paymentStatus->id_payment_type.'">
+                            <button type="submit" class="btn btn-success btn-sm w-100 mt-2">Download Invoice</button>
+                          </form>
+                        ';
                         $cardInfo = '
                           <a class="btn btn-white btn-sm" href="#">
                             <i class="bi-file-earmark-arrow-down me-1"></i> Proof of Payment
@@ -202,6 +216,7 @@
             <div class="card-footer">
               <p><b>Note:</b></p>
               <p>- The "Pay" button provides many different payment methods of your choice such as Credit/Debit Card, Virtual Account, Bank Transfer, and GoPay). Meanwhile the "PayPal" button is provided for those who wish to pay with Paypal and do not have access to previously mentioned payment methods.</p>
+              <p>- Confirm your PayPal payments by sending the payment proof, full name, and account email to <a href="mailto:istanbulyouthsummit@gmail.com">istanbulyouthsummit@gmail.com</a></p>
               <p>- If there is an error, please refresh your browser</p>
             </div>
           </div>

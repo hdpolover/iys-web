@@ -96,7 +96,7 @@ class Dashboard extends CI_Model{
         return $this->db->query("
             SELECT SUM(pt.total) AS TOTAL
             FROM payment_transaction pt
-            WHERE pt.status = '6' AND pt.method_type != 'paypal'
+            WHERE pt.status = '6' AND pt.method_type != 'paypal' AND pt.method_type != 'manual_transfer'
         ")->row();
     }
     public function getIncomePaypal(){
@@ -104,6 +104,13 @@ class Dashboard extends CI_Model{
             SELECT SUM(pt.total) AS TOTAL
             FROM payment_transaction pt
             WHERE pt.status = '6' AND pt.method_type = 'paypal'
+        ")->row();
+    }
+    public function getIncomeManual(){
+        return $this->db->query("
+            SELECT SUM(pt.total) AS TOTAL
+            FROM payment_transaction pt
+            WHERE pt.status = '6' AND pt.method_type = 'manual_transfer'
         ")->row();
     }
     public function getPendingPayment(){

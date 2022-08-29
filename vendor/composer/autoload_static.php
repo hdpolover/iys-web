@@ -7,11 +7,11 @@ namespace Composer\Autoload;
 class ComposerStaticInit0f97ca6ba5bb482701159e2c8f039856
 {
     public static $files = array (
+        'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
-        'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -87,8 +87,8 @@ class ComposerStaticInit0f97ca6ba5bb482701159e2c8f039856
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -132,12 +132,23 @@ class ComposerStaticInit0f97ca6ba5bb482701159e2c8f039856
         ),
     );
 
+    public static $fallbackDirsPsr4 = array (
+        0 => __DIR__ . '/..' . '/league/color-extractor/src',
+    );
+
     public static $prefixesPsr0 = array (
         'o' => 
         array (
             'org\\bovigo\\vfs\\' => 
             array (
                 0 => __DIR__ . '/..' . '/mikey179/vfsstream/src/main/php',
+            ),
+        ),
+        'c' => 
+        array (
+            'claviska' => 
+            array (
+                0 => __DIR__ . '/..' . '/claviska/simpleimage/src',
             ),
         ),
         'H' => 
@@ -780,6 +791,7 @@ class ComposerStaticInit0f97ca6ba5bb482701159e2c8f039856
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit0f97ca6ba5bb482701159e2c8f039856::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit0f97ca6ba5bb482701159e2c8f039856::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInit0f97ca6ba5bb482701159e2c8f039856::$fallbackDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit0f97ca6ba5bb482701159e2c8f039856::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit0f97ca6ba5bb482701159e2c8f039856::$classMap;
 
