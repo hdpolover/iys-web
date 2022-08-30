@@ -198,4 +198,18 @@ class FrontController extends CI_Controller{
         $this->session->set_flashdata('succ_msg', 'Congratulations, you have successfully changed your password!');
         redirect('sign-in');
     }
+    public function ajxGetUserSubmit(){
+        $user = $this->db->query("
+            SELECT u.name , pd.nationality, (
+                SELECT COUNT(pd.id_user)
+                FROM participant_details pd 
+                WHERE pd.is_submited = '1'
+            ) AS total_submited
+            FROM participant_details pd , users u 
+            WHERE pd.is_submited = '1' AND pd.id_user = u.id_user 
+            ORDER BY RAND()
+            LIMIT 1
+        ")->row();
+        echo json_encode($user);
+    }
 }

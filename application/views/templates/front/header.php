@@ -23,11 +23,13 @@
   <link rel="stylesheet" href="<?= site_url()?>assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.css">
   <link rel="stylesheet" href="<?= site_url()?>assets/vendor/aos/dist/aos.css">
   <link rel="stylesheet" href="<?= site_url()?>assets/vendor/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="<?= site_url()?>assets/css/jquery.toast.min.css">
 
   <!-- CSS Front Template -->
   <link rel="stylesheet" href="<?= site_url()?>assets/css/theme.min.css">
   
   <script src="<?= site_url()?>assets/js/jquery-3.6.0.min.js"></script>
+  <script src="<?= site_url()?>assets/js/jquery.toast.min.js"></script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
