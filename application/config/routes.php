@@ -66,6 +66,7 @@ $route['forgot-password/email']                     = 'FrontController/forgotPas
 $route['forgot-password/send-email']                = 'FrontController/forgotPassowordSendEmail';
 $route['forgot-password/change-password/(:any)']    = 'FrontController/forgotPasswordChangePassword/$1';
 $route['forgot-password/new-password']              = 'FrontController/forgotPasswordNewPassword/$1';
+$route['ajxGetUserSubmit']                          = 'FrontController/ajxGetUserSubmit';
 
 // ===== ADMIN =====
 $route['admin']             = 'adm/AuthController';
