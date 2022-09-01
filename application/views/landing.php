@@ -84,7 +84,7 @@
                 <h1 class="display-4 text-white mb-0">Istanbul Youth Summit 2023</h1>
                 <h3 class="text-white">August 1 - 31 2022, Open Registration</h3>
                 <?php
-                  $dateExpiredRegist  = "August 31, 2022 23:59:59";
+                  $dateExpiredRegist  = "September 01, 2022 12:00:00";
                   $dateNow            = date("Y-m-d H:i:s");
                 ?>
 
