@@ -91,8 +91,8 @@
                       
                       if($paymentStatus->status == '1'){
                         $btn          = '
-                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Pay</button>
-                          <a href="'.site_url('payment/paypal-transaction/'.$paymentStatus->id_payment_type).'" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</a>
+                        <button type="button" onclick="mdlMidtrans()" class="btn btn-soft-success btn-sm w-100 mt-2">Pay</button>
+                        <button onclick="mdlPaypal('.$paymentStatus->id_payment_type.')" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</button>
                         ';
                       }else if($paymentStatus->status == '2'){
                         $paymentTransaction  = $this->db->order_by('date', 'DESC')->get_where('payment_transaction', ['id_user' => $paymentStatus->id_user, 'id_payment_type' => $paymentStatus->id_payment_type, 'status' => '2'])->row();
@@ -104,29 +104,29 @@
                         $badgeStatus  = '<span class="badge bg-warning text-dark">PENDING</span>';
                       }else if($paymentStatus->status == '3'){
                         $btn  = '
-                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Pay</button>
-                          <a href="'.site_url('payment/paypal-transaction/'.$paymentStatus->id_payment_type).'" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</a>
+                          <button type="button" onclick="mdlMidtrans()" class="btn btn-soft-success btn-sm w-100 mt-2">Pay</button>
+                          <button onclick="mdlPaypal('.$paymentStatus->id_payment_type.')" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</button>
                         ';
                         $badgeStatus  = '<span class="badge bg-danger">CANCELED</span>';
                       }else if($paymentStatus->status == '4'){
                         $btn  = '
-                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Pay</button>
-                          <a href="'.site_url('payment/paypal-transaction/'.$paymentStatus->id_payment_type).'" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</a>
+                          <button type="button" onclick="mdlMidtrans()" class="btn btn-soft-success btn-sm w-100 mt-2">Pay</button>
+                          <button onclick="mdlPaypal('.$paymentStatus->id_payment_type.')" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</button>
                         ';
                         $badgeStatus  = '<span class="badge bg-danger">EXPIRED</span>';
                       }else if($paymentStatus->status == '5'){
                         $btn  = '
-                          <button type="button" class="btn btn-soft-success btn-sm purchase-button w-100 mt-2">Pay</button>
-                          <a href="'.site_url('payment/paypal-transaction/'.$paymentStatus->id_payment_type).'" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</a>
+                          <button type="button" onclick="mdlMidtrans()" class="btn btn-soft-success btn-sm w-100 mt-2">Pay</button>
+                          <button onclick="mdlPaypal('.$paymentStatus->id_payment_type.')" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</button>
                         ';
                         $badgeStatus  = '<span class="badge bg-danger">DENY</span>';
                       }else if($paymentStatus->status == '6'){
-                        $btn  = '
-                          <form action="'.site_url('document/generate-payment').'" method="POST">
-                            <input type="hidden" name="id_payment_type" value="'.$paymentStatus->id_payment_type.'">
-                            <button type="submit" class="btn btn-success btn-sm w-100 mt-2">Download Invoice</button>
-                          </form>
-                        ';
+                        // $btn  = '
+                        //   <form action="'.site_url('document/generate-payment').'" method="POST">
+                        //     <input type="hidden" name="id_payment_type" value="'.$paymentStatus->id_payment_type.'">
+                        //     <button type="submit" class="btn btn-success btn-sm w-100 mt-2">Download Invoice</button>
+                        //   </form>
+                        // ';
                         $cardInfo = '
                           <a class="btn btn-white btn-sm" href="#">
                             <i class="bi-file-earmark-arrow-down me-1"></i> Proof of Payment
@@ -217,7 +217,7 @@
               <p><b>Note:</b></p>
               <p>- The "Pay" button provides many different payment methods of your choice such as Credit/Debit Card, Virtual Account, Bank Transfer, and GoPay). Meanwhile the "PayPal" button is provided for those who wish to pay with Paypal and do not have access to previously mentioned payment methods.</p>
               <p>- Confirm your PayPal payments by sending the payment proof, full name, and account email to <a href="mailto:istanbulyouthsummit@gmail.com">istanbulyouthsummit@gmail.com</a></p>
-              <p>- If there is an error, please refresh your browser</p>
+              <p>- If there is an error, please reload your browser, if still send an email to <a href="mailto:istanbuyouthsummit@gmail.com">istanbuyouthsummit@gmail.com</a></p>
             </div>
           </div>
         </div>
@@ -227,6 +227,50 @@
     <!-- End Row -->
   </div>
   <!-- End Content -->
+  <!-- Modal -->
+  <div class="modal fade" id="mdlPaypal" tabindex="-1" aria-labelledby="mdlPaypalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="mdlPaypalLabel">Paypal Confirmation</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body text-center">
+              <h4 class="text-center">Are you sure make payment with paypal ?</h4>
+          </div>
+
+          <div class="modal-footer">
+              <input type="hidden" name="id" id="mdlPaypal_id" >
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+              <a id="mdlPaypal_make"  href=""  class="btn btn-soft-success">Make Payment</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="mdlMidtrans" tabindex="-1" aria-labelledby="mdlMidtransLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="mdlMidtransLabel">Payment Confirmation</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body text-center">
+              <h4 class="text-center">Are you sure make payment ?</h4>
+          </div>
+
+          <div class="modal-footer">
+              <input type="hidden" name="id" id=mdlMidtrans_id" >
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-soft-success purchase-button">Make Payment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
   
 </main>
 <!-- ========== END MAIN CONTENT ========== -->
@@ -239,7 +283,15 @@
   data-client-key="SB-Mid-client-LAEwpi34CdNrwLgt">
 </script> -->
 <script>
+  function mdlPaypal(idPaymentType){
+    $('#mdlPaypal_make').attr('href', `<?= site_url()?>/payment/paypal-transaction/${idPaymentType}`)
+    $('#mdlPaypal').modal('show')
+  }
+  function mdlMidtrans(){
+    $('#mdlMidtrans').modal('show')
+  }
   $('.purchase-button').click(function (event) {
+    $('#mdlMidtrans').modal('hide')
       event.preventDefault();
       $(this).attr("disabled", "disabled");
     

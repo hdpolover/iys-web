@@ -139,8 +139,8 @@ class PaymentController extends CI_Controller{
         $time = time();
         $custom_expiry = array(
             'start_time' => date("Y-m-d H:i:s O",$time),
-            'unit' => 'day', 
-            'duration'  => 1
+            'unit' => 'minute', 
+            'duration'  => 15
         );
         
         $transaction_data = array(
@@ -168,7 +168,7 @@ class PaymentController extends CI_Controller{
         $formData['item']                   = $paymentType->description;
         $formData['total']                  = $result->gross_amount;
         $formData['date']                   = $result->transaction_time;
-        $formData['date_expired']           = date("Y-m-d H:i:s", strtotime($result->transaction_time.'+1 days'));
+        $formData['date_expired']           = date("Y-m-d H:i:s", strtotime($result->transaction_time.'+15 minutes'));
         $formData['status']                 = $this->paymentconf->convertStatus($result->transaction_status);
         $formData['status_title']           = $this->paymentconf->convertStatusTitle($formData['status']);
 
@@ -234,6 +234,7 @@ class PaymentController extends CI_Controller{
         $orderId        = rand();
         $paymentType    = $this->PaymentType->getById($idPaymentType);
         $idTrans        = "TRANS".rand().explode('_', $idUser)[1];
+        $currDate       = date('Y-m-d H:i:s');
 
         $this->db->where(['id_user' => $idUser, 'id_payment_type' => $idPaymentType])->update('payment_status', ['status' => 2]);
 
@@ -246,7 +247,8 @@ class PaymentController extends CI_Controller{
         $formData['method_img']             = site_url('assets/img/payment/paypal.png');
         $formData['method_type']            = 'paypal';
         $formData['method_name']            = 'paypal';
-        $formData['date']                   = date('Y-m-d H:i:s');
+        $formData['date']                   = $currDate;
+        $formData['date_expired']           = date("Y-m-d H:i:s", strtotime($currDate.'+15 minutes'));
         $formData['status']                 = 2;
         $formData['status_title']           = 'pending';
 
@@ -254,6 +256,19 @@ class PaymentController extends CI_Controller{
         $this->PaymentTransaction->insert($formData);
 
         redirect('payment/status-paypal/'.$idTrans);
+    }
+    public function cancel(){
+        $paymentTrans = $this->PaymentTransaction->getById($_POST['id']);
+        $this->veritrans->cancel($paymentTrans->order_id);
+        $this->PaymentTransaction->update(['id_payment_transaction' => $_POST['id'], 'status' => '3', 'status_title' => 'cancel']);
+        $this->db->query("UPDATE payment_status SET status = '3' WHERE id_user = '".$paymentTrans->id_user."' AND id_payment_type = '".$paymentTrans->id_payment_type."'");
+        redirect('payment/status-paypal/'.$_POST['id']);
+    }
+    public function paypalCancel(){
+        $paymentTrans = $this->PaymentTransaction->getById($_POST['id']);
+        $this->PaymentTransaction->update(['id_payment_transaction' => $_POST['id'], 'status' => '3', 'status_title' => 'cancel']);
+        $this->db->query("UPDATE payment_status SET status = '3' WHERE id_user = '".$paymentTrans->id_user."' AND id_payment_type = '".$paymentTrans->id_payment_type."'");
+        redirect('payment/status-paypal/'.$_POST['id']);
     }
     public function getQueryStatus($idUser){
         return $this->db->query("

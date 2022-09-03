@@ -66,31 +66,52 @@
                         </a>
                     </div>
                 </div>
-                <div class="js-countdown row mt-3">
-                    <div class="col-3">
-                      <h2 class="js-cd-days h1 text-white mb-0"></h2>
-                      <h5 class="mb-0 text-white">:</h5>
+                <?php
+                  $expiredTrans   = date_format(date_create($paymentDetail->date_expired), 'F d, Y H:i:s');
+                  $dateNow        = date("Y-m-d H:i:s");
+
+                  if((strtotime($dateNow) < strtotime($expiredTrans)) && $paymentDetail->status == '2'){
+                ?>
+                <div class="js-countdown row mt-5 text-center mb-5">
+                    <div class="col-4">
+                      <h2 class="js-cd-hours h1 mb-0"></h2>
+                      <h5 class="mb-0">Hour</h5>
                     </div>
                     <!-- End Col -->
 
-                    <div class="col-3">
-                      <h2 class="js-cd-hours h1 text-white mb-0"></h2>
-                      <h5 class="mb-0 text-white">:</h5>
+                    <div class="col-4">
+                      <h2 class="js-cd-minutes h1 mb-0"></h2>
+                      <h5 class="mb-0">Minute</h5>
                     </div>
                     <!-- End Col -->
 
-                    <div class="col-3">
-                      <h2 class="js-cd-minutes h1 text-white mb-0"></h2>
-                      <h5 class="mb-0 text-white">:</h5>
-                    </div>
-                    <!-- End Col -->
-
-                    <div class="col-3">
-                      <h2 class="js-cd-seconds h1 text-white mb-0"></h2>
-                      <h5 class="mb-0 text-white"></h5>
+                    <div class="col-4">
+                      <h2 class="js-cd-seconds h1 mb-0"></h2>
+                      <h5 class="mb-0">Second</h5>
                     </div>
                   <!-- End Col -->
                 </div>
+                <?php }else{?>
+                  <div class="js-countdown row mt-5 text-center mb-5">
+                    <div class="col-4">
+                      <h2 class="h1 mb-0">0</h2>
+                      <h5 class="mb-0">Hour</h5>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-4">
+                      <h2 class="h1 mb-0">0</h2>
+                      <h5 class="mb-0">Minute</h5>
+                    </div>
+                    <!-- End Col -->
+
+                    <div class="col-4">
+                      <h2 class="h1 mb-0">0</h2>
+                      <h5 class="mb-0">Second</h5>
+                    </div>
+                  <!-- End Col -->
+                </div>
+                <?php }?>
                 <div id="boxStatus" class="text-center mb-4">
                     <?php
                       if($paymentDetail->status == '2'){
@@ -123,6 +144,10 @@
                 <dl class="row mt-4 mb-4">
                     <dt class="col-sm-6">DATE</dt>
                     <dd class="col-sm-6 text-sm-end mb-0"><?= strtoupper(date_format(date_create($paymentDetail->date), 'F d, Y H:i'))?></dd>
+                </dl>
+                <dl class="row mb-4">
+                    <dt class="col-sm-6">EXPIRED DATE</dt>
+                    <dd class="col-sm-6 text-sm-end mb-0"><?= strtoupper(date_format(date_create($paymentDetail->date_expired), 'F d, Y H:i'))?></dd>
                 </dl>
                 <dl class="row mb-4">
                     <dt class="col-sm-6">ITEM</dt>
@@ -168,18 +193,24 @@
 
                   if($paymentDetail->biller_code != null){
                     echo '
-                      <dl class="row mb-4">
+                      <dl class="row mb-2">
                           <dt class="col-sm-6">BILLER CODE</dt>
                           <dd class="col-sm-6 text-sm-end mb-0">'.$paymentDetail->biller_code.'</dd>
                       </dl>
                     ';
                   }
                 ?>
-                
-                <dl class="row mb-4">
-                    <dt class="col-sm-6">EXPIRED DATE</dt>
-                    <dd class="col-sm-6 text-sm-end mb-0"><?= strtoupper(date_format(date_create($paymentDetail->date_expired), 'F d, Y H:i'))?></dd>
-                </dl>
+                <p><b>Note:</b></p>
+                <p class="mb-4">- If there is an error, please reload your browser, if still send an email to <a href="mailto:istanbuyouthsummit@gmail.com">istanbuyouthsummit@gmail.com</a></p>
+                <?php
+                  if($paymentDetail->status == '2'){
+                ?>
+                <div class="row mt-4">
+                  <div class="col">
+                    <button onclick="mdlCancel()" class="btn btn-soft-danger w-100 mt-4">Cancel Payment</button>
+                  </div>
+                </div>
+                <?php }?>
             </div>
             <!-- End Body -->
             <!-- End Footer -->
@@ -192,10 +223,39 @@
     <!-- End Row -->
   </div>
   <!-- End Content -->
+  <!-- Modal -->
+  <div class="modal fade" id="mdlCancel" tabindex="-1" aria-labelledby="mdlCancelLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="mdlCancelLabel">Cancel Payment</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body text-center">
+            <h4 class="text-center">Are you sure cancel this payment ?</h4>
+        </div>
+
+        <div class="modal-footer">
+          <form action="<?= site_url('payment/cancel')?>" method="POST">
+            <input type="hidden" name="id" id=mdlCancel_id" value="<?= $paymentDetail->id_payment_transaction?>">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-soft-danger">Cancel Payment</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal -->
 </main>
 <!-- ========== END MAIN CONTENT ========== -->
 
+<script src="<?= site_url()?>assets/vendor/countdown/countdown.js"></script>
 <script>
+
+  function mdlCancel(){
+    $('#mdlCancel').modal('show')
+  }
     $(document).ready(function(){
       function checkStatus(){
         $.ajax({
@@ -221,16 +281,25 @@
       }
       const myInterval = setInterval(checkStatus, 1000)
     })
-    var countDownDate = new Date("<?= date_format(date_create($paymentDetail->date_expired), 'F j, Y H:i:s')?>").getTime();
+      // INITIALIZATION OF COUNTDOWN
+      // =======================================================
+      const dateExpired = new Date('<?= date_format(date_create($paymentDetail->date_expired), 'F d, Y H:i:s')?>')
+      // console.log(dateExpired.setDate())
 
-    var myfunc = setInterval(function() {
-        var now = new Date().getTime();
-        var timeleft = countDownDate - now;
-            
-        var days = Math.floor(timeleft / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
-        
-        }, 1000)
+      document.querySelectorAll('.js-countdown').forEach(item => {
+        // const days = item.querySelector('.js-cd-days'),
+          hours = item.querySelector('.js-cd-hours'),
+          minutes = item.querySelector('.js-cd-minutes'),
+          seconds = item.querySelector('.js-cd-seconds')
+
+        countdown(dateExpired,
+          ts => {
+            // days.innerHTML = ts.days
+            hours.innerHTML = ts.hours
+            minutes.innerHTML = ts.minutes
+            seconds.innerHTML = ts.seconds
+          },
+          countdown.HOURS | countdown.MINUTES | countdown.SECONDS
+        )
+      })
 </script>

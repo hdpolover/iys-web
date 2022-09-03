@@ -150,12 +150,13 @@ $route['payment']                           = 'usr/PaymentController';
 $route['payment/choose-method']             = 'usr/PaymentController/choosePayment';
 $route['payment/token']                     = 'usr/PaymentController/token';
 $route['payment/finish']                    = 'usr/PaymentController/finish';
+$route['payment/cancel']                    = 'usr/PaymentController/cancel';
 $route['payment/history/(:any)']            = 'usr/PaymentController/history/$1';
 $route['payment/status/(:any)']             = 'usr/PaymentController/status/$1';
 $route['payment/status-paypal/(:any)']      = 'usr/PaymentController/statusPaypal/$1';
 $route['payment/check-status']              = 'usr/PaymentController/checkStsatus';
 $route['payment/paypal-transaction/(:any)'] = 'usr/PaymentController/paypalTransaction/$1';
-$route['payment/paypal-transaction/(:any)'] = 'usr/PaymentController/paypalTransaction/$1';
+$route['payment/paypal-cancel']             = 'usr/PaymentController/paypalCancel';
 
 // documents
 $route['document/generate-payment'] = 'usr/DocumentController/generatePayment';
