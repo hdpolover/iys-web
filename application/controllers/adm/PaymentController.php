@@ -43,7 +43,7 @@ class PaymentController extends CI_Controller{
     public function validation(){
         $paymentStatus = $this->PaymentStatus->get(['id_payment_type' => $_POST['id_payment_type'], 'id_user' => $_POST['id_user']])[0];
 
-        if($_POST['status'] == '3' && $_POST['method_name'] != 'paypal'){
+        if($_POST['status'] == '3' && ($_POST['method_type'] != 'paypal' && $_POST['method_type'] != 'manual_transfer')){
             $paymentTransaction = $this->PaymentTransaction->getById($_POST['id_payment_transaction']);
             $this->veritrans->cancel($paymentTransaction->order_id);
         }

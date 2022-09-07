@@ -115,9 +115,22 @@ class Dashboard extends CI_Model{
     }
     public function getPendingPayment(){
         return $this->db->query("
-            SELECT ps.id_user , u.name , u.email 
-            FROM payment_status ps , users u  
-            WHERE ps.status = '2' AND ps.id_user = u.id_user 
+            SELECT pt.id_user , u.name , u.email , pt.method_img
+            FROM payment_transaction pt , users u  
+            WHERE 
+                pt.status = '2' 
+                AND pt.id_user = u.id_user 
+            ORDER BY u.name ASC
+        ")->result();
+    }
+    public function getPendingManualPayment(){
+        return $this->db->query("
+            SELECT pt.id_user , u.name , u.email , pt.method_img , pt.evidence
+            FROM payment_transaction pt , users u  
+            WHERE 
+                pt.status = '2' 
+                AND pt.method_type = 'manual_transfer' 
+                AND pt.id_user = u.id_user 
             ORDER BY u.name ASC
         ")->result();
     }

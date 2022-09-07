@@ -553,6 +553,40 @@
                   </div>
                 </div>
                 <div class="row mt-2">
+                  <h4>List Pending Manual Transfer</h4>
+                  <table style="margin-top: 5rem;" class="table table-borderless table-thead-bordered datatable">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Method</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php
+                          $no = 1;
+                          foreach ($pendingsManual as $pending) {
+                              echo '
+                                  <tr>
+                                      <td scope="col">'.$no++.'</td>
+                                      <td scope="col">'.$pending->name.'</td>
+                                      <td scope="col">'.$pending->email.'</td>
+                                      <td scope="col">
+                                          <img style="max-width: 75px;" src="'.$pending->method_img.'" />
+                                      </td>
+                                      <td>
+                                        <a target="_blank" href="'.site_url('admin/payment/history/'.$pending->id_user).'" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-list"></i></a>
+                                      </td>
+                                  </tr>   
+                              ';
+                          }
+                      ?>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="row mt-2">
                   <h4>List Pending</h4>
                   <table style="margin-top: 5rem;" class="table table-borderless table-thead-bordered datatable">
                     <thead class="thead-light">
@@ -560,6 +594,7 @@
                         <th scope="col">No</th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
+                        <th scope="col">Method</th>
                         <th scope="col">Action</th>
                       </tr>
                     </thead>
@@ -572,6 +607,9 @@
                                       <td scope="col">'.$no++.'</td>
                                       <td scope="col">'.$pending->name.'</td>
                                       <td scope="col">'.$pending->email.'</td>
+                                      <td scope="col">
+                                        <img style="max-width: 75px;" src="'.$pending->method_img.'" />
+                                      </td>
                                       <td>
                                         <a target="_blank" href="'.site_url('admin/payment/history/'.$pending->id_user).'" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-list"></i></a>
                                       </td>

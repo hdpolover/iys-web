@@ -154,9 +154,12 @@ $route['payment/cancel']                    = 'usr/PaymentController/cancel';
 $route['payment/history/(:any)']            = 'usr/PaymentController/history/$1';
 $route['payment/status/(:any)']             = 'usr/PaymentController/status/$1';
 $route['payment/status-paypal/(:any)']      = 'usr/PaymentController/statusPaypal/$1';
-$route['payment/check-status']              = 'usr/PaymentController/checkStsatus';
-$route['payment/paypal-transaction/(:any)'] = 'usr/PaymentController/paypalTransaction/$1';
+$route['payment/status-manual/(:any)']      = 'usr/PaymentController/statusManual/$1';
+$route['payment/check-status']              = 'usr/PaymentController/checkStatus';
+$route['payment/paypal-transaction']        = 'usr/PaymentController/paypalTransaction';
 $route['payment/paypal-cancel']             = 'usr/PaymentController/paypalCancel';
+$route['payment/manual-transaction']        = 'usr/PaymentController/manualTransaction';
+$route['payment/manual-cancel']             = 'usr/PaymentController/manualCancel';
 
 // documents
 $route['document/generate-payment'] = 'usr/DocumentController/generatePayment';

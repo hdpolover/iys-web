@@ -15,6 +15,7 @@ class PaymentController extends CI_Controller{
         $this->load->model('PaymentTransaction');
 
         $this->load->library('Paymentconf');
+        $this->load->library('upload');
 
         $params = array('server_key' => 'Mid-server-gXaK3X0M-oZhY4RPL0g2Mt_z', 'production' => true);
         // $params = array('server_key' => 'SB-Mid-server-qC8YfWnkcF_fjPrZmuNEwb8P', 'production' => false);
@@ -60,7 +61,7 @@ class PaymentController extends CI_Controller{
             ]);
             // print_r($paymentTrans[0]);
             if($paymentTrans != null){
-                if($paymentTrans[0]->method_name != 'paypal'){
+                if($paymentTrans[0]->method_type != 'paypal' && $paymentTrans[0]->method_type != 'manual_transfer'){
                     $status         = $this->veritrans->status($paymentTrans[0]->order_id);
                     $status         = $this->paymentconf->convertStatus($status->transaction_status);
                     $statusTitle    = $this->paymentconf->convertStatusTitle($status);
@@ -209,6 +210,13 @@ class PaymentController extends CI_Controller{
 
         $this->template->user('usr/payment/trans_paypal', $data);
     }
+    public function statusManual($id){
+        $data['title']          = "Payment Status";
+        $data['sidebar']        = "payment";
+        $data['paymentDetail']  = $this->PaymentTransaction->getById($id);
+
+        $this->template->user('usr/payment/trans_manual', $data);
+    }
     public function checkStatus(){
         $trans = $this->PaymentTransaction->getById($_POST['idTrans']);
         $status = $this->veritrans->status($trans->order_id);
@@ -229,7 +237,8 @@ class PaymentController extends CI_Controller{
         
         echo json_encode($data);
     }
-    public function paypalTransaction($idPaymentType){
+    public function paypalTransaction(){
+        $idPaymentType = $_POST['id_payment_type'];
         $idUser         = $this->session->userdata('id_user');
         $orderId        = rand();
         $paymentType    = $this->PaymentType->getById($idPaymentType);
@@ -257,6 +266,41 @@ class PaymentController extends CI_Controller{
 
         redirect('payment/status-paypal/'.$idTrans);
     }
+    public function manualTransaction(){
+        $idPaymentType = $_POST['id_payment_type'];
+        $idUser         = $this->session->userdata('id_user');
+        $orderId        = rand();
+        $paymentType    = $this->PaymentType->getById($idPaymentType);
+        $idTrans        = "TRANS".rand().explode('_', $idUser)[1];
+        $currDate       = date('Y-m-d H:i:s');
+
+        $uploadEvidence = $this->uploadImage($idUser);
+        if($uploadEvidence['status'] == false){
+            $this->session->set_flashdata('err_msg', $uploadEvidence['msg']);
+            redirect('payment');
+        }
+
+        $this->db->where(['id_user' => $idUser, 'id_payment_type' => $idPaymentType])->update('payment_status', ['status' => 2]);
+
+        $formData['id_payment_transaction'] = $idTrans;
+        $formData['id_user']                = $idUser;
+        $formData['id_payment_type']        = $idPaymentType;
+        $formData['order_id']               = $orderId;
+        $formData['item']                   = $paymentType->description;
+        $formData['total']                  = $paymentType->amount;
+        $formData['method_img']             = site_url('assets/img/payment/'.$_POST['method_payment'].'.png');
+        $formData['method_type']            = 'manual_transfer';
+        $formData['method_name']            = $_POST['method_payment'];
+        $formData['date']                   = $currDate;
+        $formData['date_expired']           = date("Y-m-d H:i:s", strtotime($currDate.'+15 minutes'));
+        $formData['status']                 = 2;
+        $formData['status_title']           = 'pending';
+        $formData['evidence']               = $uploadEvidence['link'];
+
+        $this->PaymentTransaction->insert($formData);
+
+        redirect('payment/status-manual/'.$idTrans);
+    }
     public function cancel(){
         $paymentTrans = $this->PaymentTransaction->getById($_POST['id']);
         $this->veritrans->cancel($paymentTrans->order_id);
@@ -269,6 +313,12 @@ class PaymentController extends CI_Controller{
         $this->PaymentTransaction->update(['id_payment_transaction' => $_POST['id'], 'status' => '3', 'status_title' => 'cancel']);
         $this->db->query("UPDATE payment_status SET status = '3' WHERE id_user = '".$paymentTrans->id_user."' AND id_payment_type = '".$paymentTrans->id_payment_type."'");
         redirect('payment/status-paypal/'.$_POST['id']);
+    }
+    public function manualCancel(){
+        $paymentTrans = $this->PaymentTransaction->getById($_POST['id']);
+        $this->PaymentTransaction->update(['id_payment_transaction' => $_POST['id'], 'status' => '3', 'status_title' => 'cancel']);
+        $this->db->query("UPDATE payment_status SET status = '3' WHERE id_user = '".$paymentTrans->id_user."' AND id_payment_type = '".$paymentTrans->id_payment_type."'");
+        redirect('payment/status-manual/'.$_POST['id']);
     }
     public function getQueryStatus($idUser){
         return $this->db->query("
@@ -294,5 +344,28 @@ class PaymentController extends CI_Controller{
                 AND pt.id_payment_type = pt2.id_payment_type
             ORDER BY date DESC
         ")->result();
+    }
+    public function uploadImage($idUser){
+        $path = "uploads/evidence";
+        $conf['upload_path']    = $path;
+        $conf['allowed_types']  = 'jpg|jpeg|png';
+        $conf['max_size']       = 1024;
+        $conf['file_name']      = time().$idUser;
+        $conf['encrypt_name']   = true;
+        $this->upload->initialize($conf);
+
+        if ($this->upload->do_upload('evidence')) {
+            $img = $this->upload->data();
+            return [
+                'status' => true,
+                'msg'   => 'Data berhasil terupload',
+                'link'  => base_url($path . '/' . $img['file_name'])
+            ];
+        } else {
+            return [
+                'status' => false,
+                'msg'   => $this->upload->display_errors(),
+            ];
+        }
     }
 }

@@ -47,7 +47,8 @@ class DashboardController extends CI_Controller{
         $data['manIncome']  = $this->Dashboard->getIncomeManual()->TOTAL;
         $data['totIncome']  = (int)$data['midIncome'] + (int)$data['payIncome'];
 
-        $data['pendings']   = $this->Dashboard->getPendingPayment();
+        $data['pendings']           = $this->Dashboard->getPendingPayment();
+        $data['pendingsManual']     = $this->Dashboard->getPendingManualPayment();
 
         $data['popularMethods'] = $this->Dashboard->getPopularMethod();
         $data['succMethods']    = $this->Dashboard->getSuccessMethod();

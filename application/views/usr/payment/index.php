@@ -93,11 +93,14 @@
                         $btn          = '
                         <button type="button" onclick="mdlMidtrans()" class="btn btn-soft-success btn-sm w-100 mt-2">Pay</button>
                         <button onclick="mdlPaypal('.$paymentStatus->id_payment_type.')" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</button>
+                        <button onclick="mdlManual('.$paymentStatus->id_payment_type.')" class="btn btn-soft-primary btn-sm w-100 mt-2">Manual Transfer</button>
                         ';
                       }else if($paymentStatus->status == '2'){
                         $paymentTransaction  = $this->db->order_by('date', 'DESC')->get_where('payment_transaction', ['id_user' => $paymentStatus->id_user, 'id_payment_type' => $paymentStatus->id_payment_type, 'status' => '2'])->row();
                         if($paymentTransaction->method_name == 'paypal'){
                           $btn      = '<a href="'.site_url('payment/status-paypal/'.$paymentTransaction->id_payment_transaction).'" class="btn btn-warning btn-sm w-100">View Transaction</a>';
+                        }else if($paymentTransaction->method_type == 'manual_transfer'){
+                          $btn      = '<a href="'.site_url('payment/status-manual/'.$paymentTransaction->id_payment_transaction).'" class="btn btn-warning btn-sm w-100">View Transaction</a>';
                         }else{
                           $btn      = '<a href="'.site_url('payment/status/'.$paymentTransaction->id_payment_transaction).'" class="btn btn-warning btn-sm w-100">View Transaction</a>';
                         }
@@ -106,19 +109,22 @@
                         $btn  = '
                           <button type="button" onclick="mdlMidtrans()" class="btn btn-soft-success btn-sm w-100 mt-2">Pay</button>
                           <button onclick="mdlPaypal('.$paymentStatus->id_payment_type.')" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</button>
-                        ';
+                          <button onclick="mdlManual('.$paymentStatus->id_payment_type.')" class="btn btn-soft-primary btn-sm w-100 mt-2">Manual Transfer</button>
+                          ';
                         $badgeStatus  = '<span class="badge bg-danger">CANCELED</span>';
                       }else if($paymentStatus->status == '4'){
                         $btn  = '
                           <button type="button" onclick="mdlMidtrans()" class="btn btn-soft-success btn-sm w-100 mt-2">Pay</button>
                           <button onclick="mdlPaypal('.$paymentStatus->id_payment_type.')" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</button>
-                        ';
+                          <button onclick="mdlManual('.$paymentStatus->id_payment_type.')" class="btn btn-soft-primary btn-sm w-100 mt-2">Manual Transfer</button>
+                          ';
                         $badgeStatus  = '<span class="badge bg-danger">EXPIRED</span>';
                       }else if($paymentStatus->status == '5'){
                         $btn  = '
                           <button type="button" onclick="mdlMidtrans()" class="btn btn-soft-success btn-sm w-100 mt-2">Pay</button>
                           <button onclick="mdlPaypal('.$paymentStatus->id_payment_type.')" class="btn btn-soft-warning btn-sm w-100 mt-2">PayPal</button>
-                        ';
+                          <button onclick="mdlManual('.$paymentStatus->id_payment_type.')" class="btn btn-soft-primary btn-sm w-100 mt-2">Manual Transfer</button>
+                          ';
                         $badgeStatus  = '<span class="badge bg-danger">DENY</span>';
                       }else if($paymentStatus->status == '6'){
                         // $btn  = '
@@ -241,9 +247,11 @@
           </div>
 
           <div class="modal-footer">
-              <input type="hidden" name="id" id="mdlPaypal_id" >
+            <form action="<?= site_url('payment/paypal-transaction')?>" method="POST">
+              <input type="hidden" name="id_payment_type" id="mdlPaypal_id" >
               <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
-              <a id="mdlPaypal_make"  href=""  class="btn btn-soft-success">Make Payment</a>
+              <button type="submit"  href=""  class="btn btn-soft-success">Make Payment</button>
+            </form>
           </div>
         </div>
       </div>
@@ -271,6 +279,94 @@
       </div>
     </div>
     <!-- End Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="mdlManual" tabindex="-1" aria-labelledby="mdlManualLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="mdlManualLabel">Manual Transfer</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+            <form action="<?= site_url('payment/manual-transaction')?>" method="POST" enctype="multipart/form-data">
+              <div class="form-group">
+                <label class="mb-2" for="">Method Payment</label>
+                <div class="row gx-3">
+                  <div class="col-6 col-md-3 mb-3">
+                    <!-- Radio Check -->
+                    <div class="form-check form-check-card text-center">
+                      <input class="form-check-input" type="radio" name="method_payment" value="money_gram" id="method_payment1">
+                      <label class="form-check-label" for="method_payment1">
+                        <img class="w-50 mb-3" src="<?= site_url('assets/img/payment/money_gram.png')?>" alt="SVG">
+                        <span class="d-block">Money Gram</span>
+                      </label>
+                    </div>
+                    <!-- End Radio Check -->
+                  </div>
+                  <!-- End Col -->
+
+                  <div class="col-6 col-md-3 mb-3">
+                    <!-- Radio Check -->
+                    <div class="form-check form-check-card text-center">
+                      <input class="form-check-input" type="radio" name="method_payment" value="western_union" id="method_payment2" checked>
+                      <label class="form-check-label" for="method_payment2">
+                        <img class="w-50 mb-3" src="<?= site_url('assets/img/payment/western_union.png')?>" alt="SVG">
+                        <span class="d-block">Western Union</span>
+                      </label>
+                    </div>
+                    <!-- End Radio Check -->
+                  </div>
+                  <!-- End Col -->
+
+                  <div class="col-6 col-md-3 mb-3">
+                    <!-- Radio Check -->
+                    <div class="form-check form-check-card text-center">
+                      <input class="form-check-input" type="radio" name="method_payment" value="wise" id="method_payment3">
+                      <label class="form-check-label" for="method_payment3">
+                        <img class="w-50 mb-3" src="<?= site_url('assets/img/payment/wise.png')?>" alt="SVG">
+                        <span class="d-block">Wise</span>
+                      </label>
+                    </div>
+                    <!-- End Radio Check -->
+                  </div>
+                  <!-- End Col -->
+
+                  <div class="col-6 col-md-3 mb-3">
+                    <!-- Radio Check -->
+                    <div class="form-check form-check-card text-center">
+                      <input class="form-check-input" type="radio" name="method_payment" value="ziraat" id="method_payment4">
+                      <label class="form-check-label" for="method_payment4">
+                        <img class="w-50 mb-3" src="<?= site_url('assets/img/payment/ziraat.png')?>" alt="SVG">
+                        <span class="d-block">Ziraat Bank</span>
+                      </label>
+                    </div>
+                    <!-- End Radio Check -->
+                  </div>
+                  <!-- End Col -->
+                </div>
+                <!-- End Row -->
+              </div>
+              <div class="form-group">
+                <label class="mb-2" for="">Evidence</label><span class="text-danger">*</span> 
+                <div id="boxImg" class="text-center mb-3 p-3" style="border: .0625rem solid rgba(33,50,91,.1);border-radius: .3125rem;cursor: pointer;">
+                    <img style="max-width: 300px;" id="blah" class="" src="<?= site_url('assets/svg/illustrations/oc-lost.svg')?>" />
+                </div>
+                <input type="file" accept=".jpg,.png,.jpeg,.bmp" class="form-control" name="evidence" style="cursor: pointer;" id="imgPoster" required>
+              </div>
+              <small class="mt-2">Note: (File Size Max 1MB)</small>
+          </div>
+
+            <div class="modal-footer">
+              <input type="hidden" name="id_payment_type" id="mdlManual_id" >
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-soft-success">Make Payment</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
   
 </main>
 <!-- ========== END MAIN CONTENT ========== -->
@@ -284,11 +380,15 @@
 </script> -->
 <script>
   function mdlPaypal(idPaymentType){
-    $('#mdlPaypal_make').attr('href', `<?= site_url()?>/payment/paypal-transaction/${idPaymentType}`)
+    $('#mdlPaypal_id').val(idPaymentType)
     $('#mdlPaypal').modal('show')
   }
   function mdlMidtrans(){
     $('#mdlMidtrans').modal('show')
+  }
+  function mdlManual(idPaymentType){
+    $('#mdlManual_id').val(idPaymentType)
+    $('#mdlManual').modal('show')
   }
   $('.purchase-button').click(function (event) {
     $('#mdlMidtrans').modal('hide')

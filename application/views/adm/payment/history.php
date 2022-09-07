@@ -74,15 +74,22 @@
                 <?php
                     foreach ($historys as $history) {
                         $btnValid = "";
-                        if($history->method_name == 'paypal' && $history->status == '2'){
+                        if(($history->method_type == 'paypal' || $history->method_type == 'manual_transfer') && $history->status == '2'){
                           $btnValid =  '
-                            <button onclick="showMdlValidasi(\''.$history->id_payment_transaction.'\', \''.$history->id_payment_type.'\', \''.$history->id_user.'\', \''.$history->method_name.'\', 6)" class="btn btn-soft-success btn-icon btn-sm"><i class="bi-check"></i></button>
+                            <button onclick="showMdlValidasi(\''.$history->id_payment_transaction.'\', \''.$history->id_payment_type.'\', \''.$history->id_user.'\', \''.$history->method_type.'\', 6)" class="btn btn-soft-success btn-icon btn-sm"><i class="bi-check"></i></button>
+                          ';
+                        }
+
+                        $btnEvidence = "";
+                        if($history->method_type == 'manual_transfer'){
+                          $btnEvidence =  '
+                            <button onclick="mdlEvidence(\''.$history->evidence.'\')" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-eye"></i></button>
                           ';
                         }
 
                         if($history->status == '2'){
                           $btnValid .=  '
-                            <button onclick="showMdlValidasi(\''.$history->id_payment_transaction.'\', \''.$history->id_payment_type.'\', \''.$history->id_user.'\', \''.$history->method_name.'\', 3)" class="btn btn-soft-danger btn-icon btn-sm"><i class="bi-x"></i></button>
+                            <button onclick="showMdlValidasi(\''.$history->id_payment_transaction.'\', \''.$history->id_payment_type.'\', \''.$history->id_user.'\', \''.$history->method_type.'\', 3)" class="btn btn-soft-danger btn-icon btn-sm"><i class="bi-x"></i></button>
                           ';
                         }
 
@@ -95,7 +102,7 @@
                                     <img style="max-width: 75px;" src="'.$history->method_img.'" />
                                 </td>
                                 <td scope="col">'.strtoupper($history->status_title).'</td>
-                                <td scope="col">'.$btnValid.'</td>
+                                <td scope="col">'.$btnEvidence.$btnValid.'</td>
                             </tr>   
                         ';
                     }
@@ -124,7 +131,7 @@
               <input type="hidden" name="id_payment_transaction" id="mdlValidation_idPaymentTrans" >
               <input type="hidden" name="id_payment_type" id="mdlValidation_idPaymentType" >
               <input type="hidden" name="id_user" id="mdlValidation_idUser" >
-              <input type="hidden" name="method_name" id="mdlValidation_method" >
+              <input type="hidden" name="method_type" id="mdlValidation_method" >
               <input type="hidden" name="status" id="mdlValidation_status" >
               <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
               <button type="submit" class="btn btn-soft-success">Save</button>
@@ -134,8 +141,34 @@
       </div>
     </div>
     <!-- End Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="mdlEvidence" tabindex="-1" aria-labelledby="mdlEvidenceLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="mdlEvidenceLabel">Evidence</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+            <div id="boxImg" class="text-center mb-3 p-3" style="border: .0625rem solid rgba(33,50,91,.1);border-radius: .3125rem;cursor: pointer;">
+                <img style="max-width: 300px;" id="blah" class="" src="" />
+            </div>
+          </div>
+
+          <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
   </main>
   <script>
+    function mdlEvidence(src){
+      $('#blah').attr('src', src)
+      $('#mdlEvidence').modal('show')
+    }
     const showMdlValidasi = (idPaymentTrans, idPaymentType, idUser, method, status) => {
       $('#mdlValidation_idPaymentTrans').val(idPaymentTrans);
       $('#mdlValidation_idPaymentType').val(idPaymentType);
