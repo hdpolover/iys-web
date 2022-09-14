@@ -1,5 +1,5 @@
 <?php
-
+use setasign\Fpdi\Fpdi;
 class DocumentController extends CI_Controller{
     public function __construct(){
         parent::__construct();
@@ -29,51 +29,27 @@ class DocumentController extends CI_Controller{
                 AND pd.id_user = u.id_user 
         ")->row();
 
-        try {
-            // Create a new SimpleImage object
-            $image = new \claviska\SimpleImage();
+        $pdf = new Fpdi();
+        $pdf->AddPage();
+        // set the source file
+        $pdf->setSourceFile('assets/docs/LOA - Participant.pdf');
+        // import page 1
+        $tplIdx = $pdf->importPage(1);
+        $pdf->useTemplate($tplIdx, 0, 0, 220);
 
-            $image
-                ->fromFile("assets/img/documents/LOA.jpg")
-                ->autoOrient()
-                ->text(
-                    strtoupper(explode(' ', $user->name)[0]),
-                    array(
-                        'fontFile' => realpath('font.ttf'),
-                        'size' => 25,
-                        'anchor' => 'left',
-                        'xOffset' => 410,
-                        'yOffset' => -650,
-                    )
-                )
-                ->text(
-                    strtoupper($user->name),
-                    array(
-                        'fontFile' => realpath('font.ttf'),
-                        'size' => 25,
-                        'anchor' => 'left',
-                        'xOffset' => 420,
-                        'yOffset' => -296,
-                    )
-                )
-                ->text(
-                    strtoupper($user->institution_workplace),
-                    array(
-                        'fontFile' => realpath('font.ttf'),
-                        'size' => 25,
-                        'anchor' => 'left',
-                        'xOffset' => 420,
-                        'yOffset' => -225,
-                    )
-                )
-                //->toScreen();                               // output to the screen
-                ->toFile("uploads/LoA/LoA - ".strtoupper($user->name).".jpg");
-                        
-                force_download("uploads/LoA/LoA - ".strtoupper($user->name).".jpg", NULL);
-        } catch (Exception $err) {
-            // Handle errors
-            echo $err->getMessage();
-        }
+        // now write some text above the imported page
+        $pdf->SetFont('Times');
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->SetFontSize(10);
+        $pdf->SetXY(52, 57);
+        $pdf->Write(0, strtoupper(explode(' ', $user->name)[0]));
+        $pdf->SetXY(54, 103);
+        $pdf->Write(0, strtoupper($user->name));
+        $pdf->SetXY(54, 112);
+        $pdf->Write(0, strtoupper($user->institution_workplace));
+
+		$pdf->Output('uploads/LoA/LoA - '.strtoupper($user->name).'.pdf', 'F');
+        force_download('uploads/LoA/LoA - '.strtoupper($user->name).'.pdf', NULL);
     }
     public function download(){
         if($_POST['type'] == 'guidebook'){
