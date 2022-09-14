@@ -162,6 +162,9 @@ $route['payment/manual-transaction']        = 'usr/PaymentController/manualTrans
 $route['payment/manual-cancel']             = 'usr/PaymentController/manualCancel';
 
 // documents
+$route['document']                  = 'usr/DocumentController';
+$route['document/download']         = 'usr/DocumentController/download';
+$route['document/generate-loa']     = 'usr/DocumentController/generateLoA';
 $route['document/generate-payment'] = 'usr/DocumentController/generatePayment';
 
 

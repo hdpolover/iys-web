@@ -74,6 +74,11 @@
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link <?= $sidebar == "document" ? "active" : ""?>" href="<?= site_url('document')?>">
+                <i class="bi-file-earmark-check nav-icon"></i> Document
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link <?= $sidebar == "certificate" ? "active" : ""?>" href="#">
                 <i class="bi-award nav-icon"></i> Certificate
               </a>

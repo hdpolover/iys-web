@@ -23,7 +23,7 @@
 <?php
     if($detail->is_checked == 0){
 ?>
-        <a href="<?= site_url('personal-info/update')?>" class="btn btn-soft-primary mt-4">Update Form</a>
+        <!-- <a href="<?= site_url('personal-info/update')?>" class="btn btn-soft-primary mt-4">Update Form</a> -->
 <?php }?>
 <div class="text-center mb-3">
 </div>

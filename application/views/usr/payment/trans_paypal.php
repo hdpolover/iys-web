@@ -163,7 +163,7 @@
               </dl>
               <dl class="row mb-4">
                   <dt class="col-sm-6">METHOD TYPE</dt>
-                  <dd class="col-sm-6 text-sm-end mb-0"><?= strtoupper(str_replace("_", " ", $paymentDetail->method_type))?></dd>
+                  <dd class="col-sm-6 text-sm-end mb-0"><?= strtoupper(str_replace("_", " ", $paymentDetail->method_type))?> (Manual Check) 1x24 hours</dd>
               </dl>
               <dl class="row mb-4">
                   <dt class="col-sm-6">METHOD</dt>

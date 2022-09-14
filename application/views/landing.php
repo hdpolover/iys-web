@@ -896,47 +896,47 @@
     // =======================================================
     new HsNavScroller('.js-nav-scroller')
 
-    $(document).ready(function(){
-        setInterval(function(){
-          $('#btn-next-banner').click()
-        }, 3500)
+    // $(document).ready(function(){
+    //     setInterval(function(){
+    //       $('#btn-next-banner').click()
+    //     }, 3500)
 
-        function doSomething() {
-          $.ajax({
-          url: '<?= site_url('ajxGetUserSubmit')?>',
-          method: 'GET',
-          success: function(res){
-            res = JSON.parse(res)
-            $.toast({
-                heading: 'Information',
-                text: `${res.name} from ${res.nationality} and others have submitted their registration forms`,
-                showHideTransition: 'slide',
-                icon: 'info',
-                bgColor: '#8247B8'
-            })
-          }
-        })
+    //     function doSomething() {
+    //       $.ajax({
+    //       url: '<?= site_url('ajxGetUserSubmit')?>',
+    //       method: 'GET',
+    //       success: function(res){
+    //         res = JSON.parse(res)
+    //         $.toast({
+    //             heading: 'Information',
+    //             text: `${res.name} from ${res.nationality} and others have submitted their registration forms`,
+    //             showHideTransition: 'slide',
+    //             icon: 'info',
+    //             bgColor: '#8247B8'
+    //         })
+    //       }
+    //     })
           
-        }
+    //     }
 
-        (function loop() {
-            var rand = Math.round(Math.random() * (10000 - 500)) + 500;
-            setTimeout(function() {
-                    doSomething();
-                    loop();
-            }, rand);
-        }());
+    //     (function loop() {
+    //         var rand = Math.round(Math.random() * (10000 - 500)) + 500;
+    //         setTimeout(function() {
+    //                 doSomething();
+    //                 loop();
+    //         }, rand);
+    //     }());
 
-        // setInterval(function(){
-        //   $.toast({
-        //       heading: 'Information',
-        //       text: 'Now you can add icons to generate different kinds of toasts',
-        //       showHideTransition: 'slide',
-        //       icon: 'info',
-        //       bgColor: '#8247B8'
-        //   })
-        // }, 1000)
-    })
+    //     // setInterval(function(){
+    //     //   $.toast({
+    //     //       heading: 'Information',
+    //     //       text: 'Now you can add icons to generate different kinds of toasts',
+    //     //       showHideTransition: 'slide',
+    //     //       icon: 'info',
+    //     //       bgColor: '#8247B8'
+    //     //   })
+    //     // }, 1000)
+    // })
 
 
     // INITIALIZATION OF SHUFFLE

@@ -293,10 +293,10 @@
               <div class="form-group">
                 <label class="mb-2" for="">Method Payment</label>
                 <div class="row gx-3">
-                  <div class="col-6 col-md-3 mb-3">
+                  <div class="col-6 col-md-4 mb-3">
                     <!-- Radio Check -->
                     <div class="form-check form-check-card text-center">
-                      <input class="form-check-input" type="radio" name="method_payment" value="money_gram" id="method_payment1">
+                      <input class="form-check-input" type="radio" name="method_payment" value="money_gram" id="method_payment1" checked>
                       <label class="form-check-label" for="method_payment1">
                         <img class="w-50 mb-3" src="<?= site_url('assets/img/payment/money_gram.png')?>" alt="SVG">
                         <span class="d-block">Money Gram</span>
@@ -306,8 +306,7 @@
                   </div>
                   <!-- End Col -->
 
-                  <div class="col-6 col-md-3 mb-3">
-                    <!-- Radio Check -->
+                  <!-- <div class="col-6 col-md-3 mb-3">
                     <div class="form-check form-check-card text-center">
                       <input class="form-check-input" type="radio" name="method_payment" value="western_union" id="method_payment2" checked>
                       <label class="form-check-label" for="method_payment2">
@@ -315,11 +314,10 @@
                         <span class="d-block">Western Union</span>
                       </label>
                     </div>
-                    <!-- End Radio Check -->
-                  </div>
+                  </div> -->
                   <!-- End Col -->
 
-                  <div class="col-6 col-md-3 mb-3">
+                  <div class="col-6 col-md-4 mb-3">
                     <!-- Radio Check -->
                     <div class="form-check form-check-card text-center">
                       <input class="form-check-input" type="radio" name="method_payment" value="wise" id="method_payment3">
@@ -332,7 +330,7 @@
                   </div>
                   <!-- End Col -->
 
-                  <div class="col-6 col-md-3 mb-3">
+                  <div class="col-6 col-md-4 mb-3">
                     <!-- Radio Check -->
                     <div class="form-check form-check-card text-center">
                       <input class="form-check-input" type="radio" name="method_payment" value="ziraat" id="method_payment4">
