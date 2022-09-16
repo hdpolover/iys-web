@@ -83,7 +83,7 @@
                         $btnEvidence = "";
                         if($history->method_type == 'manual_transfer'){
                           $btnEvidence =  '
-                            <button onclick="mdlEvidence(\''.$history->evidence.'\')" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-eye"></i></button>
+                            <button onclick="mdlEvidence(\''.$history->evidence.'\', \''.$history->remarks.'\')" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-eye"></i></button>
                           ';
                         }
 
@@ -154,6 +154,10 @@
             <div id="boxImg" class="text-center mb-3 p-3" style="border: .0625rem solid rgba(33,50,91,.1);border-radius: .3125rem;cursor: pointer;">
                 <img style="max-width: 300px;" id="blah" class="" src="" />
             </div>
+            <div class="form-gorup">
+              <label for="">Remarks</label>
+              <input class="form-control" type="text" id="remarks" disabled>
+            </div>
           </div>
 
           <div class="modal-footer">
@@ -165,8 +169,9 @@
     <!-- End Modal -->
   </main>
   <script>
-    function mdlEvidence(src){
+    function mdlEvidence(src, remarks){
       $('#blah').attr('src', src)
+      $('#remarks').val(remarks)
       $('#mdlEvidence').modal('show')
     }
     const showMdlValidasi = (idPaymentTrans, idPaymentType, idUser, method, status) => {

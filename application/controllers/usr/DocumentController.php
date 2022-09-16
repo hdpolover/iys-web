@@ -13,6 +13,7 @@ class DocumentController extends CI_Controller{
         $this->load->model('PaymentType');
         $this->load->helper('download');
         $this->load->model('ParticipantDetail');
+        $this->load->library('upload');
     }
     public function index(){
         $data['title']      = 'Document';
@@ -56,8 +57,10 @@ class DocumentController extends CI_Controller{
             force_download('assets/docs/GUIDEBOOK.pdf', NULL);
         }else if($_POST['type'] == 'propEng'){
             force_download('assets/docs/[ENG] Proposal Participant of Istanbul Youth Summit 2023.pdf', NULL);
+        }else if($_POST['type'] == 'propInd'){
+            force_download('assets/docs/[IND] Proposal Peserta - Istanbul Youth Summit 2023.pdf', NULL);
         }else if($_POST['type'] == 'agreement'){
-            force_download('assets/docs/Agreement Letter.docx', NULL);
+            force_download('assets/docs/Agreement Letter.pdf', NULL);
         }
     }
     public function generatePayment(){
@@ -168,6 +171,45 @@ class DocumentController extends CI_Controller{
         } catch (Exception $err) {
             // Handle errors
             echo $err->getMessage();
+        }
+    }
+    function uploadAgreement(){
+        $idUser = $this->session->userdata('id_user');
+        $uploadAgreement = $this->uploadPDF($idUser);
+        if($uploadAgreement['status'] == false){
+            $this->session->set_flashdata('err_msg', $uploadAgreement['msg']);
+            redirect('document');
+        }
+
+        $formData['id_user']            = $idUser;
+        $formData['agreement_status']   = 1;
+        $formData['agreement_path']     = $uploadAgreement['link'];
+        $this->ParticipantDetail->update($formData);
+
+        $this->session->set_flashdata('succ_msg', 'Successfully upload agreement letter!');
+        redirect('document');
+    }
+    public function uploadPDF($idUser){
+        $path = "uploads/agreement";
+        $conf['upload_path']    = $path;
+        $conf['allowed_types']  = 'pdf';
+        $conf['max_size']       = 1024;
+        $conf['file_name']      = time().$idUser;
+        $conf['encrypt_name']   = true;
+        $this->upload->initialize($conf);
+
+        if ($this->upload->do_upload('agreement')) {
+            $img = $this->upload->data();
+            return [
+                'status' => true,
+                'msg'   => 'Data berhasil terupload',
+                'link'  => base_url($path . '/' . $img['file_name'])
+            ];
+        } else {
+            return [
+                'status' => false,
+                'msg'   => $this->upload->display_errors(),
+            ];
         }
     }
 }

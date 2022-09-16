@@ -296,7 +296,7 @@
                   <div class="col-6 col-md-4 mb-3">
                     <!-- Radio Check -->
                     <div class="form-check form-check-card text-center">
-                      <input class="form-check-input" type="radio" name="method_payment" value="money_gram" id="method_payment1" checked>
+                      <input class="form-check-input" type="radio" name="method_payment" onclick="changeGuide('tutor_moneygram.png')" value="money_gram" id="method_payment1" checked>
                       <label class="form-check-label" for="method_payment1">
                         <img class="w-50 mb-3" src="<?= site_url('assets/img/payment/money_gram.png')?>" alt="SVG">
                         <span class="d-block">Money Gram</span>
@@ -320,7 +320,7 @@
                   <div class="col-6 col-md-4 mb-3">
                     <!-- Radio Check -->
                     <div class="form-check form-check-card text-center">
-                      <input class="form-check-input" type="radio" name="method_payment" value="wise" id="method_payment3">
+                      <input class="form-check-input" onclick="changeGuide('tutor_wise.png')" type="radio" name="method_payment" value="wise" id="method_payment3">
                       <label class="form-check-label" for="method_payment3">
                         <img class="w-50 mb-3" src="<?= site_url('assets/img/payment/wise.png')?>" alt="SVG">
                         <span class="d-block">Wise</span>
@@ -333,7 +333,7 @@
                   <div class="col-6 col-md-4 mb-3">
                     <!-- Radio Check -->
                     <div class="form-check form-check-card text-center">
-                      <input class="form-check-input" type="radio" name="method_payment" value="ziraat" id="method_payment4">
+                      <input class="form-check-input" type="radio" onclick="changeGuide('tutor_ziraat.png')" name="method_payment" value="ziraat" id="method_payment4">
                       <label class="form-check-label" for="method_payment4">
                         <img class="w-50 mb-3" src="<?= site_url('assets/img/payment/ziraat.png')?>" alt="SVG">
                         <span class="d-block">Ziraat Bank</span>
@@ -346,6 +346,13 @@
                 <!-- End Row -->
               </div>
               <div class="form-group">
+                <!-- <label class="mb-2" for="">Payment Guide</label> -->
+                <div style="text-align: center;">
+                    <img id="payGuide" src="<?= site_url('assets/img/payment/tutor_moneygram.png')?>" width="250px" alt="">
+                </div>
+              </div>
+
+              <div class="form-group">
                 <label class="mb-2" for="">Evidence</label><span class="text-danger">*</span> 
                 <div id="boxImg" class="text-center mb-3 p-3" style="border: .0625rem solid rgba(33,50,91,.1);border-radius: .3125rem;cursor: pointer;">
                     <img style="max-width: 300px;" id="blah" class="" src="<?= site_url('assets/svg/illustrations/oc-lost.svg')?>" />
@@ -353,6 +360,11 @@
                 <input type="file" accept=".jpg,.png,.jpeg,.bmp" class="form-control" name="evidence" style="cursor: pointer;" id="imgPoster" required>
               </div>
               <small class="mt-2">Note: (File Size Max 1MB)</small>
+
+              <div class="form-group mt-2">
+                <label for="">Remarks</label><span class="text-danger">*</span>
+                <input type="text" name="remarks" class="form-control" placeholder="Name of Participant" required>
+              </div>
           </div>
 
             <div class="modal-footer">
@@ -387,6 +399,9 @@
   function mdlManual(idPaymentType){
     $('#mdlManual_id').val(idPaymentType)
     $('#mdlManual').modal('show')
+  }
+  const changeGuide = method => {
+    $('#payGuide').attr('src', `<?= site_url('assets/img/payment/')?>${method}`);
   }
   $('.purchase-button').click(function (event) {
     $('#mdlMidtrans').modal('hide')

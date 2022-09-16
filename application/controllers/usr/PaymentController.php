@@ -296,6 +296,7 @@ class PaymentController extends CI_Controller{
         $formData['status']                 = 2;
         $formData['status_title']           = 'pending';
         $formData['evidence']               = $uploadEvidence['link'];
+        $formData['remarks']                = $_POST['remarks'];
 
         $this->PaymentTransaction->insert($formData);
 

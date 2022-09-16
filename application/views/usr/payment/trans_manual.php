@@ -117,6 +117,10 @@
                       <img style="max-width: 75px;" src="<?= $paymentDetail->method_img?>" alt="">
                   </dd>
               </dl>
+              <dl class="row mb-4">
+                  <dt class="col-sm-6">REMARKS</dt>
+                  <dd class="col-sm-6 text-sm-end mb-0"><?= $paymentDetail->remarks?></dd>
+              </dl>
               <p><b>Note:</b></p>
               <p class="mb-4">- If there is an error, please reload your browser, if still send an email to <a href="mailto:istanbuyouthsummit@gmail.com">istanbuyouthsummit@gmail.com</a></p>
               <?php
