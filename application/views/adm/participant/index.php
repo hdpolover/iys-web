@@ -317,6 +317,33 @@
                 <input type="hidden" name="id" id="mdlAgreement_id" >
                 <input type="submit" name="status" class="btn btn-soft-danger" value="Deny">
                 <input type="submit" name="status" class="btn btn-soft-success" value="Approve">
+                <input type="button" onclick="mdlAgreementValid()" name="status" class="btn btn-soft-success" value="Approve">
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="mdlAgreementValid" tabindex="-1" aria-labelledby="mdlDeleteLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="mdlDeleteLabel">Confirmation</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+            <h4>Are you sure to change the status agreement?</h4>
+          </div>
+
+          <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+              <form id="" action="<?= site_url('admin/participant/valid-agreement')?>" method="POST">
+                <input type="hidden" name="id" id="mdlAgreementValid_id" >
+                <input type="submit" name="status" class="btn btn-soft-danger" value="Deny">
+                <input type="submit" name="status" class="btn btn-soft-success" value="Approve">
+                <input type="button" name="status" class="btn btn-soft-success" value="Approve">
               </form>
           </div>
         </div>
@@ -376,6 +403,9 @@
       $('#mdlAgreement_href').attr('href', path)
       $('#mdlAgreement_id').val(id);
       $('#mdlAgreement').modal('show')
+    }
+    const mdlAgreementValid = () => {
+      $('#mdlAgreementValid').modal('show')
     }
     function btnSearch(){
         table.ajax.reload();

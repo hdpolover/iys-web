@@ -76,7 +76,46 @@
                     ';
                 }
             ?>
-            <table class="table table-borderless table-thead-bordered datatable">
+            <div class="row mb-4">
+              <div class="col-sm mb-2 mb-sm-0">
+                <label for="">Email</label>
+                <input type="text" id="filter_email" class="form-control" placeholder="Email Filter" />
+              </div>
+
+              <div class="col-sm mb-2 mb-sm-0">
+                <label for="">Name</label>
+                <input type="text" id="filter_name" class="form-control" placeholder="Name Filter" >
+              </div>
+
+              <div class="col-sm mb-2 mb-sm-0">
+                <label for="">Phone Number</label>
+                <input type="text" id="filter_number" class="form-control" placeholder="Phone Filter" >
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4 mb-2 mb-sm-0">
+                <label for="">Payment State</label>
+                <select id="filter_paystate" class="form-control">
+                  <option value="">All</option>
+                  <option value="8">Registration</option>
+                  <option value="9">Batch 1</option>
+                  <option value="10">Batch 2</option>
+                </select>
+              </div>
+              <div class="col-sm-4 mb-2 mb-sm-0">
+                <label for="">Payment Status</label>
+                <select id="filter_paystatus" class="form-control">
+                  <option value="">All</option>
+                  <option value="2">Pending</option>
+                  <option value="6">Success</option>
+                  <option value="3">Cancel</option>
+                  <option value="4">Expired</option>
+                  <option value="5">Deny</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn btn-sm btn-primary mb-4 mt-2" onclick="btnSearch()"><i class="bi-search"></i>&nbsp&nbspSearch</button>
+            <table id="dataTable" class="table table-borderless table-thead-bordered datatable">
               <thead class="thead-light">
                 <tr>
                   <th scope="col">No</th>
@@ -89,70 +128,70 @@
               </thead>
               <tbody>
                 <?php
-                    $no = 1;
-                    foreach ($payments as $participant) {
-                        $status = '';
-                        $paymentStatus = $this->db->query("
-                          SELECT
-                            ps.id_payment_status ,
-                            ps.id_payment_type ,
-                            ps.status ,
-                            pt.description 
-                          FROM 
-                            payment_status ps ,
-                            users u ,
-                            payment_types pt 
-                          WHERE 
-                            u.id_user = '".$participant->id_user."'
-                            AND ps.is_active = 1
-                            AND ps.id_user = u.id_user
-                            AND pt.id_payment_type = ps.id_payment_type 
-                          ORDER BY ps.id_payment_status DESC
-                        ")->row();
+                    // $no = 1;
+                    // foreach ($payments as $participant) {
+                    //     $status = '';
+                    //     $paymentStatus = $this->db->query("
+                    //       SELECT
+                    //         ps.id_payment_status ,
+                    //         ps.id_payment_type ,
+                    //         ps.status ,
+                    //         pt.description 
+                    //       FROM 
+                    //         payment_status ps ,
+                    //         users u ,
+                    //         payment_types pt 
+                    //       WHERE 
+                    //         u.id_user = '".$participant->id_user."'
+                    //         AND ps.is_active = 1
+                    //         AND ps.id_user = u.id_user
+                    //         AND pt.id_payment_type = ps.id_payment_type 
+                    //       ORDER BY ps.id_payment_status DESC
+                    //     ")->row();
 
-                        if(empty($paymentStatus->status)){
-                          $status = '
-                            <span class="badge bg-soft-dark text-dark">NOT SUBMIT</span>    
-                          ';
-                        }else if($paymentStatus->status == '1'){
-                          $status = '
-                            <span class="badge bg-soft-secondary text-secondary">NEW</span>    
-                          ';
-                        }else if($paymentStatus->status == '2'){
-                          $status = '
-                            <span class="badge bg-soft-warning text-warning">PENDING</span>    
-                          ';
-                        }else if($paymentStatus->status == '3'){
-                          $status = '
-                            <span class="badge bg-soft-danger text-danger">CANCELED</span>    
-                          ';
-                        }else if($paymentStatus->status == '4'){
-                          $status = '
-                            <span class="badge bg-soft-danger text-danger">EXPIRED</span>    
-                          ';
-                        }else if($paymentStatus->status == '5'){
-                          $status = '
-                            <span class="badge bg-soft-danger text-danger">DENY</span>    
-                          ';
-                        }else if($paymentStatus->status == '6'){
-                          $status = '
-                            <span class="badge bg-soft-success text-success">SUCCESS</span>    
-                          ';
-                        }
+                    //     if(empty($paymentStatus->status)){
+                    //       $status = '
+                    //         <span class="badge bg-soft-dark text-dark">NOT SUBMIT</span>    
+                    //       ';
+                    //     }else if($paymentStatus->status == '1'){
+                    //       $status = '
+                    //         <span class="badge bg-soft-secondary text-secondary">NEW</span>    
+                    //       ';
+                    //     }else if($paymentStatus->status == '2'){
+                    //       $status = '
+                    //         <span class="badge bg-soft-warning text-warning">PENDING</span>    
+                    //       ';
+                    //     }else if($paymentStatus->status == '3'){
+                    //       $status = '
+                    //         <span class="badge bg-soft-danger text-danger">CANCELED</span>    
+                    //       ';
+                    //     }else if($paymentStatus->status == '4'){
+                    //       $status = '
+                    //         <span class="badge bg-soft-danger text-danger">EXPIRED</span>    
+                    //       ';
+                    //     }else if($paymentStatus->status == '5'){
+                    //       $status = '
+                    //         <span class="badge bg-soft-danger text-danger">DENY</span>    
+                    //       ';
+                    //     }else if($paymentStatus->status == '6'){
+                    //       $status = '
+                    //         <span class="badge bg-soft-success text-success">SUCCESS</span>    
+                    //       ';
+                    //     }
                         
-                        echo '
-                            <tr>
-                                <td scope="col">'.$no++.'</td>
-                                <td scope="col">'.$participant->name.'</td>
-                                <td scope="col">'.$participant->email.'</td>
-                                <td scope="col">'.(!empty($paymentStatus->description) ? $paymentStatus->description : "NOT SUBMIT").'</td>
-                                <td scope="col">'.$status.'</td>
-                                <td scope="col">
-                                    <a target="_blank" href="'.site_url('admin/payment/history/'.$participant->id_user).'" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-list"></i></a>
-                                </td>
-                            </tr>   
-                        ';
-                    }
+                    //     echo '
+                    //         <tr>
+                    //             <td scope="col">'.$no++.'</td>
+                    //             <td scope="col">'.$participant->name.'</td>
+                    //             <td scope="col">'.$participant->email.'</td>
+                    //             <td scope="col">'.(!empty($paymentStatus->description) ? $paymentStatus->description : "NOT SUBMIT").'</td>
+                    //             <td scope="col">'.$status.'</td>
+                    //             <td scope="col">
+                    //                 <a target="_blank" href="'.site_url('admin/payment/history/'.$participant->id_user).'" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-list"></i></a>
+                    //             </td>
+                    //         </tr>   
+                    //     ';
+                    // }
                 ?>
               </tbody>
             </table>
@@ -163,3 +202,33 @@
     <!-- End Content -->
    
   </main>
+  <script>
+    var table = $('#dataTable').DataTable({
+        'processing': true,
+        'serverSide': true,
+        'ordering': false,
+        'searching': false,
+        'serverMethod': 'post',
+        'ajax': {
+            'url':'<?= site_url('admin/payment/ajxGet')?>',
+            'data': function(d){
+                d.filterEmail     = $('#filter_email').val()
+                d.filterName      = $('#filter_name').val()
+                d.filterNumber    = $('#filter_number').val()
+                d.filterPayState  = $('#filter_paystate').val()
+                d.filterPayStatus = $('#filter_paystatus').val()
+            }
+        },
+        'columns': [
+            { data: 'no' },
+            { data: 'name' },
+            { data: 'email' },
+            { data: 'payState' },
+            { data: 'payStatus' },
+            { data: 'action' }
+        ]
+    });
+    function btnSearch(){
+        table.ajax.reload();
+    }
+  </script>

@@ -113,6 +113,7 @@ $route['admin/payment']                     = 'adm/PaymentController';
 $route['admin/payment/add']                 = 'adm/PaymentController/add';
 $route['admin/payment/history/(:any)']      = 'adm/PaymentController/history/$1';
 $route['admin/payment/validation']          = 'adm/PaymentController/validation';
+$route['admin/payment/ajxGet']              = 'adm/PaymentController/ajxGet';
 
 // master payment
 $route['admin/master/payment-type']                  = 'adm/master/PaymentTypeController';
