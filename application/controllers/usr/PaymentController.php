@@ -31,7 +31,7 @@ class PaymentController extends CI_Controller{
         $data['title']          = "Payment";
         $data['sidebar']        = "payment";
 
-        $paymentTypes = $this->PaymentType->getAll();
+        $paymentTypes = $this->PaymentType->get(['is_extended' => $this->session->userdata('is_extended')]);
         $index        = 0;
         foreach ($paymentTypes as $paymentType) {
             $paymentStatus = $this->PaymentStatus->get(['id_payment_type' => $paymentType->id_payment_type, 'id_user' => $this->session->userdata('id_user')]);

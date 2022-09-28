@@ -43,7 +43,7 @@ class ParticipantController extends CI_Controller{
         redirect('admin/participant');
     }
     public function checked(){
-        $this->ParticipantDetail->update(['id_user' => $_POST['id'], 'is_checked' => '1']);
+        $this->ParticipantDetail->update(['id_user' => $_POST['id'], 'is_checked' => '1', 'checked_date' => date('Y-m-d H:i:s')]);
         $this->session->set_flashdata('succ_msg', 'Successfully checked user!');
         redirect('admin/'.$_POST['page']);
     }

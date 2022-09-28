@@ -78,52 +78,139 @@
                 <?php 
                     $this->load->model('ParticipantDetail');
                     $pDetail = $this->ParticipantDetail->getById($this->session->userdata('id_user'));
-                    if($pDetail->is_checked == 1){?>
-               
-                    <div class="col col-sm-6 mb-6">
-                        <!-- Card -->
-                        <div class="card card-sm" style="max-width: 20rem;">
-                            <div class="card-body">
-                                <h3 class="card-title">Letter of Acceptance</h3>
-                                <div class="text-center">
-                                    <img class="" src="<?= site_url()?>assets/img/logo/logo.png" style="width: 175px;" alt="Logo">
+                    $dateNow = date('Y-m-d H:i:s');
+                    if($pDetail->is_checked == 1){
+                      if($this->session->userdata('is_extended') == '1'){
+                        $checkedDate = date('Y-m-d H:i:s', strtotime("+3 days", strtotime($pDetail->checked_date)));
+                        if(strtotime($dateNow) > strtotime($checkedDate)){
+                        }
+                      }else {
+                        if($pDetail->checked_date != null){
+                          $checkedDate = date('Y-m-d H:i:s', strtotime("+3 days", strtotime($pDetail->checked_date)));
+                          if(strtotime($dateNow) < strtotime($checkedDate)){
+                            echo '
+                              <div class="col col-sm-6 mb-6">
+                                  <!-- Card -->
+                                  <div class="card card-sm" style="max-width: 20rem;">
+                                      <div class="card-body">
+                                          <h3 class="card-title">Letter of Acceptance</h3>
+                                          <div class="text-center">
+                                              <img class="" src="'.site_url().'assets/img/logo/logo.png" style="width: 175px;" alt="Logo">
+                                          </div>
+                                          <form action="'.site_url('document/generate-loa').'" method="POST">
+                                              <button class="btn btn-soft-primary w-100 mt-3">Download</button>
+                                          </form>
+                                      </div>
+                                  </div>
+                                  <!-- End Card -->
+                              </div>    
+                            ';
+                          }
+                        }else {
+                          echo '
+                              <div class="col col-sm-6 mb-6">
+                                  <!-- Card -->
+                                  <div class="card card-sm" style="max-width: 20rem;">
+                                      <div class="card-body">
+                                          <h3 class="card-title">Letter of Acceptance</h3>
+                                          <div class="text-center">
+                                              <img class="" src="'.site_url().'assets/img/logo/logo.png" style="width: 175px;" alt="Logo">
+                                          </div>
+                                          <form action="'.site_url('document/generate-loa').'" method="POST">
+                                              <button class="btn btn-soft-primary w-100 mt-3">Download</button>
+                                          </form>
+                                      </div>
+                                  </div>
+                                  <!-- End Card -->
+                              </div> 
+                            ';
+                        }
+                      }
+                    ?>
+                    <?php
+                      $span = "";
+                      if($pDetail->agreement_status == '1'){
+                        $span = '
+                          <span class="badge bg-warning text-dark">Waiting Approval</span>
+                        ';
+                      }else if($pDetail->agreement_status == '2'){
+                        $span = '
+                          <span class="badge bg-danger">Deny</span>
+                        ';
+                      }else if($pDetail->agreement_status == '3'){
+                        $span = '
+                          <span class="badge bg-success">Success</span>
+                        ';
+                      }
+
+                      $btn = "";
+                      if($pDetail->agreement_status != '1' && $pDetail->agreement_status != '3'){
+                        $btn = '
+                          <button onclick="mdlUploadAggree()" class="btn btn-soft-success w-100 mb-2">Upload Document</button>
+                        ';  
+                      }
+
+                      if($this->session->userdata('is_extended') == '1'){
+                        $checkedDate = date('Y-m-d H:i:s', strtotime("+3 days", strtotime($pDetail->checked_date)));
+                        if(strtotime($dateNow) > strtotime($checkedDate)){
+                        
+                        }
+                      }else {
+                        if($pDetail->checked_date != null){
+                          $checkedDate = date('Y-m-d H:i:s', strtotime("+3 days", strtotime($pDetail->checked_date)));
+                          if(strtotime($dateNow) < strtotime($checkedDate)){
+                           echo '
+                            <div class="col col-sm-6 mb-6">
+                                <!-- Card -->
+                                <div class="card card-sm" style="max-width: 20rem;">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Letter of Aggreement</h3>
+                                        '.$span.'
+                                        <div class="text-center">
+                                            <img class="" src="<?= site_url()?>assets/img/logo/logo.png" style="width: 175px;" alt="Logo">
+                                        </div>
+                                        <form action="'.site_url('document/download').'" method="POST">
+                                          <input type="hidden" name="type" value="agreement">
+                                          <button class="btn btn-soft-primary w-100 mt-3 mb-2">Download Template</button>
+                                        </form>
+                                        '.$btn.'
+                                        <span class="form-text"><b>Note:</b></span>
+                                        <p class="form-text">- Download the agreement letter template and fill it in then upload it in (pdf) format.</p>
+                                        <p class="form-text">- Please upload the agreement letter before October 15 2022.</p>
+                                    </div>
                                 </div>
-                                <form action="<?= site_url('document/generate-loa')?>" method="POST">
-                                    <button class="btn btn-soft-primary w-100 mt-3">Download</button>
-                                </form>
+                                <!-- End Card -->
                             </div>
-                        </div>
-                        <!-- End Card -->
-                    </div>
-                    <div class="col col-sm-6 mb-6">
-                        <!-- Card -->
-                        <div class="card card-sm" style="max-width: 20rem;">
-                            <div class="card-body">
-                                <h3 class="card-title">Letter of Aggreement</h3>
-                                <?php if($pDetail->agreement_status == '1'){?>
-                                  <span class="badge bg-warning text-dark">Waiting Approval</span>
-                                <?php }else if($pDetail->agreement_status == '2'){?>
-                                  <span class="badge bg-danger">Deny</span>
-                                <?php }else if($pDetail->agreement_status == '3'){?>
-                                  <span class="badge bg-success">Success</span>
-                                <?php }?>
-                                <div class="text-center">
-                                    <img class="" src="<?= site_url()?>assets/img/logo/logo.png" style="width: 175px;" alt="Logo">
+                            ';
+                          }
+                        }else {
+                          echo '
+                            <div class="col col-sm-6 mb-6">
+                                <!-- Card -->
+                                <div class="card card-sm" style="max-width: 20rem;">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Letter of Aggreement</h3>
+                                        '.$span.'
+                                        <div class="text-center">
+                                            <img class="" src="<?= site_url()?>assets/img/logo/logo.png" style="width: 175px;" alt="Logo">
+                                        </div>
+                                        <form action="'.site_url('document/download').'" method="POST">
+                                          <input type="hidden" name="type" value="agreement">
+                                          <button class="btn btn-soft-primary w-100 mt-3 mb-2">Download Template</button>
+                                        </form>
+                                        '.$btn.'
+                                        <span class="form-text"><b>Note:</b></span>
+                                        <p class="form-text">- Download the agreement letter template and fill it in then upload it in (pdf) format.</p>
+                                        <p class="form-text">- Please upload the agreement letter before October 15 2022.</p>
+                                    </div>
                                 </div>
-                                <form action="<?= site_url('document/download')?>" method="POST">
-                                  <input type="hidden" name="type" value="agreement">
-                                  <button class="btn btn-soft-primary w-100 mt-3 mb-2">Download Template</button>
-                                </form>
-                                <?php if($pDetail->agreement_status != '1' && $pDetail->agreement_status != '3'){?>
-                                  <button onclick="mdlUploadAggree()" class="btn btn-soft-success w-100 mb-2">Upload Document</button>
-                                <?php }?>
-                                <span class="form-text"><b>Note:</b></span>
-                                <p class="form-text">- Download the agreement letter template and fill it in then upload it in (pdf) format.</p>
-                                <p class="form-text">- Please upload the agreement letter before October 15 2022.</p>
+                                <!-- End Card -->
                             </div>
-                        </div>
-                        <!-- End Card -->
-                    </div>
+                          ';
+                        }
+                      }
+                    ?>
+                    
                 <?php }?>
                 <div class="col col-sm-6 mb-6">
                     <!-- Card -->
@@ -168,10 +255,11 @@
 
             <!-- Footer -->
             <div class="card-footer pt-0">
-              <!-- <div class="d-flex justify-content-end gap-3">
-                <a class="btn btn-white" href="javascript:;">Cancel</a>
-                <a class="btn btn-primary" href="javascript:;">Save changes</a>
-              </div> -->
+            <div class="card-footer">
+              <p><b>Note:</b></p>
+              <p>- Your document will be reviewed in 3 days after the submission.</p>
+              <p>For further information, you can contact: istanbulyouthsummit@gmail.com <a href="mailto:istanbuyouthsummit@gmail.com">istanbuyouthsummit@gmail.com</a></p>
+            </div>
             </div>
             <!-- End Footer -->
           </div>

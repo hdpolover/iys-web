@@ -84,7 +84,7 @@
                 <h1 class="display-4 text-white mb-0">Istanbul Youth Summit 2023</h1>
                 <h3 class="text-white">August 1 - 31 2022, Open Registration</h3>
                 <?php
-                  $dateExpiredRegist  = "September 11, 2022 12:00:00";
+                  $dateExpiredRegist  = "October 05, 2022 23:59:59";
                   $dateNow            = date("Y-m-d H:i:s");
                 ?>
 
@@ -123,6 +123,7 @@
                 <?php
                   if(strtotime($dateNow) < strtotime($dateExpiredRegist)){
                     echo '
+                      <a href="'.site_url('').'sign-up" class="btn btn-soft-warning mt-5">Self Funded</a>    
                       <a href="'.site_url('').'sign-up" class="btn btn-outline-light mt-5">Register</a>    
                     ';
                   }else{
@@ -198,6 +199,7 @@
                 <?php
                   if(strtotime($dateNow) < strtotime($dateExpiredRegist)){
                     echo '
+                      <button type="button" class="btn btn-warning mt-5">Self Funded</button>
                       <a href="'.site_url('').'sign-up" class="btn btn-outline-light mt-5">Register Now!</a>
                     ';
                   }else{

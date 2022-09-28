@@ -31,6 +31,7 @@ class AuthController extends CI_Controller{
         $formData['password']       = hash('sha256', md5($this->db->escape_str(htmlentities($_POST['password']))));
         $formData['id_user_role']   = 1;
         $formData['token_regis']    = $this->encryption->encrypt($newId.';'.date('Y-m-d H:i', strtotime("+1 day")));
+        $formData['is_extended']    = 1;
         $this->User->insert($formData);
 
         $affiliateCode = $_POST['affiliateCode'] != "" ? $_POST['affiliateCode'] : NULL;
@@ -52,7 +53,7 @@ class AuthController extends CI_Controller{
 
         $photo = $this->ParticipantDetail->getById($user[0]->id_user)->photo;
 
-        $this->setSession($user[0]->id_user, $user[0]->email, $user[0]->name, $photo, $user[0]->id_user_role, $user[0]->is_verif, $userDetail->is_submited);
+        $this->setSession($user[0]->id_user, $user[0]->email, $user[0]->name, $photo, $user[0]->id_user_role, $user[0]->is_verif, $userDetail->is_submited, $user[0]->is_extended);
         redirect('personal-info');
     }
     
@@ -60,7 +61,7 @@ class AuthController extends CI_Controller{
         $this->session->sess_destroy();
         redirect('home');
     }
-    public function setSession($idUser, $email, $name, $photo,  $role, $isVerif, $isSubmit){
+    public function setSession($idUser, $email, $name, $photo,  $role, $isVerif, $isSubmit, $isExtended){
         $formSession['id_user']     = $idUser;
         $formSession['email']       = $email;
         $formSession['name']        = $name;
@@ -68,7 +69,8 @@ class AuthController extends CI_Controller{
         $formSession['role']        = $role;
         $formSession['is_logged']   = true;
         $formSession['is_verif']    = $isVerif;
-        $formSession['is_submit']    = $isSubmit;
+        $formSession['is_submit']   = $isSubmit;
+        $formSession['is_extended'] = $isExtended;
         $this->session->set_userdata($formSession);
     }
 }
