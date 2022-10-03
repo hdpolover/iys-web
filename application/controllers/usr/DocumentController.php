@@ -23,7 +23,7 @@ class DocumentController extends CI_Controller{
     }
     public function generateLoA(){
         $user = $this->db->query("
-            SELECT u.name, pd.institution_workplace 
+            SELECT u.name, pd.institution_workplace, pd.checked_date
             FROM participant_details pd , users u 
             WHERE 
                 pd.id_user = '".$this->session->userdata('id_user')."'
@@ -33,7 +33,11 @@ class DocumentController extends CI_Controller{
         $pdf = new Fpdi();
         $pdf->AddPage();
         // set the source file
-        $pdf->setSourceFile('assets/docs/LOA - Participant.pdf');
+        if($user->checked_date != null){
+            $pdf->setSourceFile('assets/docs/Empty LOA - Participant.pdf');
+        }else{
+            $pdf->setSourceFile('assets/docs/LOA - Participant.pdf');
+        }
         // import page 1
         $tplIdx = $pdf->importPage(1);
         $pdf->useTemplate($tplIdx, 0, 0, 220);
@@ -64,7 +68,7 @@ class DocumentController extends CI_Controller{
         $pdf = new Fpdi();
         $pdf->AddPage();
         // set the source file
-        $pdf->setSourceFile('assets/docs/SF LOA - Participant.pdf');
+        $pdf->setSourceFile('assets/docs/Empty LOA - Participant.pdf');
         // import page 1
         $tplIdx = $pdf->importPage(1);
         $pdf->useTemplate($tplIdx, 0, 0, 220);

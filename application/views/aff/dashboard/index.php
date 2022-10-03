@@ -95,7 +95,7 @@
 
                   <div class="row align-items-center gx-2">
                     <div class="col">
-                      <span class="js-counter display-5 text-dark" data-value="24"><?= number_format(count($totalPayment))?></span>
+                      <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($totalPayment->TOTAL)?></span>
                     </div>
                     <!-- End Col -->
                   </div>
@@ -187,8 +187,8 @@
                 </div>
 
                 <div class="tab-pane fade" id="nav-three-eg1" role="tabpanel" aria-labelledby="nav-three-eg1-tab">
-                <h4>List User Submit</h4>
-                  <small>List user submits self data with referral code</small>
+                <h4>List Detail Payment</h4>
+                  <small>List detail payment users</small>
                   <table style="margin-top: 5rem;" class="table table-borderless table-thead-bordered datatable">
                     <thead class="thead-light">
                       <tr>
@@ -203,7 +203,7 @@
                     <tbody>
                       <?php
                           $no = 1;
-                          foreach ($totalPayment as $regis) {
+                          foreach ($payments as $regis) {
                             $isPayStatus = '';
                             if($regis->status_payment == NULL){
                                 $isPayStatus = '

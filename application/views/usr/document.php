@@ -83,23 +83,23 @@
                       if($this->session->userdata('is_extended') == '1'){
                         $checkedDate = date('Y-m-d H:i:s', strtotime("+3 days", strtotime($pDetail->checked_date)));
                         if(strtotime($dateNow) > strtotime($checkedDate)){
-                          // echo '
-                          //     <div class="col col-sm-6 mb-6">
-                          //         <!-- Card -->
-                          //         <div class="card card-sm" style="max-width: 20rem;">
-                          //             <div class="card-body">
-                          //                 <h3 class="card-title">Letter of Acceptance</h3>
-                          //                 <div class="text-center">
-                          //                     <img class="" src="'.site_url().'assets/img/logo/logo.png" style="width: 175px;" alt="Logo">
-                          //                 </div>
-                          //                 <form action="'.site_url('document/generate-sf-loa').'" method="POST">
-                          //                     <button class="btn btn-soft-primary w-100 mt-3">Download</button>
-                          //                 </form>
-                          //             </div>
-                          //         </div>
-                          //         <!-- End Card -->
-                          //     </div>    
-                          //   ';
+                          echo '
+                              <div class="col col-sm-6 mb-6">
+                                  <!-- Card -->
+                                  <div class="card card-sm" style="max-width: 20rem;">
+                                      <div class="card-body">
+                                          <h3 class="card-title">SF Letter of Acceptance</h3>
+                                          <div class="text-center">
+                                              <img class="" src="'.site_url().'assets/img/logo/logo.png" style="width: 175px;" alt="Logo">
+                                          </div>
+                                          <form action="'.site_url('document/generate-sf-loa').'" method="POST">
+                                              <button class="btn btn-soft-primary w-100 mt-3">Download</button>
+                                          </form>
+                                      </div>
+                                  </div>
+                                  <!-- End Card -->
+                              </div>    
+                            ';
                         }
                       }else {
                         if($pDetail->checked_date != null){
