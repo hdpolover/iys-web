@@ -185,7 +185,54 @@
                     </div>
                   </div>
                 </div>
+                <div class="row mb-5">
+                  <div class="col-md-6 col-sm-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <h6 class="card-subtitle mb-2">Total Nationality</h6>
+
+                        <div class="row align-items-center gx-2">
+                          <div class="col">
+                            <div id="chart4"></div>
+                          </div>
+                          <!-- End Col -->
+                        </div>
+                        <!-- End Row -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-sm-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <h6 class="card-subtitle mb-2">Total Gender</h6>
+
+                        <div class="row align-items-center gx-2">
+                          <div class="col">
+                            <div id="chart5"></div>
+                          </div>
+                          <!-- End Col -->
+                        </div>
+                        <!-- End Row -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <!-- <div class="row"> -->
+                <div class="row">
+                  <div class="col">
+                    <table id="dataTable" class="table table-borderless table-thead-bordered">
+                      <thead class="thead-light">
+                        <tr>
+                          <th scope="col">No</th>
+                          <th scope="col">Institution</th>
+                          <th scope="col">Total</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
                   
                 <!-- </div> -->
               </div>
@@ -713,6 +760,21 @@
     //   delay: 10,
     //   time: 1000
     // })
+    var table = $('#dataTable').DataTable({
+        'processing': true,
+        'serverSide': true,
+        'ordering': false,
+        // 'searching': false,
+        'serverMethod': 'post',
+        'ajax': {
+            'url':'<?= site_url('admin/dashboard/ajxGetInstitution')?>',
+        },
+        'columns': [
+            { data: 'no' },
+            { data: 'institution' },
+            { data: 'total' }
+        ]
+    });
     var options = {
       series: [{
         name: 'Total',
@@ -810,14 +872,113 @@
         }
       }]
     };
-
+    // Nationality Chart
+    var options4 = {
+      series: [
+        <?php
+        foreach ($nationality as $item) {
+          echo $item->TOTAL . ',';
+        }
+        ?>
+      ],
+      chart: {
+        width: 500,
+        type: 'pie',
+      },
+      labels: [
+        <?php
+        foreach ($nationality as $item) {
+          echo '"' . $item->NATIONALITY . '",';
+        }
+        ?>
+      ],
+      responsive: [{
+        breakpoint: 500,
+        options: {
+          chart: {
+            width: 500
+          },
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }]
+    };
+    // Gender Chart
+    var options5 = {
+      series: [
+        <?php
+        foreach ($gender as $item) {
+          echo $item->TOTAL . ',';
+        }
+        ?>
+      ],
+      chart: {
+        width: 500,
+        type: 'donut',
+      },
+      labels: [
+        <?php
+        foreach ($gender as $item) {
+          echo '"' . $item->GENDER . '",';
+        }
+        ?>
+      ],
+      responsive: [{
+        breakpoint: 400,
+        options: {
+          chart: {
+            width: 500
+          },
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }]
+    };
+    // Institution Chart
+    var options4 = {
+      series: [
+        <?php
+        foreach ($nationality as $item) {
+          echo $item->TOTAL . ',';
+        }
+        ?>
+      ],
+      chart: {
+        width: 500,
+        type: 'pie',
+      },
+      labels: [
+        <?php
+        foreach ($nationality as $item) {
+          echo '"' . $item->NATIONALITY . '",';
+        }
+        ?>
+      ],
+      responsive: [{
+        breakpoint: 500,
+        options: {
+          chart: {
+            width: 500
+          },
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }]
+    };
 
 
     var chart = new ApexCharts(document.querySelector("#chart"), options);
     var chart2 = new ApexCharts(document.querySelector("#chart2"), options2);
     var chart3 = new ApexCharts(document.querySelector("#chart3"), options3);
+    var chart4 = new ApexCharts(document.querySelector("#chart4"), options4);
+    var chart5 = new ApexCharts(document.querySelector("#chart5"), options5);
 
     chart.render();
     chart2.render();
     chart3.render();
+    chart4.render();
+    chart5.render();
   </script>

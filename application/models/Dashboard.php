@@ -160,4 +160,47 @@ class Dashboard extends CI_Model{
             ORDER BY COUNT(pt.id_payment_transaction) DESC
         ")->result();
     }
+    public function getNationality(){
+        return $this->db->query("
+            SELECT pd.nationality as NATIONALITY , COUNT(*) as TOTAL
+            FROM participant_details pd 
+            WHERE pd.nationality IS NOT NULL
+            GROUP BY pd.nationality
+            ORDER BY TOTAL DESC
+        ")->result();
+    }
+    public function getGender(){
+        return $this->db->query("
+            SELECT IF(pd.gender = 1, 'Male', 'Female') as GENDER, COUNT(*) as TOTAL
+            FROM participant_details pd 
+            WHERE pd.gender IS NOT NULL
+            GROUP BY pd.gender
+        ")->result();
+    }
+    public function getInstitution($param){
+        $search = "";
+        if($param['search'] != null){
+            $search = "AND pd.institution_workplace LIKE '%".$param['search']."%'";
+        }
+
+        $filteredRecords = $this->db->query("
+            SELECT pd.institution_workplace as INSTITUTION , COUNT(*) as TOTAL
+            FROM participant_details pd 
+            WHERE pd.institution_workplace IS NOT NULL ".$search."
+            GROUP BY pd.institution_workplace 
+            ORDER BY TOTAL DESC
+            LIMIT ".$param['limit']."
+            OFFSET ".$param['offset']."
+        ")->result();
+
+        $realRecords = $this->db->query("
+            SELECT pd.institution_workplace as INSTITUTION , COUNT(*) as TOTAL
+            FROM participant_details pd 
+            WHERE pd.institution_workplace IS NOT NULL ".$search."
+            GROUP BY pd.institution_workplace 
+            ORDER BY TOTAL DESC
+        ")->result();
+        
+        return ['records' => $filteredRecords, 'totalDisplayRecords' => count($filteredRecords), 'totalRecords' => count($realRecords)];
+    }
 }

@@ -43,17 +43,29 @@ class DashboardController extends CI_Controller{
     }
     public function getPayment($referralCode){
         return $this->db->query("
-        SELECT
-            u.email , u.name , pd.nationality
-        FROM 
-            payment_transaction pt ,
-            participant_details pd ,
-            users u 
-        WHERE pt.id_payment_type = 8
-            AND pt.status = 6
-            AND pt.id_user = pd.id_user 
-            AND pd.referral_code = '".$referralCode."' 
-            AND pd.id_user = u.id_user 
+            SELECT
+                u.email ,
+                u.name , 
+                pd.nationality,
+                (
+                    SELECT pt.description 
+                    FROM payment_status ps, payment_types pt 
+                    WHERE ps.id_user = pd.id_user AND ps.is_active = 1 AND ps.id_payment_type = pt.id_payment_type
+                    ORDER BY ps.id_payment_status DESC LIMIT 1
+                ) as payment,
+                (
+                    SELECT ps.status
+                    FROM payment_status ps
+                    WHERE ps.id_user = pd.id_user AND ps.is_active = 1
+                    ORDER BY ps.id_payment_status DESC LIMIT 1
+                ) as status_payment
+            FROM 
+                participant_details pd ,
+                users u 
+            WHERE 
+                pd.referral_code = '".$referralCode."' 
+                AND pd.is_submited = 1
+                AND pd.id_user = u.id_user 
         ")->result();
     }
 }

@@ -44,6 +44,7 @@ class PaymentStatus extends CI_Model{
                 u.id_user ,
                 u.name,
                 u.email ,
+                pd.institution_workplace,
                 pt2.description as payment_type,
                 ps.status 
             FROM
@@ -75,6 +76,7 @@ class PaymentStatus extends CI_Model{
                 u.id_user ,
                 u.name,
                 u.email ,
+                pd.institution_workplace,
                 pt2.description as payment_type,
                 ps.status 
             FROM

@@ -54,6 +54,36 @@ class DashboardController extends CI_Controller{
         $data['succMethods']    = $this->Dashboard->getSuccessMethod();
         $data['failMethods']    = $this->Dashboard->getFailedMethod();
 
+        $data['nationality']    = $this->Dashboard->getNationality();
+        $data['gender']         = $this->Dashboard->getGender();
+
         $this->template->admin('adm/dashboard/index', $data);
+    }
+    public function getAjxInstitution(){
+        $draw   = $_POST['draw'];
+        $offset = $_POST['start'];
+        $limit  = $_POST['length']; // Rows display per page
+        $search = $_POST['search']['value'];
+
+        $institutions = $this->Dashboard->getInstitution(['offset' => $offset, 'limit' => $limit, 'search' => $search]);
+        $datas = [];
+        $no = 1;
+        foreach ($institutions['records'] as $institution) {
+            $datas[] = array( 
+                "no"            => $no++,
+                "institution"   => $institution->INSTITUTION,
+                "total"         => $institution->TOTAL
+            );
+        }
+
+        $response = array(
+            "draw" => intval($draw),
+            "recordsTotal" => $institutions['totalRecords'],
+            "recordsFiltered" => ($search != "" ? $institutions['totalDisplayRecords'] : $institutions['totalRecords']),
+            "aaData" => $datas,
+        );
+
+
+        echo json_encode($response);
     }
 }

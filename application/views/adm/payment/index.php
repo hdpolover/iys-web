@@ -100,6 +100,11 @@
                   <option value="8">Registration</option>
                   <option value="9">Batch 1</option>
                   <option value="10">Batch 2</option>
+                  <option value="Succ">Completed</option>
+                  <option value="11">Registration (SF)</option>
+                  <option value="12">Batch 1 (SF)</option>
+                  <option value="13">Batch 2 (SF)</option>
+                  <option value="SuccSF">Completed (SF)</option>
                 </select>
               </div>
               <div class="col-sm-4 mb-2 mb-sm-0">
@@ -113,6 +118,10 @@
                   <option value="5">Deny</option>
                 </select>
               </div>
+              <div class="col-sm-4 mb-2 mb-sm-0">
+                <label for="">Institution</label>
+                <input type="text" id="filter_institution" class="form-control" placeholder="Name Institution" >
+              </div>
             </div>
             <button class="btn btn-sm btn-primary mb-4 mt-2" onclick="btnSearch()"><i class="bi-search"></i>&nbsp&nbspSearch</button>
             <table id="dataTable" class="table table-borderless table-thead-bordered datatable">
@@ -121,6 +130,7 @@
                   <th scope="col">No</th>
                   <th scope="col">Name</th>
                   <th scope="col">Email</th>
+                  <th scope="col">Institution</th>
                   <th scope="col">Payment State</th>
                   <th scope="col">Status</th>
                   <th scope="col">Action</th>
@@ -217,12 +227,14 @@
                 d.filterNumber    = $('#filter_number').val()
                 d.filterPayState  = $('#filter_paystate').val()
                 d.filterPayStatus = $('#filter_paystatus').val()
+                d.filterInstitution = $('#filter_institution').val()
             }
         },
         'columns': [
             { data: 'no' },
             { data: 'name' },
             { data: 'email' },
+            { data: 'institution' },
             { data: 'payState' },
             { data: 'payStatus' },
             { data: 'action' }

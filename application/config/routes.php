@@ -75,7 +75,8 @@ $route['admin/sign-in']     = 'adm/AuthController/signIn';
 $route['admin/login']       = 'adm/AuthController/login';
 $route['admin/logout']      = 'adm/AuthController/logout';
 // dashboard
-$route['admin/dashboard']   = 'adm/DashboardController';
+$route['admin/dashboard']                       = 'adm/DashboardController';
+$route['admin/dashboard/ajxGetInstitution']     = 'adm/DashboardController/getAjxInstitution';
 // announcement
 $route['admin/announcement-public']                         = 'adm/AnnouncementController';
 $route['admin/announcement-public/add']                     = 'adm/AnnouncementController/add';
@@ -167,6 +168,7 @@ $route['payment/manual-cancel']             = 'usr/PaymentController/manualCance
 $route['document']                  = 'usr/DocumentController';
 $route['document/download']         = 'usr/DocumentController/download';
 $route['document/generate-loa']     = 'usr/DocumentController/generateLoA';
+$route['document/generate-sf-loa']  = 'usr/DocumentController/generateSFLoA';
 $route['document/generate-payment'] = 'usr/DocumentController/generatePayment';
 $route['document/upload-agreement'] = 'usr/DocumentController/uploadAgreement';
 

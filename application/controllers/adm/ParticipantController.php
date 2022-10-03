@@ -260,6 +260,7 @@ class ParticipantController extends CI_Controller{
         if($_POST['filterSubmited'] != null || $_POST['filterSubmited'] != '') $filter[] = "pd.is_submited = '".$_POST['filterSubmited']."'";
         if($_POST['filterChecked'] != null || $_POST['filterChecked'] != '') $filter[] = "pd.is_checked = '".$_POST['filterChecked']."'";
         if($_POST['filterAgreement'] != null || $_POST['filterAgreement'] != '') $filter[] = "pd.agreement_status = '".$_POST['filterAgreement']."'";
+        if($_POST['filterSelfFunded'] != null || $_POST['filterSelfFunded'] != '') $filter[] = "u.is_extended = '".$_POST['filterSelfFunded']."'";
         
         $participants = $this->ParticipantDetail->getDataTable(['filter' => $filter, 'offset' => $offset, 'limit' => $limit, 'search' => $search, 'idWarehouse' => $this->session->userdata('ID_WAREHOUSE')]);
         $datas = array();
@@ -287,20 +288,31 @@ class ParticipantController extends CI_Controller{
                 ';
             }
 
-            $step = '';
-            if($participant->step == '0'){
-                $step = "1. Basic";
-            }else if($participant->step == '1'){
-                $step = "2. Other";
-            }else if($participant->step == '2'){
-                $step = "3. Essay";
-            }else if($participant->step == '3'){
-                $step = "4. Essay";
-            }else if($participant->step == '4'){
-                $step = "5. Essay";
+            $isSF = '';
+            if($participant->is_extended == '1'){
+                $isSF = '
+                    <span class="badge bg-soft-warning text-warning">Self Funded</span>
+                ';
             }else{
-                $step = "Completed";
+                $isSF = '
+                    <span class="badge bg-soft-success text-success">Basic</span>
+                ';
             }
+
+            // $step = '';
+            // if($participant->step == '0'){
+            //     $step = "1. Basic";
+            // }else if($participant->step == '1'){
+            //     $step = "2. Other";
+            // }else if($participant->step == '2'){
+            //     $step = "3. Essay";
+            // }else if($participant->step == '3'){
+            //     $step = "4. Essay";
+            // }else if($participant->step == '4'){
+            //     $step = "5. Essay";
+            // }else{
+            //     $step = "Completed";
+            // }
 
 
             $isChecked = '';
@@ -350,8 +362,9 @@ class ParticipantController extends CI_Controller{
 
             $datas[] = array( 
                 "no"                => $no++,
+                "email"             => $participant->email,
                 "name"              => $participant->name,
-                "step"              => $step,
+                "selfFunded"        => $isSF,
                 "statusSubmit"      => $isSubmit,
                 "statusCheck"       => $isChecked,
                 "statusAgreement"   => $isAgreement,

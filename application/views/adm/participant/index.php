@@ -110,7 +110,7 @@
                 <input type="text" id="filter_number" class="form-control" placeholder="Phone Filter" >
               </div>
             </div>
-            <div class="row">
+            <div class="row mb-4">
               <!-- <div class="col-sm mb-2 mb-sm-0">
                 <label for="">Verified</label>
                 <select id="filter_verified" class="form-control">
@@ -145,14 +145,25 @@
                 </select>
               </div>
             </div>
+            <div class="row">
+            <div class="col-sm-4 mb-2 mb-sm-0">
+                <label for="">Self Funded</label>
+                <select id="filter_selfFunded" class="form-control">
+                  <option value="">All</option>
+                  <option value="1">Self Funded</option>
+                  <option value="0">Basic</option>
+                </select>
+              </div>
+            </div>
             <button class="btn btn-sm btn-primary mb-4 mt-2" onclick="btnSearch()"><i class="bi-search"></i>&nbsp&nbspSearch</button>
             <!-- End Row -->
             <table id="dataTable" class="table table-borderless table-thead-bordered">
               <thead class="thead-light">
                 <tr>
                   <th scope="col">No</th>
+                  <th scope="col">Email</th>
                   <th scope="col">Name</th>
-                  <th scope="col">Step</th>
+                  <th scope="col">Self Funded</th>
                   <th scope="col">Status Submit</th>
                   <th scope="col">Status Check</th>
                   <th scope="col">Status Agreement</th>
@@ -368,12 +379,14 @@
                 d.filterSubmited  = $('#filter_submited').val()
                 d.filterChecked  = $('#filter_checked').val()
                 d.filterAgreement  = $('#filter_agreement').val()
+                d.filterSelfFunded  = $('#filter_selfFunded').val()
             }
         },
         'columns': [
             { data: 'no' },
+            { data: 'email' },
             { data: 'name' },
-            { data: 'step' },
+            { data: 'selfFunded' },
             { data: 'statusSubmit' },
             { data: 'statusCheck' },
             { data: 'statusAgreement' },

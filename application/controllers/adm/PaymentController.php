@@ -68,16 +68,26 @@ class PaymentController extends CI_Controller{
         $search = $_POST['search']['value'];
 
         $filter1 = array();
-        if($_POST['filterPayState'] != null || $_POST['filterPayState'] != '') $filter1[] = "ps2.id_payment_type = '".$_POST['filterPayState']."'";
-        if($_POST['filterPayStatus'] != null || $_POST['filterPayStatus'] != '') $filter1[] = "ps2.status = '".$_POST['filterPayStatus']."'";
+        if($_POST['filterPayState'] == 'Succ'){
+            if($_POST['filterPayState'] != null || $_POST['filterPayState'] != '') $filter1[] = "ps2.id_payment_type = '10'";
+            if($_POST['filterPayStatus'] != null || $_POST['filterPayStatus'] != '') $filter1[] = "ps2.status = '6'";
+        }else if($_POST['filterPayState'] == 'SuccSF'){
+            if($_POST['filterPayState'] != null || $_POST['filterPayState'] != '') $filter1[] = "ps2.id_payment_type = '13'";
+            if($_POST['filterPayStatus'] != null || $_POST['filterPayStatus'] != '') $filter1[] = "ps2.status = '6'";
+        }else{
+            if($_POST['filterPayState'] != null || $_POST['filterPayState'] != '') $filter1[] = "ps2.id_payment_type = '".$_POST['filterPayState']."'";
+            if($_POST['filterPayStatus'] != null || $_POST['filterPayStatus'] != '') $filter1[] = "ps2.status = '".$_POST['filterPayStatus']."'";
+        }
         
         $filter2 = array();
         if($_POST['filterEmail'] != null || $_POST['filterEmail'] != '') $filter2[] = "u.email like '%".$_POST['filterEmail']."%'";
         if($_POST['filterName'] != null || $_POST['filterName'] != '') $filter2[] = "u.name like '%".$_POST['filterName']."%'";
         if($_POST['filterNumber'] != null || $_POST['filterNumber'] != '') $filter2[] = "pd.whatsapp_number like '%".$_POST['filterNumber']."%'";
+        if($_POST['filterInstitution'] != null || $_POST['filterInstitution'] != '') $filter2[] = "pd.institution_workplace like '%".$_POST['filterInstitution']."%'";
 
         $payments = $this->PaymentStatus->getDataTable(['filter1' => $filter1, 'filter2' => $filter2, 'offset' => $offset, 'limit' => $limit]);
         $no = 1;
+        $datas = [];
         foreach ($payments['records'] as $payment) {
             $isPayStatus = '';
             if($payment->status == NULL){
@@ -114,6 +124,7 @@ class PaymentController extends CI_Controller{
                 "no"            => $no++,
                 "name"          => $payment->name,
                 "email"         => $payment->email,
+                "institution"   => $payment->institution_workplace,
                 "payState"      => $payment->payment_type,
                 "payStatus"     => $isPayStatus,
                 "action"        => '    

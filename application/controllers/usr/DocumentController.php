@@ -52,6 +52,40 @@ class DocumentController extends CI_Controller{
 		$pdf->Output('uploads/LoA/LoA - '.strtoupper($user->name).'.pdf', 'F');
         force_download('uploads/LoA/LoA - '.strtoupper($user->name).'.pdf', NULL);
     }
+    public function generateSFLoA(){
+        $user = $this->db->query("
+            SELECT u.name, pd.institution_workplace, pd.checked_date
+            FROM participant_details pd , users u 
+            WHERE 
+                pd.id_user = '".$this->session->userdata('id_user')."'
+                AND pd.id_user = u.id_user 
+        ")->row();
+
+        $pdf = new Fpdi();
+        $pdf->AddPage();
+        // set the source file
+        $pdf->setSourceFile('assets/docs/SF LOA - Participant.pdf');
+        // import page 1
+        $tplIdx = $pdf->importPage(1);
+        $pdf->useTemplate($tplIdx, 0, 0, 220);
+
+        // now write some text above the imported page
+        $pdf->SetFont('Times');
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->SetFontSize(20);
+        $pdf->SetXY(140, 44);
+        $pdf->SetFontSize(10);
+        $pdf->Write(0, date('l, F j, Y', strtotime("+3 days", strtotime($user->checked_date))));
+        $pdf->SetXY(52, 57);
+        $pdf->Write(0, strtoupper(explode(' ', $user->name)[0]));
+        $pdf->SetXY(54, 103);
+        $pdf->Write(0, strtoupper($user->name));
+        $pdf->SetXY(54, 112);
+        $pdf->Write(0, strtoupper($user->institution_workplace));
+
+		$pdf->Output('uploads/LoA/[SF] LoA - '.strtoupper($user->name).'.pdf', 'F');
+        force_download('uploads/LoA/[SF] LoA - '.strtoupper($user->name).'.pdf', NULL);
+    }
     public function download(){
         if($_POST['type'] == 'guidebook'){
             force_download('assets/docs/GUIDEBOOK.pdf', NULL);
@@ -61,6 +95,8 @@ class DocumentController extends CI_Controller{
             force_download('assets/docs/[IND] Proposal Peserta - Istanbul Youth Summit 2023.pdf', NULL);
         }else if($_POST['type'] == 'agreement'){
             force_download('assets/docs/Agreement Letter.pdf', NULL);
+        }else if($_POST['type'] == 'sfagreement'){
+            force_download('assets/docs/[SF] Agreement Letter.pdf', NULL);
         }
     }
     public function generatePayment(){
