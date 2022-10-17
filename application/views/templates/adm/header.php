@@ -28,6 +28,7 @@
   <link rel="stylesheet" href="<?= site_url()?>assets/css/dataTables.bootstrap5.min.css">
   <link rel="stylesheet" href="<?= site_url()?>assets/css/apexcharts.css">
   <link rel="stylesheet" href="<?= site_url()?>assets/css/summernote-lite.css">
+  <link rel="stylesheet" href="<?= site_url()?>assets/css/jquery.toast.min.css">
   
   <script src="<?= site_url()?>assets/js/jquery-3.6.0.min.js"></script>
   <script src="<?= site_url()?>assets/js/jquery.dataTables.min.js"></script>
@@ -36,6 +37,7 @@
   <script src="<?= site_url()?>assets/js/counterup.min.js"></script>
   <script src="<?= site_url()?>assets/js/apexcharts.js"></script>
   <script src="<?= site_url()?>assets/js/summernote-lite.js"></script>
+  <script src="<?= site_url()?>assets/js/jquery.toast.min.js"></script>
 
   
 </head>

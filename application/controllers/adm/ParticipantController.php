@@ -396,7 +396,8 @@ class ParticipantController extends CI_Controller{
 
         $this->ParticipantDetail->update(['id_user' => $_POST['id'], 'agreement_status' => $status]);
         $this->session->set_flashdata('succ_msg', 'Successfully '.$_POST['status'].' Agreement Letter');
-        redirect('admin/participant');
+        
+        echo json_encode('success');
     }
     public function getQueryData(){
         return $this->db->query("

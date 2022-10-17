@@ -324,11 +324,11 @@
 
           <div class="modal-footer">
               <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-              <form id="formAgreement" action="<?= site_url('admin/participant/valid-agreement')?>" method="POST">
+              <form id="formAgreement" action="" method="POST">
                 <input type="hidden" name="id" id="mdlAgreement_id" >
-                <input type="submit" name="status" class="btn btn-soft-danger" value="Deny">
-                <input type="submit" name="status" class="btn btn-soft-success" value="Approve">
-                <input type="button" onclick="mdlAgreementValid()" name="status" class="btn btn-soft-success" value="Approve">
+                <input type="button" onclick="validationAgreement('Deny')" name="status" class="btn btn-soft-danger" value="Deny">
+                <input type="button" onclick="validationAgreement('Approve')" name="status" class="btn btn-soft-success" value="Approve">
+                <!-- <input type="button" onclick="mdlAgreementValid()" name="status" class="btn btn-soft-success" value="Approve"> -->
               </form>
           </div>
         </div>
@@ -393,6 +393,25 @@
             { data: 'action' }
         ]
     });
+    const validationAgreement = (status) => {
+      const id = $('#mdlAgreement_id').val()
+      $.ajax({
+        url: '<?= site_url('admin/participant/valid-agreement')?>',
+        method: 'POST',
+        data: {id, status},
+        success: function(){
+          $('#mdlAgreementValid').modal('hide')
+          $.toast({
+              heading: 'Info',
+              text: 'Success Update Status Agreement',
+              showHideTransition: 'slide',
+              icon: 'info',
+              bgColor: '#8247B8'
+          })
+          table.ajax.reload();
+        }
+      })
+    }
     const showMdlChangePassword = id => {
       const pass = Math.random().toString(36).slice(-8);
       $('#mdlChangePass_id').val(id);

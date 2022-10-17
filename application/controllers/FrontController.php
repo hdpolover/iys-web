@@ -44,7 +44,7 @@ class FrontController extends CI_Controller{
             $affiliateCode = "";
         }
 
-        $dateExpired  = "October 05, 2022 23:59:59";
+        $dateExpired  = "October 30, 2022 23:59:59";
         $dateNow      = date("Y-m-d H:i:s");
 
         if(strtotime($dateNow) > strtotime($dateExpired)){

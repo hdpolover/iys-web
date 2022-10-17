@@ -197,7 +197,7 @@
                       }else {
                         if($pDetail->checked_date != null){
                           $checkedDate = date('Y-m-d H:i:s', strtotime("+3 days", strtotime($pDetail->checked_date)));
-                          if(strtotime($dateNow) < strtotime($checkedDate)){
+                          if(strtotime($dateNow) > strtotime($checkedDate)){
                            echo '
                             <div class="col col-sm-6 mb-6">
                                 <!-- Card -->
