@@ -115,9 +115,22 @@ class Dashboard extends CI_Model{
     }
     public function getPendingPayment(){
         return $this->db->query("
-            SELECT ps.id_user , u.name , u.email 
-            FROM payment_status ps , users u  
-            WHERE ps.status = '2' AND ps.id_user = u.id_user 
+            SELECT pt.id_user , u.name , u.email , pt.method_img
+            FROM payment_transaction pt , users u  
+            WHERE 
+                pt.status = '2' 
+                AND pt.id_user = u.id_user 
+            ORDER BY u.name ASC
+        ")->result();
+    }
+    public function getPendingManualPayment(){
+        return $this->db->query("
+            SELECT pt.id_user , u.name , u.email , pt.method_img , pt.evidence
+            FROM payment_transaction pt , users u  
+            WHERE 
+                pt.status = '2' 
+                AND pt.method_type = 'manual_transfer' 
+                AND pt.id_user = u.id_user 
             ORDER BY u.name ASC
         ")->result();
     }
@@ -146,5 +159,48 @@ class Dashboard extends CI_Model{
             GROUP BY pt.method_name
             ORDER BY COUNT(pt.id_payment_transaction) DESC
         ")->result();
+    }
+    public function getNationality(){
+        return $this->db->query("
+            SELECT pd.nationality as NATIONALITY , COUNT(*) as TOTAL
+            FROM participant_details pd 
+            WHERE pd.nationality IS NOT NULL
+            GROUP BY pd.nationality
+            ORDER BY TOTAL DESC
+        ")->result();
+    }
+    public function getGender(){
+        return $this->db->query("
+            SELECT IF(pd.gender = 1, 'Male', 'Female') as GENDER, COUNT(*) as TOTAL
+            FROM participant_details pd 
+            WHERE pd.gender IS NOT NULL
+            GROUP BY pd.gender
+        ")->result();
+    }
+    public function getInstitution($param){
+        $search = "";
+        if($param['search'] != null){
+            $search = "AND pd.institution_workplace LIKE '%".$param['search']."%'";
+        }
+
+        $filteredRecords = $this->db->query("
+            SELECT pd.institution_workplace as INSTITUTION , COUNT(*) as TOTAL
+            FROM participant_details pd 
+            WHERE pd.institution_workplace IS NOT NULL ".$search."
+            GROUP BY pd.institution_workplace 
+            ORDER BY TOTAL DESC
+            LIMIT ".$param['limit']."
+            OFFSET ".$param['offset']."
+        ")->result();
+
+        $realRecords = $this->db->query("
+            SELECT pd.institution_workplace as INSTITUTION , COUNT(*) as TOTAL
+            FROM participant_details pd 
+            WHERE pd.institution_workplace IS NOT NULL ".$search."
+            GROUP BY pd.institution_workplace 
+            ORDER BY TOTAL DESC
+        ")->result();
+        
+        return ['records' => $filteredRecords, 'totalDisplayRecords' => count($filteredRecords), 'totalRecords' => count($realRecords)];
     }
 }

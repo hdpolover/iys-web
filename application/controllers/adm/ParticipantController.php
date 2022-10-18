@@ -43,7 +43,7 @@ class ParticipantController extends CI_Controller{
         redirect('admin/participant');
     }
     public function checked(){
-        $this->ParticipantDetail->update(['id_user' => $_POST['id'], 'is_checked' => '1']);
+        $this->ParticipantDetail->update(['id_user' => $_POST['id'], 'is_checked' => '1', 'checked_date' => date('Y-m-d H:i:s')]);
         $this->session->set_flashdata('succ_msg', 'Successfully checked user!');
         redirect('admin/'.$_POST['page']);
     }
@@ -256,24 +256,26 @@ class ParticipantController extends CI_Controller{
         if($_POST['filterEmail'] != null || $_POST['filterEmail'] != '') $filter[] = "u.email like '%".$_POST['filterEmail']."%'";
         if($_POST['filterName'] != null || $_POST['filterName'] != '') $filter[] = "u.name like '%".$_POST['filterName']."%'";
         if($_POST['filterNumber'] != null || $_POST['filterNumber'] != '') $filter[] = "pd.whatsapp_number like '%".$_POST['filterNumber']."%'";
-        if($_POST['filterVerified'] != null || $_POST['filterVerified'] != '') $filter[] = "u.is_verif = '".$_POST['filterVerified']."'";
+        // if($_POST['filterVerified'] != null || $_POST['filterVerified'] != '') $filter[] = "u.is_verif = '".$_POST['filterVerified']."'";
         if($_POST['filterSubmited'] != null || $_POST['filterSubmited'] != '') $filter[] = "pd.is_submited = '".$_POST['filterSubmited']."'";
         if($_POST['filterChecked'] != null || $_POST['filterChecked'] != '') $filter[] = "pd.is_checked = '".$_POST['filterChecked']."'";
+        if($_POST['filterAgreement'] != null || $_POST['filterAgreement'] != '') $filter[] = "pd.agreement_status = '".$_POST['filterAgreement']."'";
+        if($_POST['filterSelfFunded'] != null || $_POST['filterSelfFunded'] != '') $filter[] = "u.is_extended = '".$_POST['filterSelfFunded']."'";
         
         $participants = $this->ParticipantDetail->getDataTable(['filter' => $filter, 'offset' => $offset, 'limit' => $limit, 'search' => $search, 'idWarehouse' => $this->session->userdata('ID_WAREHOUSE')]);
         $datas = array();
         $no = 1;
         foreach ($participants['records'] as $participant) {
-            $isVerif = '';
-            if($participant->is_verif == '1'){
-                $isVerif = '
-                    <span class="badge bg-soft-success text-success">Verified</span>
-                ';
-            }else{
-                $isVerif = '
-                    <span class="badge bg-soft-danger text-danger">Not Verified</span>
-                ';
-            }
+            // $isVerif = '';
+            // if($participant->is_verif == '1'){
+            //     $isVerif = '
+            //         <span class="badge bg-soft-success text-success">Verified</span>
+            //     ';
+            // }else{
+            //     $isVerif = '
+            //         <span class="badge bg-soft-danger text-danger">Not Verified</span>
+            //     ';
+            // }
 
             $isSubmit = '';
             if($participant->is_submited == '1'){
@@ -286,20 +288,31 @@ class ParticipantController extends CI_Controller{
                 ';
             }
 
-            $step = '';
-            if($participant->step == '0'){
-                $step = "1. Basic";
-            }else if($participant->step == '1'){
-                $step = "2. Other";
-            }else if($participant->step == '2'){
-                $step = "3. Essay";
-            }else if($participant->step == '3'){
-                $step = "4. Essay";
-            }else if($participant->step == '4'){
-                $step = "5. Essay";
+            $isSF = '';
+            if($participant->is_extended == '1'){
+                $isSF = '
+                    <span class="badge bg-soft-warning text-warning">Self Funded</span>
+                ';
             }else{
-                $step = "Completed";
+                $isSF = '
+                    <span class="badge bg-soft-success text-success">Basic</span>
+                ';
             }
+
+            // $step = '';
+            // if($participant->step == '0'){
+            //     $step = "1. Basic";
+            // }else if($participant->step == '1'){
+            //     $step = "2. Other";
+            // }else if($participant->step == '2'){
+            //     $step = "3. Essay";
+            // }else if($participant->step == '3'){
+            //     $step = "4. Essay";
+            // }else if($participant->step == '4'){
+            //     $step = "5. Essay";
+            // }else{
+            //     $step = "Completed";
+            // }
 
 
             $isChecked = '';
@@ -312,6 +325,25 @@ class ParticipantController extends CI_Controller{
                     <span class="badge bg-soft-danger text-danger">Not Checked</span>
                 ';
             }
+            
+            $isAgreement = '';
+            if($participant->agreement_status == '0'){
+                $isAgreement = '
+                    <span class="badge bg-soft-secondary text-secondary">Haven\'t uploaded yet</span>
+                ';
+            }else if($participant->agreement_status == '1'){
+                $isAgreement = '
+                    <span class="badge bg-soft-warning text-warning">Waiting Approval</span>
+                ';
+            }else if($participant->agreement_status == '2'){
+                $isAgreement = '
+                    <span class="badge bg-soft-danger text-danger">Deny</span>
+                ';
+            }else if($participant->agreement_status == '3'){
+                $isAgreement = '
+                    <span class="badge bg-soft-success text-success">Success</span>
+                ';
+            }
 
 
             $btnChekced = "";
@@ -321,15 +353,24 @@ class ParticipantController extends CI_Controller{
                 ';
             }
 
+            $btnAgreement = "";
+            if($participant->agreement_status == '1' || $participant->agreement_status == '2' || $participant->agreement_status == '3'){
+                $btnAgreement = '
+                    <button onclick="showMdlAgreement(\''.$participant->id_user.'\', \''.$participant->agreement_status.'\', \''.$participant->agreement_path.'\')" class="btn btn-soft-success btn-icon btn-sm"><i class="bi-file-check"></i></button>
+                ';
+            }
+
             $datas[] = array( 
-                "no"            => $no++,
-                "name"          => $participant->name,
-                "statusVerif"   => $isVerif,
-                "step"          => $step,
-                "statusSubmit"  => $isSubmit,
-                "statusCheck"   => $isChecked,
-                "action"        => '
+                "no"                => $no++,
+                "email"             => $participant->email,
+                "name"              => $participant->name,
+                "selfFunded"        => $isSF,
+                "statusSubmit"      => $isSubmit,
+                "statusCheck"       => $isChecked,
+                "statusAgreement"   => $isAgreement,
+                "action"            => '
                     '.$btnChekced.'
+                    '.$btnAgreement.'
                     <a target="_blank" href="'.site_url('admin/participant/'.$participant->id_user).'" class="btn btn-soft-info btn-icon btn-sm"><i class="bi-eye"></i></a>
                     <button onclick="showMdlChangePassword(\''.$participant->id_user.'\')" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-key"></i></button>
                     '
@@ -344,6 +385,19 @@ class ParticipantController extends CI_Controller{
         );
 
         echo json_encode($response);
+    }
+    public function validAgreement(){
+        $status = '0';
+        if($_POST['status'] == 'Approve'){
+            $status = '3';
+        }else if($_POST['status'] == 'Deny'){
+            $status = '2';
+        }
+
+        $this->ParticipantDetail->update(['id_user' => $_POST['id'], 'agreement_status' => $status]);
+        $this->session->set_flashdata('succ_msg', 'Successfully '.$_POST['status'].' Agreement Letter');
+        
+        echo json_encode('success');
     }
     public function getQueryData(){
         return $this->db->query("

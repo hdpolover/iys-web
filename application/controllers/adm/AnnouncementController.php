@@ -148,7 +148,7 @@ class AnnouncementController extends CI_Controller{
         $path = "uploads/announcement";
         $conf['upload_path']    = $path;
         $conf['allowed_types']  = 'jpg|jpeg|png';
-        $conf['max_size']       = 1024;
+        // $conf['max_size']       = 1024;
         $conf['file_name']      = time();
         $conf['encrypt_name']   = true;
         $this->upload->initialize($conf);

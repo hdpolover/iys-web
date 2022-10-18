@@ -1,5 +1,5 @@
 <?php
-
+use setasign\Fpdi\Fpdi;
 class DocumentController extends CI_Controller{
     public function __construct(){
         parent::__construct();
@@ -12,6 +12,96 @@ class DocumentController extends CI_Controller{
         $this->load->model('PaymentTransaction');
         $this->load->model('PaymentType');
         $this->load->helper('download');
+        $this->load->model('ParticipantDetail');
+        $this->load->library('upload');
+    }
+    public function index(){
+        $data['title']      = 'Document';
+        $data['sidebar']    = 'document';
+        $this->template->user('usr/document', $data);
+        $this->ParticipantDetail->resetAnnouncement(['id_user' => $this->session->userdata('id_user'), 'id_summit' => '1']);
+    }
+    public function generateLoA(){
+        $user = $this->db->query("
+            SELECT u.name, pd.institution_workplace, pd.checked_date
+            FROM participant_details pd , users u 
+            WHERE 
+                pd.id_user = '".$this->session->userdata('id_user')."'
+                AND pd.id_user = u.id_user 
+        ")->row();
+
+        $pdf = new Fpdi();
+        $pdf->AddPage();
+        // set the source file
+        if($user->checked_date != null){
+            $pdf->setSourceFile('assets/docs/Empty LOA - Participant.pdf');
+        }else{
+            $pdf->setSourceFile('assets/docs/LOA - Participant.pdf');
+        }
+        // import page 1
+        $tplIdx = $pdf->importPage(1);
+        $pdf->useTemplate($tplIdx, 0, 0, 220);
+
+        // now write some text above the imported page
+        $pdf->SetFont('Times');
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->SetFontSize(10);
+        $pdf->SetXY(52, 57);
+        $pdf->Write(0, strtoupper(explode(' ', $user->name)[0]));
+        $pdf->SetXY(54, 103);
+        $pdf->Write(0, strtoupper($user->name));
+        $pdf->SetXY(54, 112);
+        $pdf->Write(0, strtoupper($user->institution_workplace));
+
+		$pdf->Output('uploads/LoA/LoA - '.strtoupper($user->name).'.pdf', 'F');
+        force_download('uploads/LoA/LoA - '.strtoupper($user->name).'.pdf', NULL);
+    }
+    public function generateSFLoA(){
+        $user = $this->db->query("
+            SELECT u.name, pd.institution_workplace, pd.checked_date
+            FROM participant_details pd , users u 
+            WHERE 
+                pd.id_user = '".$this->session->userdata('id_user')."'
+                AND pd.id_user = u.id_user 
+        ")->row();
+
+        $pdf = new Fpdi();
+        $pdf->AddPage();
+        // set the source file
+        $pdf->setSourceFile('assets/docs/Empty LOA - Participant.pdf');
+        // import page 1
+        $tplIdx = $pdf->importPage(1);
+        $pdf->useTemplate($tplIdx, 0, 0, 220);
+
+        // now write some text above the imported page
+        $pdf->SetFont('Times');
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->SetFontSize(20);
+        $pdf->SetXY(140, 44);
+        $pdf->SetFontSize(10);
+        $pdf->Write(0, date('l, F j, Y', strtotime("+3 days", strtotime($user->checked_date))));
+        $pdf->SetXY(52, 57);
+        $pdf->Write(0, strtoupper(explode(' ', $user->name)[0]));
+        $pdf->SetXY(54, 103);
+        $pdf->Write(0, strtoupper($user->name));
+        $pdf->SetXY(54, 112);
+        $pdf->Write(0, strtoupper($user->institution_workplace));
+
+		$pdf->Output('uploads/LoA/[SF] LoA - '.strtoupper($user->name).'.pdf', 'F');
+        force_download('uploads/LoA/[SF] LoA - '.strtoupper($user->name).'.pdf', NULL);
+    }
+    public function download(){
+        if($_POST['type'] == 'guidebook'){
+            force_download('assets/docs/GUIDEBOOK.pdf', NULL);
+        }else if($_POST['type'] == 'propEng'){
+            force_download('assets/docs/[ENG] Proposal Participant of Istanbul Youth Summit 2023.pdf', NULL);
+        }else if($_POST['type'] == 'propInd'){
+            force_download('assets/docs/[IND] Proposal Peserta - Istanbul Youth Summit 2023.pdf', NULL);
+        }else if($_POST['type'] == 'agreement'){
+            force_download('assets/docs/Agreement Letter.pdf', NULL);
+        }else if($_POST['type'] == 'sfagreement'){
+            force_download('assets/docs/[SF] Agreement Letter.pdf', NULL);
+        }
     }
     public function generatePayment(){
         $idUser         = $this->session->userdata('id_user');
@@ -121,6 +211,45 @@ class DocumentController extends CI_Controller{
         } catch (Exception $err) {
             // Handle errors
             echo $err->getMessage();
+        }
+    }
+    function uploadAgreement(){
+        $idUser = $this->session->userdata('id_user');
+        $uploadAgreement = $this->uploadPDF($idUser);
+        if($uploadAgreement['status'] == false){
+            $this->session->set_flashdata('err_msg', $uploadAgreement['msg']);
+            redirect('document');
+        }
+
+        $formData['id_user']            = $idUser;
+        $formData['agreement_status']   = 1;
+        $formData['agreement_path']     = $uploadAgreement['link'];
+        $this->ParticipantDetail->update($formData);
+
+        $this->session->set_flashdata('succ_msg', 'Successfully upload agreement letter!');
+        redirect('document');
+    }
+    public function uploadPDF($idUser){
+        $path = "uploads/agreement";
+        $conf['upload_path']    = $path;
+        $conf['allowed_types']  = 'pdf';
+        $conf['max_size']       = 1024;
+        $conf['file_name']      = time().$idUser;
+        $conf['encrypt_name']   = true;
+        $this->upload->initialize($conf);
+
+        if ($this->upload->do_upload('agreement')) {
+            $img = $this->upload->data();
+            return [
+                'status' => true,
+                'msg'   => 'Data berhasil terupload',
+                'link'  => base_url($path . '/' . $img['file_name'])
+            ];
+        } else {
+            return [
+                'status' => false,
+                'msg'   => $this->upload->display_errors(),
+            ];
         }
     }
 }

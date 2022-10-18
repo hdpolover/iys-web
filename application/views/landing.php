@@ -82,9 +82,9 @@
             <div class="container d-md-flex align-items-md-center vh-md-70 content-space-t-4 content-space-b-3 content-space-md-0">
               <div class="w-75 w-lg-50">
                 <h1 class="display-4 text-white mb-0">Istanbul Youth Summit 2023</h1>
-                <h3 class="text-white">August 1 - 31 2022, Open Registration</h3>
+                <h3 class="text-white">October 30 2022, Self Funded</h3>
                 <?php
-                  $dateExpiredRegist  = "August 31, 2022 23:59:59";
+                  $dateExpiredRegist  = "October 30, 2022 23:59:59";
                   $dateNow            = date("Y-m-d H:i:s");
                 ?>
 
@@ -123,6 +123,7 @@
                 <?php
                   if(strtotime($dateNow) < strtotime($dateExpiredRegist)){
                     echo '
+                      <a href="'.site_url('').'sign-up" class="btn btn-soft-warning mt-5">Self Funded</a>    
                       <a href="'.site_url('').'sign-up" class="btn btn-outline-light mt-5">Register</a>    
                     ';
                   }else{
@@ -198,6 +199,7 @@
                 <?php
                   if(strtotime($dateNow) < strtotime($dateExpiredRegist)){
                     echo '
+                      <button type="button" class="btn btn-warning mt-5">Self Funded</button>
                       <a href="'.site_url('').'sign-up" class="btn btn-outline-light mt-5">Register Now!</a>
                     ';
                   }else{
@@ -317,7 +319,7 @@
             </svg>
             </div>
             <h3>Send Us a Mail</h3>
-            <p>info@istanbulyouthsummit.com</p>
+            <p>istanbulyouthsummit@gmail.com</p>
           </div>
           <!-- End Icon Blocks -->
         </div>
@@ -896,11 +898,47 @@
     // =======================================================
     new HsNavScroller('.js-nav-scroller')
 
-    $(document).ready(function(){
-        setInterval(function(){
-          $('#btn-next-banner').click()
-        }, 3500)
-    })
+    // $(document).ready(function(){
+    //     setInterval(function(){
+    //       $('#btn-next-banner').click()
+    //     }, 3500)
+
+    //     function doSomething() {
+    //       $.ajax({
+    //       url: '<?= site_url('ajxGetUserSubmit')?>',
+    //       method: 'GET',
+    //       success: function(res){
+    //         res = JSON.parse(res)
+    //         $.toast({
+    //             heading: 'Information',
+    //             text: `${res.name} from ${res.nationality} and others have submitted their registration forms`,
+    //             showHideTransition: 'slide',
+    //             icon: 'info',
+    //             bgColor: '#8247B8'
+    //         })
+    //       }
+    //     })
+          
+    //     }
+
+    //     (function loop() {
+    //         var rand = Math.round(Math.random() * (10000 - 500)) + 500;
+    //         setTimeout(function() {
+    //                 doSomething();
+    //                 loop();
+    //         }, rand);
+    //     }());
+
+    //     // setInterval(function(){
+    //     //   $.toast({
+    //     //       heading: 'Information',
+    //     //       text: 'Now you can add icons to generate different kinds of toasts',
+    //     //       showHideTransition: 'slide',
+    //     //       icon: 'info',
+    //     //       bgColor: '#8247B8'
+    //     //   })
+    //     // }, 1000)
+    // })
 
 
     // INITIALIZATION OF SHUFFLE

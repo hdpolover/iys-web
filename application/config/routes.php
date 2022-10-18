@@ -66,6 +66,7 @@ $route['forgot-password/email']                     = 'FrontController/forgotPas
 $route['forgot-password/send-email']                = 'FrontController/forgotPassowordSendEmail';
 $route['forgot-password/change-password/(:any)']    = 'FrontController/forgotPasswordChangePassword/$1';
 $route['forgot-password/new-password']              = 'FrontController/forgotPasswordNewPassword/$1';
+$route['ajxGetUserSubmit']                          = 'FrontController/ajxGetUserSubmit';
 
 // ===== ADMIN =====
 $route['admin']             = 'adm/AuthController';
@@ -74,7 +75,8 @@ $route['admin/sign-in']     = 'adm/AuthController/signIn';
 $route['admin/login']       = 'adm/AuthController/login';
 $route['admin/logout']      = 'adm/AuthController/logout';
 // dashboard
-$route['admin/dashboard']   = 'adm/DashboardController';
+$route['admin/dashboard']                       = 'adm/DashboardController';
+$route['admin/dashboard/ajxGetInstitution']     = 'adm/DashboardController/getAjxInstitution';
 // announcement
 $route['admin/announcement-public']                         = 'adm/AnnouncementController';
 $route['admin/announcement-public/add']                     = 'adm/AnnouncementController/add';
@@ -104,6 +106,7 @@ $route['admin/participant/add']                 = 'adm/ParticipantController/add
 $route['admin/participant/change-password']     = 'adm/ParticipantController/changePassword';
 $route['admin/participant/edit/(:any)']         = 'adm/ParticipantController/edit/$1';
 $route['admin/participant/checked']             = 'adm/ParticipantController/checked';
+$route['admin/participant/valid-agreement']     = 'adm/ParticipantController/validAgreement';
 $route['admin/participant/export/(:any)']       = 'adm/ParticipantController/export/$1';
 $route['admin/participant/(:any)']              = 'adm/ParticipantController/detail/$1';
 // payment
@@ -111,6 +114,7 @@ $route['admin/payment']                     = 'adm/PaymentController';
 $route['admin/payment/add']                 = 'adm/PaymentController/add';
 $route['admin/payment/history/(:any)']      = 'adm/PaymentController/history/$1';
 $route['admin/payment/validation']          = 'adm/PaymentController/validation';
+$route['admin/payment/ajxGet']              = 'adm/PaymentController/ajxGet';
 
 // master payment
 $route['admin/master/payment-type']                  = 'adm/master/PaymentTypeController';
@@ -149,15 +153,24 @@ $route['payment']                           = 'usr/PaymentController';
 $route['payment/choose-method']             = 'usr/PaymentController/choosePayment';
 $route['payment/token']                     = 'usr/PaymentController/token';
 $route['payment/finish']                    = 'usr/PaymentController/finish';
+$route['payment/cancel']                    = 'usr/PaymentController/cancel';
 $route['payment/history/(:any)']            = 'usr/PaymentController/history/$1';
 $route['payment/status/(:any)']             = 'usr/PaymentController/status/$1';
 $route['payment/status-paypal/(:any)']      = 'usr/PaymentController/statusPaypal/$1';
-$route['payment/check-status']              = 'usr/PaymentController/checkStsatus';
-$route['payment/paypal-transaction/(:any)'] = 'usr/PaymentController/paypalTransaction/$1';
-$route['payment/paypal-transaction/(:any)'] = 'usr/PaymentController/paypalTransaction/$1';
+$route['payment/status-manual/(:any)']      = 'usr/PaymentController/statusManual/$1';
+$route['payment/check-status']              = 'usr/PaymentController/checkStatus';
+$route['payment/paypal-transaction']        = 'usr/PaymentController/paypalTransaction';
+$route['payment/paypal-cancel']             = 'usr/PaymentController/paypalCancel';
+$route['payment/manual-transaction']        = 'usr/PaymentController/manualTransaction';
+$route['payment/manual-cancel']             = 'usr/PaymentController/manualCancel';
 
 // documents
+$route['document']                  = 'usr/DocumentController';
+$route['document/download']         = 'usr/DocumentController/download';
+$route['document/generate-loa']     = 'usr/DocumentController/generateLoA';
+$route['document/generate-sf-loa']  = 'usr/DocumentController/generateSFLoA';
 $route['document/generate-payment'] = 'usr/DocumentController/generatePayment';
+$route['document/upload-agreement'] = 'usr/DocumentController/uploadAgreement';
 
 
 //

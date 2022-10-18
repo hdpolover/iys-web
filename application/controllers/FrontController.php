@@ -44,7 +44,7 @@ class FrontController extends CI_Controller{
             $affiliateCode = "";
         }
 
-        $dateExpired  = "August 31, 2022 23:59:59";
+        $dateExpired  = "October 30, 2022 23:59:59";
         $dateNow      = date("Y-m-d H:i:s");
 
         if(strtotime($dateNow) > strtotime($dateExpired)){
@@ -197,5 +197,19 @@ class FrontController extends CI_Controller{
         $this->User->update(['id_user' => $_POST['id_user'], 'password' => hash('sha256', md5($this->db->escape_str(htmlentities($_POST['password'])))), 'token_forgot' => NULL]);
         $this->session->set_flashdata('succ_msg', 'Congratulations, you have successfully changed your password!');
         redirect('sign-in');
+    }
+    public function ajxGetUserSubmit(){
+        $user = $this->db->query("
+            SELECT u.name , pd.nationality, (
+                SELECT COUNT(pd.id_user)
+                FROM participant_details pd 
+                WHERE pd.is_submited = '1'
+            ) AS total_submited
+            FROM participant_details pd , users u 
+            WHERE pd.is_submited = '1' AND pd.id_user = u.id_user 
+            ORDER BY RAND()
+            LIMIT 1
+        ")->row();
+        echo json_encode($user);
     }
 }

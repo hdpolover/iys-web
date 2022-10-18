@@ -150,7 +150,7 @@
       </div>
 
       <div class="modal-body text-center">
-        <p>You can still edit your data until the registration is closed (August 31)</p>
+        <p>Are you sure to submit?</p>
       </div>
 
       <div class="modal-footer">

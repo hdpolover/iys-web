@@ -95,7 +95,7 @@
 
                   <div class="row align-items-center gx-2">
                     <div class="col">
-                      <span class="js-counter display-5 text-dark" data-value="24"><?= number_format(count($totalPayment))?></span>
+                      <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($totalPayment->TOTAL)?></span>
                     </div>
                     <!-- End Col -->
                   </div>
@@ -187,8 +187,8 @@
                 </div>
 
                 <div class="tab-pane fade" id="nav-three-eg1" role="tabpanel" aria-labelledby="nav-three-eg1-tab">
-                <h4>List User Submit</h4>
-                  <small>List user submits self data with referral code</small>
+                <h4>List Detail Payment</h4>
+                  <small>List detail payment users</small>
                   <table style="margin-top: 5rem;" class="table table-borderless table-thead-bordered datatable">
                     <thead class="thead-light">
                       <tr>
@@ -196,20 +196,62 @@
                         <th scope="col">Email</th>
                         <th scope="col">Name</th>
                         <th scope="col">Nationality</th>
+                        <th scope="col">Payment</th>
+                        <th scope="col">Payment Status</th>
                       </tr>
                     </thead>
                     <tbody>
                       <?php
                           $no = 1;
-                          foreach ($totalPayment as $regis) {
-                              echo '
-                                  <tr>
-                                      <td scope="col">'.$no++.'</td>
-                                      <td scope="col">'.$regis->email.'</td>
-                                      <td scope="col">'.$regis->name.'</td>
-                                      <td scope="col">'.$regis->nationality.'</td>
-                                  </tr>   
-                              ';
+                          foreach ($payments as $regis) {
+                            $isPayStatus = '';
+                            if($regis->status_payment == NULL){
+                                $isPayStatus = '
+                                    <span class="badge bg-soft-secondary text-secondary">Haven\'t make payment</span>
+                                ';
+                            }else if($regis->status_payment == '1'){
+                                $isPayStatus = '
+                                    <span class="badge bg-soft-secondary text-secondary">NEW</span>
+                                ';
+                            }else if($regis->status_payment == '2'){
+                                $isPayStatus = '
+                                    <span class="badge bg-soft-warning text-warning">PENDING</span>
+                                ';
+                            }else if($regis->status_payment == '3'){
+                                $isPayStatus = '
+                                    <span class="badge bg-soft-danger text-danger">CANCEL</span>
+                                ';
+                            }else if($regis->status_payment == '4'){
+                                $isPayStatus = '
+                                    <span class="badge bg-soft-danger text-danger">EXPIRED</span>
+                                ';
+                            }else if($regis->status_payment == '5'){
+                                $isPayStatus = '
+                                    <span class="badge bg-soft-danger text-danger">DENY</span>
+                                ';
+                            }else if($regis->status_payment == '6'){
+                                $isPayStatus = '
+                                    <span class="badge bg-soft-success text-success">SUCCESS</span>
+                                ';
+                            }
+
+                            $payment = "";
+                            if($regis->payment == NULL){
+                              $payment = "Haven\'t make payment";
+                            }else{
+                              $payment = $regis->payment;
+                            }
+
+                            echo '
+                                <tr>
+                                    <td scope="col">'.$no++.'</td>
+                                    <td scope="col">'.$regis->email.'</td>
+                                    <td scope="col">'.$regis->name.'</td>
+                                    <td scope="col">'.$regis->nationality.'</td>
+                                    <td scope="col">'.$payment.'</td>
+                                    <td scope="col">'.$isPayStatus.'</td>
+                                </tr>   
+                            ';
                           }
                       ?>
                     </tbody>

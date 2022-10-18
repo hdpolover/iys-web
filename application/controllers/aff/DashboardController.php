@@ -16,7 +16,8 @@ class DashboardController extends CI_Controller{
         $ambassador = $this->Ambassador->get(['referral_code' => $this->session->userdata('referral_code')]);
         $data['totalRegis']     = $this->getRegis($ambassador[0]->referral_code);
         $data['totalSubmit']    = $this->getSubmit($ambassador[0]->referral_code);
-        $data['totalPayment']   = $this->getPayment($ambassador[0]->referral_code);
+        $data['totalPayment']   = $this->getTotalPayment($ambassador[0]->referral_code);
+        $data['payments']       = $this->getDetailPayment($ambassador[0]->referral_code);
         $data['ambassador']     = $ambassador;
        
         $this->template->affiliate('aff/dashboard/index', $data);
@@ -41,19 +42,45 @@ class DashboardController extends CI_Controller{
                 AND pd.id_user = u.id_user 
         ")->result();
     }
-    public function getPayment($referralCode){
+    public function getTotalPayment($referralCode){
         return $this->db->query("
-        SELECT
-            u.email , u.name , pd.nationality
-        FROM 
-            payment_transaction pt ,
-            participant_details pd ,
-            users u 
-        WHERE pt.id_payment_type = 8
-            AND pt.status = 6
-            AND pt.id_user = pd.id_user 
-            AND pd.referral_code = '".$referralCode."' 
-            AND pd.id_user = u.id_user 
+            SELECT 
+                COUNT(*) as TOTAL
+            FROM 
+                payment_status ps , 
+                participant_details pd
+            WHERE 
+                ps.id_payment_type IN(8, 11)
+                AND ps.status = 6
+                AND ps.id_user = pd.id_user
+                AND pd.referral_code = '".$referralCode."'
+        ")->row();
+    }
+    public function getDetailPayment($referralCode){
+        return $this->db->query("
+            SELECT
+                u.email ,
+                u.name , 
+                pd.nationality,
+                (
+                    SELECT pt.description 
+                    FROM payment_status ps, payment_types pt 
+                    WHERE ps.id_user = pd.id_user AND ps.is_active = 1 AND ps.id_payment_type = pt.id_payment_type
+                    ORDER BY ps.id_payment_status DESC LIMIT 1
+                ) as payment,
+                (
+                    SELECT ps.status
+                    FROM payment_status ps
+                    WHERE ps.id_user = pd.id_user AND ps.is_active = 1
+                    ORDER BY ps.id_payment_status DESC LIMIT 1
+                ) as status_payment
+            FROM 
+                participant_details pd ,
+                users u 
+            WHERE 
+                pd.referral_code = '".$referralCode."' 
+                AND pd.is_submited = 1
+                AND pd.id_user = u.id_user 
         ")->result();
     }
 }

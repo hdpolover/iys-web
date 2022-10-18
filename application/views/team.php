@@ -234,11 +234,11 @@
 
             <div class="col-sm-6 col-md-3 mb-5 mb-sm-0">
                 <!-- Team -->
-                <img class="card-img rounded-2" style="object-fit: cover;height: 350px;" src="<?= site_url('assets/img/team/berkat.jpg')?>" alt="Image Description">
+                <img class="card-img rounded-2" style="object-fit: cover;height: 350px;" src="<?= site_url('assets/img/team/ilhammuh.jpg')?>" alt="Image Description">
                 <div class="card card-sm text-center mt-n7 mx-3">
                 <div class="card-body">
-                    <h4 class="card-title">Berkat Sudianto G</h4>
-                    <p class="card-text">Partnership & Sponsorship</p>
+                    <h4 class="card-title">Ilham Muhammad</h4>
+                    <p class="card-text">Project Manager</p>
                 </div>
                 </div>
                 <!-- End Team -->

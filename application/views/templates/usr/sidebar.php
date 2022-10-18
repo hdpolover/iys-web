@@ -31,6 +31,12 @@
             <h4 class="card-title mb-0"><?= $this->session->userdata('name')?></h4>
             <p class="card-text small"><?= $this->session->userdata('email')?></p>
             <?php
+              if($this->session->userdata('is_extended') == '1'){
+            ?>
+              <span class="badge bg-warning">Self Funded</span>
+            <?php }?>
+
+            <?php
               $this->load->model('ParticipantDetail');
               $pDetail = $this->ParticipantDetail->getById($this->session->userdata('id_user'));
 
@@ -71,6 +77,11 @@
             <li class="nav-item">
               <a class="nav-link <?= $sidebar == "payment" ? "active" : ""?>" href="<?= site_url('payment')?>">
                 <i class="bi-credit-card nav-icon"></i> Payment
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link <?= $sidebar == "document" ? "active" : ""?>" href="<?= site_url('document')?>">
+                <i class="bi-file-earmark-check nav-icon"></i> Document
               </a>
             </li>
             <li class="nav-item">

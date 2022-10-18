@@ -110,16 +110,15 @@
                 <input type="text" id="filter_number" class="form-control" placeholder="Phone Filter" >
               </div>
             </div>
-            <div class="row">
-              <div class="col-sm mb-2 mb-sm-0">
+            <div class="row mb-4">
+              <!-- <div class="col-sm mb-2 mb-sm-0">
                 <label for="">Verified</label>
                 <select id="filter_verified" class="form-control">
                   <option value="">All</option>
                   <option value="1">Verified</option>
                   <option value="0">Not Verified</option>
                 </select>
-              </div>
-
+              </div> -->
               <div class="col-sm mb-2 mb-sm-0">
                 <label for="">Submited</label>
                 <select id="filter_submited" class="form-control">
@@ -136,6 +135,25 @@
                   <option value="0">Not Checked</option>
                 </select>
               </div>
+              <div class="col-sm-4 mb-2 mb-sm-0">
+                <label for="">Agreement Status</label>
+                <select id="filter_agreement" class="form-control">
+                  <option value="">All</option>
+                  <option value="1">Waiting Approval</option>
+                  <option value="2">Deny</option>
+                  <option value="3">Success</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+            <div class="col-sm-4 mb-2 mb-sm-0">
+                <label for="">Self Funded</label>
+                <select id="filter_selfFunded" class="form-control">
+                  <option value="">All</option>
+                  <option value="1">Self Funded</option>
+                  <option value="0">Basic</option>
+                </select>
+              </div>
             </div>
             <button class="btn btn-sm btn-primary mb-4 mt-2" onclick="btnSearch()"><i class="bi-search"></i>&nbsp&nbspSearch</button>
             <!-- End Row -->
@@ -143,11 +161,12 @@
               <thead class="thead-light">
                 <tr>
                   <th scope="col">No</th>
+                  <th scope="col">Email</th>
                   <th scope="col">Name</th>
-                  <th scope="col">Status Verif</th>
-                  <th scope="col">Step</th>
+                  <th scope="col">Self Funded</th>
                   <th scope="col">Status Submit</th>
                   <th scope="col">Status Check</th>
+                  <th scope="col">Status Agreement</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -287,6 +306,61 @@
       </div>
     </div>
     <!-- End Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="mdlAgreement" tabindex="-1" aria-labelledby="mdlDeleteLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="mdlDeleteLabel">Agreement Letter Validation</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+            <div class="text-center">
+              <iframe id="mdlAgreement_doc" id="" width="100%" height="500px" src="" frameborder="0"></iframe>
+            </div>
+            <a id="mdlAgreement_href" href="" class="btn btn-primary" target="_blank"> Open in new tab</a>
+          </div>
+
+          <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+              <form id="formAgreement" action="" method="POST">
+                <input type="hidden" name="id" id="mdlAgreement_id" >
+                <input type="button" onclick="validationAgreement('Deny')" name="status" class="btn btn-soft-danger" value="Deny">
+                <input type="button" onclick="validationAgreement('Approve')" name="status" class="btn btn-soft-success" value="Approve">
+                <!-- <input type="button" onclick="mdlAgreementValid()" name="status" class="btn btn-soft-success" value="Approve"> -->
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="mdlAgreementValid" tabindex="-1" aria-labelledby="mdlDeleteLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="mdlDeleteLabel">Confirmation</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+            <h4>Are you sure to change the status agreement?</h4>
+          </div>
+
+          <div class="modal-footer">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+              <form id="" action="<?= site_url('admin/participant/valid-agreement')?>" method="POST">
+                <input type="hidden" name="id" id="mdlAgreementValid_id" >
+                <input type="submit" name="status" class="btn btn-soft-danger" value="Deny">
+                <input type="submit" name="status" class="btn btn-soft-success" value="Approve">
+                <input type="button" name="status" class="btn btn-soft-success" value="Approve">
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Modal -->
   </main>
   <script>
     var table = $('#dataTable').DataTable({
@@ -301,21 +375,43 @@
                 d.filterEmail     = $('#filter_email').val()
                 d.filterName      = $('#filter_name').val()
                 d.filterNumber    = $('#filter_number').val()
-                d.filterVerified  = $('#filter_verified').val()
+                // d.filterVerified  = $('#filter_verified').val()
                 d.filterSubmited  = $('#filter_submited').val()
                 d.filterChecked  = $('#filter_checked').val()
+                d.filterAgreement  = $('#filter_agreement').val()
+                d.filterSelfFunded  = $('#filter_selfFunded').val()
             }
         },
         'columns': [
             { data: 'no' },
+            { data: 'email' },
             { data: 'name' },
-            { data: 'statusVerif' },
-            { data: 'step' },
+            { data: 'selfFunded' },
             { data: 'statusSubmit' },
             { data: 'statusCheck' },
+            { data: 'statusAgreement' },
             { data: 'action' }
         ]
     });
+    const validationAgreement = (status) => {
+      const id = $('#mdlAgreement_id').val()
+      $.ajax({
+        url: '<?= site_url('admin/participant/valid-agreement')?>',
+        method: 'POST',
+        data: {id, status},
+        success: function(){
+          $('#mdlAgreementValid').modal('hide')
+          $.toast({
+              heading: 'Info',
+              text: 'Success Update Status Agreement',
+              showHideTransition: 'slide',
+              icon: 'info',
+              bgColor: '#8247B8'
+          })
+          table.ajax.reload();
+        }
+      })
+    }
     const showMdlChangePassword = id => {
       const pass = Math.random().toString(36).slice(-8);
       $('#mdlChangePass_id').val(id);
@@ -327,6 +423,21 @@
       const pass = Math.random().toString(36).slice(-8);
       $('#mdlChecked_id').val(id);
       $('#mdlChecked').modal('show')
+    }
+    const showMdlAgreement = (id, status, path) => {
+      if(status != '1'){
+        $('#formAgreement').attr('hidden', true)
+      }else{
+        $('#formAgreement').attr('hidden', false)
+      }
+
+      $('#mdlAgreement_doc').attr('src', path)
+      $('#mdlAgreement_href').attr('href', path)
+      $('#mdlAgreement_id').val(id);
+      $('#mdlAgreement').modal('show')
+    }
+    const mdlAgreementValid = () => {
+      $('#mdlAgreementValid').modal('show')
     }
     function btnSearch(){
         table.ajax.reload();

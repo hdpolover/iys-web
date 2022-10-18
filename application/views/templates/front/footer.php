@@ -267,7 +267,7 @@
       
       // INITIALIZATION OF COUNTDOWN
       // =======================================================
-      const oneYearFromNow = new Date('August 31, 2022 23:59:59')
+      const oneYearFromNow = new Date('October 30, 2022 23:59:59')
       // console.log(oneYearFromNow.setDate())
 
       document.querySelectorAll('.js-countdown').forEach(item => {

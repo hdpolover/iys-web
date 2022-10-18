@@ -20,7 +20,11 @@
         <!-- End Card -->
     </div>
 </div>
-<a href="<?= site_url('personal-info/update')?>" class="btn btn-soft-primary mt-4">Update Form</a>
+<?php
+    if($detail->is_checked == 0){
+?>
+        <!-- <a href="<?= site_url('personal-info/update')?>" class="btn btn-soft-primary mt-4">Update Form</a> -->
+<?php }?>
 <div class="text-center mb-3">
 </div>
 <div class="alert alert-soft-success" role="alert">

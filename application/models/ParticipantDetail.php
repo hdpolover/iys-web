@@ -73,9 +73,12 @@ class ParticipantDetail extends CI_Model{
                 u.email ,
                 u.name ,
                 pd.step ,
+                u.is_extended ,
                 u.is_verif ,
                 pd.is_submited ,
-                pd.is_checked
+                pd.is_checked ,
+                pd.agreement_status,
+                pd.agreement_path
             FROM
                 participant_details pd ,
                 users u 
@@ -94,9 +97,12 @@ class ParticipantDetail extends CI_Model{
                 u.email ,
                 u.name ,
                 pd.step ,
+                u.is_extended ,
                 u.is_verif ,
                 pd.is_submited ,
-                pd.is_checked
+                pd.is_checked ,
+                pd.agreement_status,
+                pd.agreement_path
             FROM
                 participant_details pd ,
                 users u 
