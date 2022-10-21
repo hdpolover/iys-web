@@ -154,29 +154,97 @@
                   </div>
                 </div>
                 <div class="row mb-5">
-                  <div class="col-md-6 col-sm-12">
+                  <div class="col-md-4 col-sm-12">
                     <div class="card">
                       <div class="card-body">
                         <h6 class="card-subtitle mb-2">Total Age</h6>
-
-                        <div class="row align-items-center gx-2">
-                          <div class="col">
-                            <div id="chart2"></div>
-                          </div>
-                          <!-- End Col -->
-                        </div>
-                        <!-- End Row -->
+                        <table style="margin-top: 5rem;" class="table table-borderless table-thead-bordered datatablewithoutsearch">
+                          <thead class="thead-light">
+                            <tr>
+                              <th scope="col">No</th>
+                              <th scope="col">Age</th>
+                              <th scope="col">Total</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <?php
+                                $no = 1;
+                                foreach ($ageChart as $item) {
+                                    echo '
+                                        <tr>
+                                            <td scope="col">'.$no++.'</td>
+                                            <td scope="col">'.$item->AGE.'</td>
+                                            <td scope="col">'.$item->TOTAL.'</td>
+                                        </tr>   
+                                    ';
+                                }
+                            ?>
+                          </tbody>
+                        </table>
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-6 col-sm-12">
+                  <div class="col-md-8 col-sm-12">
                     <div class="card">
                       <div class="card-body">
                         <h6 class="card-subtitle mb-2">Total Ambassador</h6>
-
+                        <table style="margin-top: 5rem;" class="table table-borderless table-thead-bordered datatable">
+                          <thead class="thead-light">
+                            <tr>
+                              <th scope="col">No</th>
+                              <th scope="col">Ambassador</th>
+                              <th scope="col">Total</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <?php
+                                $no = 1;
+                                foreach ($ambassadorChart as $item) {
+                                    echo '
+                                        <tr>
+                                            <td scope="col">'.$no++.'</td>
+                                            <td scope="col">'.$item->NAME.'</td>
+                                            <td scope="col">'.$item->TOTAL.'</td>
+                                        </tr>   
+                                    ';
+                                }
+                            ?>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mb-5">
+                  <div class="col col-sm-12">
+                    <div class="card">
+                      <div class="card-body">
+                        <h6 class="card-subtitle mb-2">Total Nationality</h6>
                         <div class="row align-items-center gx-2">
                           <div class="col">
-                            <div id="chart3"></div>
+                            <table style="margin-top: 5rem;" class="table table-borderless table-thead-bordered datatable">
+                              <thead class="thead-light">
+                                <tr>
+                                  <th scope="col">No</th>
+                                  <th scope="col">Nationality</th>
+                                  <th scope="col">Total</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <?php
+                                    $no = 1;
+                                    foreach ($nationality as $item) {
+                                        echo '
+                                            <tr>
+                                                <td scope="col">'.$no++.'</td>
+                                                <td scope="col">'.$item->NATIONALITY.'</td>
+                                                <td scope="col">'.$item->TOTAL.'</td>
+                                            </tr>   
+                                        ';
+                                    }
+                                ?>
+                              </tbody>
+                            </table>
                           </div>
                           <!-- End Col -->
                         </div>
@@ -186,38 +254,41 @@
                   </div>
                 </div>
                 <div class="row mb-5">
-                  <div class="col-md-6 col-sm-12">
+                  <div class="col-sm-6 col-lg-6 mb-3 mb-lg-5">
+                    <!-- Card -->
                     <div class="card">
                       <div class="card-body">
-                        <h6 class="card-subtitle mb-2">Total Nationality</h6>
+                        <h6 class="card-subtitle mb-2">Total Male</h6>
 
                         <div class="row align-items-center gx-2">
                           <div class="col">
-                            <div id="chart4"></div>
+                            <span class="counterChecked display-5 text-dark" data-value="24"><?= number_format($gender[0]->TOTAL) ?></span>
                           </div>
                           <!-- End Col -->
                         </div>
                         <!-- End Row -->
                       </div>
                     </div>
+                    <!-- End Card -->
                   </div>
-                  <div class="col-md-6 col-sm-12">
+                  <div class="col-sm-6 col-lg-6 mb-3 mb-lg-5">
+                    <!-- Card -->
                     <div class="card">
                       <div class="card-body">
-                        <h6 class="card-subtitle mb-2">Total Gender</h6>
+                        <h6 class="card-subtitle mb-2">Total Female</h6>
 
                         <div class="row align-items-center gx-2">
                           <div class="col">
-                            <div id="chart5"></div>
+                            <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($gender[1]->TOTAL) ?></span>
                           </div>
                           <!-- End Col -->
                         </div>
                         <!-- End Row -->
                       </div>
                     </div>
+                    <!-- End Card -->
                   </div>
                 </div>
-                <!-- <div class="row"> -->
                 <div class="row">
                   <div class="col">
                     <table id="dataTable" class="table table-borderless table-thead-bordered">
@@ -455,6 +526,77 @@
                         <!-- End Card -->
                       </div>
                     </div>
+                    <span style="width: 23.5%;" class="badge bg-warning mb-3">Self Funded</span>
+                    <div class="row">
+                      <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                        <!-- Card -->
+                        <div class="card">
+                          <div class="card-body">
+                            <h6 class="card-subtitle mb-2">Total success</h6>
+
+                            <div class="row align-items-center gx-2">
+                              <div class="col">
+                                <span class="counterChecked display-5 text-dark" data-value="24"><?= number_format($sfregisSuccess) ?></span>
+                              </div>
+                              <!-- End Col -->
+                            </div>
+                            <!-- End Row -->
+                          </div>
+                        </div>
+                        <!-- End Card -->
+                      </div>
+                      <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                        <!-- Card -->
+                        <div class="card">
+                          <div class="card-body">
+                            <h6 class="card-subtitle mb-2">Total pending</h6>
+
+                            <div class="row align-items-center gx-2">
+                              <div class="col">
+                                <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($sfregisPending) ?></span>
+                              </div>
+                              <!-- End Col -->
+                            </div>
+                            <!-- End Row -->
+                          </div>
+                        </div>
+                        <!-- End Card -->
+                      </div>
+                      <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                        <!-- Card -->
+                        <div class="card">
+                          <div class="card-body">
+                            <h6 class="card-subtitle mb-2">Total cancel/deny</h6>
+
+                            <div class="row align-items-center gx-2">
+                              <div class="col">
+                                <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($sfregisCancel) ?></span>
+                              </div>
+                              <!-- End Col -->
+                            </div>
+                            <!-- End Row -->
+                          </div>
+                        </div>
+                        <!-- End Card -->
+                      </div>
+                      <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                        <!-- Card -->
+                        <div class="card">
+                          <div class="card-body">
+                            <h6 class="card-subtitle mb-2">Total expire</h6>
+
+                            <div class="row align-items-center gx-2">
+                              <div class="col">
+                                <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($sfregisExpired) ?></span>
+                              </div>
+                              <!-- End Col -->
+                            </div>
+                            <!-- End Row -->
+                          </div>
+                        </div>
+                        <!-- End Card -->
+                      </div>
+                    </div>
                     <span class="badge bg-soft-warning text-warning">Batch 1</span>
                     <div class="row">
                       <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
@@ -526,6 +668,77 @@
                         <!-- End Card -->
                       </div>
                     </div>
+                    <span style="width: 23.5%;" class="badge bg-warning mb-3">Self Funded</span>
+                    <div class="row">
+                      <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                        <!-- Card -->
+                        <div class="card">
+                          <div class="card-body">
+                            <h6 class="card-subtitle mb-2">Total success</h6>
+
+                            <div class="row align-items-center gx-2">
+                              <div class="col">
+                                <span class="counterChecked display-5 text-dark" data-value="24"><?= number_format($sfbatch1Success) ?></span>
+                              </div>
+                              <!-- End Col -->
+                            </div>
+                            <!-- End Row -->
+                          </div>
+                        </div>
+                        <!-- End Card -->
+                      </div>
+                      <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                        <!-- Card -->
+                        <div class="card">
+                          <div class="card-body">
+                            <h6 class="card-subtitle mb-2">Total pending</h6>
+
+                            <div class="row align-items-center gx-2">
+                              <div class="col">
+                                <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($sfbatch1Pending) ?></span>
+                              </div>
+                              <!-- End Col -->
+                            </div>
+                            <!-- End Row -->
+                          </div>
+                        </div>
+                        <!-- End Card -->
+                      </div>
+                      <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                        <!-- Card -->
+                        <div class="card">
+                          <div class="card-body">
+                            <h6 class="card-subtitle mb-2">Total cancel/deny</h6>
+
+                            <div class="row align-items-center gx-2">
+                              <div class="col">
+                                <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($sfbatch1Cancel) ?></span>
+                              </div>
+                              <!-- End Col -->
+                            </div>
+                            <!-- End Row -->
+                          </div>
+                        </div>
+                        <!-- End Card -->
+                      </div>
+                      <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                        <!-- Card -->
+                        <div class="card">
+                          <div class="card-body">
+                            <h6 class="card-subtitle mb-2">Total expire</h6>
+
+                            <div class="row align-items-center gx-2">
+                              <div class="col">
+                                <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($sfbatch1Expired) ?></span>
+                              </div>
+                              <!-- End Col -->
+                            </div>
+                            <!-- End Row -->
+                          </div>
+                        </div>
+                        <!-- End Card -->
+                      </div>
+                    </div>
                     <span class="badge bg-soft-success text-success">Batch 2</span>
                     <div class="row">
                       <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
@@ -588,6 +801,77 @@
                             <div class="row align-items-center gx-2">
                               <div class="col">
                                 <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($batch2Expired) ?></span>
+                              </div>
+                              <!-- End Col -->
+                            </div>
+                            <!-- End Row -->
+                          </div>
+                        </div>
+                        <!-- End Card -->
+                      </div>
+                    </div>
+                    <span style="width: 23.5%;" class="badge bg-warning mb-3">Self Funded</span>
+                    <div class="row">
+                      <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                        <!-- Card -->
+                        <div class="card">
+                          <div class="card-body">
+                            <h6 class="card-subtitle mb-2">Total success</h6>
+
+                            <div class="row align-items-center gx-2">
+                              <div class="col">
+                                <span class="counterChecked display-5 text-dark" data-value="24"><?= number_format($sfbatch2Success) ?></span>
+                              </div>
+                              <!-- End Col -->
+                            </div>
+                            <!-- End Row -->
+                          </div>
+                        </div>
+                        <!-- End Card -->
+                      </div>
+                      <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                        <!-- Card -->
+                        <div class="card">
+                          <div class="card-body">
+                            <h6 class="card-subtitle mb-2">Total pending</h6>
+
+                            <div class="row align-items-center gx-2">
+                              <div class="col">
+                                <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($sfbatch2Pending) ?></span>
+                              </div>
+                              <!-- End Col -->
+                            </div>
+                            <!-- End Row -->
+                          </div>
+                        </div>
+                        <!-- End Card -->
+                      </div>
+                      <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                        <!-- Card -->
+                        <div class="card">
+                          <div class="card-body">
+                            <h6 class="card-subtitle mb-2">Total cancel/deny</h6>
+
+                            <div class="row align-items-center gx-2">
+                              <div class="col">
+                                <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($sfbatch2Cancel) ?></span>
+                              </div>
+                              <!-- End Col -->
+                            </div>
+                            <!-- End Row -->
+                          </div>
+                        </div>
+                        <!-- End Card -->
+                      </div>
+                      <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                        <!-- Card -->
+                        <div class="card">
+                          <div class="card-body">
+                            <h6 class="card-subtitle mb-2">Total expire</h6>
+
+                            <div class="row align-items-center gx-2">
+                              <div class="col">
+                                <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($sfbatch2Expired) ?></span>
                               </div>
                               <!-- End Col -->
                             </div>
