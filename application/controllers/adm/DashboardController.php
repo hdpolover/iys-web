@@ -36,11 +36,26 @@ class DashboardController extends CI_Controller{
         $data['batch2Pending']  = $this->Dashboard->getPaymentPending('10')->TOTAL;
         $data['batch2Cancel']   = $this->Dashboard->getPaymentCancel('10')->TOTAL;
         $data['batch2Expired']  = $this->Dashboard->getPaymentExpired('10')->TOTAL;
+        
+        $data['sfregisSuccess']   = $this->Dashboard->getPaymentSuccess('11')->TOTAL;
+        $data['sfregisPending']   = $this->Dashboard->getPaymentPending('11')->TOTAL;
+        $data['sfregisCancel']    = $this->Dashboard->getPaymentCancel('11')->TOTAL;
+        $data['sfregisExpired']   = $this->Dashboard->getPaymentExpired('11')->TOTAL;
+        
+        $data['sfbatch1Success']  = $this->Dashboard->getPaymentSuccess('12')->TOTAL;
+        $data['sfbatch1Pending']  = $this->Dashboard->getPaymentPending('12')->TOTAL;
+        $data['sfbatch1Cancel']   = $this->Dashboard->getPaymentCancel('12')->TOTAL;
+        $data['sfbatch1Expired']  = $this->Dashboard->getPaymentExpired('12')->TOTAL;
 
-        $data['totSuccess']     = (int)$data['regisSuccess'] + (int)$data['batch1Success'] + (int)$data['batch2Success'];
-        $data['totPending']     = (int)$data['regisPending'] + (int)$data['batch1Pending'] + (int)$data['batch2Pending'];
-        $data['totCancel']      = (int)$data['regisCancel'] + (int)$data['batch1Cancel'] + (int)$data['batch2Cancel'];
-        $data['totExpired']     = (int)$data['regisExpired'] + (int)$data['batch1Expired'] + (int)$data['batch2Expired'];
+        $data['sfbatch2Success']  = $this->Dashboard->getPaymentSuccess('13')->TOTAL;
+        $data['sfbatch2Pending']  = $this->Dashboard->getPaymentPending('13')->TOTAL;
+        $data['sfbatch2Cancel']   = $this->Dashboard->getPaymentCancel('13')->TOTAL;
+        $data['sfbatch2Expired']  = $this->Dashboard->getPaymentExpired('13')->TOTAL;
+
+        $data['totSuccess']     = (int)$data['regisSuccess'] + (int)$data['batch1Success'] + (int)$data['batch2Success'] + (int)$data['sfregisSuccess'] + (int)$data['sfbatch1Success'] + (int)$data['sfbatch2Success'];
+        $data['totPending']     = (int)$data['regisPending'] + (int)$data['batch1Pending'] + (int)$data['batch2Pending'] + (int)$data['sfregisPending'] + (int)$data['sfbatch1Pending'] + (int)$data['sfbatch2Pending'];
+        $data['totCancel']      = (int)$data['regisCancel'] + (int)$data['batch1Cancel'] + (int)$data['batch2Cancel'] + (int)$data['sfregisCancel'] + (int)$data['sfbatch1Cancel'] + (int)$data['sfbatch2Cancel'];
+        $data['totExpired']     = (int)$data['regisExpired'] + (int)$data['batch1Expired'] + (int)$data['batch2Expired'] + (int)$data['sfregisExpired'] + (int)$data['sfbatch1Expired'] + (int)$data['sfbatch2Expired'];
 
         $data['midIncome']  = $this->Dashboard->getIncomeMidtrans()->TOTAL;
         $data['payIncome']  = $this->Dashboard->getIncomePaypal()->TOTAL;

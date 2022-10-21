@@ -45,8 +45,8 @@ class Dashboard extends CI_Model{
                 participant_details pd 
             WHERE 
                 pd.is_submited = '1'
-            GROUP BY YEAR(pd.birth_date) 
-            ORDER BY YEAR(pd.birth_date) ASC
+            GROUP BY AGE 
+            ORDER BY AGE DESC
         ")->result();
     }
     public function getAmbassadorChart(){
@@ -175,6 +175,7 @@ class Dashboard extends CI_Model{
             FROM participant_details pd 
             WHERE pd.gender IS NOT NULL
             GROUP BY pd.gender
+            ORDER BY GENDER DESC
         ")->result();
     }
     public function getInstitution($param){

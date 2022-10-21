@@ -55,6 +55,7 @@
       })
     })
     $('.datatable').DataTable();
+    $('.datatablewithoutsearch').DataTable({'searching' :false});
     (function() {
       // INITIALIZATION OF HEADER
       // =======================================================
