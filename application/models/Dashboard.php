@@ -88,8 +88,36 @@ class Dashboard extends CI_Model{
     public function getPaymentExpired($idPaymentType){
         return $this->db->query("
             SELECT COUNT(*) AS TOTAL
-            FROM payment_transaction pt 
+            FROM payment_transaction pt
             WHERE pt.id_payment_type = '".$idPaymentType."' AND pt.status = '4'
+        ")->row();
+    }
+    public function getPaymentSuccessAff($idPaymentType, $aff){
+        return $this->db->query("
+            SELECT COUNT(*) AS TOTAL
+            FROM payment_transaction pt , participant_details pd
+            WHERE pt.id_payment_type = '".$idPaymentType."' AND pt.status = '6' AND pd.id_user = pt.id_user AND pd.referral_code = '".$aff."'
+        ")->row();
+    }
+    public function getPaymentPendingAff($idPaymentType, $aff){
+        return $this->db->query("
+            SELECT COUNT(*) AS TOTAL
+            FROM payment_transaction pt , participant_details pd
+            WHERE pt.id_payment_type = '".$idPaymentType."' AND pt.status = '2' AND pd.id_user = pt.id_user AND pd.referral_code = '".$aff."'
+        ")->row();
+    }
+    public function getPaymentCancelAff($idPaymentType, $aff){
+        return $this->db->query("
+            SELECT COUNT(*) AS TOTAL
+            FROM payment_transaction pt , participant_details pd
+            WHERE pt.id_payment_type = '".$idPaymentType."' AND (pt.status = '3' OR pt.status = '5') AND pd.id_user = pt.id_user AND pd.referral_code = '".$aff."'
+        ")->row();
+    }
+    public function getPaymentExpiredAff($idPaymentType, $aff){
+        return $this->db->query("
+            SELECT COUNT(*) AS TOTAL
+            FROM payment_transaction pt , participant_details pd
+            WHERE pt.id_payment_type = '".$idPaymentType."' AND pt.status = '4' AND pd.id_user = pt.id_user AND pd.referral_code = '".$aff."'
         ")->row();
     }
     public function getIncomeMidtrans(){

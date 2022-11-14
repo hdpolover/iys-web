@@ -47,6 +47,18 @@ class ParticipantController extends CI_Controller{
         $this->session->set_flashdata('succ_msg', 'Successfully checked user!');
         redirect('admin/'.$_POST['page']);
     }
+    public function travel($id){
+        $data['title']      = 'Detail Participant';
+        $data['sidebar']    = 'participant';
+
+        $data['pDetail']    = $this->ParticipantDetail->getById($id);
+        $data['passport']   = $this->db->get_where('travel_passport', ['id_user' => $id])->row();
+        $data['flight']     = $this->db->get_where('travel_flight', ['id_user' => $id])->row();
+        $data['residence']  = $this->db->get_where('travel_residence', ['id_user' => $id])->row();
+        $data['visa']       = $this->db->get_where('travel_visa', ['id_user' => $id])->row();
+
+        $this->template->admin('adm/participant/travel', $data);
+    }
     public function export($status){
         $currDate   = date('F j, Y H:i');
         $currDate2  = date('YmdHi');
@@ -373,6 +385,7 @@ class ParticipantController extends CI_Controller{
                     '.$btnAgreement.'
                     <a target="_blank" href="'.site_url('admin/participant/'.$participant->id_user).'" class="btn btn-soft-info btn-icon btn-sm"><i class="bi-eye"></i></a>
                     <button onclick="showMdlChangePassword(\''.$participant->id_user.'\')" class="btn btn-soft-primary btn-icon btn-sm"><i class="bi-key"></i></button>
+                    <a target="_blank" href="'.site_url('admin/participant/travel/'.$participant->id_user).'" class="btn btn-soft-info btn-icon btn-sm"><i class="bi-file-arrow-up"></i></a>
                     '
             );
         }

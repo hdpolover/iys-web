@@ -39,6 +39,7 @@
             <?php
               $this->load->model('ParticipantDetail');
               $pDetail = $this->ParticipantDetail->getById($this->session->userdata('id_user'));
+              $payment = $this->db->get_where('payment_status', ['id_user' => $this->session->userdata('id_user')])->result();
 
               if($pDetail->is_checked == '1'){
             ?>
@@ -84,6 +85,13 @@
                 <i class="bi-file-earmark-check nav-icon"></i> Document
               </a>
             </li>
+            <?php if($payment != null && $payment[1]->status == '6'){?>
+            <li class="nav-item">
+              <a class="nav-link <?= $sidebar == "travel" ? "active" : ""?>" href="<?= site_url('travel')?>">
+                <i class="bi-file-arrow-up nav-icon"></i> Travel Information
+              </a>
+            </li>
+            <?php }?>
             <li class="nav-item">
               <a class="nav-link <?= $sidebar == "certificate" ? "active" : ""?>" href="#">
                 <i class="bi-award nav-icon"></i> Certificate

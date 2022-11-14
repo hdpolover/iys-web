@@ -107,6 +107,7 @@ $route['admin/participant/change-password']     = 'adm/ParticipantController/cha
 $route['admin/participant/edit/(:any)']         = 'adm/ParticipantController/edit/$1';
 $route['admin/participant/checked']             = 'adm/ParticipantController/checked';
 $route['admin/participant/valid-agreement']     = 'adm/ParticipantController/validAgreement';
+$route['admin/participant/travel/(:any)']       = 'adm/ParticipantController/travel/$1';
 $route['admin/participant/export/(:any)']       = 'adm/ParticipantController/export/$1';
 $route['admin/participant/(:any)']              = 'adm/ParticipantController/detail/$1';
 // payment
@@ -172,6 +173,13 @@ $route['document/generate-sf-loa']  = 'usr/DocumentController/generateSFLoA';
 $route['document/generate-payment'] = 'usr/DocumentController/generatePayment';
 $route['document/upload-agreement'] = 'usr/DocumentController/uploadAgreement';
 
+// travel
+$route['travel']            = 'usr/TravelController';
+$route['travel/passport']   = 'usr/TravelController/passport';
+$route['travel/flight']     = 'usr/TravelController/flight';
+$route['travel/residence']  = 'usr/TravelController/residence';
+$route['travel/visa']       = 'usr/TravelController/visa';
+
 
 //
 // ===== ADMIN =====
@@ -182,6 +190,7 @@ $route['affiliate/login']       = 'aff/AuthController/login';
 $route['affiliate/logout']      = 'aff/AuthController/logout';
 // dashboard
 $route['affiliate/dashboard']   = 'aff/DashboardController';
+$route['affiliate/ajxPayGet']   = 'aff/DashboardController/ajxPayGet';
 
 // EMAILING
 $route['send-email/register'] = 'EmailController/register';
