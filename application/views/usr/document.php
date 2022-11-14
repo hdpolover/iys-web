@@ -8,13 +8,13 @@
       <div class="row align-items-center">
         <div class="col">
           <div class="d-none d-lg-block">
-            <h1 class="h2 text-white">Announcement</h1>
+            <h1 class="h2 text-white">Document</h1>
           </div>
 
           <!-- Breadcrumb -->
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb breadcrumb-light mb-0">
-              <li class="breadcrumb-item">Announcement</li>
+              <li class="breadcrumb-item">Document</li>
               <li class="breadcrumb-item active" aria-current="page">Overview</li>
             </ol>
           </nav>

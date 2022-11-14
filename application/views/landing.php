@@ -82,9 +82,9 @@
             <div class="container d-md-flex align-items-md-center vh-md-70 content-space-t-4 content-space-b-3 content-space-md-0">
               <div class="w-75 w-lg-50">
                 <h1 class="display-4 text-white mb-0">Istanbul Youth Summit 2023</h1>
-                <h3 class="text-white">October 30 2022, Self Funded</h3>
+                <h3 class="text-white">November 30 2022, Self Funded</h3>
                 <?php
-                  $dateExpiredRegist  = "October 30, 2022 23:59:59";
+                  $dateExpiredRegist  = "November 30, 2022 23:59:59";
                   $dateNow            = date("Y-m-d H:i:s");
                 ?>
 

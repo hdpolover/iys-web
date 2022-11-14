@@ -35,6 +35,12 @@ $(".flatpickrDT").flatpickr({
     enableTime: true,
     time_24hr: true
 });
+$(".flatpickrTime").flatpickr({
+    enableTime: true,
+    noCalendar: true,
+    dateFormat: "H:i",
+    time_24hr: true
+});
 function readURL(input) {
   if (input.files && input.files[0]) {
       var reader = new FileReader();
@@ -53,4 +59,24 @@ $("#boxImg").click(function() {
 
 $("#imgPoster").change(function() {
   readURL(this);
+});
+
+function readURL2(input) {
+  if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+          $('#blah2').attr('src', e.target.result);
+      }
+
+      reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("#boxImg2").click(function() {
+  $('#imgPoster2').click();
+});
+
+$("#imgPoster2").change(function() {
+  readURL2(this);
 });

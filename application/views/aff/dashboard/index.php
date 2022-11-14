@@ -106,6 +106,439 @@
             </div>
 
           </div>
+          <button class="btn btn-primary btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Detail Total Payment
+          </button>
+          <div class="collapse mb-4" id="collapseExample">
+            <div class="card card-body">
+              <span class="badge bg-soft-danger text-danger">Registration</span>
+              <div class="row">
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total success</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="counterChecked display-5 text-dark" data-value="24"><?= number_format($regisSuccess) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total pending</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($regisPending) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total cancel/deny</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($regisCancel) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total expire</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($regisExpired) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+              </div>
+              <span style="width: 23.5%;" class="badge bg-warning mb-3">Self Funded</span>
+              <div class="row">
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total success</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="counterChecked display-5 text-dark" data-value="24"><?= number_format($sfregisSuccess) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total pending</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($sfregisPending) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total cancel/deny</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($sfregisCancel) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total expire</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($sfregisExpired) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+              </div>
+              <span class="badge bg-soft-warning text-warning">Batch 1</span>
+              <div class="row">
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total success</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="counterChecked display-5 text-dark" data-value="24"><?= number_format($batch1Success) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total pending</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($batch1Pending) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total cancel/deny</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($batch1Cancel) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total expire</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($batch1Expired) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+              </div>
+              <span style="width: 23.5%;" class="badge bg-warning mb-3">Self Funded</span>
+              <div class="row">
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total success</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="counterChecked display-5 text-dark" data-value="24"><?= number_format($sfbatch1Success) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total pending</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($sfbatch1Pending) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total cancel/deny</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($sfbatch1Cancel) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total expire</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($sfbatch1Expired) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+              </div>
+              <span class="badge bg-soft-success text-success">Batch 2</span>
+              <div class="row">
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total success</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="counterChecked display-5 text-dark" data-value="24"><?= number_format($batch2Success) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total pending</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($batch2Pending) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total cancel/deny</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($batch2Cancel) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total expire</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($batch2Expired) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+              </div>
+              <span style="width: 23.5%;" class="badge bg-warning mb-3">Self Funded</span>
+              <div class="row">
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total success</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="counterChecked display-5 text-dark" data-value="24"><?= number_format($sfbatch2Success) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total pending</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($sfbatch2Pending) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total cancel/deny</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($sfbatch2Cancel) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+                <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
+                  <!-- Card -->
+                  <div class="card">
+                    <div class="card-body">
+                      <h6 class="card-subtitle mb-2">Total expire</h6>
+
+                      <div class="row align-items-center gx-2">
+                        <div class="col">
+                          <span class="js-counter display-5 text-dark" data-value="24"><?= number_format($sfbatch2Expired) ?></span>
+                        </div>
+                        <!-- End Col -->
+                      </div>
+                      <!-- End Row -->
+                    </div>
+                  </div>
+                  <!-- End Card -->
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="row mt-4">
             <div class="col">
               <!-- Nav -->
@@ -185,78 +618,75 @@
                     </tbody>
                   </table>
                 </div>
-
                 <div class="tab-pane fade" id="nav-three-eg1" role="tabpanel" aria-labelledby="nav-three-eg1-tab">
                 <h4>List Detail Payment</h4>
-                  <small>List detail payment users</small>
-                  <table style="margin-top: 5rem;" class="table table-borderless table-thead-bordered datatable">
-                    <thead class="thead-light">
-                      <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Nationality</th>
-                        <th scope="col">Payment</th>
-                        <th scope="col">Payment Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                          $no = 1;
-                          foreach ($payments as $regis) {
-                            $isPayStatus = '';
-                            if($regis->status_payment == NULL){
-                                $isPayStatus = '
-                                    <span class="badge bg-soft-secondary text-secondary">Haven\'t make payment</span>
-                                ';
-                            }else if($regis->status_payment == '1'){
-                                $isPayStatus = '
-                                    <span class="badge bg-soft-secondary text-secondary">NEW</span>
-                                ';
-                            }else if($regis->status_payment == '2'){
-                                $isPayStatus = '
-                                    <span class="badge bg-soft-warning text-warning">PENDING</span>
-                                ';
-                            }else if($regis->status_payment == '3'){
-                                $isPayStatus = '
-                                    <span class="badge bg-soft-danger text-danger">CANCEL</span>
-                                ';
-                            }else if($regis->status_payment == '4'){
-                                $isPayStatus = '
-                                    <span class="badge bg-soft-danger text-danger">EXPIRED</span>
-                                ';
-                            }else if($regis->status_payment == '5'){
-                                $isPayStatus = '
-                                    <span class="badge bg-soft-danger text-danger">DENY</span>
-                                ';
-                            }else if($regis->status_payment == '6'){
-                                $isPayStatus = '
-                                    <span class="badge bg-soft-success text-success">SUCCESS</span>
-                                ';
-                            }
 
-                            $payment = "";
-                            if($regis->payment == NULL){
-                              $payment = "Haven\'t make payment";
-                            }else{
-                              $payment = $regis->payment;
-                            }
+                <div class="row mb-4">
+                  <div class="col-sm mb-2 mb-sm-0">
+                    <label for="">Email</label>
+                    <input type="text" id="filter_email" class="form-control" placeholder="Email Filter" />
+                  </div>
 
-                            echo '
-                                <tr>
-                                    <td scope="col">'.$no++.'</td>
-                                    <td scope="col">'.$regis->email.'</td>
-                                    <td scope="col">'.$regis->name.'</td>
-                                    <td scope="col">'.$regis->nationality.'</td>
-                                    <td scope="col">'.$payment.'</td>
-                                    <td scope="col">'.$isPayStatus.'</td>
-                                </tr>   
-                            ';
-                          }
-                      ?>
-                    </tbody>
-                  </table>
+                  <div class="col-sm mb-2 mb-sm-0">
+                    <label for="">Name</label>
+                    <input type="text" id="filter_name" class="form-control" placeholder="Name Filter" >
+                  </div>
+
+                  <div class="col-sm mb-2 mb-sm-0">
+                    <label for="">Phone Number</label>
+                    <input type="text" id="filter_number" class="form-control" placeholder="Phone Filter" >
+                  </div>
                 </div>
+                <div class="row">
+                  <div class="col-sm-4 mb-2 mb-sm-0">
+                    <label for="">Payment State</label>
+                    <select id="filter_paystate" class="form-control">
+                      <option value="">All</option>
+                      <option value="8">Registration</option>
+                      <option value="9">Batch 1</option>
+                      <option value="10">Batch 2</option>
+                      <option value="Succ">Completed</option>
+                      <option value="11">Registration (SF)</option>
+                      <option value="12">Batch 1 (SF)</option>
+                      <option value="13">Batch 2 (SF)</option>
+                      <option value="SuccSF">Completed (SF)</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-4 mb-2 mb-sm-0">
+                    <label for="">Payment Status</label>
+                    <select id="filter_paystatus" class="form-control">
+                      <option value="">All</option>
+                      <option value="2">Pending</option>
+                      <option value="6">Success</option>
+                      <option value="3">Cancel</option>
+                      <option value="4">Expired</option>
+                      <option value="5">Deny</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-4 mb-2 mb-sm-0">
+                    <label for="">Institution</label>
+                    <input type="text" id="filter_institution" class="form-control" placeholder="Name Institution" >
+                  </div>
+                </div>
+                <button class="btn btn-sm btn-primary mb-4 mt-2" onclick="btnSearch()"><i class="bi-search"></i>&nbsp&nbspSearch</button>
+                  <br>
+                  <small>List detail payment users</small>
+                </div>
+                <table id="dataTable" class="table table-borderless table-thead-bordered datatable">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">No</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Institution</th>
+                      <th scope="col">Nationality</th>
+                      <th scope="col">Payment State</th>
+                      <th scope="col">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
               </div>
               <!-- End Tab Content -->
               
@@ -267,4 +697,34 @@
     <!-- End Content -->
   </main>
   <script>
+      var table = $('#dataTable').DataTable({
+        'processing': true,
+        'serverSide': true,
+        'ordering': false,
+        'searching': false,
+        'serverMethod': 'post',
+        'ajax': {
+            'url':'<?= site_url('affiliate/ajxPayGet')?>',
+            'data': function(d){
+                d.filterEmail     = $('#filter_email').val()
+                d.filterName      = $('#filter_name').val()
+                d.filterNumber    = $('#filter_number').val()
+                d.filterPayState  = $('#filter_paystate').val()
+                d.filterPayStatus = $('#filter_paystatus').val()
+                d.filterInstitution = $('#filter_institution').val()
+            }
+        },
+        'columns': [
+            { data: 'no' },
+            { data: 'name' },
+            { data: 'email' },
+            { data: 'institution' },
+            { data: 'nationality' },
+            { data: 'payState' },
+            { data: 'payStatus' }
+        ]
+    });
+    function btnSearch(){
+        table.ajax.reload();
+    }
   </script>
